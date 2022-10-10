@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "module": "commonjs",
+    "target": "es6"
+  },
+  "include": ["src/**/*", "src/**/*.js"],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*",
+    "assets",
+    ".gitignore",
+    "link_del_repo_en_GitHub.txt",
+    "README.md"
+  ],
+}
