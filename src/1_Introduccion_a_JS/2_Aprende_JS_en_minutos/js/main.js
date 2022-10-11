@@ -1,25 +1,29 @@
 /* Tutorial: https://youtu.be/Q9fwkpxr3Dw */
 
-/* 
+/*
 alert(); mensaje en ventana emergente cuando se...
-- Carga la pagina web por primera vez
-- Re-carga la pagina web  
+_ Carga la pagina web por primera vez
+_ Re_carga la pagina web
 */
-/* alert("hola mundo"); */
+alert('hola mundo');
 
-let nombre = "Daniel PM";
-let altura = 100;
-/* let altura = 99; */
-let concatenar = "mi nombre es " + nombre + ", mido " + altura + "cm";
+const nombre = 'Daniel PM';
+const altura = 100;
+/* const altura = 99; */
+const concatenar = `mi nombre es ${nombre}, mido ${altura}cm`;
 
 /* seleccionar etiquetas HTML con el ID */
-let datos = document.getElementById("datos"); /* <p id="datos"></p> */
-let numeros = document.getElementById("numeros");
+const datos = document.getElementById('datos'); /* <p id="datos"></p> */
+const datos_2 = document.getElementById('datos_2');
+const numeros = document.getElementById('numeros');
 
 /* insertar HTML desde JS */
-document.write(concatenar + " document.write();"); /* esto es MALA PRACTICA porq inserta el texto SIN ninguna etiqueta HTML, ignora el HTML Semántico */
 
-datos.innerHTML = concatenar + " innerHTML";
+/* esto es MALA PRACTICA porq inserta
+el texto SIN ninguna etiqueta HTML, ignora el HTML Semántico */
+document.write(`${concatenar} document.write();`);
+
+datos.innerHTML = `${concatenar} innerHTML`;
 
 /* Plantillas literales o de cadenas (Template literals, Template strings) $ {} */
 datos_2.innerHTML = `
@@ -32,7 +36,7 @@ datos_2.innerHTML = `
 
 /* IF ELSE */
 /* ESTO... */
-/* 
+/*
 if (altura>=100) {
     datos.innerHTML= `
     <p>${concatenar} altura>=100 innerHTML</p>
@@ -45,19 +49,20 @@ if (altura>=100) {
 */
 
 /* es lo mismo q esto: */
-if (altura>=100) {
-    datos.innerHTML += ' altura>=100';
+if (altura >= 100) {
+  datos.innerHTML += ' altura>=100';
 } else {
-    datos.innerHTML += ' altura<100';
+  datos.innerHTML += ' altura<100';
 }
 
 /* FOR */
-for (let i = 1; i<=10; i++) {
-    numeros.innerHTML += "i = " + i + "<br>";
+//
+for (let i = 1; i <= 10; i++) {
+  numeros.innerHTML += `i = ${i}<br>`;
 }
 
 /* FUNCIONES */
-/* 
+/*
 function funcion(parametro_1, parametro_2) {
     let funcion = document.getElementById("funcion");
     let concatenar_2 = parametro_1 + " " + parametro_2;
@@ -72,49 +77,43 @@ function funcion(parametro_1, parametro_2) {
 funcion("hola", "mundo");
 */
 
-
-/* tipos de datos */
-/**
- * @param {string} parametro_3
- * @param {string} parametro_4
- */
 function funcion_2(parametro_3, parametro_4) {
-    let funcion = document.getElementById("funcion");
-    let concatenar_3 = parametro_3 + " " + parametro_4;
+  const funcion = document.getElementById('funcion');
+  const concatenar_3 = `${parametro_3} ${parametro_4}`;
 
-    let prueba = funcion.innerHTML = `
+  const prueba = (funcion.innerHTML = `
     se ha llamado la funcion_2()
     <br>
     ${concatenar_3}
-    `;
+    `);
 
-    return prueba;
+  return prueba;
 }
 
 /* funcion q llama a otra funcion */
 function llamar_funcion_2() {
-    funcion_2("hola", "mundo");
+  funcion_2('hola', 'mundo');
 }
 
 llamar_funcion_2();
 
 /* LISTAS (ARRAYS) */
-let lista = ["HOLA" ,"mundo", 1, 2, 3];
+const lista = ['HOLA', 'mundo', 1, 2, 3];
 
-console.log("\nNumero total de posiciones del Array " + lista.length);
+console.log(`\nNumero total de posiciones del Array ${lista.length}`);
 
-console.log("\nAcceder a una posicion del Array en especifico")
+console.log('\nAcceder a una posicion del Array en especifico');
 console.log(lista[0]); /* posicion 0 = primera posicion */
 console.log(lista[1]);
 
-console.log("\nRecorrer Array usando...");
-console.log("Bucle for")
-for (let j = 0;  j<lista.length; j++) {
-    const element = lista[j];
-    console.log("elemento = " + element);
+console.log('\nRecorrer Array usando...');
+console.log('Bucle for');
+for (let j = 0; j < lista.length; j++) {
+  const element = lista[j];
+  console.log(`elemento = ${element}`);
 }
 
-console.log("\nforEach");
-lista.forEach(lista => {
-    console.log(lista);
+console.log('\nforEach');
+lista.forEach((lista) => {
+  console.log(lista);
 });
