@@ -13,7 +13,7 @@ https://code.visualstudio.com/docs/editor/debugging
  * @param {number} b
  */
 
-function sumar(a, b) {
+ function sumar(a, b) {
   return Number(a) + Number(b);
 }
 
