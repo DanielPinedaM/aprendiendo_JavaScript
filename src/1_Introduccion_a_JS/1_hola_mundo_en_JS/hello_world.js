@@ -1,3 +1,6 @@
+/* JavaScript Info - alert(); prompt(); confirm();
+https://javascript.info/alert-prompt-confirm */
+
 /* Mensaje por consola del navegador */
 console.log('hola mundo CONSOLA (TERMINAL)');
 
@@ -9,12 +12,16 @@ hola_mundo.textContent = 'hola mundo DOM';
 NO usa etiquetas */
 document.write('hola mundo AL FINAL DEL .html');
 
-/* muestra ventana emergente q dice Aceptar */
+/* Muestra ventana emergente q da la opción Aceptar */
 alert('hola mundo VENTANA EMERGENTE');
 
-/* Muestra un mensaje y permite escribir algo (datos de entrada) */
-prompt('hola mundo', 'escribe un mensaje');
+/* Muestra ventana emergente con un mensaje,
+permite escribir algo (datos de entrada),
+da las opciones de Aceptar y Cancelar
+prompt(mensaje, valor por defecto dato de entrada); */
+const mensaje = prompt('hola mundo', 'escribe un mensaje'); /* guardar mensaje en una variable */
+console.log(mensaje);
 
-/* Pregunta con opcion de respuesta Aceptar ó Cancelar  */
-const pregunta = window.confirm('¿hola mundo?');
+/* Pregunta que da las opciones de Aceptar y Cancelar  */
+const pregunta = window.confirm('¿hola mundo?'); /* guardar respuesta a la pregunta en una variable */
 console.log(pregunta);

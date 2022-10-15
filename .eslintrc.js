@@ -16,6 +16,5 @@ module.exports = {
     'no-console': 'off',
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'no-alert': 'off',
-    camelcase: 'off',
   },
 };
