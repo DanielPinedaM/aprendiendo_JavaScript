@@ -13,14 +13,14 @@ https://code.visualstudio.com/docs/editor/debugging
  * @param {number} b
  */
 
- function sumar(a, b) {
+function sumar(a, b) {
   return Number(a) + Number(b);
 }
 
 const a = 1;
 const b = 2;
 
-const llamar_funcion = sumar(a, b);
+const llamarFuncion = sumar(a, b);
 
-console.log(a, '+', b, '=', llamar_funcion);
+console.log(a, '+', b, '=', llamarFuncion);
 /* 1 + 2 = 3 */

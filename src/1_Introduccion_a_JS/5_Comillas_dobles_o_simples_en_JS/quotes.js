@@ -18,8 +18,8 @@ sed do eiusmod tempor incididunt'; */
 /* console.log(lorem_ipsum_1); */
 
 /* CORRECTO */
-const prueba_3 = 'prueba';
-const lorem_ipsum_2 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt';
+const prueba3 = 'prueba';
+const loremipsum2 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt';
 
-console.log(prueba_3);
-console.log(lorem_ipsum_2);
+console.log(prueba3);
+console.log(loremipsum2);

@@ -14,16 +14,19 @@ const cortar = (ingrediente) => {
   console.log(`cortar ${ingrediente}`);
 };
 
-function mezclar_ingrediente(n) { /*  */
-  if (n <= 0) return; /* ejecutar n=5 veces la funcion mezclar_ingrediente(n) */
+/**
+ * @param {number} n
+ */
+function mezclarIngrediente(n) { /*  */
+  if (n <= 0) return; /* ejecutar n=5 veces la funcion mezclarIngrediente(n) */
 
   console.log(`mezclar # ${n}`);
-  mezclar_ingrediente(n - 1);
+  mezclarIngrediente(n - 1);
 
-  /* ERROR: la funcion mezclar_ingrediente(n)
+  /* ERROR: la funcion mezclarIngrediente(n)
   se queda en bucle infinito
   porq siempre n=5 */
-  /* mezclar_ingrediente(n); */
+  /* mezclarIngrediente(n); */
 }
 
 function comer() {
@@ -31,16 +34,16 @@ function comer() {
 }
 
 /* Funcion q llama a otras funciones */
-function hacer_ensalada() {
+function hacerEnsalada() {
   cortar('tomate');
   cortar('lechuga');
   cortar('cebolla');
-  mezclar_ingrediente(5);
+  mezclarIngrediente(5);
   comer();
 }
 
 console.log('\n');
-hacer_ensalada();
+hacerEnsalada();
 
 /*
 cortar tomate

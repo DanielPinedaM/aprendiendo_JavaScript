@@ -1,9 +1,16 @@
 /*  Tutorial: https://www.youtube.com/watch?v=ygA5U7Wgsg8&t=88s */
 
-function mutiplicar(numero_1, numero_2) {
-  return numero_1 * numero_2;
+/**
+ * @param {number} numero1
+ * @param {number} numero2
+ */
+function mutiplicar(numero1, numero2) {
+  return numero1 * numero2;
 }
 
+/**
+ * @param {number} numero
+ */
 /* funcion doble() q llama a otra funcion mutiplicar() */
 function doble(numero) {
   return mutiplicar(numero, 2); /* numero * 2 */
