@@ -11,23 +11,6 @@ RESUMEN:
 var es mala practica, NUNCA usarlo porq:
 1) En proyectos grandes es dificil saber cual es el valor de una variable global
 2) No se deben crear nuevas variables en los OBJETOS de JS usando var
-   -----------------------------------------------------------------------
-   | las variables definidas                    |  el objeto             |
-   | con var se guardan en...                   |  se puede ver asi...   |
-   ---------------------------------------------------------------------
-   | - objeto window en el navegador (frontend) |  console.log(window);  |
-   | - objeto global en NodeJS (backend)        |  console.log(global);  |
-   -----------------------------------------------------------------------
-
-let y const tienen un alcance (scope) de BLOQ
-en el cual se encuentra definida la variable y no la función,
-en cambio var es GLOBAL
-
-Alcance de las Variables (Scope)
-  1) Global: var tiene el mismo valor en TODO el archivo .js
-  2) Modulo:
-  3) Función: El valor de la variable solo esta disponible DENTRO de la FUNCION
-  4) Bloque: Cada par de llaves {...} define un valor (alcance) de la variable
 
 Elevación (Hoisting)
 Hace q las variables se definan al principio del codigo,
@@ -41,14 +24,14 @@ console.log('****** 1_var_y_let.js ******');
 var holaMundo = 'hola mundo';
 let helloWorld = 'hello world';
 
-console.log(holaMundo);
-console.log(helloWorld);
+console.log(holaMundo);  /* hola mundo */
+console.log(helloWorld); /* hello world */
 
 console.log(window);
 console.log(window.holaMundo); /* las variables definidas con var se agregan al objeto window */
-console.log(window.hello);
+console.log(window.helloWorld);
 
-/* AMBITO EN BLOQ */
+/* ALCANCE EN BLOQ (block scope) */
 /* var */
 console.log('\n', '\n', 'var');
 
@@ -61,9 +44,11 @@ if (true) {
 var musica = 'Rock';
 console.log('\nvariable VAR musica ANTES del bloq {/*...*/}', musica);
 /* Rock */
+
 var musica = 'Reggaeton'; /* elevacion (hoisting) */
-{ /* esto es un bloq {...} */
+{ /* esto es un Bloque de Código Independiente {...} */
   /* var musica = 'Reggaeton'; */
+
   console.log('variable VAR musica DENTRO del bloq {/*...*/}', musica);
   /* Reggaeton */
 }
@@ -72,6 +57,7 @@ console.log('variable VAR musica DESPUES del bloq {/*...*/}', musica);
 
 /* let */
 console.log('\n', '\n', 'let');
+
 let musica2 = 'Rock';
 console.log('\nvariable LET musica2 ANTES del bloq {/*...*/}', musica2);
 /* Rock */
@@ -85,6 +71,12 @@ console.log('variable LET musica2 DESPUES del bloq {/*...*/}', musica2);
 
 /* Mas ejemplos de ambito en bloq */
 /*
+FUNCIONES
+function name(params) {
+
+}
+
+ESTRUCTURAS DE CONTROL
 if (condition) {
 
 } else {
@@ -106,8 +98,23 @@ for (let index = 0; index < array.length; index++) {
 while (condition) {
 
 }
-
-function name(params) {
-
-}
 */
+
+// Sin bloques
+function f() { return 1; }
+console.log( f() ); // 1
+
+function f() { return 2; }
+console.log( f() ); // 1
+
+// Con bloques
+function f() { return 1; }
+console.log( f() ); // 1
+
+{
+  console.log( f() ); // 2
+  function f() { return 2; }
+  console.log( f() ); // 2
+}
+
+console.log( f() ); // 2
