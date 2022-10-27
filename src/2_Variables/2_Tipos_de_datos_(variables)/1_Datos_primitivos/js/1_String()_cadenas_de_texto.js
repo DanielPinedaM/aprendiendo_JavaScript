@@ -37,7 +37,10 @@ Object.keys(saludo2).map((key) => {
 7: "n"
 8: "d"
 9: "o"
+
 length: 10
+[[Prototype]]: String
+[[PrimitiveValue]]: "hola mundo"
 */
 
 console.log('\n.length Numeros de caracteres');
