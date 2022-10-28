@@ -17,13 +17,18 @@ console.log('apellido en minuscula:', apellido.toLowerCase()); /* apellido en mi
 
 /* new crea un nuevo objeto
 String() de tipo cadena de texto */
-const saludo2 = new String('hola mundo');
-console.log('\n', saludo2);
+const saludo3 = new String('hola mundo');
+console.log('\n', saludo3);
 /* [String: 'hola mundo'] */
 
+/* el resultado es false porq new String() es un objeto
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/String#string_constructor_and_string_function */
+console.log(saludo3 === 'hola mundo');
+/* false */
+
 /* Recorrer (iterar) un objeto: https://youtu.be/Mz9HSiXSSVU */
-Object.keys(saludo2).map((key) => {
-  const value = saludo2[key];
+Object.keys(saludo3).map((key) => {
+  const value = saludo3[key];
   return console.log(key, ':', value);
 });
 /*
@@ -46,7 +51,7 @@ length: 10
 console.log('\n.length Numeros de caracteres');
 console.log(nombre, nombre.length); /* Daniel 6 */
 console.log(apellido, apellido.length); /* Pineda 6 */
-console.log(saludo2, saludo2.length); /* [String: 'hola mundo'] 10 */
+console.log(saludo3, saludo3.length); /* [String: 'hola mundo'] 10 */
 
 /* ------------------------------------ */
 

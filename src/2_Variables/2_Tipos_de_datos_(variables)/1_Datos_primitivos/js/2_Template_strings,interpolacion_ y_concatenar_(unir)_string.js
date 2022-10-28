@@ -72,6 +72,7 @@ console.log(ul);
 </ul>
 */
 
+/* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#long_literal_strings */
 ul =
   '<ul>' +
   '<li>Primavera</li>' +
@@ -79,6 +80,17 @@ ul =
   '<li>Otoño</li>' +
   '<li>Invierno</li>' +
   '</ul>';
+console.log(ul);
+/* <ul><li>Primavera</li><li>Verano</li><li>Otoño</li><li>Invierno</li></ul> */
+
+/* Cada barra invertida \ es un salto de linea (renglon) */
+ul =
+  "<ul> \
+  <li>Primavera</li> \
+  <li>Verano</li> \
+  <li>Otoño</li> \
+  <li>Invierno</li> \
+  </ul>";
 console.log(ul);
 /* <ul><li>Primavera</li><li>Verano</li><li>Otoño</li><li>Invierno</li></ul> */
 
