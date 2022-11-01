@@ -93,6 +93,16 @@ console.log(typeof number.toString()); /* string */
 console.log(String(NaN));              /* 'NaN' */
 console.log(NaN.toString());           /* 'NaN' */
 
+/* Convertir de tipo Symbol() a String()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/String#using_string_to_stringify_a_symbol */
+const id = Symbol('id');
+console.log(typeof id);     /* symbol */
+console.log(id);            /* Symbol(id) */
+
+const texto = String(id);
+console.log(typeof texto);  /* string */
+console.log(texto);         /* 'Symbol(id)' */
+
 /* Diferencia Entre String() y .toString()
 https://stackoverflow.com/questions/3945202/whats-the-difference-between-stringvalue-vs-value-tostring */
 console.log(String(null));             /* 'null' */
