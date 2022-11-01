@@ -1,4 +1,4 @@
-/* module.exports = {
+module.exports = {
   env: {
     browser: true,
     es2022: true,
@@ -17,4 +17,4 @@
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'no-alert': 'off',
   },
-}; */
+};

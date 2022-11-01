@@ -57,3 +57,19 @@ convertir la variable e a tipo numero
 usando parseFloat() */
 console.log(`b+e = ${b}+${e} = ${b + parseFloat(e)}`); /* b+e = 1+1.1 = 2.1 */
 /* console.log(Number.parseFloat(e)); */ /* 1.1 */
+
+/* -------------------------------------------------------------------------------------------------------- */
+
+/* 
+- Usar BigInt() para:
+* números MAYORES a aproximadamente 9 cuatrillones 
+* números MENORES a aproximadamente -9 cuatrillones 
+*/
+
+/* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER */
+console.log('el MAYOR number de JS es:', Number.MAX_SAFE_INTEGER);
+/* (2^53) - 1 = 9 007 199 254 740 991 = aproximadamente 9 cuatrillones */
+
+/* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER */
+console.log('el MENOR number de JS es:', Number.MIN_SAFE_INTEGER);
+/* -[ (2^53) - 1 ] = -9 007 199 254 740 991 = aproximadamente -9 cuatrillones */
