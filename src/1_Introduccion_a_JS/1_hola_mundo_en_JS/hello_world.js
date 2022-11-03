@@ -5,8 +5,8 @@ https://javascript.info/alert-prompt-confirm */
 console.log('hola mundo CONSOLA (TERMINAL)');
 
 /* Seleccionando un elemento (etiqueta) del DOM */
-const hola_mundo = document.getElementById('hola_mundo');
-hola_mundo.textContent = 'hola mundo DOM';
+const holaMundo = document.getElementById('holaMundo');
+holaMundo.textContent = 'hola mundo DOM';
 
 /* agrega texto al final del HTML,
 NO usa etiquetas */

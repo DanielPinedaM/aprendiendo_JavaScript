@@ -29,7 +29,7 @@ https://youtube.com/shorts/RxxyJk4h9pU?feature=share
 /* Boolean() */
 /*
 1 = true
-2 = false
+0 = false
 */
 console.log(Boolean(0));                    /* false */
 console.log(typeof Boolean(0));             /* boolean */
