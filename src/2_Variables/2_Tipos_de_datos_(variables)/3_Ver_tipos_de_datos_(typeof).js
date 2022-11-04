@@ -1,3 +1,7 @@
+// @ts-nocheck
+/* eslint-disable eqeqeq */
+/* eslint-disable no-self-compare */
+
 /*
 Tutorial Midudev - typeof y Tipos de Datos (Variables) en JS
 https://youtu.be/baDdsQ4aw4o
@@ -18,7 +22,7 @@ tipadoDinamico = 2;
 console.log(typeof tipadoDinamico);
 /* number */
 
-const concatenar = 1 + '1';
+const concatenar = `${1}1`;
 console.log(concatenar);
 /* 11 */
 
@@ -65,9 +69,9 @@ console.log(typeof Symbol(2)); /* symbol */
 
 console.log(typeof NaN); /* number */
 
-/* null en realidad es un dato primitivo 
-pero hay un error en JS 
-en el que typeof null imprime object, 
+/* null en realidad es un dato primitivo
+pero hay un error en JS
+en el que typeof null imprime object,
 cuando en realidad deberia imprimir null */
 console.log(typeof null); /* object */
 
@@ -100,18 +104,18 @@ tienen propiedades y metodos
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions# */
 console.log(typeof function () {}); /* function */
 
-/* En JS las clases tambien son funciones, 
+/* En JS las clases tambien son funciones,
 son como una "funcion especial"
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#defining_classes */
 console.log(typeof class {}); /* function */
 
 /* ------------------------------------------ */
 
-/* 
-Los objetos {} en JS son diferentes, 
-no existen 2 objetos iguales, 
+/*
+Los objetos {} en JS son diferentes,
+no existen 2 objetos iguales,
 esto es así porque:
-- A cada objeto se le asigna un espacio de memoria diferente 
+- A cada objeto se le asigna un espacio de memoria diferente
 - Los objetos se comparan por referencia y NO por valor
 https://stackoverflow.com/questions/28599976/why-is-false-in-javascript
 

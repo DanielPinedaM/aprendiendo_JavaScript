@@ -1,7 +1,29 @@
+// @ts-nocheck
+/* eslint-disable no-restricted-globals */
 /* eslint-disable no-multi-spaces */
 
-/* Stack Overflow - Diferencia entre isNaN() y Number.isNaN()
-https://stackoverflow.com/questions/33164725/confusion-between-isnan-and-number-isnan-in-javascript */
+/*
+Stack Overflow - Diferencia entre isNaN() y Number.isNaN()
+https://stackoverflow.com/questions/33164725/confusion-between-isnan-and-number-isnan-in-javascript
+
+Con las funciones Number.isNaN() y isNaN()
+puedo comprobar cuando un dato
+si es o no un numero NaN
+
+                                    |----------------------|----------------------------|
+                                    | isNaN()              | Number.isNaN()             |
+|-----------------------------------|----------------------|----------------------------|
+| 1) ¿Convierte el dato             | SI                   | NO                         |
+|    a tipo number?                 |                      |                            |
+|-----------------------------------|----------------------|----------------------------|
+| 2) Se pregunta                    | SI                   | SI                         |
+|    ¿el dato No es un Numero NaN?  |                      |                            |
+|-----------------------------------|----------------------|----------------------------|
+| 3) Devuelve true cuando...        | El valor resultante  | El tipo de dato            |
+|                                   | después de convertir | es number y NaN            |
+|                                   | a number es NaN      | (los dos al mismo tiempo)  |
+|-----------------------------------|----------------------|----------------------------|
+*/
 
 // string
 // 1) isNaN() convierte el dato a tipo number
