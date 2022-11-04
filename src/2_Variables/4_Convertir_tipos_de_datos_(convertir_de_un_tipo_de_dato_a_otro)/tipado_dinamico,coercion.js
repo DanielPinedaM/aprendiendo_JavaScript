@@ -1,3 +1,5 @@
+/* eslint-disable prefer-template */
+/* eslint-disable no-useless-concat */
 // @ts-nocheck
 /* eslint-disable no-multi-spaces */
 /* eslint-disable quotes */
@@ -26,7 +28,27 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logi
 
 https://youtube.com/shorts/RxxyJk4h9pU?feature=share */
 
-/* Boolean()
+/* ---------------------------------------------- */
+
+/* coercion significa q
+JS convierte los tipos de datos automáticamente,
+esto se debe a que JS es de tipado dinámico */
+console.log('1' + '1');                     /* '11' */
+console.log(1 + '1');                       /* '11' */
+console.log(1 + Number('1'));               /* 2 */
+
+console.log('hola mundo' + 1);              /* 'hola mundo1' */
+console.log('hola mundo' + Number(1));      /* 'hola mundo1' */
+
+/* ---------------------------------------------- */
+
+/* Este Ejemplo es un resumen
+para convertir tipos de datos,
+para ver el ejemplo completo
+de la conversión de booleanos
+ver el archivo 6_Boolean()_booleano.js
+
+Boolean()
 1 = true
 0 = false */
 console.log(Boolean(0));                    /* false */
