@@ -1,10 +1,9 @@
-/*
-Tutorial Jon Mircha - String() Cadenas de Texto:
-https://youtu.be/s-C8OpALC6E
-*/
-
-/* eslint-disable no-new-wrappers */
+// @ts-nocheck
 // @ts-ignore
+/* eslint-disable no-new-wrappers */
+
+/* Tutorial Jon Mircha - String() Cadenas de Texto:
+https://youtu.be/s-C8OpALC6E */
 
 const nombre = 'Daniel';
 const apellido = 'Pineda';
@@ -57,7 +56,7 @@ console.log(saludo3, saludo3.length); /* [String: 'hola mundo'] 10 */
 
 const lorem = '  lorem ipsum dolor  ';
 console.log('\nTexto ORIGINAL:', lorem);
-/* Texto ORIGINAL:   lorem ipsum dolor   
+/* Texto ORIGINAL:   lorem ipsum dolor
 eliminar espacios en blanco al principio y al final lorem ipsum dolor */
 
 console.log('eliminar espacios en blanco al principio y al final', lorem.trim());
