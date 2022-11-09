@@ -1,11 +1,15 @@
-/* eslint-disable func-names */
-// @ts-nocheck
+/* eslint-disable max-len */
 
-/* Tutorial Jon Mircha
+/* NOTA: El codigo de este tutorial esta en esta carpeta
+...\aprendiendo_JS\src\8_Programacion_orientada_a_objetos_(POO)\2_() {} Funciones_(sub-programas)\1_formas_de_llamar_(invocar,ejecutar)_una_funcion
+
+Tutorial Jon Mircha
 () {} Funciones (Sub-programas):
 https://youtu.be/H6U1Pm7x60E
 
-¿Qué es una Función?
+------------------------------------------------------------
+
+¿Q ES UNA FUNCION?
 () {} Funciones y sub-programas es lo mismo.
 
 Una función es una parte de código que se repite
@@ -34,168 +38,57 @@ Es opcional que las funciones tengan return y parametros
 Las funciones son de primera clase
 porque puede asignarse a un valor,
 pueden pasarse como argumentos
-y usarse como un valor de retorno return */
+y usarse como un valor de retorno return
 
-/* ------------------------------------------------------------ */
-/* Declaracion de funcion */
+------------------------------------------------------------
 
-// definir funcion
-function declaracionDeFuncion() {
-  console.log(1);
-  console.log(2);
-  console.log(3);
-  console.log('');
-}
+PARTES (SINTAXIS) DE UNA FUNCION
+TODAS las sintaxis de funciones
+se escriben con un par de paréntesis y llaves () {}
 
-/* Las funciones se pueden llamar (invocar, ejecutar)
-cualquier número de veces
-en cualquier parte del código
-después de definirlas */
-declaracionDeFuncion();
-declaracionDeFuncion();
-declaracionDeFuncion();
-/*
-1
-2
-3
+1) Palabra Reservada (Function Keyword)
+La palabra reservada function
+indica q se está creando una nueva función,
+aunque se pueden crear funciones
+SIN la palabra reservada function
+como por ejemplo las funciones flecha (arrow functions).
 
-1
-2
-3
+2) Nombre de la Función (Function Name)
+Indica ¿cómo se llama la función?
+y es el nombre con el cual se llama (invoca, ejecuta) la función.
 
-1
-2
-3
-*/
+Puede tener cualquier nombre.
 
-/* *** */
-/* RECUPERAR EL VALOR DEL return */
+Cada nombre de función es único,
+NO pueden existir dos funciones con el mismo nombre.
 
-function funcionQueRetorna() {
-  const texto = 'la funcion ha retornado una cadena de texto';
-  console.log(1);
-  console.log(2);
-  console.log(3);
-  console.log('');
+3) Stack Overflow - Diferencia Entre Parámetros (Parameters) y Argumentos (Arguments)
+https://stackoverflow.com/questions/12874467/what-is-the-difference-between-arguments-and-parameters-in-javascript
 
-  return texto; // devolver (retornar)
-}
+- Ambos, los parámetros y argumentos
+van dentro de un par de paréntesis () separados por comas ,
 
-/* Una variable puede tener como valor el return de una función
+- Los parámetros son las variables locales de las funciones
+a las cuales se les asignan argumentos que son los datos de entrada.
 
-valorDeRetorno es lo q retorna la funcion,
-q es la variable const texto */
-const valorDeRetorno = funcionQueRetorna();
-console.log(valorDeRetorno); // la funcion ha retornado una cadena de texto
-/*
-1
-2
-3
+- El argumento es el valor del parámetro.
 
-la funcion ha retornado una cadena de texto
-*/
+- Los parámetros (variables) si tienen nombre,
+en cambio los argumentos (valores) NO tienen nombre.
 
-/* *** */
+- Los argumentos se usan para llamar (invocar, ejecutar) la función.
 
-/* Dentro de la funcion  () {}
+4) return Valor de Retorno (Return Stament)
+return Es el resultado después de ejecutar las tareas de la función.
+
+return SIEMPRE se tiene que escribir de ultimo,
+antes de cerrar la llave } de la función
+
+Dentro de la función () {}
 todo lo que este escrito antes del return se ejecuta (por eso tiene que ir de ultimo)
-y lo que este después del return se ignora (no se ejecuta) */
+ y lo que este después del return se ignora (no se ejecuta).
 
-function numeros() {
-  const saludar = 'hola mundo';
-  console.log(saludar);
-
-  console.log(1);
-  console.log(2);
-  /* ERROR: el return siempre se tiene q escribir
-  antes de cerrar las llaves } de la funcion */
-  return saludar;
-  console.log(3);
-  console.log(4);
-}
-
-/* No se estan imprimiendo
-los nuemros 3 y 4
-q estan despues del return */
-numeros();
-/*
-1
-2
-*/
-
-/* *** */
-// funcion con parametros
-
-function saludar(nombre, edad) {
-  console.log(`hola mi nombre es ${nombre} y tengo ${edad} años`);
-}
-
-const nombre = 'Daniel';
-const edad = 99;
-
-saludar(nombre, edad);
-/* hola mi nombre es Daniel y tengo 99 años */
-
-saludar();
-/* hola mi nombre es undefined y tengo undefined años */
-
-/* *** */
-
-/* Asignarle valores por defecto a los parametros de la funcion */
-function saludar2(nombre2 = 'Daniel', edad2 = 99) {
-  console.log(`hola mi nombre es ${nombre2} y tengo ${edad2} años`);
-}
-
-saludar2();
-
-/* ------------------------------------------------------------ */
-// elevacion (hoisting) de declaracion de funcion
-
-funcionDeclarada();
-
-function funcionDeclarada() {
-  console.log(`esto es una funcion declarada,
-  puede invocarse en cualquier parte del codigo,
-  incluso antes de q la funcion sea declarada (definida)`);
-  console.log('');
-}
-
-funcionDeclarada();
-
-/*
-esto es una funcion declarada,
-puede invocarse en cualquier parte del codigo,
-incluso antes de q la funcion sea declarada (definida)
-
-esto es una funcion declarada,
-puede invocarse en cualquier parte del codigo,
-incluso antes de q la funcion sea declarada (definida)
-*/
-
-/* funcion anonima (Expresion de funcion):
-- Es una funcion q no tiene nombre
-- Al valor de la variable se le asigna la funcion
-- Las expresion de funcion NO tienen elevacion (hoisting) */
-
-funcionExpresada(); // ERROR (Reference Error)
-
-const funcionExpresada = function () {
-  console.log('hola mundo 1');
-};
-
-funcionExpresada();
-
-/* ------------------------------------------------------------ */
-
-/* = () => {}; arrow function
-
-Las arrow function NO tienen elevacion (hoisting) */
-
-funcionFlecha(); // ERROR (Reference Error)
-
-const funcionFlecha = () => {
-  console.log('hola mundo 2');
-};
-
-funcionFlecha();
-/* hola mundo 2 */
+5) {} Alcance (Scope) o Cuerpo (Body)
+El alcance (scope) o cuerpo (body)
+está delimitado por un par de llaves {}
+que indican en donde empieza y termina la función. */

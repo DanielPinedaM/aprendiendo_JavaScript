@@ -2,14 +2,14 @@
 Tutorial La Cocina del Codigo - Elevación (Hoisting)
 https://youtu.be/uI6o97A4IrI
 
-En JS puedo llamar las funciones 
-antes de definirlas 
+En JS puedo llamar las funciones
+antes de definirlas
 (esto se llama flotar / elevación / hoisting)
 
-Dependiendo del tipo de función 
+Dependiendo del tipo de función
 esta tiene o no elevación (hoisting):
-Las declaración de función SI tienen elevación (hoisting), 
-en cambio 
+Las declaración de función SI tienen elevación (hoisting),
+en cambio
 la expresión de función NO tiene elevación (hoisting).
 
 La sintaxis de la declaración de función y expresión de función es diferente.
@@ -19,10 +19,26 @@ La sintaxis de la declaración de función y expresión de función es diferente
 
 /* MALA PRACTICA */
 declaracionDeFuncion1(); /* primero llamo la DECLARACION de Funcion */
+
 function declaracionDeFuncion1() { /* y despues la defino */
-  console.log('hola mundo 1');
+  console.log(`esto es una funcion declarada,
+               puede invocarse en cualquier parte del codigo,
+               incluso antes de q la funcion sea declarada (definida)`);
 }
-/* hola mundo 1 */
+
+declaracionDeFuncion1();
+
+/*
+esto es una funcion declarada,
+puede invocarse en cualquier parte del codigo,
+incluso antes de q la funcion sea declarada (definida)
+
+esto es una funcion declarada,
+puede invocarse en cualquier parte del codigo,
+incluso antes de q la funcion sea declarada (definida)
+*/
+
+/* *** */
 
 /* FORMA CORRECTA */
 function declaracionDeFuncion2() { /* Primero DEFINO la DECLARACION de Funcion */
@@ -47,3 +63,18 @@ VM13:1 Uncaught TypeError: expresionDeFuncion is not a function
     at <anonymous>:1:1
 (anónimas) @ VM13:1
 */
+
+/* ---------------------------------- */
+
+/* = () => {}; arrow function
+
+Las arrow function NO tienen elevacion (hoisting) */
+
+funcionFlecha(); // ERROR (Reference Error)
+
+const funcionFlecha = () => {
+  console.log('hola mundo 2');
+};
+
+funcionFlecha();
+/* hola mundo 2 */

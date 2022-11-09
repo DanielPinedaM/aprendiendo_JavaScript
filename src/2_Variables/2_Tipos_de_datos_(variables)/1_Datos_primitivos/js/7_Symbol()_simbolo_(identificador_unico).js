@@ -120,6 +120,7 @@ const objetoPersona = {
   [nombre]: 'Daniel',
   edad: 35,
 };
+
 console.log(objetoPersona);
 /*
 { edad: 35,
