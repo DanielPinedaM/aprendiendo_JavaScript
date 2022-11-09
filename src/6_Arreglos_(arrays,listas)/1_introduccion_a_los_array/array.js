@@ -15,8 +15,7 @@ que pueden ser de cualquier tipo de dato.
 Un array puede contener a otro array
 y objetos dentro de sus elementos.
 
-Los pares de corchetes [] significan que se esta definiendo un array:
-*/
+Los pares de corchetes [] significan que se esta definiendo un array: */
 
 // array vacio
 console.log([]);
@@ -36,20 +35,21 @@ console.log(arrayVacio);
 // []
 
 /* ------------------------------------------------------------------ */
+// Array que contiene en sus elementos otros tipos de datos
 
 const array = [1, 'hola mundo', true, false, null, // array q contiene tipos de datos number, string, booleano y null
   { // array q contiene un objeto
     nombre: 'Daniel',
     apellido: 'Pineda',
   },
-  ['a', 'b', 'c'], // array q contiene otro array
+  ['a', 'b', 'c'], // array anidado: array q contiene otro array
   [1, 2, 3,
     ['primero', 'segundo', 'tercero'],
   ],
 ];
 
 console.log(array);
-/*
+/* (8) [1, 'hola mundo', true, false, null, {…}, Array(3), Array(4)]
 0: 1
 1: "hola mundo"
 2: true
@@ -74,8 +74,8 @@ console.log('# de elementos (propiedad .length):', array.length);
 console.log('elemento de la posicion 0 (PRIMER ELEMENTO):', array[0]);
 // elemento de la posicion 0 (PRIMER ELEMENTO): 1
 
-console.log('elemento de la posicion 1:', array[1]);
-// elemento de la posicion 1: 'hola mundo'
+console.log('elemento de la posicion 1 (SEGUNDO ELEMENTO):', array[1]);
+// elemento de la posicion 1 (SEGUNDO ELEMENTO): 'hola mundo'
 
 console.log('elemento de la posicion 5:', array[5]);
 /*
@@ -105,6 +105,38 @@ console.log('posicion 1 del array q esta dentro del array:', array[6][1]);
    [2] posicion donde esta el elemento 'tercero' */
 console.log('array anidado:', array[7][3][2]);
 // array anidado: tercero
+
+/* sobrescribir (actualizar) un elemento del array,
+antes estaba el número 1 y ahora lo voy a reemplazar por el numero 99 */
+array[0] = 99;
+console.log(array);
+/* (8) [99, 'hola mundo', true, false, null, {…}, Array(3), Array(4)]
+0: 99
+1: "hola mundo"
+2: true
+3: false
+4: null
+5: {
+     nombre: 'Daniel',
+     apellido: 'Pineda'
+   }
+6: (3) ['a', 'b', 'c']
+7: (4) 0: 1
+       1: 2
+       2: 3
+       3: (3) 0: "primero"
+              1: "segundo"
+              2: "tercero"
+length: 8
+[[Prototype]]: Array(0) */
+
+/* Guardar en una variable el ultimo elemento del array
+
+const nombreVariable = nombreArray[(nombreArray.length) - 1]; */
+const guardarUltimoElemento = array[(array.length) - 1];
+console.log('ultimo elemento del array: ', guardarUltimoElemento);
+/* ultimo elemento del array:
+[ 1, 2, 3, [ 'primero', 'segundo', 'tercero' ] ] */
 
 /* ------------------------------------------------------------------ */
 // Array.of() es otra forma de crear arrays:
@@ -226,9 +258,9 @@ length: 3
 [[Prototype]]: Array(0)
 */
 
-// .pop() guardar el ultimo elemento del array
-const ultimoElemento = colores.pop();
-console.log('ultimo elemento del array colores:', ultimoElemento);
+// guardar en una variable el ultimo elemento eliminado del array
+const eliminarUltimoElemento = colores.pop();
+console.log('ultimo elemento del array colores:', eliminarUltimoElemento);
 // ultimo elemento del array colores: rojo
 
 console.log(colores);
@@ -240,10 +272,9 @@ length: 2
 [[Prototype]]: Array(0)
 */
 
-// .forEach recorrer (iterar) array
-console.log('----');
+/* .forEach recorrer (iterar) array
 
-/* element son los elementos del array
+ element son los elementos del array
 i = i son los indices 0, 1, 2... del array */
 colores.forEach((element, i) => {
   console.log(`<li id="${i}">${element}</li>`);

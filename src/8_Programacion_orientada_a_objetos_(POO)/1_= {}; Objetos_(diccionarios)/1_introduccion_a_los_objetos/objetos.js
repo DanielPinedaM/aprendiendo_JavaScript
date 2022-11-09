@@ -1,3 +1,184 @@
+/* eslint-disable no-prototype-builtins */
+/* eslint-disable dot-notation */
+/* eslint-disable object-shorthand */
+/* eslint-disable func-names */
+/* eslint-disable no-new-wrappers */
+// @ts-nocheck
+
 /* Tutorial Jon Mircha
 = {}; Objetos (Diccionarios)
 https://youtu.be/4xig5UPRC00 */
+
+/* --------------------------------------- */
+
+const saludar = new String('hola mundo');
+console.log(typeof saludar);
+// object
+
+/* --------------------------------------- */
+// objeto vacio {}
+
+console.log({});
+// {}
+
+console.log(typeof {});
+// object
+
+/* --------------------------------------- */
+// new Object() Objeto Constructor (Mala Práctica)
+
+const prototipo = new Object();
+console.log(prototipo);
+// {}
+
+/* --------------------------------------- */
+/* = {}; Notación Literal de Objeto (Object Literal Notation) (Buena Practica)
+
+Un objeto puede tener como valor CUALQUIER tipo de dato
+
+dentro de un objeto
+a las variables se le llama atributos (propiedades)
+y a las funciones se les llama metodos
+
+SIEMPRE usar const para definir objetos */
+
+const objetoLiteral = {
+  nombre: 'Daniel', // objecto q contiene tipo string
+  apellido: 'Mora',
+  edad: 99, // objeto q contiene tipo number
+  soltero: false, // objeto q contiene tipo boolean
+
+  nombreCompleto: function () { // objeto q contiene una funcion (metodo)
+    const miNombre = `mi nombre es ${this.nombre} ${this.apellido} y mi correo es ${this.contacto.correo}`;
+    console.log(miNombre);
+
+    return 'valor de retorno de la funcion';
+  },
+
+  contacto: { // objeto anidado: objeto q contiene otro objeto
+    correo: 'hola_mundo@gmail.com',
+    celular: 12345,
+  },
+
+  pasatiempos: ['calistenia', 'programar', 'dormir'], // objeto q contiene array
+};
+
+console.log(objetoLiteral);
+/* {nombre: 'Daniel', apellido: 'Mora', edad: 99, soltero: false, nombreCompleto: ƒ, ...}
+{
+  nombre: 'Daniel',
+  apellido: 'Mora',
+  edad: 99,
+  soltero: false,
+  nombreCompleto: [Function: nombreCompleto],
+  contacto: { correo: 'hola_mundo@gmail.com', celular: 12345 },
+  pasatiempos: [ 'calistenia', 'programar', 'dormir' ]
+}
+*/
+
+// ejecutar funcion dentro del objeto (metodo)
+const valorReturn = objetoLiteral.nombreCompleto();
+// mi nombre es Daniel Mora y mi correo es hola_mundo@gmail.com
+
+/* guardar en una variable
+el valor del return
+de la funcion
+q esta dentro del objeto */
+console.log(valorReturn);
+// valor de retorno de la funcion
+
+/* para imprimir el valor de una propiedad
+puedo usar corchetes [] ó punto .
+con ambos obtengo el mismo resultado,
+pero la forma mas usada es con el punto .
+https://eslint.org/docs/latest/rules/dot-notation
+
+imprimir el valor de la propiedad (clave) llamada nombre */
+console.log(objetoLiteral['nombre']);
+// Daniel
+
+console.log(objetoLiteral.nombre);
+// Daniel
+
+// imprimir el valor de la propiedad (clave) soltero
+console.log(objetoLiteral.soltero);
+// false
+
+// imprimir metodo (funcion) q esta dentro del objetoLiteral
+console.log(objetoLiteral.nombreCompleto);
+// [Function: nombreCompleto]
+
+// imprimir objeto (contacto) q esta dentro del objetoLiteral (objeto anidado)
+console.log(objetoLiteral.contacto);
+/*
+{
+  correo: 'hola_mundo@gmail.com',
+  celular: 12345
+}
+*/
+
+/* objetoLiteral nombre objeto padre
+el objeto hijo es la propiedad contacto del objetoLiteral
+contacto nombre objeto hijo (propiedad contacto del objetoLiteral)
+correo valor de objeto hijo (contacto)
+
+imprimir el valor de un objeto anidado */
+console.log(objetoLiteral.contacto.correo);
+// 'hola_mundo@gmail.com',
+
+// imprimir array pasatiempos q esta dentro del objetoLiteral
+console.log(objetoLiteral.pasatiempos);
+// (3) [ 'calistenia', 'programar', 'dormir' ]
+
+/* imprimir una posicion en especifico de un array q esta dentro de un objeto
+nombreObjeto.nombreArray[numero Posicion] */
+console.log(objetoLiteral.pasatiempos[1]);
+// programar
+
+/* Object.keys() devuelve un array []
+en el q las posiciones son numeros q empiezan desde cero
+y los elementos son los nombres de las PROPIEDADES (CLAVES) del objeto {} */
+const propiedades = Object.keys(objetoLiteral);
+console.log(propiedades);
+/* (7) ['nombre', 'apellido', 'edad', 'soltero', 'nombreCompleto', 'contacto', 'pasatiempos']
+0: "nombre"
+1: "apellido"
+2: "edad"
+3: "soltero"
+4: "nombreCompleto"
+5: "contacto"
+6: "pasatiempos"
+length: 7
+[[Prototype]]: Array(0) */
+
+console.log(typeof propiedades);
+// object
+
+console.log('------');
+
+/* Object.values() devuelve un array []
+en el q las posiciones son numeros q empiezan desde cero
+y los elementos son los VALORES del objeto {} */
+const valores = Object.values(objetoLiteral);
+console.log(valores);
+/* (7) ['Daniel', 'Mora', 99, false, ƒ, {…}, Array(3)]
+0:"Daniel"
+1: "Mora"
+2: 99
+3: false
+4: ƒ ()
+5: {correo: 'hola_mundo@gmail.com', celular: 12345}
+6: (3) ['calistenia', 'programar', 'dormir']
+length: 7
+[[Prototype]]: Array(0) */
+
+/* .hasOwnProperty() Devuelve un boolean
+para saber si existe o no la propiedad de un objeto
+
+¿en el objetoLiteral existe la propiedad 'nombre'? -> true */
+console.log(objetoLiteral.hasOwnProperty('nombre'));
+// true
+
+// en el objetoLiteral NO existe la propiedadInexistente -> false
+console.log(objetoLiteral.hasOwnProperty('propiedadInexistente'));
+// false
