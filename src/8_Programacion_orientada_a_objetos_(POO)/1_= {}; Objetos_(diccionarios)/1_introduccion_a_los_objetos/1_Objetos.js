@@ -9,6 +9,19 @@
 = {}; Objetos (Diccionarios)
 https://youtu.be/4xig5UPRC00 */
 
+const objetoLiteral = {
+  nombre: 'Daniel',
+  edad: 99,
+};
+
+console.log(objetoLiteral);
+/* 
+{ 
+  nombre: 'Daniel', 
+  edad: 99 
+}
+*/
+
 /* --------------------------------------- */
 
 const saludar = new String('hola mundo');
@@ -33,6 +46,10 @@ console.log(prototipo);
 
 /* --------------------------------------- */
 /* = {}; Notación Literal de Objeto (Object Literal Notation) (Buena Practica)
+
+Un objeto es una lista de datos
+compuestos por pares de propiedad: valor
+en los que se puede definir un estado y comportamiento.
 
 Un objeto puede tener como valor CUALQUIER tipo de dato
 
@@ -76,13 +93,13 @@ console.log(objetoLiteral);
 }
 */
 
-// ejecutar funcion dentro del objeto (metodo)
+// ejecutar funcion (metodo) q esta dentro del objetoLiteral
 const valorReturn = objetoLiteral.nombreCompleto();
 // mi nombre es Daniel Mora y mi correo es hola_mundo@gmail.com
 
 /* guardar en una variable
 el valor del return
-de la funcion
+de la funcion (metodo)
 q esta dentro del objeto */
 console.log(valorReturn);
 // valor de retorno de la funcion
@@ -117,18 +134,21 @@ console.log(objetoLiteral.contacto);
 }
 */
 
-/* objetoLiteral nombre objeto padre
+/* imprimir el valor de un objeto anidado
+
+objetoLiteral nombre objeto padre
 el objeto hijo es la propiedad contacto del objetoLiteral
 contacto nombre objeto hijo (propiedad contacto del objetoLiteral)
-correo valor de objeto hijo (contacto)
-
-imprimir el valor de un objeto anidado */
+correo valor de objeto hijo (contacto) */
 console.log(objetoLiteral.contacto.correo);
 // 'hola_mundo@gmail.com',
 
 // imprimir array pasatiempos q esta dentro del objetoLiteral
 console.log(objetoLiteral.pasatiempos);
-// (3) [ 'calistenia', 'programar', 'dormir' ]
+/* (3) [ 'calistenia', 'programar', 'dormir' ]
+0: "calistenia"
+1: "programar"
+2: "dormir" */
 
 /* imprimir una posicion en especifico de un array q esta dentro de un objeto
 nombreObjeto.nombreArray[numero Posicion] */
@@ -154,15 +174,33 @@ length: 7
 console.log(typeof propiedades);
 // object
 
-console.log('------');
+/* Actualizar (sobrescribir) un valor existente del objetoLiteral
+
+antes estaba nombre: 'Daniel',
+y ahora lo he actualizado a nombre: 'valor actualizado'
+
+nombreObjeto.nombrePropiedad = 'nuevo valor' */
+objetoLiteral.nombre = 'valor actualizado';
+console.log(objetoLiteral);
+/*
+{
+  nombre: 'valor actualizado',
+  apellido: 'Mora',
+  edad: 99,
+  soltero: false,
+  nombreCompleto: [Function: nombreCompleto],
+  contacto: { correo: 'hola_mundo@gmail.com', celular: 12345 },
+  pasatiempos: [ 'calistenia', 'programar', 'dormir' ]
+}
+*/
 
 /* Object.values() devuelve un array []
 en el q las posiciones son numeros q empiezan desde cero
 y los elementos son los VALORES del objeto {} */
 const valores = Object.values(objetoLiteral);
 console.log(valores);
-/* (7) ['Daniel', 'Mora', 99, false, ƒ, {…}, Array(3)]
-0:"Daniel"
+/* (7) ['valor actualizado', 'Mora', 99, false, ƒ, {…}, Array(3)]
+0: "valor actualizado"
 1: "Mora"
 2: 99
 3: false

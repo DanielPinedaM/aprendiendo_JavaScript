@@ -1,10 +1,2 @@
-const minuscula = 'hola mundo';
-const mayuscula = 'HOLA MUNDO';
-
-if (minuscula === mayuscula) {
-  console.log('JS NO distingue entre MAYUCULAS y minusculas');
-} else {
-  console.log('JS SI distingue entre MASYUCULAS y minusculas');
-}
-
-/* JS SI distingue entre MAYUCULAS y minusculas */
+/* El codigo de este archivo esta en:
+...\aprendiendo_JS\src\5_String()_cadenas_de_texto\1_introduccion_a_los_string\3_JS_distingue_entre_MAYUSCULAS_y_minusculas.js */
