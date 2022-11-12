@@ -43,8 +43,8 @@ string = '𞤲𞥋𞤣𞤫';
 console.log('# de caracteres:', string.length);
 // # de caracteres: 8
 
-/* formula matematica
-en realidad hay 9 caracteres pero .length imprime 11  */
+/* formula matematica,
+en realidad hay 9 caracteres pero .length imprime 11 */
 string = '∀𝑥∈ℝ,𝑥²≥0';
 console.log('# de caracteres:', string.length);
 // # de caracteres: 11

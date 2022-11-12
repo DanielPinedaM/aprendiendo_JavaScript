@@ -23,6 +23,7 @@ console.log('# de elementos:', array.length);
 /* puedo recorrer (iterar)
 un array usando la propiedad .length y el bucle for
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length#iterating_over_an_array */
+
 for (let i = 0; i < array.length; i++) {
   const element = array[i];
   console.log(`i = ${i} / element = ${element}`);
@@ -101,7 +102,7 @@ se esta recortado el array */
 console.log(array);
 // [ 1 ]
 
-// esto lo compruebo recorriendo el array
+// esto lo compruebo recorriendo el array forEach
 array.forEach((element, i) => {
   console.log(`i = ${i} / elemento = ${element}`);
 });
@@ -142,8 +143,11 @@ y asignarle un # de elementos a la propiedad .length */
 // crear array vacio
 const arrayVacio = [];
 
-// re-asignar el # de elementos
+// re-asignar el # de elementos .length
 arrayVacio.length = 5;
+
+console.log('re-asignar a un # MAYOR de elementos: ', arrayVacio.length);
+// re-asignar a un # MAYOR de elementos:  5
 
 // las 5 posiciones del array se llenan con elementos vacios
 console.log(arrayVacio);
