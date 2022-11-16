@@ -46,5 +46,8 @@ string.includes('o'); // true
 // Buscar Caracteres AL FINAL de un String
 string.endsWith('mundo'); // true
 
-// Posición (Índice) del Carácter Buscado
+// PRIMER Número de Posición (Índice) del Carácter Buscado
 string.indexOf('o'); // 1
+
+// ÚLTIMO Número de Posición (Índice) del Carácter Buscado
+string.lastIndexOf('o'); // 9

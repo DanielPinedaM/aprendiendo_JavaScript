@@ -1,14 +1,18 @@
+/* eslint-disable max-len */
 // @ts-nocheck
 
 /* Documentación Oficial - .length Numero de Elementos en Array
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length
 
-La propiedad .length es un número
-que tiene un significado diferente
-dependiendo de con que tipo de dato se use:
-- En strings es el número (longitud) de caracteres (letras, espacios, números, etc)
-- En arrays es el número de elementos.
-- En funciones es el número de parámetros. */
+En arrays dependiendo de como escribas la propiedad .length tiene un significado diferente:
+
+.length es el numero TOTAL DE ELEMENTOS contando desde 1
+
+Pero si le restas -1
+.length - 1 es la MAYOR (ULTIMA) POSICION (índice) contando desde 0
+
+El número de elementos .length es mayor que el número de posiciones (índice):
+(número de ELEMENTOS .length) > (número de POSICIONES, INDICE) */
 
 // array vacio
 let array = [];
@@ -16,34 +20,48 @@ console.log('# de elementos: ', array.length);
 // # de elementos: 0
 
 // array "lleno" con 4 elementos
+
 array = [1, 2, 3, 4];
-console.log('# de elementos:', array.length);
-// # de elementos: 4
+
+/* .length es el numero TOTAL DE ELEMENTOS contando desde 1
+en el array estan los numeros desde el 1 hasta el 4,
+entonces hay 4 ELEMENTOS,
+hay 4 numeros */
+console.log('# de ELEMENTOS:', array.length);
+// # de ELEMENTOS: 4
 
 /* puedo recorrer (iterar)
 un array usando la propiedad .length y el bucle for
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length#iterating_over_an_array */
 
 for (let i = 0; i < array.length; i++) {
-  const element = array[i];
-  console.log(`i = ${i} / element = ${element}`);
+  const elemento = array[i];
+  console.log(`indice = ${i} / elemento = ${elemento}`);
 }
 /*
-i = 0 / element = 1
-i = 1 / element = 2
-i = 2 / element = 3
-i = 3 / element = 4
+indice = 0 / elemento = 1
+indice = 1 / elemento = 2
+indice = 2 / elemento = 3
+indice = 3 / elemento = 4
 */
 
-/* .length imprime el # total de elementos del array
-pero si le resto uno -1
-dentro de los corchetes []
-entonces da como resultado
-el ultimo elemento del array
+/* al restarle uno
+.length - 1 entonces obtengo la MAYOR (ULTIMA) POSICION (índice)
+en el array estan los numeros desde el 1 hasta el 4,
+entonces
+indice = 0 / elemento = 1
+indice = 1 / elemento = 2
+indice = 2 / elemento = 3
+indice = 3 / elemento = 4
+empezando a contar desde cero
+el numero MAYOR de todos los INDICES (POSICION) es 3
+y al mismo tiempo 3 es el ULTIMO indice (posicion) */
 
-esto pasa porq el # de elementos .length
-es mayor q el # de posiciones (indice):
-(# de elementos .length) > (# de posiciones, indice)
+console.log('MAYOR (ULTIMA) POSICION (INDICE):', array.length - 1);
+// MAYOR (ULTIMA) POSICION (INDICE): 3
+
+/* Stack Overflow - Obtener el último elemento del array:
+https://stackoverflow.com/questions/3216013/get-the-last-item-in-an-array
 
 const nombreVariable = nombreArray[(nombreArray.length) - 1]; */
 const ultimoElemento = array[(array.length) - 1];

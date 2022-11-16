@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // @ts-nocheck
 
 /* Documentación Oficial - .length Numero de Caracteres en String
@@ -7,7 +8,7 @@ La propiedad .length es un número
 que tiene un significado diferente
 dependiendo de con que tipo de dato se use:
 - En strings es el número (longitud) de caracteres (letras, espacios, números, etc)
-- En arrays es el número de elementos.
+- En arrays .length es el número total de elementos y .length – 1 es la mayor (ultima) posición (índice).
 - En funciones es el número de parámetros. */
 
 let string = 'hola mundo';
