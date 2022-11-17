@@ -6,7 +6,8 @@
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
 
 .indexOf() devuelve el PRIMER numero de posicion (indice)
-donde se encuentra el caracter que se esta buscando
+donde se encuentra el caracter que se esta buscando,
+en caso de que NO se encuentre el carácter entonces devuelve -1
 
 .indexOf() empieza a contar las posiciones (indices)
 desde 0 de izquierda a derecha

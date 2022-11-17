@@ -51,3 +51,7 @@ string.indexOf('o'); // 1
 
 // ÚLTIMO Número de Posición (Índice) del Carácter Buscado
 string.lastIndexOf('o'); // 9
+
+/* Comparar Orden de Dos String en el Abecedario
+imprime -1 negativo porque en el abecedario la letra 'a' esta ANTES q la letra 'z' */
+'a'.localeCompare('z'); // -1
