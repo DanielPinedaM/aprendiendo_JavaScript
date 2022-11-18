@@ -56,3 +56,6 @@ string.lastIndexOf('o'); // 9
 /* comparar orden de dos string en el abecedario
 imprime -1 negativo porque en el abecedario la letra 'a' esta ANTES q la letra 'z' */
 'a'.localeCompare('z'); // -1
+
+// saber si un string coincide o no con una expresion regular
+string.match(/[a-z]/); // ['h', index: 0, input: 'hola mundo', groups: undefined]

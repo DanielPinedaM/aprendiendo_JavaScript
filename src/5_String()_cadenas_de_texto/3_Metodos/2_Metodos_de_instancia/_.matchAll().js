@@ -1,7 +1,9 @@
 // @ts-nocheck
 
-/* Documentacion Oficial -
- */
+/* Documentacion Oficial - .matchAll()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll
+
+.matchAll() */
 
 const string = 'hola mundo';
 

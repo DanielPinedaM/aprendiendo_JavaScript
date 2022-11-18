@@ -1,7 +1,9 @@
 // @ts-nocheck
 
-/* Documentacion Oficial -
- */
+/* Documentacion Oficial - .substring()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
+
+.substring() */
 
 const string = 'hola mundo';
 
