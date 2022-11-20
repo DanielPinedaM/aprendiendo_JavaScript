@@ -1,5 +1,6 @@
-// @ts-nocheck
+/* eslint-disable max-len */
 /* eslint-disable no-unused-expressions */
+// @ts-nocheck
 
 /* Documentacion Oficial - Propiedades y metodos de los string
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#static_methods */
@@ -59,3 +60,19 @@ imprime -1 negativo porque en el abecedario la letra 'a' esta ANTES q la letra '
 
 // saber si un string coincide o no con una expresion regular
 string.match(/[a-z]/); // ['h', index: 0, input: 'hola mundo', groups: undefined]
+
+[...string.matchAll(/[a-z]/g)];
+/* (9) [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined]
+
+[ 'h', index: 0, input: 'hola mundo', groups: undefined ]
+[ 'o', index: 1, input: 'hola mundo', groups: undefined ]
+[ 'l', index: 2, input: 'hola mundo', groups: undefined ]
+[ 'a', index: 3, input: 'hola mundo', groups: undefined ]
+[ 'm', index: 5, input: 'hola mundo', groups: undefined ]
+[ 'u', index: 6, input: 'hola mundo', groups: undefined ]
+[ 'n', index: 7, input: 'hola mundo', groups: undefined ]
+[ 'd', index: 8, input: 'hola mundo', groups: undefined ]
+[ 'o', index: 9, input: 'hola mundo', groups: undefined ]
+*/
+
+// "Forma de Normalización Unicode" de un string
