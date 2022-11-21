@@ -1,3 +1,4 @@
+/* eslint-disable no-multi-spaces */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-expressions */
 // @ts-nocheck
@@ -18,6 +19,13 @@ String.fromCharCode(104, 111, 108, 97, 32, 109, 117, 110, 100, 111); // hola mun
 
 // convertir de puntos de codigo a texto
 String.fromCodePoint(104, 111, 108, 97, 32, 109, 117, 110, 100, 111); // hola mundo
+
+// "Forma de Normalización Unicode" de un string
+const string1 = '\u00F1'.normalize('NFC');       // ñ
+const string2 = '\u006E\u0303'.normalize('NFC'); // ñ
+
+string1 === string2;               // true
+string1.length === string2.length; // true
 
 // guardar string de una ruta (texto sin procesar)
 String.raw`C:\Windows\System32`; // C:\Windows\System32
@@ -75,4 +83,10 @@ string.match(/[a-z]/); // ['h', index: 0, input: 'hola mundo', groups: undefined
 [ 'o', index: 9, input: 'hola mundo', groups: undefined ]
 */
 
-// "Forma de Normalización Unicode" de un string
+// agregar nuevos caracteres AL PRINCIPIO de un string
+string.padStart(string.length + 5);
+// '     hola mundo'
+
+// agregar nuevos caracteres AL FINAL de un string
+string.padEnd(string.length + 5, '.');
+// 'hola mundo.....'
