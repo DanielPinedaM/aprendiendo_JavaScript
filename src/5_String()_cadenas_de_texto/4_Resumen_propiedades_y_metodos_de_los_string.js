@@ -84,9 +84,17 @@ string.match(/[a-z]/); // ['h', index: 0, input: 'hola mundo', groups: undefined
 */
 
 // agregar nuevos caracteres AL PRINCIPIO de un string
-string.padStart(string.length + 5);
-// '     hola mundo'
+string.padStart(string.length + 5); // '     hola mundo'
 
 // agregar nuevos caracteres AL FINAL de un string
-string.padEnd(string.length + 5, '.');
-// 'hola mundo.....'
+string.padEnd(string.length + 5, '.'); // 'hola mundo.....'
+
+// Repetir string
+string.repeat(3);                                       // 'hola mundohola mundohola mundo'
+string.padEnd(string.length + 1, ' ').repeat(3).trim(); // 'hola mundo hola mundo hola mundo'
+
+// reemplazar el PRIMER caracter buscado
+string.replace('o', 'REPLACE'); // 'hREPLACEla mundo'
+
+// reemplazar TODOS los caracteres q coincidan con el caracter buscado
+string.replaceAll('o', 'REPLACE_ALL'); // 'hREPLACE_ALLla mundREPLACE_ALL'

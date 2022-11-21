@@ -87,7 +87,7 @@ console.log(typeof matchAll);
 console.log(Array.isArray(matchAll));
 // false
 
-/* Recorrer (iterar) */
+// Recorrer (iterar)
 Array.from(matchAll, (elemento1) => console.log(elemento1));
 
 for (const elemento2 of matchAll) {
