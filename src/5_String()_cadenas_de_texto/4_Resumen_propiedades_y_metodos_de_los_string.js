@@ -66,7 +66,7 @@ string.lastIndexOf('o'); // 9
 imprime -1 negativo porque en el abecedario la letra 'a' esta ANTES q la letra 'z' */
 'a'.localeCompare('z'); // -1
 
-// saber si un string coincide o no con una expresion regular
+// Caracteres que Coinciden con la Expresión Regular
 string.match(/[a-z]/); // ['h', index: 0, input: 'hola mundo', groups: undefined]
 
 [...string.matchAll(/[a-z]/g)];
@@ -82,6 +82,9 @@ string.match(/[a-z]/); // ['h', index: 0, input: 'hola mundo', groups: undefined
 [ 'd', index: 8, input: 'hola mundo', groups: undefined ]
 [ 'o', index: 9, input: 'hola mundo', groups: undefined ]
 */
+
+// PRIMER numero de POSICION (INDICE) q coincide con la EXPRESION REGULAR o CARACTER
+string.search('o'); // 1
 
 // agregar nuevos caracteres AL PRINCIPIO de un string
 string.padStart(string.length + 5); // '     hola mundo'
