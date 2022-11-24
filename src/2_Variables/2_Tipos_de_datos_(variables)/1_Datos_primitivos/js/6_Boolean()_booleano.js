@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /* Tutorial Jon Mircha - Boolean()- true y false - Booleano:
 https://youtu.be/Csu9tRuuX0M
 

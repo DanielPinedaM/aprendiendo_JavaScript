@@ -107,3 +107,35 @@ string.slice(-2);     // 'do'
 
 string.slice(1, 3);   // 'ol'
 string.slice(-5, -2); // 'mun'
+
+// Convertir de string a array
+let array = string.split(''); // .split('') caracter en blanco
+console.log(array);
+/* (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
+0: "h"
+1: "o"
+2: "l"
+3: "a"
+4: " "
+5: "m"
+6: "u"
+7: "n"
+8: "d"
+9: "o"
+length: 10
+[[Prototype]]: Array(0) */
+
+array = string.split(' '); // .split(' ') un espacio en blanco
+console.log(array);
+/* (2) ['hola', 'mundo']
+0: "hola"
+1: "mundo"
+length: 2
+[[Prototype]]: Array(0) */
+
+array = string.split(); // NO escribo nada dentro del par de parentesis de .split()
+console.log(array);
+/* ['hola mundo']
+0: "hola mundo"
+length: 1
+[[Prototype]]: Array(0) */
