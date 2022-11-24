@@ -15,7 +15,7 @@ ALTERNATIVAS A .search()
 un string existe o no entonces usar
 .test() que devuelve un booleano:
 
-Documentacion Oficial -.test()
+Documentacion Oficial - .test()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test
 
 2) y 3) son para saber los caracteres q coinciden con la expresion regular
@@ -49,10 +49,12 @@ Es el nombre del metodo
 - regexp
 Dentro del par de parentesis de .search()
 se puede escribir una de las siguientes opciones:
-* string (texto / caracteres)
-* Expresion regular
+1) string (texto / caracteres)
+
+2) Expresion regular
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
-* Symbol()
+
+3) Symbol()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/search
 
 cuando NO se escribe una expresion regular NI un Symbol(),
@@ -62,19 +64,23 @@ Es buena practica escribir expresiones regulares y NO string */
 
 const string = 'hola mundo';
 
-/* en el string 'hola mundo' la letra (caracter) 'h'
+/* BUSQUEDA USADNO STRING
+
+en el string 'hola mundo' la letra (caracter) 'h'
 esta en la posicion (indice) 0,
-0 significa q que es la primera letra */
+lo cual significa que es la primera letra */
 console.log(string.search('h'));
 // 0
 
 /* El string 'hola mundo'
 contiene el sub-string (palabra) 'mundo'
 que tiene la letra 'm' que esta en la posicion (indice) 5 */
+
 console.log(string.search('mundo'));
 // 5
 
-/* .search() devuelve la PRIMERA aparacicion del caracter buscado
+/* .search() devuelve la posición (índice)
+de la PRIMERA aparición del carácter buscado
 
 'hola mundo' tiene dos letras (caracteres) 'o'
 q estan en las posiciones (indices) 1 y 9,
@@ -83,17 +89,17 @@ console.log(string.search('o'));
 // 1
 
 /* 'hola mundo' tiene un espacio en blanco ' '
-q esta en la posicion (indice) 4  */
+q esta en la posicion (indice) 4 */
 console.log(string.search(' '));
 // 4
 
 /* Cuando escribo un caracter en blanco ''
-ó NO escribo nada dentro del par de parentesis de .search()
-entonces se devuelve un 0 */
-console.log(string.search(''));
+o NO escribo nada dentro del par de parentesis de .search()
+entonces devuelve 0 */
+console.log(string.search('')); // caracter en blanco ''
 // 0
 
-console.log(string.search());
+console.log(string.search()); // NO escribi nada dentro del par de parentesis ()
 // 0
 
 /* .search() devuelve -1
@@ -102,16 +108,20 @@ NO existe en el string 'hola mundo' */
 console.log(string.search('CARACTER INEXISTENTE'));
 // -1
 
-/* busqueda usando expresiones regulares
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search#using_search */
+/* BUSQUEDA USANDO EXPRESIONES REGULARES
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search#using_search
 
-/* imprime -1 porq 'hola mundo'
+imprime -1 porq 'hola mundo'
 esta escrito en minuscula y NO en MAYUSCULA /[A-Z]/ */
-console.log(string.search(/[A-Z]/)); // -1
+
+console.log(string.search(/[A-Z]/));
+// -1
 
 // imprime -1 porq 'hola mundo' NO tiene punto /[.]/
 console.log(string.search(/[.]/));
+// -1
 
 /* imprime 0 porq la 'h' esta en la primera posicion (indice)
 y es la primera letra q coincide con la expresion regular /[a-z]/ */
-console.log(string.search(/[a-z]/)); // 0
+console.log(string.search(/[a-z]/));
+// 0

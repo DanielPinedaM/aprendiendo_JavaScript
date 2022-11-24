@@ -80,8 +80,7 @@ string.match(/[a-z]/); // ['h', index: 0, input: 'hola mundo', groups: undefined
 [ 'u', index: 6, input: 'hola mundo', groups: undefined ]
 [ 'n', index: 7, input: 'hola mundo', groups: undefined ]
 [ 'd', index: 8, input: 'hola mundo', groups: undefined ]
-[ 'o', index: 9, input: 'hola mundo', groups: undefined ]
-*/
+[ 'o', index: 9, input: 'hola mundo', groups: undefined ] */
 
 // PRIMER numero de POSICION (INDICE) q coincide con la EXPRESION REGULAR o CARACTER
 string.search('o'); // 1
@@ -101,3 +100,10 @@ string.replace('o', 'REPLACE'); // 'hREPLACEla mundo'
 
 // reemplazar TODOS los caracteres q coincidan con el caracter buscado
 string.replaceAll('o', 'REPLACE_ALL'); // 'hREPLACE_ALLla mundREPLACE_ALL'
+
+// Extraer una parte (sub-string) de un string de acuerdo a sus posiciones (indices)
+string.slice(2);      // 'la mundo'
+string.slice(-2);     // 'do'
+
+string.slice(1, 3);   // 'ol'
+string.slice(-5, -2); // 'mun'
