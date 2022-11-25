@@ -386,7 +386,7 @@ length: 2
 
 /* ----- */
 
-/* for of Recorrer (iterar) string para agregarlo a un array
+/* for of Recorrer (iterar) string para agregarlo a un array .push()
 
 Documentacion Oficial - for of
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of */

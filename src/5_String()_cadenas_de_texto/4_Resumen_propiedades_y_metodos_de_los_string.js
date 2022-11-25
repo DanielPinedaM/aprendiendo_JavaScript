@@ -139,3 +139,14 @@ console.log(array);
 0: "hola mundo"
 length: 1
 [[Prototype]]: Array(0) */
+
+// ¿el string ... EMPIEZA por los caracteres ...?
+string.startsWith('hola'); // true
+
+/* ¿en el string 'hola mundo'
+A PARTIR de la posicion (indice) 5
+estan los caracteres (palabra) 'mundo'? */
+console.log(string.startsWith('mundo', 5)); // true
+
+// ¿el string 'hola mundo' TERMINA en el caracter (letra) 'o'? .length - 1
+string.startsWith('o', string.length - 1); // true
