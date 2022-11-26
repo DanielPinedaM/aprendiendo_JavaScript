@@ -102,11 +102,17 @@ string.replace('o', 'REPLACE'); // 'hREPLACEla mundo'
 string.replaceAll('o', 'REPLACE_ALL'); // 'hREPLACE_ALLla mundREPLACE_ALL'
 
 // Extraer una parte (sub-string) de un string de acuerdo a sus posiciones (indices)
-string.slice(2);      // 'la mundo'
-string.slice(-2);     // 'do'
+string.slice(2);                                        // 'la mundo'
+string.substring(2);                                    // 'la mundo'
 
-string.slice(1, 3);   // 'ol'
-string.slice(-5, -2); // 'mun'
+string.slice(-2);                                       // 'do'
+string.substring(string.length - 2);                    // 'do'
+
+string.slice(1, 3);                                     // 'ol'
+string.substring(1, 3);                                 // 'ol'
+
+string.slice(-5, -2);                                   // 'mun'
+string.substring(string.length - 5, string.length - 2); // 'mun'
 
 // Convertir de string a array
 let array = string.split(''); // .split('') caracter en blanco
