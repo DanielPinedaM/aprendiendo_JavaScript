@@ -176,3 +176,10 @@ string.startsWith('o', string.length - 1); // true
 
 // .trimEnd() final
 '   a   '.trimEnd();             // '   a'
+
+// Diferencia Entre String() y .toString() - Convertir a Texto
+String(null);         // 'null'
+null.toString();      // TypeError
+
+String(undefined);    // 'undefined'
+undefined.toString(); // TypeError

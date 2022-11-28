@@ -12,6 +12,10 @@ Coerción)
 JavaScript Info - Coerción:
 https://javascript.info/type-conversions
 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT#double_not_
+
+https://youtube.com/shorts/RxxyJk4h9pU?feature=share
+
 Es mala práctica
 forzar la conversión de datos
 usando operadores lógicos
@@ -24,9 +28,7 @@ Number()
 BigInt()
 Boolean()
 Symbol()
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT#double_not_
-
-https://youtube.com/shorts/RxxyJk4h9pU?feature=share */
+*/
 
 /* ---------------------------------------------- */
 
@@ -123,7 +125,7 @@ const texto = String(id);
 console.log(typeof texto);                  /* string */
 console.log(texto);                         /* 'Symbol(id)' */
 
-/* Diferencia Entre String() y .toString()
+/* Stack Overflow - Diferencia Entre String() y .toString()
 https://stackoverflow.com/questions/3945202/whats-the-difference-between-stringvalue-vs-value-tostring */
 console.log(String(null));                  /* 'null' */
 console.log(null.toString());               /* TypeError */
