@@ -167,17 +167,20 @@ string.startsWith('o', string.length - 1); // true
 
 /* eliminar espacios en blanco ' ' de un string al...
 .trim() principio y final */
-'   a   '.trim();                // 'a'
-'   a   '.trimStart().trimEnd(); // 'a'
-'   a   '.trimEnd().trimStart(); // 'a'
+'   a b   '.trim();                // 'a b'
+'   a b   '.trimStart().trimEnd(); // 'a b'
+'   a b   '.trimEnd().trimStart(); // 'a b'
 
-// .trimStart() principio
-'   a   '.trimStart();           // 'a   '
+// .trimStart() ó .trimLeft() - principio
+'   a b   '.trimStart();           // 'a b   '
+'   a b   '.trimLeft();            // 'a b   '
 
-// .trimEnd() final
-'   a   '.trimEnd();             // '   a'
+// .trimEnd() ó .trimRight() - final
+'   a b   '.trimEnd();             // '   a b'
+'   a b   '.trimRight();           // '   a b'
 
-// Diferencia Entre String() y .toString() - Convertir a Texto
+/* Diferencia Entre String() y .toString() - Convertir a Tipo Texto
+https://stackoverflow.com/questions/3945202/whats-the-difference-between-stringvalue-vs-value-tostring */
 String(null);         // 'null'
 null.toString();      // TypeError
 
