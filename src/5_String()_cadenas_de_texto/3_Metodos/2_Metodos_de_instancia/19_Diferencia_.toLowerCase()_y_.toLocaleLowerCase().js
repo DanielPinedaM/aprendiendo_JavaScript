@@ -68,5 +68,5 @@ console.log('\u0130'.toLocaleLowerCase(idiomas) === 'i'); // true
 /* ERROR:
 No existe el 'IDIOMA INEXISTENTE'
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase#exceptions */
-console.log(''.toLocaleLowerCase('IDIOMA INEXISTENTE'));
+console.log(string.toLocaleLowerCase('IDIOMA INEXISTENTE'));
 // Uncaught RangeError: Incorrect locale information provided

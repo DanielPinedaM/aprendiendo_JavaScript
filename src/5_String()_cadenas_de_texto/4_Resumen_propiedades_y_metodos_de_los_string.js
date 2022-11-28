@@ -162,8 +162,8 @@ string.startsWith('o', string.length - 1); // true
 'HOLA MUNDO'.toLocaleLowerCase('es-ES'); // 'hola mundo'
 
 // convertir string a MAYÚSCULA
-'hola mundo'.toUpperCase();              // 'HOLA MUNDO'
-'hola mundo'.toLocaleUpperCase('es-ES'); // 'HOLA MUNDO'
+'hello world'.toUpperCase();              // 'HELLO WORLD'
+'hello world'.toLocaleUpperCase('en-US'); // 'HELLO WORLD'
 
 /* eliminar espacios en blanco ' ' de un string al...
 .trim() principio y final */
