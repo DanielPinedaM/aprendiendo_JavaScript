@@ -156,3 +156,23 @@ console.log(string.startsWith('mundo', 5)); // true
 
 // ¿el string 'hola mundo' TERMINA en el caracter (letra) 'o'? .length - 1
 string.startsWith('o', string.length - 1); // true
+
+// convertir string a minúscula
+'HOLA MUNDO'.toLowerCase();              // 'hola mundo'
+'HOLA MUNDO'.toLocaleLowerCase('es-ES'); // 'hola mundo'
+
+// convertir string a MAYÚSCULA
+'hola mundo'.toUpperCase();              // 'HOLA MUNDO'
+'hola mundo'.toLocaleUpperCase('es-ES'); // 'HOLA MUNDO'
+
+/* eliminar espacios en blanco ' ' de un string al...
+.trim() principio y final */
+'   a   '.trim();                // 'a'
+'   a   '.trimStart().trimEnd(); // 'a'
+'   a   '.trimEnd().trimStart(); // 'a'
+
+// .trimStart() principio
+'   a   '.trimStart();           // 'a   '
+
+// .trimEnd() final
+'   a   '.trimEnd();             // '   a'
