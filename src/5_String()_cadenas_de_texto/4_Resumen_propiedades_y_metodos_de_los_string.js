@@ -179,10 +179,24 @@ string.startsWith('o', string.length - 1); // true
 '   a b   '.trimEnd();             // '   a b'
 '   a b   '.trimRight();           // '   a b'
 
-/* Diferencia Entre String() y .toString() - Convertir a Tipo Texto
+/* Diferencia Entre String() y .toString() - Convertir a Tipo Texto (String)
 https://stackoverflow.com/questions/3945202/whats-the-difference-between-stringvalue-vs-value-tostring */
-String(null);         // 'null'
-null.toString();      // TypeError
+String(null);         // 'null'    -> BUENA PRACTICA String()
+null.toString();      // TypeError -> MALA PRACTICA .toString()
 
 String(undefined);    // 'undefined'
 undefined.toString(); // TypeError
+
+// .valueOf() Convertir de Tipo Objeto new String() a Dato Primitivo String
+const stringObjeto = new String('hola mundo'); // MALA PRACTICA new String()
+stringObjeto;                                  // String {'hola mundo'}
+typeof stringObjeto;                           // object
+
+const string3 = stringObjeto.valueOf();        // MALA PRACTICA .valueOf()
+string3;                                       // 'hola mundo'
+typeof string3;                                // string
+
+const string4 = String(stringObjeto);          // BUENA PRACTICA String()
+string4;                                       // 'hola mundo'
+typeof string4;                                // string
+string3 === string4;                           // true
