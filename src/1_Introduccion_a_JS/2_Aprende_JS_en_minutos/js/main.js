@@ -1,10 +1,9 @@
+// @ts-nocheck
 /* Tutorial: https://youtu.be/Q9fwkpxr3Dw */
 
-/*
-alert(); mensaje en ventana emergente cuando se...
-_ Carga la pagina web por primera vez
-_ Re_carga la pagina web
-*/
+/* alert(); mensaje en ventana emergente cuando se...
+1) Carga la pagina web por primera vez
+2) Re_carga la pagina web */
 alert('hola mundo');
 
 const nombre = 'Daniel PM';
@@ -14,7 +13,7 @@ const concatenar = `mi nombre es ${nombre}, mido ${altura}cm`;
 
 /* seleccionar etiquetas HTML con el ID */
 const datos = document.getElementById('datos'); /* <p id="datos"></p> */
-const datos_2 = document.getElementById('datos_2');
+const datos2 = document.getElementById('datos2');
 const numeros = document.getElementById('numeros');
 
 /* insertar HTML desde JS */
@@ -26,7 +25,7 @@ document.write(`${concatenar} document.write();`);
 datos.innerHTML = `${concatenar} innerHTML`;
 
 /* Plantillas literales o de cadenas (Template literals, Template strings) $ {} */
-datos_2.innerHTML = `
+datos2.innerHTML = `
 <p>soy un parrafo p insertado desde JS con inner.HTML</p>
 <p>Mi nombre es: ${nombre} inner.HTML</p>
 <p>Mido: ${altura} cm inner.HTML</p>
