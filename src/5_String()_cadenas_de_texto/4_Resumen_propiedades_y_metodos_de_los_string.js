@@ -88,7 +88,6 @@ string.search('o'); // 1
 /* .match()
 .matchAll()
 CARACTERES que coinciden con la EXPRESION REGULAR */
-
 string.match(/[a-z]/); // ['h', index: 0, input: 'hola mundo', groups: undefined]
 
 [...string.matchAll(/[a-z]/g)];
