@@ -19,8 +19,14 @@ Ver:
 \aprendiendo_JS\src\5_String()_cadenas_de_texto\3_Metodos\2_Metodos_de_instancia
 
 Array.from()
+Convertir a Array
+y Ejecutar una Función para Cada Elemento
+
+Array.from()
 crea un nuevo array
 haciendo una copia
+y ejecuta una funcion
+para cada uno de los elementos
 
 Array.from()
 convierte a array lo siguiente:
@@ -29,8 +35,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 - '' string (texto)
 - Objetos iterables, como por ejemplo
   = {}; objeto literal
-  Map
-  Set
+  map
+  set
 - Array
 - JSON
 - Cualquier tipo de dato que se pueda recorrer (iterar) .length
@@ -76,7 +82,7 @@ es opcional */
 
 /* ------------------------------------------------ */
 
-/* Ejemplo 1 - Convertir a array...
+/* Ejemplo 1 - Array.from() Convertir a array...
 
 Estos son ejemplos
 de los tipos de datos
@@ -124,12 +130,11 @@ i=9 / elemento='o' */
 
 /* ------------------------------------------------ */
 
-/* Ejemplo 3:
-Usando Array.from()
-convertir de string a array,
-cada uno de los caracteres del string
+/* Ejemplo 3 - Array.from() Convertir de String a Array:
+Convertir cada uno de los caracteres del string
 (incluyendo los espacios en blanco ' ')
-se convierte a un elemento del array
+a elementos de un array
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#array_from_a_string */
 
 let array1 = Array.from('ABCD'); // ('ABCD') SIN espacios
@@ -167,6 +172,7 @@ Ejemplo:
 Si el array es [1, 2, 3]
 
 entonces sumar
+(x) => x + x
 1 + 1 = 2
 2 + 2 = 4
 3 + 3 = 6
@@ -178,14 +184,12 @@ console.log(Array.from([1, 2, 3], (x) => x + x));
 1: 4
 2: 6
 length: 3
-[[Prototype]]: Array(0)
-*/
+[[Prototype]]: Array(0) */
 
 /* ------------------------------------------------ */
 
 /* Ejemplo 5 - Secuencia de numeros
 Crear un array con los numeros desde el 0 hasta el 5
-
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#using_arrow_functions_and_array.from */
 
 const numeros = Array.from({ length: 5 }, (elemento, i) => i);
@@ -202,17 +206,17 @@ length: 5
 /* ------------------------------------------------ */
 
 /* Ejemplo 6 - convertir objeto Set() a Array:
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#array_from_a_set */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#array_from_a_set
 
-/* los numeros 1 y 2 se
-[1, 1, 2, 2] */
+los numeros 1 y 2 se repiten [1, 1, 2, 2]
+
+Crear variable new Set() */
 const set = new Set([1, 1, 2, 2]);
 
 // ¿El objeto Set() es un array?
 console.log(Array.isArray(set)); // false
 
-/* Set() elimina los numeros repetidos
-Set(2) {1, 2} */
+// Set() elimina los numeros repetidos Set(2) {1, 2}
 console.log(set);
 /* Set(2) {1, 2}
 [[Entries]]
@@ -291,8 +295,7 @@ console.log(array3);
 1: 2
 2: 4
 length: 3
-[[Prototype]]: Array(0)
-*/
+[[Prototype]]: Array(0) */
 
 /* ------------------------------------------------ */
 
@@ -303,6 +306,7 @@ function f() {
   return Array.from(arguments);
 }
 
+// f(1, 2, 3) son los argumentos
 const valorDeRetorno = f(1, 2, 3);
 console.log(valorDeRetorno);
 /* (3) [1, 2, 3]
@@ -312,7 +316,8 @@ console.log(valorDeRetorno);
 length: 3
 [[Prototype]]: Array(0) */
 
-/* ¿el valorDeRetorno? de la funcion es un array */
+/* Array.isArray()
+¿el valorDeRetorno? de la funcion es un array? */
 console.log(Array.isArray(valorDeRetorno)); // true
 
 /* ------------------------------------------------ */
@@ -324,7 +329,7 @@ El metodo Array.from()
 se puede llamar junto con
 cualquier otra funcion constructora new
 que acepte un solo argumento
-que represente la longitud de la nueva matriz */
+que represente la longitud length del nuevo array */
 
 function noArray(len) {
   console.log("llamar funcion noArray() y longitud .length", len);
@@ -349,7 +354,7 @@ noArray {
         } */
 
 /* se devuelve un array
-cuando el valor NO es un constructor */
+cuando el valor NO es un constructor new */
 console.log(Array.from.call({}, { length: 1, 0: "foo" }));
 /* [ 'foo' ]
 0: "foo"
