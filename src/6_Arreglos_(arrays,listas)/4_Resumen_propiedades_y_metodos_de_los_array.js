@@ -26,10 +26,19 @@ length: 3
 [[Prototype]]: Array(0) */
 
 /* Array.of()
-*/
+crear un nuevo array a partir de ARGUMENTOS */
+console.log(Array.of('1', '2', '3', 4, 5));
+/* (5) ['1', '2', '3', 4, 5]
+0: "1"
+1: "2"
+2: "3"
+3: 4
+4: 5
+length: 5
+[[Prototype]]: Array(0) */
 
 /* Array.isArray()
-Saber si un dato (variable) es o no un array */
+¿el dato (variable) ES UN ARRAY? */
 Array.isArray([]); // true  -> [] array
 Array.isArray({}); // false -> {} objeto literal
 
