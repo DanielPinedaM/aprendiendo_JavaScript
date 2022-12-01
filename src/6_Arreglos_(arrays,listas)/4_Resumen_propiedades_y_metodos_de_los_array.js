@@ -1,3 +1,4 @@
+/* eslint-disable no-multi-spaces */
 // @ts-nocheck
 /* eslint-disable no-unused-expressions */
 
@@ -42,20 +43,21 @@ length: 5
 Array.isArray([]); // true  -> [] array
 Array.isArray({}); // false -> {} objeto literal
 
+/* .length
+numero total de ELEMENTOS (letras) contando desde 1 */
+array.length;     // 4
+
+/* .length - 1
+mayor (ultima) POSICION (indice) contando desde 0 */
+array.length - 1; // 3
+
 /* []
 .at()
 obtener (acceder) en especifico a un ELEMENTO q se encuentra en una posicion (indice)
 
 0 PRIMER elemento */
-array[0]; // 'A'
+array[0];        // 'A'   -> string
 
 // -1 ULTIMO elemento
-array.at(-1); // 'D'
-
-/* .length
-numero total de ELEMENTOS (letras) contando desde 1 */
-array.length; // 4
-
-/* .length - 1
-mayor (ultima) POSICION (indice) contando desde 0 */
-array.length - 1; // 3
+array.at(-1);    // 'D'   -> string
+array.slice(-1); // ['D'] -> array

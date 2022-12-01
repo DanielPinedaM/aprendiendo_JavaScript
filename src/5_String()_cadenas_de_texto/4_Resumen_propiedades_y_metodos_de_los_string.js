@@ -57,6 +57,7 @@ string[1];           // 'o'
 
 // -1 ULTIMO caracter (letra)
 string.at(-1);       // 'o'
+string.slice(-1);    // 'o'
 
 /* .indexOf()
 PRIMER numero de posicion (indice) del caracter buscado */

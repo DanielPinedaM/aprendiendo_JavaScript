@@ -79,13 +79,14 @@ Imprimir las TRES ULTIMAS posiciones (índices)
 imprime undefined porq []
 NO funciona con numeros negativos */
 console.log(string[-1]); // undefined
-console.log(array[-1]); // undefined
+console.log(array[-1]);  // undefined
 
 /* usar la siguiente sintaxis
 para q [] funcione con numeros negativos
 
 nombreVariable[nombreVariable.length - 1] */
 console.log(string[string.length - 1]); // 'o'
+console.log(array[array.length - 1]);   // 3
 
 /* los numeros negativos cuentan al reves
 de atras (ultima) hacia adelante (primera) posicion */
