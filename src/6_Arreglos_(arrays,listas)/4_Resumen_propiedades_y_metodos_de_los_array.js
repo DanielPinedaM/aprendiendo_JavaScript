@@ -9,7 +9,7 @@ https://youtu.be/LYF4FeJyccc
 - Documentacion Oficial
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#static_methods */
 
-const array = ['A', 'B', 'C', 'D'];
+const array = ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o'];
 
 /* Array.from()
 convertir a ARRAY y ejecutar una funcion para cada elemento
@@ -45,19 +45,25 @@ Array.isArray({}); // false -> {} objeto literal
 
 /* .length
 numero total de ELEMENTOS (letras) contando desde 1 */
-array.length;     // 4
+array.length;     // 10
 
 /* .length - 1
 mayor (ultima) POSICION (indice) contando desde 0 */
-array.length - 1; // 3
+array.length - 1; // 9
 
 /* []
 .at()
 obtener (acceder) en especifico a un ELEMENTO q se encuentra en una posicion (indice)
 
 0 PRIMER elemento */
-array[0];        // 'A'   -> string
+array[0];        // 'h'   -> string
 
 // -1 ULTIMO elemento
-array.at(-1);    // 'D'   -> string
-array.slice(-1); // ['D'] -> array
+array.at(-1);    // 'o'   -> string
+array.slice(-1); // ['o'] -> array
+
+/* .indexOf()
+Primer Número de Posición (Índice) del Elemento Buscado  */
+
+/* .lastIndexOf()
+Último Número de Posición (Índice) del Elemento Buscado */

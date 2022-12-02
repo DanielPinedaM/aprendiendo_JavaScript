@@ -5,6 +5,10 @@
 /* Documentacion Oficial - .indexOf()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
 
+Recordatorio:
+.indexOf() también sirve para ARRAY, ver:
+...\aprendiendo_JS\src\6_Arreglos_(arrays,listas)\3_Metodos\2_Metodos_de_instancia\2_.indexOf().js
+
 .indexOf() devuelve el PRIMER numero de posicion (indice)
 donde se encuentra el caracter que se esta buscando,
 en caso de que NO se encuentre el carácter entonces devuelve -1
@@ -293,12 +297,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 const string2 = 'hola mundo';
 const buscar2 = 'o';
 let contador = 0;
-let posicion = string2.indexOf('o');
+let posicion = string2.indexOf(buscar2);
 
 while (posicion !== -1) {
   contador++;
-  posicion = string2.indexOf('o', (posicion + 1));
+  posicion = string2.indexOf(buscar2, (posicion + 1));
 }
 
-console.log(`el caracter '${buscar2}' se repite ${contador} veces en el string '${string2}'`);
-// el caracter 'o' se repite 2 veces en el string 'hola mundo'
+console.log(`el CARACTER '${buscar2}' se repite ${contador} veces en el STRING '${string2}'`);
+// el CARACTER 'o' se repite 2 veces en el string 'hola mundo'
