@@ -232,11 +232,16 @@ console.log(`el ELEMENTO ['${buscar2}'] se repite ${contador} veces en el ARRAY`
 /* Ejemplo 4:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#finding_all_the_occurrences_of_an_element
 
-1) Crear un array 1
+1) Usar el método de array .indexOf()
 
-2) Guardar en un array 2
-los numeros de posicion (indice)
-repetidos de un elemento */
+2) Crear un array 1
+que contenga elementos repetidos
+
+3) Buscar un elemento en el array 1
+
+4) Guardar en un array 2
+los números de posición (índice)
+repetidos del elemento buscado en el array 1 */
 
 const array3 = ['a', 'b', 'a', 'c', 'a', 'd'];
 const buscar3 = 'a';
@@ -312,35 +317,13 @@ console.log([1, , 3].indexOf(''));        // -1
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 7 - .indexOf() en Objeto Literal {}
-el metodo .indexOf() lee la propiedad length de this
-y luego accede a cada indice entero.
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#calling_indexof_on_non-array_objects */
+/* Ejemplo 7:
 
-const objetoLiteral = {
-  length: 3,
-  0: 'cero',
-  1: 'uno',
-  2: 'dos',
-};
+Recordatorio:
+Este Ejemplo 7 lo escribi en otra seccion, ver:
 
-console.log(objetoLiteral);
-/*
-{
-  0: 'cero',
-  1: 'uno',
-  2: 'dos',
-  length: 3
-}
-*/
+Ruta:
+...\aprendiendo_JS\src\6_Arreglos_(arrays,listas)\3_Metodos\2_Metodos_de_instancia\3_.lastIndexOf().js
 
-/* devuelve la posicion (indice)
-donde estan los valores del objetoLiteral
-'cero', 'uno' y 'dos' */
-console.log(Array.prototype.indexOf.call(objetoLiteral, 'cero')); // 0
-console.log(Array.prototype.indexOf.call(objetoLiteral, 'uno'));  // 1
-console.log(Array.prototype.indexOf.call(objetoLiteral, 'dos'));  // 2
-
-// devuelve -1 porq 2 y 3 NO son un valor del objetoLiteral
-console.log(Array.prototype.indexOf.call(objetoLiteral, 2));      // -1
-console.log(Array.prototype.indexOf.call(objetoLiteral, 3));      // -1
+Nombre del ejemplo:
+" Ejemplo 5 - .indexOf() y .lastIndexOf() en Objeto Literal {} " */

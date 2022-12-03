@@ -69,6 +69,7 @@ console.log(string2.lastIndexOf('a')); // 3
 
 /* .lastIndexOf('a', 2) significa
 1) 'a' significa buscar la ULTIMA letra 'a'
+
 2) 2 significa que solamente se va a buscar el caracter 'a'
 en el sub-string 'can'
 porque son los caracteres (letras)

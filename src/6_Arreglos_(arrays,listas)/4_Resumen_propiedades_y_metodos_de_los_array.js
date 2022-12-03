@@ -63,7 +63,12 @@ array.at(-1);    // 'o'   -> string
 array.slice(-1); // ['o'] -> array
 
 /* .indexOf()
-Primer Número de Posición (Índice) del Elemento Buscado  */
+PRIMER numero de posición (indice) del ELEMENTO buscado  */
+array.indexOf('o'); // 1
 
 /* .lastIndexOf()
-Último Número de Posición (Índice) del Elemento Buscado */
+ULTIMO numero de posición (indice) del ELEMENTO buscado */
+array.lastIndexOf('o'); // 9
+
+/* .slice()
+*/
