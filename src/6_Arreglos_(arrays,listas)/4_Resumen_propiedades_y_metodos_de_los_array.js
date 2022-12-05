@@ -77,3 +77,7 @@ array.slice(-2);     // (2) ['d', 'o']
 
 array.slice(1, 3);   // (2) ['o', 'l']
 array.slice(-5, -2); // (3) ['m', 'u', 'n']
+
+/* .concat()
+Concatenar (unir) array */
+array.concat();
