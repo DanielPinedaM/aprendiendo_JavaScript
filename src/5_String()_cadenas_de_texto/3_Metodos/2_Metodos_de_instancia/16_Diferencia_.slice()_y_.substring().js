@@ -9,11 +9,15 @@ https://stackoverflow.com/questions/2243824/what-is-the-difference-between-strin
 https://es.stackoverflow.com/questions/300523/diferencias-entre-substr-substring-y-slice-javascript
 
 Documentación Oficial...
-- .slice()
+- .slice() en string
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice
 
 - .substring()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
+
+Recordatorio:
+.slice() tambien sirve para ARRAY, ver:
+...\aprendiendo_JS\src\6_Arreglos_(arrays,listas)\3_Metodos\2_Metodos_de_instancia\4_.slice().js
 
 Para lo que voy a explicar a continuación,
 antes se usaba otro método,
