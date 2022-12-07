@@ -135,4 +135,4 @@ console.log(concatenar);
 */
 
 /* .entries()
- */
+Iterador de un array */
