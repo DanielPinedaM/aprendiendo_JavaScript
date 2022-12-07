@@ -78,6 +78,61 @@ array.slice(-2);     // (2) ['d', 'o']
 array.slice(1, 3);   // (2) ['o', 'l']
 array.slice(-5, -2); // (3) ['m', 'u', 'n']
 
+/* .copyWithin()
+Copiar array y pegarlo dentro del mismo array */
+const numeros = [1, 2, 3, 4, 5];
+
+numeros.copyWithin(0, 3, 4);    // (5) [4, 2, 3, 4, 5]
+
+numeros.copyWithin(0, 3);       // (5) [4, 5, 3, 4, 5]
+
+numeros.copyWithin(1);          // (5) [1, 1, 2, 3, 4]
+
+numeros.copyWithin(2);          // (5) [1, 2, 1, 2, 3]
+numeros.copyWithin(-3);         // (5) [1, 2, 1, 2, 3]
+
+numeros.copyWithin(3);          // (5) [1, 2, 3, 1, 2]
+numeros.copyWithin(-2);         // (5) [1, 2, 3, 1, 2]
+
+numeros.copyWithin(-2, -3, -1); // (5) [1, 2, 3, 3, 4]
+numeros.copyWithin(-2, -3);     // (5) [1, 2, 3, 3, 4]
+
+numeros.copyWithin(-1);         // (5) [1, 2, 3, 4, 1]
+
 /* .concat()
-Concatenar (unir) array */
-array.concat();
+Concatenar (unir) array
+
+Arrays con elementos de tipo... */
+const array1 = ['1', '2'];    // string
+const array2 = [3, 4];        // number
+const array3 = [true, false]; // boolean
+
+// variable string ''
+const string = 'hola mundo';
+
+// variable objetoLiteral {}
+const objetoLiteral = {
+  nombre: 'Daniel',
+  edad: 99,
+};
+
+const concatenar = array1.concat(array2, array3, string, objetoLiteral);
+console.log(concatenar);
+/*
+[
+  '1',
+  '2',
+  3,
+  4,
+  true,
+  false,
+  'hola mundo',
+  {
+    nombre: 'Daniel',
+    edad: 99
+  }
+]
+*/
+
+/* .entries()
+ */
