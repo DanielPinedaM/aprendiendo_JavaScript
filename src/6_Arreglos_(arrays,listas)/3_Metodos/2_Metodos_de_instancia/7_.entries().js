@@ -15,11 +15,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Gene
 .entries() devuelve un array
 q contiene en sus elementos pares de [indice, elemento]
 
-.entries() sirve para iterar (recorrer) arrays */
+.entries() sirve para recorrer (iterar) arrays */
 
 /* ----------------------------------------------------- */
 
-// Ejemplo 1 - .next().value
+/* Ejemplo 1 - .next().value y .entries()
+
+Documentacion Oficial - .next()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator/next */
 
 const letras = ['a', 'b', 'c'];
 console.log(letras);
@@ -68,7 +71,7 @@ i = 9 / elemento = 'o'
 
 /* ----------------------------------------------------- */
 
-/* Ejemplo 3 - for of y  [i, elemento]
+/* Ejemplo 3 - for of y [i, elemento]
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries#iterating_with_index_and_element */
 
 console.log(array);
@@ -78,7 +81,6 @@ console.log(array);
 for (const [i, elemento] of array.entries()) {
   console.log(`i = ${i} / elemento = '${elemento}'`);
 }
-
 /*
 i = 0 / elemento = 'h'
 i = 1 / elemento = 'o'
@@ -138,12 +140,13 @@ const arrayDisperso = [1, , 3];
 console.log(arrayDisperso);
 // [ 1, <1 empty item>, 3 ]
 
+// el metodo .entries() genera un iterador de array
 const iterador4 = arrayDisperso.entries();
 console.log(iterador4);
 // Object [Array Iterator] {}
 
 /* al recorrer el arrayDisperso
-se imprime undefined en la posicion 1
+se imprime undefined en la posicion (indice) 1
 porque el elemento de esta posicion es una ranura vacia [,,] */
 for (const elemento of iterador4) {
   console.log(`i = ${elemento[0]} / elemento = ${elemento[1]}`);

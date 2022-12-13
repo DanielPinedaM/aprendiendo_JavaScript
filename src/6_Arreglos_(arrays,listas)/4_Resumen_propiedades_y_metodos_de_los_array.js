@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable no-multi-spaces */
 // @ts-nocheck
 /* eslint-disable no-unused-expressions */
@@ -136,3 +137,39 @@ console.log(concatenar);
 
 /* .entries()
 Iterador de un array */
+
+// Recorrer (iterar) array usando .entries(), for of y  [i, elemento]
+for (const [i, elemento] of array.entries()) {
+  console.log(`i = ${i} / elemento = '${elemento}'`);
+}
+/*
+i = 0 / elemento = 'h'
+i = 1 / elemento = 'o'
+i = 2 / elemento = 'l'
+i = 3 / elemento = 'a'
+i = 4 / elemento = ''
+i = 5 / elemento = 'm'
+i = 6 / elemento = 'u'
+i = 7 / elemento = 'n'
+i = 8 / elemento = 'd'
+i = 9 / elemento = 'o'
+*/
+
+/* .every()
+¿TODOS los elementos del array cumplen con la CONDICION de la FUNCION? */
+const o = ['o', 'o', 'o'];
+
+const buscarElemento = (elemento) => elemento === 'o';
+buscarElemento;
+// [Function: buscarElemento]
+
+/* false porq
+en el array ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o']
+NO todos los elementos tienen la letra ['o'] */
+array.every(buscarElemento);
+// false
+
+/* true porq en el array ['o', 'o', 'o']
+TODOS los elementos son ['o'] */
+o.every(buscarElemento);
+// true

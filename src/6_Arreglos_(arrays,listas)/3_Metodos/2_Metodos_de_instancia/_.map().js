@@ -1,4 +1,7 @@
-/* Documentacion Oficial - .map()
+/* Tutorial:
+https://youtu.be/FMubfnVET74
+
+Documentacion Oficial - .map()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
 .map() */
