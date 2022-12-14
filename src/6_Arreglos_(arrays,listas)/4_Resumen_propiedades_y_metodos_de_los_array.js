@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-multi-spaces */
 // @ts-nocheck
@@ -173,3 +174,42 @@ array.every(buscarElemento);
 TODOS los elementos son ['o'] */
 o.every(buscarElemento);
 // true
+
+/* .fill(value, start, end)
+Reemplazar UN VALOR value
+en los elementos de un array
+desde una start hasta otra end posición (indice) */
+numeros; // (5) [1, 2, 3, 4, 5]
+
+const numeroElementos = numeros.length;
+numeroElementos; // 5
+
+[1, 2, 3, 4, 5].fill(0, 2, 999);                 // (5) [1, 2, 0, 0, 0]
+[1, 2, 3, 4, 5].fill(0, -3);                     // (5) [1, 2, 0, 0, 0]
+
+[1, 2, 3, 4, 5].fill(0, 1, numeroElementos);     // (5) [1, 0, 0, 0, 0]
+[1, 2, 3, 4, 5].fill(0, 1);                      // (5) [1, 0, 0, 0, 0]
+[1, 2, 3, 4, 5].fill(0, 1);                      // (5) [1, 0, 0, 0, 0]
+
+[1, 2, 3, 4, 5].fill(0, 2, numeroElementos - 1); // (5) [1, 2, 0, 0, 5]
+[1, 2, 3, 4, 5].fill(0, -3, -1);                 // (5) [1, 2, 0, 0, 5]
+
+[1, 2, 3, 4, 5].fill(0);                         // (5) [0, 0, 0, 0, 0]
+
+[1, 2, 3, 4, 5].fill();                          // (5) [undefined, undefined, undefined, undefined, undefined]
+
+[1, 2, 3, 4, 5].fill(0, -3, -2);                 // (5) [1, 2, 0, 4, 5]
+
+[1, 2, 3, 4, 5].fill(0, -1);                     // (5) [1, 2, 3, 4, 0]
+
+/* .filter()
+ */
+
+/* .map()
+ */
+
+/* .reduce()
+ */
+
+/* .reduceRight()
+ */
