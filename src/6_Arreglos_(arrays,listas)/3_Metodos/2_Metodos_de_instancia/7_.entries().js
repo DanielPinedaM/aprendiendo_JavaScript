@@ -24,32 +24,32 @@ q contiene en sus elementos pares de [indice, elemento]
 Documentacion Oficial - .next()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator/next */
 
-const letras = ['a', 'b', 'c'];
-console.log(letras);
-// (3) ['a', 'b', 'c']
+const figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
 
-const iterador = letras.entries();
+const iterador = figuras.entries();
 console.log(iterador);
 // Object [Array Iterator] {}
 
-console.log(iterador.next().value); // (2) [0, 'a']
-console.log(iterador.next().value); // (2) [1, 'b']
-console.log(iterador.next().value); // (2) [2, 'c']
+console.log(iterador.next().value); // (2) [0, '▲']
+console.log(iterador.next().value); // (2) [1, '●']
+console.log(iterador.next().value); // (2) [2, '✖']
+console.log(iterador.next().value); // (2) [3, '■']
 
 /* ----------------------------------------------------- */
 
 // Ejemplo 2 - for
 
-const array = ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o'];
-console.log(array);
-// (10) ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o']
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
 
-const iterador2 = array.entries();
+const iterador2 = figuras.entries();
 console.log(iterador2);
 // Object [Array Iterator] {}
 
-// for
-for (let i = 0; i < array.length; i++) {
+// Recorrer (iterar) array usando .entries(), for of y [i, elemento]
+for (let i = 0; i < figuras.length; i++) {
   let array2 = iterador2.next().value;
   let indice = array2[0];
   let elemento = array2[1];
@@ -57,16 +57,10 @@ for (let i = 0; i < array.length; i++) {
   console.log(`i = ${indice} / elemento = '${elemento}'`);
 }
 /*
-i = 0 / elemento = 'h'
-i = 1 / elemento = 'o'
-i = 2 / elemento = 'l'
-i = 3 / elemento = 'a'
-i = 4 / elemento = ''
-i = 5 / elemento = 'm'
-i = 6 / elemento = 'u'
-i = 7 / elemento = 'n'
-i = 8 / elemento = 'd'
-i = 9 / elemento = 'o'
+i = 0 / elemento = '▲'
+i = 1 / elemento = '●'
+i = 2 / elemento = '✖'
+i = 3 / elemento = '■'
 */
 
 /* ----------------------------------------------------- */
@@ -74,24 +68,18 @@ i = 9 / elemento = 'o'
 /* Ejemplo 3 - for of y [i, elemento]
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries#iterating_with_index_and_element */
 
-console.log(array);
-// (10) ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o']
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
 
 // for of y  [i, elemento]
-for (const [i, elemento] of array.entries()) {
+for (const [i, elemento] of figuras.entries()) {
   console.log(`i = ${i} / elemento = '${elemento}'`);
 }
 /*
-i = 0 / elemento = 'h'
-i = 1 / elemento = 'o'
-i = 2 / elemento = 'l'
-i = 3 / elemento = 'a'
-i = 4 / elemento = ''
-i = 5 / elemento = 'm'
-i = 6 / elemento = 'u'
-i = 7 / elemento = 'n'
-i = 8 / elemento = 'd'
-i = 9 / elemento = 'o'
+i = 0 / elemento = '▲'
+i = 1 / elemento = '●'
+i = 2 / elemento = '✖'
+i = 3 / elemento = '■'
 */
 
 /* ----------------------------------------------------- */
@@ -99,10 +87,10 @@ i = 9 / elemento = 'o'
 /* Ejemplo 4 - for of
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries#using_a_for...of_loop */
 
-console.log(array);
-// (10) ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o']
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
 
-const iterador3 = array.entries();
+const iterador3 = figuras.entries();
 console.log(iterador3);
 // Object [Array Iterator] {}
 
@@ -111,16 +99,10 @@ for (const elemento of iterador3) {
   console.log(`i = ${elemento[0]} / elemento = '${elemento[1]}'`);
 }
 /*
-i = 0 / elemento = 'h'
-i = 1 / elemento = 'o'
-i = 2 / elemento = 'l'
-i = 3 / elemento = 'a'
-i = 4 / elemento = ''
-i = 5 / elemento = 'm'
-i = 6 / elemento = 'u'
-i = 7 / elemento = 'n'
-i = 8 / elemento = 'd'
-i = 9 / elemento = 'o'
+i = 0 / elemento = '▲'
+i = 1 / elemento = '●'
+i = 2 / elemento = '✖'
+i = 3 / elemento = '■'
 */
 
 /* ----------------------------------------------------- */
@@ -184,6 +166,7 @@ console.log(objetoLiteral);
 
 const iterador5 = Array.prototype.entries.call(objetoLiteral);
 console.log(iterador5);
+// Object [Array Iterator] {}
 
 for (const array3 of iterador5) {
   //             propiedad: valor,

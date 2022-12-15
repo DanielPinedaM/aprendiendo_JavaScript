@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 // @ts-nocheck
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable max-len */
@@ -50,7 +51,15 @@ el número especificado fromIndex */
 
 /* ---------------------------------------------------------------- */
 
-// Ejemplo 1 - Diferencia Entre .indexOf() y .lastIndexOf()
+/* Ejemplo 1:
+
+Posicion (indice) del ULTIMO circulo '●' */
+  ['▲', '●', '■', '●'].lastIndexOf('●'); // 3
+//  0    1    2    3
+
+/* ---------------------------------------------------------------- */
+
+// Ejemplo 2 - Diferencia Entre .indexOf() y .lastIndexOf()
 
 const array = ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o'];
 const buscar = 'o';
@@ -73,7 +82,7 @@ console.log(`el ULTIMO ELEMENTO ['${buscar}'] esta en la posicion (indice) ${ind
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 2:
+/* Ejemplo 3:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf#using_lastindexof */
 
 const array2 = ['c', 'a', 'n', 'a', 'l'];
@@ -115,7 +124,7 @@ console.log(array2.lastIndexOf('c')); // 0
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 3:
+/* Ejemplo 4:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf#finding_all_the_occurrences_of_an_element
 
 1) Usar el método de array .lastIndexOf()
@@ -149,7 +158,7 @@ length: 3
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 4 - Array Disperso (Sparse Array):
+/* Ejemplo 5 - Array Disperso (Sparse Array):
 .lastIndexOf() NO busca "ranuras vacías" (empty items) en los array dispersos
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf#using_lastindexof_on_sparse_arrays
@@ -162,7 +171,7 @@ console.log([1, , 3].lastIndexOf(''));        // -1
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 5 - .indexOf() y .lastIndexOf() en Objeto Literal {}
+/* Ejemplo 6 - .indexOf() y .lastIndexOf() en Objeto Literal {}
 Ambos metodos .indexOf() y .lastIndexOf()
 leen la propiedad length de this
 y luego acceden a cada indice entero.

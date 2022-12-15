@@ -1,6 +1,9 @@
 // @ts-nocheck
 
-/* Documentacion Oficial - .flatMap()
+/* Tutorial:
+https://youtu.be/em_Vh7ZGrnw
+
+Documentacion Oficial - .flatMap()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap
 
 .flatMap()

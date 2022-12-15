@@ -1,6 +1,9 @@
 // @ts-nocheck
 
-/* Documentacion Oficial - .flat()
+/* Tutorial:
+https://youtu.be/em_Vh7ZGrnw
+
+Documentacion Oficial - .flat()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
 
 .flat()

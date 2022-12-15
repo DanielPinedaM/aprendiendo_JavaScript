@@ -16,3 +16,9 @@ Es el nombre del metodo
 const array = ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o'];
 
 console.log(array);
+
+/* ------------------------------------------------------------ */
+
+const array = ['■', '■', '●', '■'];
+console.log(array);
+//

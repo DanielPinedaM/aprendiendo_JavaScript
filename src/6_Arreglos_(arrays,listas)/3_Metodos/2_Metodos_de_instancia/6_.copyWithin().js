@@ -1,9 +1,13 @@
+/* eslint-disable indent */
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable max-len */
 /* eslint-disable no-multi-spaces */
 // @ts-nocheck
 
-/* Documentacion Oficial - .copyWithin()
+/* Tutorial:
+https://youtube.com/shorts/UNIR2RU8mXA?feature=share
+
+Documentacion Oficial - .copyWithin()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin
 
 Recordatorio:
@@ -74,10 +78,68 @@ Donde...
 /* -------------------------------------------------------------- */
 
 /* Ejemplo 1:
+
+Copiar posicion (indice) 2,
+NO se incluye la posicion 3
+y pegar ['✖'] en posicion 0 */
+['▲', '●', '✖', '■'].copyWithin(0, 2, 3); // (4) ['✖', '●', '✖', '■']
+//  0    1    2    3
+
+/* Copiar A PARTIR de la posicion 2 ['✖', '■']
+y pegarlo en posicion 0 */
+  ['▲', '●', '✖', '■'].copyWithin(0, 2);    // (4) ['✖', '■', '✖', '■']
+//  0    1    2    3
+
+/* COPIAR los 2 primeros elementos ['▲', '●']
+PEGARLOS en la posicion 1
+ELIMINAR elemento de la ULTIMA posicion ['■'] */
+  ['▲', '●', '✖', '■'].copyWithin(1);       // (4) ['▲', '▲', '●', '✖']
+//  0    1    2    3
+
+/* COPIAR los 2 primeros elementos ['▲', '●']
+PEGARLOS en la posicion 2
+ELIMINAR elementos ['✖', '■'] */
+  ['▲', '●', '✖', '■'].copyWithin(2); // (4) ['▲', '●', '▲', '●']
+//  0    1    2    3
+
+/* COPIAR posicion (indice) -2
+NO se incluye la posicion -1
+PEGAR ['✖'] en posicion -3
+REEMPLAZAR ['●'] por ['✖']
+ELIMINAR elemento ['■'] de la ultima posicion */
+  ['▲', '●', '✖', '■'].copyWithin(-3, -2, -1); // (4) ['▲', '✖', '✖', '■']
+// -4   -3   -2    -1
+
+/* Copiar A PARTIR de la posicion -2 ['✖', '■']
+y pegarlo en posicion -3 */
+  ['▲', '●', '✖', '■'].copyWithin(-3, -2); // (4) ['▲', '✖', '■', '■']
+// -4   -3   -2    -1
+
+/* COPIAR el primer elemento ['▲']
+PEGARLO en la ultima posicion -1
+REEMPLAZAR ['■'] por ['▲'] */
+  ['▲', '●', '✖', '■'].copyWithin(-1); // (4) ['▲', '●', '✖', '▲']
+// -4   -3   -2    -1
+
+/* COPIAR los 2 primeros elementos ['▲', '●']
+PEGARLOS en la PE-nultima posicion -2
+REEMPLAZAR ['✖', '■'] por ['▲', '●'] */
+  ['▲', '●', '✖', '■'].copyWithin(-2); // (4) ['▲', '●', '▲', '●']
+// -4   -3   -2    -1
+
+/* COPIAR los 2 primeros elementos ['▲', '●']
+PEGARLOS en la ANTE-penultima posicion -3
+REEMPLAZAR ['●', '✖'] por ['▲', '●']
+ELIMINAR el ultimo elemento ['■'] */
+  ['▲', '●', '✖', '■'].copyWithin(-3); // (4) ['▲', '▲', '●', '✖']
+// -4   -3   -2    -1
+
+/* -------------------------------------------------------------- */
+
+/* Ejemplo 2:
 Lo siguiente lo explicare con un ejemplo,
 para ello tengo dos variables:
 una con un array */
-
 const array = [1, 2, 3, 4, 5];
 console.log(array);
 // (5) [1, 2, 3, 4, 5]
@@ -163,7 +225,7 @@ console.log(array.copyWithin(0, 1, -999));             // (5) [1, 2, 3, 4, 5]
 
 /* -------------------------------------------------------------- */
 
-/* Ejemplo 2:
+/* Ejemplo 3:
 En estos links hay una imagen q explica el codigo:
 
 https://www.codeblocq.com/img/array-copywithin-es6-explanation.png
@@ -189,7 +251,7 @@ console.log(numeros.slice(1, 3));
 
 /* -------------------------------------------------------------- */
 
-/* Ejemplo 3:
+/* Ejemplo 4:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin#using_copywithin */
 
 // imprimir array original
@@ -227,7 +289,9 @@ COPIAR los dos primeros elementos q son [1, 2]
 
 PEGAR [1, 2] en la posicion 1 del array (5) [1, 2, 3, 4, 5]
 
-Los elementos [2, 3] se REEMPLAZAN por [1, 2] respectivamente */
+Los elementos [2, 3] se REEMPLAZAN por [1, 2] respectivamente
+
+Se ELIMINA el ULTIMO elemento [5] */
 
 console.log(array.copyWithin(1)); // (5) [1, 1, 2, 3, 4]
 
@@ -275,7 +339,7 @@ console.log(array.copyWithin(-3)); // (5) [1, 2, 1, 2, 3]
 
 /* -------------------------------------------------------------- */
 
-/* Ejemplo 4 - Array Disperso (Sparse Array) y Metodo .copyWithin()
+/* Ejemplo 5 - Array Disperso (Sparse Array) y Metodo .copyWithin()
 .copyWithin() propagará las "ranuras vacías" (empty items) del array disperso [,,]
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin#using_copywithin_on_sparse_arrays
@@ -288,7 +352,7 @@ console.log(arrayDisperso.copyWithin(2, 1, 2)); // [ 1, <2 empty items> ]
 
 /* -------------------------------------------------------------- */
 
-/* Ejemplo 5 - .copyWithin() en Objeto Literal {}
+/* Ejemplo 6 - .copyWithin() en Objeto Literal {}
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin#calling_copywithin_on_non-array_objects
 
 .copyWithin() lee la propiedad length de this

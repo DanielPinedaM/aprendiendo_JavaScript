@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-multi-spaces */
 // @ts-nocheck
 
@@ -7,9 +9,24 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 Tutorial:
 https://youtu.be/gSSjhChWYK4
 
-.at() Obtener (Acceder) en Especifico a un ELEMENTO q se Encuentra en una Posición (Índice)
+.at() Obtener (Acceder) en Especifico a un ELEMENTO q se Encuentra en una Posición (Índice) */
 
-Ejemplo - Formas de Obtener (Acceder) al ULTIMO elemento
+/* ---------------------------------------------------------------------------------------- */
+
+/* Ejemplo 1:
+
+0 PRIMER elemento */
+  ['▲', '●', '✖', '■'][0];        // '▲' -> string
+//  0    1    2    3
+
+// -1 ULTIMO elemento
+   ['▲', '●', '✖', '■'].at(-1);    // '■' -> string
+   ['▲', '●', '✖', '■'].slice(-1); // ['■'] -> array
+//  -4   -3   -2    -1
+
+/* ---------------------------------------------------------------------------------------- */
+
+/* Ejemplo 2 - Formas de Obtener (Acceder) al ULTIMO elemento
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at#comparing_methods
 
 Con todas estas formas

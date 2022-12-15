@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable prefer-rest-params */
 /* eslint-disable max-len */
@@ -9,9 +10,33 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Recordatorio:
 .slice() tambien sirve para STRING, ver:
-...\aprendiendo_JS\src\5_String()_cadenas_de_texto\3_Metodos\2_Metodos_de_instancia\16_Diferencia_.slice()_y_.substring().js
+...\aprendiendo_JS\src\5_String()_cadenas_de_texto\3_Metodos\2_Metodos_de_instancia\16_Diferencia_.slice()_y_.substring().js */
 
-Ejemplo 1:
+/* ------------------------------------------------------------------ */
+
+// Ejemplo 1:
+
+// array A PARTIR de la segunda posicion 1
+['▲', '●', '✖', '■'].slice(1);      // (3) ['●', '✖', '■']
+//  0    1    2    3
+
+// array A PARTIR de la PE-nultima posicion -2
+  ['▲', '●', '✖', '■'].slice(-2);     // (2) ['✖', '■']
+//  -4   -3   -2   -1
+
+/* array DESDE la posicion 0 HASTA 2,
+NO se incluye la posicion 3 */
+  ['▲', '●', '✖', '■'].slice(0, 3);   // (3) ['▲', '●', '✖']
+//  0    1    2    3
+
+/* posiciones -2 y -3 del array,
+NO se incluye la posicion -1 */
+  ['▲', '●', '✖', '■'].slice(-3, -1); // (2) ['●', '✖']
+// -4   -3   -2    -1
+
+/* ------------------------------------------------------------------ */
+
+/* Ejemplo 2:
 Esto lo explicare con un ejemplo. Tengo dos variables, una con un ARRAY: */
 const array = ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o'];
 
@@ -234,9 +259,9 @@ entonces .slice() devuelve un array vacio [] */
 console.log(array.slice(0, 1)); // ['h'] -> imprimir desde la posicion (indice) 0 hasta 1
 console.log(array.slice(1, 0)); // []    -> como 0 (start) > 1 (end) entonces .slice() imprime array vacio
 
-/* ------------------------------------------------- */
+/* ------------------------------------------------------------------ */
 
-/* Ejemplo 2:
+/* Ejemplo 3:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice#using_slice
 
 1) Crear un objetoLiteral {}
@@ -319,7 +344,7 @@ console.log(array1[0].color);                     // 'rojo'
 console.log(array2[0].color);                     // 'rojo'
 console.log(array1[0].color === array2[0].color); // true
 
-/*  5) modificar el color en...
+/* 5) modificar el color en...
 - objetoLiteral {}
 - array1
 - array2 */
@@ -330,9 +355,9 @@ console.log(objetoLiteral.color); // 'purpura' -> objetoLiteral
 console.log(array1[0].color);     // 'purpura' -> array1
 console.log(array2[0].color);     // 'purpura' -> array2
 
-/* ------------------------------------------------- */
+/* ------------------------------------------------------------------ */
 
-/* Ejemplo 3 - .slice() en Objeto Literal {}
+/* Ejemplo 4 - .slice() en Objeto Literal {}
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice#calling_slice_on_non-array_objects
 
 El metodo .slice() lee la propiedad length de this.
@@ -359,9 +384,9 @@ console.log(objetoLiteral2);
 console.log(Array.prototype.slice.call(objetoLiteral2, 1, 3));
 // [ 'uno', 'dos' ]
 
-/* ------------------------------------------------- */
+/* ------------------------------------------------------------------ */
 
-/* Ejemplo 4:
+/* Ejemplo 5:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice#using_slice_to_convert_array-like_objects_to_arrays
 
 Convertir objetos {} similares a un array en un array [] usando...
@@ -392,9 +417,9 @@ console.log(array3);
 length: 3
 [[Prototype]]: Array(0) */
 
-/* ------------------------------------------------- */
+/* ------------------------------------------------------------------ */
 
-/* Ejemplo 5 - Array Disperso (Sparse Array) y Metodo .slice()
+/* Ejemplo 6 - Array Disperso (Sparse Array) y Metodo .slice()
 1) Crear un array disperso [,,]
 
 2) Usando el metodo .slice()

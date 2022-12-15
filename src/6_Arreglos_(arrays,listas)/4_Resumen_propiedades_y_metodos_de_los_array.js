@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable max-len */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-multi-spaces */
@@ -13,7 +14,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 const array = ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o'];
 
-/* Array.from()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Array.from() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 convertir a ARRAY y ejecutar una funcion para cada elemento
 
 (x) => x + x
@@ -28,7 +32,10 @@ Array.from([1, 2, 3], (x) => x + x);
 length: 3
 [[Prototype]]: Array(0) */
 
-/* Array.of()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Array.of() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 crear un nuevo array a partir de ARGUMENTOS */
 console.log(Array.of('1', '2', '3', 4, 5));
 /* (5) ['1', '2', '3', 4, 5]
@@ -40,176 +47,246 @@ console.log(Array.of('1', '2', '3', 4, 5));
 length: 5
 [[Prototype]]: Array(0) */
 
-/* Array.isArray()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Array.isArray() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 ¿el dato (variable) ES UN ARRAY? */
 Array.isArray([]); // true  -> [] array
 Array.isArray({}); // false -> {} objeto literal
 
-/* .length
-numero total de ELEMENTOS (letras) contando desde 1 */
-array.length;     // 10
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄
+ █ .length █
+ ▀▀▀▀▀▀▀▀▀▀▀
+numero total de ELEMENTOS (figuras) contando desde 1 */
+ ['▲', '●', '✖', '■'].length;     // 4
+// 1    2    3    4   -> los indices empiezan en 0, NO en 1
 
-/* .length - 1
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .length - 1 █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 mayor (ultima) POSICION (indice) contando desde 0 */
-array.length - 1; // 9
+  ['▲', '●', '✖', '■'].length - 1; // 3
+//  0    1    2    3   -> Los indices son asi
 
-/* []
-.at()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ []          █
+ █ .at()       █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 obtener (acceder) en especifico a un ELEMENTO q se encuentra en una posicion (indice)
 
 0 PRIMER elemento */
-array[0];        // 'h'   -> string
+  ['▲', '●', '✖', '■'][0];        // '▲' -> string
+//  0    1    2    3
 
 // -1 ULTIMO elemento
-array.at(-1);    // 'o'   -> string
-array.slice(-1); // ['o'] -> array
+   ['▲', '●', '✖', '■'].at(-1);    // '■' -> string
+   ['▲', '●', '✖', '■'].slice(-1); // ['■'] -> array
+//  -4   -3   -2    -1  -> Indices negativos
 
-/* .indexOf()
-PRIMER numero de posición (indice) del ELEMENTO buscado  */
-array.indexOf('o'); // 1
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .indexOf()  █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+PRIMER numero de posición (indice) del ELEMENTO buscado
 
-/* .lastIndexOf()
-ULTIMO numero de posición (indice) del ELEMENTO buscado */
-array.lastIndexOf('o'); // 9
+Posicion del PRIMER circulo '●' */
+  ['▲', '●', '■', '●'].indexOf('●'); // 1
+//  0    1    2    3
 
-/* .slice()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .lastIndexOf() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+ULTIMO numero de posición (indice) del ELEMENTO buscado
+
+Posicion del ULTIMO circulo '●' */
+  ['▲', '●', '■', '●'].lastIndexOf('●'); // 3
+//  0    1    2    3
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .slice() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀
 Extraer una parte de un ARRAY de acuerdo a sus posiciones (indices) */
-array.slice(2);      // (8) ['l', 'a', '', 'm', 'u', 'n', 'd', 'o']
-array.slice(-2);     // (2) ['d', 'o']
 
-array.slice(1, 3);   // (2) ['o', 'l']
-array.slice(-5, -2); // (3) ['m', 'u', 'n']
+// array A PARTIR de la segunda posicion 1
+  ['▲', '●', '✖', '■'].slice(1);      // (3) ['●', '✖', '■']
+//  0    1    2    3
 
-/* .copyWithin()
+// array A PARTIR de la PE-nultima posicion -2
+  ['▲', '●', '✖', '■'].slice(-2);     // (2) ['✖', '■']
+//  -4   -3   -2   -1
+
+/* array DESDE la posicion 0 HASTA 2,
+NO se incluye la posicion 3 */
+  ['▲', '●', '✖', '■'].slice(0, 3);   // (3) ['▲', '●', '✖']
+//  0    1    2    3
+
+/* posiciones -2 y -3 del array,
+NO se incluye la posicion -1 */
+  ['▲', '●', '✖', '■'].slice(-3, -1); // (2) ['●', '✖']
+// -4   -3   -2    -1
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .copyWithin() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://youtube.com/shorts/UNIR2RU8mXA?feature=share
 Copiar array y pegarlo dentro del mismo array */
-const numeros = [1, 2, 3, 4, 5];
 
-numeros.copyWithin(0, 3, 4);    // (5) [4, 2, 3, 4, 5]
+/* Copiar posicion (indice) 2,
+NO se incluye la posicion 3
+y pegar ['✖'] en posicion 0 */
+  ['▲', '●', '✖', '■'].copyWithin(0, 2, 3); // (4) ['✖', '●', '✖', '■']
+//  0    1    2    3
 
-numeros.copyWithin(0, 3);       // (5) [4, 5, 3, 4, 5]
+/* Copiar A PARTIR de la posicion 2 ['✖', '■']
+y pegarlo en posicion 0 */
+  ['▲', '●', '✖', '■'].copyWithin(0, 2);    // (4) ['✖', '■', '✖', '■']
+//  0    1    2    3
 
-numeros.copyWithin(1);          // (5) [1, 1, 2, 3, 4]
+/* COPIAR los 2 primeros elementos ['▲', '●']
+PEGARLOS en la posicion 1
+ELIMINAR elemento de la ULTIMA posicion ['■'] */
+  ['▲', '●', '✖', '■'].copyWithin(1);       // (4) ['▲', '▲', '●', '✖']
+//  0    1    2    3
 
-numeros.copyWithin(2);          // (5) [1, 2, 1, 2, 3]
-numeros.copyWithin(-3);         // (5) [1, 2, 1, 2, 3]
+/* COPIAR los 2 primeros elementos ['▲', '●']
+PEGARLOS en la posicion 2
+ELIMINAR elementos ['✖', '■'] */
+  ['▲', '●', '✖', '■'].copyWithin(2); // (4) ['▲', '●', '▲', '●']
+//  0    1    2    3
 
-numeros.copyWithin(3);          // (5) [1, 2, 3, 1, 2]
-numeros.copyWithin(-2);         // (5) [1, 2, 3, 1, 2]
+/* COPIAR posicion (indice) -2
+NO se incluye la posicion -1
+PEGAR ['✖'] en posicion -3
+REEMPLAZAR ['●'] por ['✖']
+ELIMINAR elemento ['■'] de la ultima posicion */
+  ['▲', '●', '✖', '■'].copyWithin(-3, -2, -1); // (4) ['▲', '✖', '✖', '■']
+// -4   -3   -2    -1
 
-numeros.copyWithin(-2, -3, -1); // (5) [1, 2, 3, 3, 4]
-numeros.copyWithin(-2, -3);     // (5) [1, 2, 3, 3, 4]
+/* Copiar A PARTIR de la posicion -2 ['✖', '■']
+y pegarlo en posicion -3 */
+  ['▲', '●', '✖', '■'].copyWithin(-3, -2); // (4) ['▲', '✖', '■', '■']
+// -4   -3   -2    -1
 
-numeros.copyWithin(-1);         // (5) [1, 2, 3, 4, 1]
+/* COPIAR el primer elemento ['▲']
+PEGARLO en la ultima posicion -1
+REEMPLAZAR ['■'] por ['▲'] */
+  ['▲', '●', '✖', '■'].copyWithin(-1); // (4) ['▲', '●', '✖', '▲']
+// -4   -3   -2    -1
 
-/* .concat()
+/* COPIAR los 2 primeros elementos ['▲', '●']
+PEGARLOS en la PE-nultima posicion -2
+REEMPLAZAR ['✖', '■'] por ['▲', '●'] */
+  ['▲', '●', '✖', '■'].copyWithin(-2); // (4) ['▲', '●', '▲', '●']
+// -4   -3   -2    -1
+
+/* COPIAR los 2 primeros elementos ['▲', '●']
+PEGARLOS en la ANTE-penultima posicion -3
+REEMPLAZAR ['●', '✖'] por ['▲', '●']
+ELIMINAR el ultimo elemento ['■'] */
+  ['▲', '●', '✖', '■'].copyWithin(-3); // (4) ['▲', '▲', '●', '✖']
+// -4   -3   -2    -1
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .concat() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀
 Concatenar (unir) array
 
-Arrays con elementos de tipo... */
-const array1 = ['1', '2'];    // string
-const array2 = [3, 4];        // number
-const array3 = [true, false]; // boolean
+Lo q esta dentro del parentesis de .concat()
+puede ser cualquier tipo de dato */
+['▲'].concat(['●', '✖'], ['■'], 'hola mundo', 1, true, false);
+// (8) ['▲', '●', '✖', '■', 'hola mundo', 1, true, false]
 
-// variable string ''
-const string = 'hola mundo';
-
-// variable objetoLiteral {}
-const objetoLiteral = {
-  nombre: 'Daniel',
-  edad: 99,
-};
-
-const concatenar = array1.concat(array2, array3, string, objetoLiteral);
-console.log(concatenar);
 /*
-[
-  '1',
-  '2',
-  3,
-  4,
-  true,
-  false,
-  'hola mundo',
-  {
-    nombre: 'Daniel',
-    edad: 99
-  }
-]
-*/
-
-/* .entries()
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .entries() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 Iterador de un array */
 
+['▲', '●', '✖', '■'].entries(); // Object [Array Iterator] {}
+
 // Recorrer (iterar) array usando .entries(), for of y  [i, elemento]
-for (const [i, elemento] of array.entries()) {
+for (const [i, elemento] of ['▲', '●', '✖', '■'].entries()) {
   console.log(`i = ${i} / elemento = '${elemento}'`);
 }
 /*
-i = 0 / elemento = 'h'
-i = 1 / elemento = 'o'
-i = 2 / elemento = 'l'
-i = 3 / elemento = 'a'
-i = 4 / elemento = ''
-i = 5 / elemento = 'm'
-i = 6 / elemento = 'u'
-i = 7 / elemento = 'n'
-i = 8 / elemento = 'd'
-i = 9 / elemento = 'o'
+i = 0 / elemento = '▲'
+i = 1 / elemento = '●'
+i = 2 / elemento = '✖'
+i = 3 / elemento = '■'
 */
 
-/* .every()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .every() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀
 ¿TODOS los elementos del array cumplen con la CONDICION de la FUNCION? */
-const o = ['o', 'o', 'o'];
 
-const buscarElemento = (elemento) => elemento === 'o';
-buscarElemento;
-// [Function: buscarElemento]
+// buscar el circulo ['●'] en el array
+const buscarElemento = (elemento) => elemento === '●';
+buscarElemento; // [Function: buscarElemento]
 
-/* false porq
-en el array ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o']
-NO todos los elementos tienen la letra ['o'] */
-array.every(buscarElemento);
-// false
+// ¿TODOS los elementos del array son circulo ['●']?
+['▲', '●', '✖', '■'].every(buscarElemento); // false -> NO
+['●', '●', '●', '●'].every(buscarElemento); // true  -> SI
 
-/* true porq en el array ['o', 'o', 'o']
-TODOS los elementos son ['o'] */
-o.every(buscarElemento);
-// true
-
-/* .fill(value, start, end)
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .fill(value, start, end) █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 Reemplazar UN VALOR value
 en los elementos de un array
-desde una start hasta otra end posición (indice) */
-numeros; // (5) [1, 2, 3, 4, 5]
+desde una start hasta otra end posición (indice)
 
-const numeroElementos = numeros.length;
-numeroElementos; // 5
+Reemplazar por circulo '●'...
+- Las posiciones 0 y 1 */
+['■', '■', '■', '■'].fill('●', 0, 2); // (4) ['●', '●', '■', '■']
 
-[1, 2, 3, 4, 5].fill(0, 2, 999);                 // (5) [1, 2, 0, 0, 0]
-[1, 2, 3, 4, 5].fill(0, -3);                     // (5) [1, 2, 0, 0, 0]
+// - Todos los elementos A PARTIR de la posicion 2
+['■', '■', '■', '■'].fill('●', 2);    // (4) ['■', '■', '●', '●']
 
-[1, 2, 3, 4, 5].fill(0, 1, numeroElementos);     // (5) [1, 0, 0, 0, 0]
-[1, 2, 3, 4, 5].fill(0, 1);                      // (5) [1, 0, 0, 0, 0]
-[1, 2, 3, 4, 5].fill(0, 1);                      // (5) [1, 0, 0, 0, 0]
+// - La ULTIMA -1 posicion
+['■', '■', '■', '■'].fill('●', -1); // (4) ['■', '■', '■', '●']
 
-[1, 2, 3, 4, 5].fill(0, 2, numeroElementos - 1); // (5) [1, 2, 0, 0, 5]
-[1, 2, 3, 4, 5].fill(0, -3, -1);                 // (5) [1, 2, 0, 0, 5]
-
-[1, 2, 3, 4, 5].fill(0);                         // (5) [0, 0, 0, 0, 0]
-
-[1, 2, 3, 4, 5].fill();                          // (5) [undefined, undefined, undefined, undefined, undefined]
-
-[1, 2, 3, 4, 5].fill(0, -3, -2);                 // (5) [1, 2, 0, 4, 5]
-
-[1, 2, 3, 4, 5].fill(0, -1);                     // (5) [1, 2, 3, 4, 0]
-
-/* .filter()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .filter() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀
  */
 
-/* .map()
+ // En el array1 hay 3 cuadrados ['■']
+const array1 = ['■', '■', '■', '●'];
+console.log(array1);
+// (4) ['■', '■', '■', '●']
+
+/* .filter() Crear un array2
+solamente con los cuadrados '■' de array1
+y eliminar las otras figuras q NO sean cuadrados */
+const array2 = array1.filter((elemento) => elemento === '■');
+console.log(array2);
+// (3) ['■', '■', '■']
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄
+ █ .map() █
+ ▀▀▀▀▀▀▀▀▀▀
  */
 
-/* .reduce()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .reduce() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀
  */
 
-/* .reduceRight()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .reduceRight() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
  */

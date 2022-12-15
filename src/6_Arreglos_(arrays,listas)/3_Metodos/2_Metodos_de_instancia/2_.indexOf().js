@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable no-multi-spaces */
 /* eslint-disable no-plusplus */
 /* eslint-disable max-len */
@@ -63,6 +64,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 /* ---------------------------------------------------------------- */
 
 /* Ejemplo 1:
+
+Posicion (indice) del PRIMER circulo '●' */
+  ['▲', '●', '■', '●'].indexOf('●'); // 1
+//  0    1    2    3
+
+/* ---------------------------------------------------------------- */
+
+/* Ejemplo 2:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#using_indexof
 
 Creo un nuevo array */
@@ -189,7 +198,7 @@ console.log(`en el ARRAY [${array}] NO existe el ELEMENTO ['${buscar}']: ${array
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 2:
+/* Ejemplo 3:
 Saber si un ELEMENTO existe o no en un ARRAY
 
 saber si en el ARRAY ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o']
@@ -207,7 +216,7 @@ if (array1.indexOf(buscar1) !== -1) {
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 3:
+/* Ejemplo 4:
 Contar el numero de veces q aparece un ELEMENTO en un ARRAY
 
 contar el numero de veces
@@ -229,7 +238,7 @@ console.log(`el ELEMENTO ['${buscar2}'] se repite ${contador} veces en el ARRAY`
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 4:
+/* Ejemplo 5:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#finding_all_the_occurrences_of_an_element
 
 1) Usar el método de array .indexOf()
@@ -263,7 +272,7 @@ length: 3
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 5:
+/* Ejemplo 6:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#finding_if_an_element_exists_in_the_array_or_not_and_updating_the_array
 
 1) Crear una funcion para lo siguiente...
@@ -304,7 +313,7 @@ actualizarArray(array4, 'spinach');
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 6 - Array Disperso (Sparse Array):
+/* Ejemplo 7 - Array Disperso (Sparse Array):
 .indexOf() NO busca "ranuras vacías" (empty items) en los array dispersos
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#using_indexof_on_sparse_arrays
@@ -317,10 +326,10 @@ console.log([1, , 3].indexOf(''));        // -1
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 7:
+/* Ejemplo 8:
 
 Recordatorio:
-Este Ejemplo 7 lo escribi en otra seccion, ver:
+Este Ejemplo 8 lo escribi en otra seccion, ver:
 
 Ruta:
 ...\aprendiendo_JS\src\6_Arreglos_(arrays,listas)\3_Metodos\2_Metodos_de_instancia\3_.lastIndexOf().js

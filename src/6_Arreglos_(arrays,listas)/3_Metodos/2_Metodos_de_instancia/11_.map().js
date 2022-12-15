@@ -16,6 +16,24 @@ Es el nombre del metodo
 
 - */
 
+/* ------------------------------------------------------------ */
+
+// Ejemplo 1
+
+const array1 = ['■', '■', '■', '▲'];
+console.log(array1);
+// (4) ['■', '■', '■', '▲']
+
+/* Metodos .map() y .replace()
+reemplazar los cuadrados '■' del array1 por circulos '●' */
+const array2 = array1.map((elemento) => elemento.replace('■', '●'));
+console.log(array2);
+// (4) ['●', '●', '●', '▲']
+
+/* ------------------------------------------------------------ */
+
 const array = ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o'];
 
 console.log(array);
+
+/* ------------------------------------------------------------ */

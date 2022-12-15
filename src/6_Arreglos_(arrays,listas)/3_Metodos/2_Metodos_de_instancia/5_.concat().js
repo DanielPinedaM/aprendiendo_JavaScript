@@ -6,7 +6,10 @@
 /* Documentacion Oficial - .concat() en Array:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
 
-.concat() sirve para concatenar (unir, juntar, fusionar) 2 o mas array
+.concat() sirve para concatenar (unir, juntar, fusionar)...
+1) 2 o mas array.
+
+2) Un array con cualquier otro tipo de dato.
 
 .concat() crea un nuevo array q NO modifica los array existentes
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods */
@@ -20,6 +23,20 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 // value0, value1, /* … ,*/ valueN
 // Son los valores q quiero concatenar,
 // pueden ser arrays ó cualquier otro tipo de dato
+
+/* ------------------------------------------------------ */
+
+/* Ejemplo 1:
+Lo q esta dentro del parentesis de .concat()
+puede ser cualquier tipo de dato
+
+Concatenar el array ['▲']
+con otros tipos de dato */
+
+['▲'].concat(['●', '✖'], ['■'], 'hola mundo', 1, true, false);
+// (8) ['▲', '●', '✖', '■', 'hola mundo', 1, true, false]
+
+/* ------------------------------------------------------ */
 
 /* Para los siguientes ejemplos defino...
 4 arrays q en sus elementos contienen diferentes tipos de datos */
@@ -37,7 +54,7 @@ const objetoLiteral = {
   edad: 99,
 };
 
-// Ejemplo 1 - Concatenar 2 array
+// Ejemplo 2 - Concatenar 2 array
 // Cuando NO se escribe nada
 // dentro del par de parentesis
 // value0, value1, /* ... ,*/ valueN
@@ -58,7 +75,7 @@ length: 2
 
 /* ------------------------------------------------------ */
 
-/* Ejemplo 2 - Concatenar 2 Array:
+/* Ejemplo 3 - Concatenar 2 Array:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat#concatenating_two_arrays */
 
 console.log(array1); // (2) ['1', '2']
@@ -77,7 +94,7 @@ length: 4
 
 /* ------------------------------------------------------ */
 
-/* Ejemplo 3:
+/* Ejemplo 4:
 1) Concatenar 2 ó mas Array
 
 2) .concat() sirve para concatenar array
@@ -110,7 +127,7 @@ console.log(concatenar);
 
 /* ------------------------------------------------------ */
 
-/* Ejemplo 4 - Concatenar Arrays Anidados
+/* Ejemplo 5 - Concatenar Arrays Anidados
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat#concatenating_nested_arrays */
 
 console.log(array1);       // (2) ['1', '2']
@@ -123,7 +140,7 @@ console.log(concatenar);   // [ '1', '2', 3, [ 4, 5, [ 6 ] ] ]
 
 /* ------------------------------------------------------ */
 
-/* Ejemplo 5 - Symbol.isConcatSpreadable
+/* Ejemplo 6 - Symbol.isConcatSpreadable
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat#concatenating_array-like_objects_with_symbol.isconcatspreadable
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/isConcatSpreadable */
@@ -178,7 +195,7 @@ console.log(concatenar);
 
 /* ------------------------------------------------------ */
 
-/* Ejemplo 6 - Array Disperso (Sparse Array) y Metodo .concat()
+/* Ejemplo 7 - Array Disperso (Sparse Array) y Metodo .concat()
 .concat() conserva las "ranuras vacías" (empty items) de los array dispersos
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat#using_concat_on_sparse_arrays
@@ -193,7 +210,7 @@ console.log(concatenar); // [ '1', '2', <2 empty items> ]
 
 /* ------------------------------------------------------ */
 
-/* Ejemplo 7 - Metodo .concat() en Objetos {} que NO son Array
+/* Ejemplo 8 - Metodo .concat() en Objetos {} que NO son Array
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat#calling_concat_on_non-array_objects
 
 Si el valor de this NO es un array [],
@@ -214,7 +231,7 @@ console.log(Array.prototype.concat.call(objetoLiteral4, 2, 3)); // [ 'cero', 'un
 
 /* ------------------------------------------------------ */
 
-// Ejemplo 8 - Array Vacio []
+// Ejemplo 9 - Array Vacio []
 
 console.log([].concat());       // []
 console.log([].concat([]));     // []

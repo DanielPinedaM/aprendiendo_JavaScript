@@ -76,40 +76,15 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 1 - ¿TODOS los elementos del array tienen el mismo elemento buscado?
+/* Ejemplo 1 - ¿TODOS los elementos del array tienen el mismo elemento buscado? */
 
-Tengo dos arrays:
+// Buscar el circulo ['●'] en el array
+const buscarElemento = (elemento) => elemento === '●';
+console.log(buscarElemento); // [Function: buscarElemento]
 
-Uno q contiene elementos DIFERENTES a ['o'] */
-
-const array = ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o'];
-console.log(array);
-// (10) ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o']
-
-// y otro en el q TODOS sus elementos son ['o']
-
-const o = ['o', 'o', 'o'];
-console.log(o);
-// (3) ['o', 'o', 'o']
-
-// El elemento buscado es la letra ['o']
-
-const buscarElemento = (elemento) => elemento === 'o';
-console.log(buscarElemento);
-// [Function: buscarElemento]
-
-/* Devuelve false porq
-en el array ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o']
-NO todos los elementos tienen la letra ['o'] */
-
-console.log(array.every(buscarElemento));
-// false
-
-/* Devuelve true porq en el array ['o', 'o', 'o']
-TODOS los elementos son ['o'] */
-
-console.log(o.every(buscarElemento));
-// true
+// ¿TODOS los elementos del array son circulo ['●']?
+console.log(['▲', '●', '✖', '■'].every(buscarElemento)); // false -> NO
+console.log(['●', '●', '●', '●'].every(buscarElemento)); // true  -> SI
 
 /* ---------------------------------------------------------------- */
 

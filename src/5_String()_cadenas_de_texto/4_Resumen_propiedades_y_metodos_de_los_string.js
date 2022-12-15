@@ -8,23 +8,38 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 const string = 'hola mundo';
 
-/* String.fromCharCode()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ String.fromCharCode() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 convertir de formato UTF-16 a texto */
 String.fromCharCode(104, 111, 108, 97, 32, 109, 117, 110, 100, 111); // 'hola mundo'
 
-/* .charCodeAt()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .charCodeAt() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 convertir la posicion (indice) del string a formato de codificacion UTF-16 (104 = 'H') */
 string.charCodeAt(0); // 104
 
-/* String.fromCodePoint()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ String.fromCodePoint() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 convertir de puntos de codigo a texto */
 String.fromCodePoint(104, 111, 108, 97, 32, 109, 117, 110, 100, 111); // 'hola mundo'
 
-/* .codePointAt()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .codePointAt() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 convertir la posicion (indice) del string a punto de codigo (104 = 'H') */
 string.codePointAt(0); // 104
 
-/* .normalize()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .normalize() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 forma de normalización unicode de un string */
 const string1 = '\u00F1'.normalize('NFC');       // 'ñ'
 const string2 = '\u006E\u0303'.normalize('NFC'); // 'ñ'
@@ -32,21 +47,33 @@ const string2 = '\u006E\u0303'.normalize('NFC'); // 'ñ'
 string1 === string2;                             // true
 string1.length === string2.length;               // true
 
-/* String.raw``
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ String.raw`` █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 guardar string de una ruta (TEXTO SIN PROCESAR) */
 String.raw`C:\Windows\System32`; // 'C:\Windows\System32'
 
-/* .length
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄
+ █ .length █
+ ▀▀▀▀▀▀▀▀▀▀▀
 numero total de CARACTERES (letras) contando desde 1 */
 string.length;     // 10
 
-/* .length - 1
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .length - 1 █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 mayor (ultima) POSICION (indice) contando desde 0 */
 string.length - 1; // 9
 
-/* []
-.at()
-.charAt()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄
+ █ []       █
+ █.at()     █
+ █.charAt() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀
 obtener (acceder) en especifico a un CARACTER q se encuentra en una posicion (indice)
 
 0 PRIMER caracter (letra) */
@@ -59,16 +86,25 @@ string[1];           // 'o'
 string.at(-1);       // 'o'
 string.slice(-1);    // 'o'
 
-/* .indexOf()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .indexOf() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 PRIMER numero de posicion (indice) del caracter buscado */
 string.indexOf('o');     // 1
 
-/* .lastIndexOf()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .lastIndexOf() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 ULTIMO numero de posicion (indice) del caracter buscado */
 string.lastIndexOf('o'); // 9
 
-/* .slice()
-.substring()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .slice()     █
+ █ .substring() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 Extraer una parte (SUB-STRING) de un string de acuerdo a sus posiciones (indices) */
 string.slice(2);                                        // 'la mundo'
 string.substring(2);                                    // 'la mundo'
@@ -82,12 +118,18 @@ string.substring(1, 3);                                 // 'ol'
 string.slice(-5, -2);                                   // 'mun'
 string.substring(string.length - 5, string.length - 2); // 'mun'
 
-/* .search()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .search() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀
 PRIMER numero de POSICION (INDICE) q coincide con la EXPRESION REGULAR o CARACTER */
 string.search('o'); // 1
 
-/* .match()
-.matchAll()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .match()    █
+ █ .matchAll() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 CARACTERES que coinciden con la EXPRESION REGULAR */
 string.match(/[a-z]/); // ['h', index: 0, input: 'hola mundo', groups: undefined]
 
@@ -104,7 +146,10 @@ string.match(/[a-z]/); // ['h', index: 0, input: 'hola mundo', groups: undefined
 [ 'd', index: 8, input: 'hola mundo', groups: undefined ]
 [ 'o', index: 9, input: 'hola mundo', groups: undefined ] */
 
-/* .split()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .split() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀
 convertir de STRING A ARRAY
 https://www.samanthaming.com/tidbits/83-4-ways-to-convert-string-to-character-array/  */
 let array = string.split(''); // .split('') caracter en blanco
@@ -138,51 +183,82 @@ console.log(array);
 length: 1
 [[Prototype]]: Array(0) */
 
-/* .includes()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .includes() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 buscar caracteres en CUALQUIER PARTE de un string */
 string.includes('o'); // true
 
-/* .endsWith()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .endsWith() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 buscar caracteres AL FINAL de un String */
 string.endsWith('mundo'); // true
 
 /* eliminar ESPACIOS EN BLANCO ' ' de un string al...
-1) .trim() principio y final */
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ 1) .trim() principio y final █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 '   a b   '.trim();                // 'a b'
 '   a b   '.trimStart().trimEnd(); // 'a b'
 '   a b   '.trimEnd().trimStart(); // 'a b'
 
-// 2) .trimStart() ó .trimLeft() - principio (lado izquierdo)
-
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ 2) .trimStart() ó .trimLeft() - principio (lado izquierdo) █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 '   a b   '.trimStart();           // 'a b   '
 '   a b   '.trimLeft();            // 'a b   '
 
-// 3) .trimEnd() ó .trimRight() - final (lado derecho)
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ 3) .trimEnd() ó .trimRight() - final (lado derecho) █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 '   a b   '.trimEnd();             // '   a b'
 '   a b   '.trimRight();           // '   a b'
 
-/* .padStart()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .padStart() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 agregar nuevos caracteres AL PRINCIPIO de un string */
 string.padStart(string.length + 5);    // '     hola mundo'
 
-/* .padEnd()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .padEnd() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀
 agregar nuevos caracteres AL FINAL de un string */
 string.padEnd(string.length + 5, '.'); // 'hola mundo.....'
 
-/* repeat()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .repeat() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀
 REPETIR string */
 string.repeat(3);                                       // 'hola mundohola mundohola mundo'
 string.padEnd(string.length + 1, ' ').repeat(3).trim(); // 'hola mundo hola mundo hola mundo'
 
-/* .replace()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .replace() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 reemplazar el PRIMER caracter buscado */
 string.replace('o', 'REPLACE');        // 'hREPLACEla mundo'
 
-/* .replaceAll()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .replaceAll() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 reemplazar TODOS los caracteres q coincidan con el caracter buscado */
 string.replaceAll('o', 'REPLACE_ALL'); // 'hREPLACE_ALLla mundREPLACE_ALL'
 
-/*  .startsWith()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .startsWith() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 ¿el string ... EMPIEZA por los caracteres ...? */
 string.startsWith('hola');                  // true
 
@@ -194,25 +270,37 @@ console.log(string.startsWith('mundo', 5)); // true
 // ¿el string 'hola mundo' TERMINA en el caracter (letra) 'o'? .length - 1
 string.startsWith('o', string.length - 1);  // true
 
-/* .toLowerCase()
-.toLocaleLowerCase()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .toLowerCase()       █
+ █ .toLocaleLowerCase() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 convertir string a minúscula */
 'HOLA MUNDO'.toLowerCase();               // 'hola mundo'
 'HOLA MUNDO'.toLocaleLowerCase('es-ES');  // 'hola mundo'
 
-/* .toUpperCase()
-.toLocaleUpperCase()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .toUpperCase()       █
+ █ .toLocaleUpperCase() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 convertir string a MAYÚSCULA */
 'hello world'.toUpperCase();              // 'HELLO WORLD'
 'hello world'.toLocaleUpperCase('en-US'); // 'HELLO WORLD'
 
-/* .localeCompare()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .localeCompare() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 comparar orden de dos string en el ABECEDARIO */
 'a'.localeCompare('z'); // -1 -> NEGATIVO porq en el abecedario la letra 'a' esta ANTES   q la letra 'z'
 'z'.localeCompare('a'); // 1  -> POSITIVO "                            " 'z' "  " DESPUES "        " 'a'
 'b'.localeCompare('b'); // 0  -> CERO porq son las mismas letras
 
-/* .valueOf()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .valueOf() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 convertir de TIPO OBJETO new String() a dato primitivo STRING (texto) */
 const stringObjeto = new String('hola mundo'); // MALA PRACTICA new String()
 stringObjeto;                                  // String {'hola mundo'}
@@ -227,8 +315,11 @@ string4;                                       // 'hola mundo'
 typeof string4;                                // string
 string3 === string4;                           // true
 
-/* String()
-.toString()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ String()    █
+ █ .toString() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 convertir a tipo TEXTO (string)
 https://stackoverflow.com/questions/3945202/whats-the-difference-between-stringvalue-vs-value-tostring */
 String(null);         // 'null'    -> BUENA PRACTICA String()
@@ -237,6 +328,9 @@ null.toString();      // TypeError -> MALA PRACTICA .toString()
 String(undefined);    // 'undefined'
 undefined.toString(); // TypeError
 
-/* .concat()
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .concat() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀
 concatenar (unir) string */
 'concatenar'.concat(' ', string, 123); // 'concatenar hola mundo123'
