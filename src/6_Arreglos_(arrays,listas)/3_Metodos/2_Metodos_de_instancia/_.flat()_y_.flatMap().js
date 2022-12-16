@@ -3,10 +3,14 @@
 /* Tutorial:
 https://youtu.be/em_Vh7ZGrnw
 
-Documentacion Oficial - .flat()
+Documentacion Oficial...
+- .flat()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
 
-.flat()
+- .flatMap()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap
+
+.flat() ... en cambio .flatMap() ...component
 
 Su sintaxis es:
 

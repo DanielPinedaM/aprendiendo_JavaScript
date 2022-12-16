@@ -59,7 +59,7 @@ La funcion tiene los siguientes argumentos:
 * El elemento element cambia porque el metodo .every() recorre (itera) el array
 
 - index
-* Posicion (indice) actual del array
+* Numero de posicion (indice) actual del array
 
 * Empieza en 0 y termina en la ultima posicion del array
 q la puedo obtener con la propiedad array.length - 1

@@ -259,34 +259,35 @@ Reemplazar por circulo '●'...
  ▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .filter() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
- */
+*/
 
- // En el array1 hay 3 cuadrados ['■']
+/* En el array1 hay 3 cuadrados ['■']
+y un circulo ['●'] */
 const array1 = ['■', '■', '■', '●'];
-console.log(array1);
+array1;
 // (4) ['■', '■', '■', '●']
 
-/* .filter() Crear un array2
-solamente con los cuadrados '■' de array1
-y eliminar las otras figuras q NO sean cuadrados */
+/* .filter() Crea un nuevo array2
+copiando solamente los cuadrados '■' del array1
+y elimina las otras figuras q NO son cuadrados */
 const array2 = array1.filter((elemento) => elemento === '■');
-console.log(array2);
+array2;
 // (3) ['■', '■', '■']
 
 /*
  ▄▄▄▄▄▄▄▄▄▄
  █ .map() █
  ▀▀▀▀▀▀▀▀▀▀
- */
+*/
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .reduce() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
- */
+*/
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .reduceRight() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
- */
+*/
