@@ -6,7 +6,9 @@ https://youtu.be/FMubfnVET74
 Documentacion Oficial - .map()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
-.map()
+.map() Devolver un Nuevo Array con el Resultado de Ejecutar una Funcion a Cada Elemento del Array
+
+.forEach() Ejecutar una Funcion para Cada Elemento del Array
 
 Su sintaxis es:
 

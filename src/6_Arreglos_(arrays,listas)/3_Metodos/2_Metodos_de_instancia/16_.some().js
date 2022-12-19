@@ -3,6 +3,8 @@
 /* Documentacion Oficial - .some()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 
+.some() ¿AL MENOS UN SOLO elemento del array cumple con la condición de la función?
+
 .some()
 
 Su sintaxis es:

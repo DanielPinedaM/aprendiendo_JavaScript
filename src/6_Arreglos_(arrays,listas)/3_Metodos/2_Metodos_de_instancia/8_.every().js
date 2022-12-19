@@ -11,7 +11,7 @@
 /* Documentacion Oficial - .every()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
 
-.every() ¿TODOS los Elementos del Array Cumplen con la CONDICION de la FUNCION?
+.every() ¿TODOS los elementos del array cumplen con la condición de la función?
 
 .every() determina si todos los elementos del array
 cumplen con la condicion de una funcion

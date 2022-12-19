@@ -1,3 +1,4 @@
+/* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 // @ts-nocheck
 
@@ -5,68 +6,80 @@ const array = ['▲', '●', '✖', '■'];
 console.log(array);
 // (4) ['▲', '●', '✖', '■']
 
-/*
-Todos los siguientes codigos
+/* Todos los siguientes codigos
 imprimen por consola
 el indice
-y el caracter actual
+y el ELEMENTO actual
 del ARRAY:
 
-i = 0 / elemento = '▲'
-i = 1 / elemento = '●'
-i = 2 / elemento = '✖'
-i = 3 / elemento = '■'
+i=0 / elemento='▲'
+i=1 / elemento='●'
+i=2 / elemento='✖'
+i=3 / elemento='■'
 */
 
 /*
- ▄▄▄▄▄▄▄▄▄
- █ while █
- ▀▀▀▀▀▀▀▀▀
-INCOMPLETO
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ while () {} █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 */
+let j = 0;
+
+while (j < array.length) {
+  console.log(`i=${j} / elemento='${array[j]}'`);
+  j += 1;
+}
 
 /*
- ▄▄▄▄▄▄▄
- █ for █
- ▀▀▀▀▀▀▀
-INCOMPLETO
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ do {} while() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 */
+j = 0;
+
+do {
+  console.log(`i=${j} / elemento='${array[j]}'`);
+  j += 1;
+} while (j < array.length);
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ for () {} █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀
+*/
+for (let i = 0; i < array.length; i++) {
+  console.log(`i=${i} / elemento='${array[i]}'`);
+}
 
 /*
  ▄▄▄▄▄▄▄▄▄▄
  █ for of █
  ▀▀▀▀▀▀▀▀▀▀
-INCOMPLETO
 */
+j = 0;
+
+for (const elemento of array) {
+  console.log(`i=${j} / elemento='${elemento}'`);
+  j += 1;
+}
 
 /*
  ▄▄▄▄▄▄▄▄▄▄
  █ for in █
  ▀▀▀▀▀▀▀▀▀▀
-INCOMPLETO
 */
+for (const i in array) {
+  console.log(`i=${i} / elemento='${array[i]}'`);
+}
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Array.from() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-INCOMPLETO
 */
-
-/*
- ▄▄▄▄▄▄▄▄▄▄
- █ .map() █
- ▀▀▀▀▀▀▀▀▀▀
-INCOMPLETO
-*/
-
-/*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .forEach() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-*/
-array.forEach((caracter, i) => {
-  console.log(`i=${i} / caracter='${caracter}'`);
+Array.from(array, (elemento, i) => {
+  console.log(`i=${i} / elemento='${elemento}'`);
+  return elemento;
 });
 
 /*
@@ -80,36 +93,79 @@ console.log(iterador);
 
 // for of
 for (const elemento of iterador) {
-  console.log(`i = ${elemento[0]} / elemento = '${elemento[1]}'`);
+  console.log(`i=${elemento[0]} / elemento='${elemento[1]}'`);
 }
+
 /*
-i = 0 / elemento = '▲'
-i = 1 / elemento = '●'
-i = 2 / elemento = '✖'
-i = 3 / elemento = '■'
+ ▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .every() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀
+¿TODOS los elementos del array cumplen con la condición de la función?
 */
+array.every((elemento, i) => {
+  console.log(`i = ${i} / elemento = '${elemento}'`);
+  return true;
+});
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄
+ █ .some() █
+ ▀▀▀▀▀▀▀▀▀▀▀
+*/
+array.some((elemento, i) => {
+  console.log(`i = ${i} / elemento = '${elemento}'`);
+
+  /* .some() deja de iterar cuando
+  AL MENOS UN SOLO elemento del array
+  cumple con la condición de la función
+  q es cuando retorna true la PRIMERA VEZ,
+  entonces para q itere todos los elementos
+  siempre tiene q retornar false */
+  return false;
+});
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .forEach() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+*/
+array.forEach((elemento, i) => {
+  console.log(`i=${i} / elemento='${elemento}'`);
+});
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄
+ █ .map() █
+ ▀▀▀▀▀▀▀▀▀▀
+*/
+array.map((elemento, i) => {
+  console.log(`i=${i} / elemento='${elemento}'`);
+  return elemento;
+});
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .filter() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
 */
-const iterar = array.filter((elemento, i) => {
+array.filter((elemento, i) => {
   console.log(`i = ${i} / elemento = '${elemento}'`);
 
-  /* .filter() agrega al array iterar
-  los elementos q cumplen con la condicion,
-  como siempre se retorna verdadero return true
+  /* .filter() agrega al array
+  los elementos q cumplen
+  con la condicion de la funcion
+  q es cuando se retorna true,
+  como siempre se retorna true
   entonces .filter() agrega todos los elementos */
   return true;
 });
 
-console.log(iterar);
-// (4) ['▲', '●', '✖', '■']
-
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ [@@iterador]() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-INCOMPLETO
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/@@iterator */
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .reduce() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀
+*/
+array.reduce((acumulador, elemento, i) => {
+  console.log(`i = ${i} / elemento = '${elemento}'`);
+  return array;
+}, 0);

@@ -1,9 +1,11 @@
 // @ts-nocheck
 
-/* Documentacion Oficial - .find()
+/* Documentacion Oficial...
+- .find()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
 
-.find()
+- .findIndex()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
 
 Su sintaxis es:
 

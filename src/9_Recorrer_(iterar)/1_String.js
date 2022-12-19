@@ -8,16 +8,11 @@ const string = 'hola mundo';
 console.log(string);
 // 'hola mundo'
 
-// .split() Convertir de string a array
-const array = string.split('');
-console.log(array);
-// (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
-
 /*
 Todos los siguientes codigos
 imprimen por consola
 el indice
-y el caracter actual
+y el CARACTER actual
 del STRING:
 
 i=0 / caracter='h'
@@ -33,9 +28,10 @@ i=9 / caracter='o'
 */
 
 /*
- ▄▄▄▄▄▄▄▄▄
- █ while █
- ▀▀▀▀▀▀▀▀▀
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ while () {} █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while
 */
 let j = 0;
 
@@ -45,9 +41,23 @@ while (j < string.length) {
 }
 
 /*
- ▄▄▄▄▄▄▄
- █ for █
- ▀▀▀▀▀▀▀
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ do {} while() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while
+*/
+j = 0;
+
+do {
+  console.log(`i=${j} / caracter='${string[j]}'`);
+  j += 1;
+} while (j < string.length);
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ for () {} █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 */
 for (let i = 0; i < string.length; i++) {
   console.log(`i=${i} / caracter='${string[i]}'`);
@@ -57,62 +67,50 @@ for (let i = 0; i < string.length; i++) {
  ▄▄▄▄▄▄▄▄▄▄
  █ for of █
  ▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
 */
-let k = 0;
+j = 0;
 
 for (const caracter of string) {
-  k += 1;
-  console.log(`i=${k} / caracter='${caracter}'`);
+  console.log(`i=${j} / caracter='${caracter}'`);
+  j += 1;
 }
 
 /*
  ▄▄▄▄▄▄▄▄▄▄
  █ for in █
  ▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
 */
 for (const i in string) {
   console.log(`i=${i} / caracter='${string[i]}'`);
 }
 
+/* Las formas q explique anteriormente
+sirven para tipo string,
+pero si convierto de string a array,
+entonces puedo usar
+las formas de iterar array que son:
+- Array.from()
+- .entries()
+- .every()
+- .some()
+- .forEach()
+- .map()
+- .filter()
+- .reduce() */
+const array = string.split(''); // .split() convertir de string a array
+console.log(array);
+// (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
+
 /*
+Puedo usar el metodo de array .forEach()
+porq converti de string a array
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .forEach() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 */
 array.forEach((caracter, i) => {
   console.log(`i=${i} / caracter='${caracter}'`);
 });
-
-/*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ Array.from() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-convierte el string a array
-y ejecuta una funcion flecha () => {}
-que recorre el array (string) */
-Array.from(string, (caracter, i) => {
-  console.log(`i=${i} / caracter='${caracter}'`);
-  return caracter;
-});
-// (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
-
-/*
- ▄▄▄▄▄▄▄▄▄▄
- █ .map() █
- ▀▀▀▀▀▀▀▀▀▀
-*/
-// .map() Aplica una función a cada caracter y devuelve un nuevo array
-array.map((caracter, i) => {
-  console.log(`i=${i} / caracter='${caracter}'`);
-  return caracter;
-});
-// (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
-
-/*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ [@@iterador]() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/@@iterator
-
-INCOMPLETO
-*/
