@@ -8,7 +8,10 @@
 /* eslint-disable no-unused-vars */
 // @ts-nocheck
 
-/* Documentacion Oficial - .every()
+/* Tutorial - Diferencia Entre .every() y .some()
+https://youtu.be/sVO65BeJjq8
+
+Documentacion Oficial - .every()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
 
 .every() ¿TODOS los elementos del array cumplen con la condición de la función?
@@ -19,6 +22,8 @@ cumplen con la condicion de una funcion
 .every() devuelve un booleano, true ó false
 
 .every() recorre (itera) cada uno de los elementos del array
+y detiene la iteración en la posicion (indice)
+en donde encuentra el primer elemento que NO cumple con la condición.
 
 Su sintaxis es:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every#syntax

@@ -113,18 +113,18 @@ console.log(array);
 
 // Recorrer (iterar) array
 array.forEach((elemento3, i) => {
-  console.log(`i = ${i} / elemento = '${elemento3}'`);
+  console.log(`i = ${i} | elemento = '${elemento3}'`);
 });
 /*
-i = 0 / elemento = h
-i = 1 / elemento = o
-i = 2 / elemento = l
-i = 3 / elemento = a
-i = 4 / elemento = m
-i = 5 / elemento = u
-i = 6 / elemento = n
-i = 7 / elemento = d
-i = 8 / elemento = o
+i = 0 | elemento = h
+i = 1 | elemento = o
+i = 2 | elemento = l
+i = 3 | elemento = a
+i = 4 | elemento = m
+i = 5 | elemento = u
+i = 6 | elemento = n
+i = 7 | elemento = d
+i = 8 | elemento = o
 */
 
 /* ERROR: con el metodo .matchAll()

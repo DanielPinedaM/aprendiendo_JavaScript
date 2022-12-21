@@ -1,11 +1,16 @@
 // @ts-nocheck
 
-/* Documentacion Oficial - .some()
+/* Tutorial - Diferencia Entre .every() y .some()
+https://youtu.be/sVO65BeJjq8
+
+Documentacion Oficial - .some()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 
 .some() ¿AL MENOS UN SOLO elemento del array cumple con la condición de la función?
 
-.some()
+.some() recorre (itera) cada uno de los elementos del array
+y detiene la iteración en la posicion (indice)
+en donde encuentra el primer elemento que SI cumple con la condición.
 
 Su sintaxis es:
 
@@ -30,7 +35,7 @@ console.log(array2);
 /* Ejemplo:
 Buscar si un array q contiene un objeto [{}] cumple una condicion
 
-https://www.instagram.com/reel/CmHSK2dMM03/?utm_source=ig_web_copy_link */
+https://youtube.com/shorts/Q8SX7gaA-wI?feature=share */
 
 // Array q contiene un objeto [{}]
 const personas = [

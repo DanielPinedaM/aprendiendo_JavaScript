@@ -18,6 +18,7 @@ const array = ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o'];
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Array.from() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
 convertir a ARRAY y ejecutar una funcion para cada elemento
 
 (x) => x + x
@@ -36,6 +37,7 @@ length: 3
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Array.of() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of
 crear un nuevo array a partir de ARGUMENTOS */
 console.log(Array.of('1', '2', '3', 4, 5));
 /* (5) ['1', '2', '3', 4, 5]
@@ -51,6 +53,7 @@ length: 5
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Array.isArray() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
 ¿el dato (variable) ES UN ARRAY? */
 Array.isArray([]); // true  -> [] array
 Array.isArray({}); // false -> {} objeto literal
@@ -59,6 +62,7 @@ Array.isArray({}); // false -> {} objeto literal
  ▄▄▄▄▄▄▄▄▄▄▄
  █ .length █
  ▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length
 numero total de ELEMENTOS (figuras) contando desde 1 */
  ['▲', '●', '✖', '■'].length;     // 4
 // 1    2    3    4   -> los indices empiezan en 0, NO en 1
@@ -76,6 +80,7 @@ mayor (ultima) POSICION (indice) contando desde 0 */
  █ []          █
  █ .at()       █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at
 obtener (acceder) en especifico a un ELEMENTO q se encuentra en una posicion (indice)
 
 0 PRIMER elemento */
@@ -88,9 +93,10 @@ obtener (acceder) en especifico a un ELEMENTO q se encuentra en una posicion (in
 //  -4   -3   -2    -1  -> Indices negativos
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .indexOf()  █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .indexOf() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
 PRIMER numero de posición (indice) del ELEMENTO buscado
 
 Posicion del PRIMER circulo '●' */
@@ -101,6 +107,7 @@ Posicion del PRIMER circulo '●' */
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .lastIndexOf() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf
 ULTIMO numero de posición (indice) del ELEMENTO buscado
 
 Posicion del ULTIMO circulo '●' */
@@ -111,6 +118,7 @@ Posicion del ULTIMO circulo '●' */
  ▄▄▄▄▄▄▄▄▄▄▄▄
  █ .slice() █
  ▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
 Extraer una parte de un ARRAY de acuerdo a sus posiciones (indices) */
 
 // array A PARTIR de la segunda posicion 1
@@ -197,6 +205,7 @@ ELIMINAR el ultimo elemento ['■'] */
  ▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .concat() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
 Concatenar (unir) array
 
 Lo q esta dentro del parentesis de .concat()
@@ -208,25 +217,27 @@ puede ser cualquier tipo de dato */
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .entries() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
 Iterador de un array */
 
 ['▲', '●', '✖', '■'].entries(); // Object [Array Iterator] {}
 
 // Recorrer (iterar) array usando .entries(), for of y  [i, elemento]
 for (const [i, elemento] of ['▲', '●', '✖', '■'].entries()) {
-  console.log(`i = ${i} / elemento = '${elemento}'`);
+  console.log(`i = ${i} | elemento = '${elemento}'`);
 }
 /*
-i = 0 / elemento = '▲'
-i = 1 / elemento = '●'
-i = 2 / elemento = '✖'
-i = 3 / elemento = '■'
+i = 0 | elemento = '▲'
+i = 1 | elemento = '●'
+i = 2 | elemento = '✖'
+i = 3 | elemento = '■'
 */
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄
  █ .every() █
  ▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
 ¿TODOS los elementos del array cumplen con la CONDICION de la FUNCION? */
 
 // buscar el circulo ['●'] en el array
@@ -241,6 +252,7 @@ buscarElemento; // [Function: buscarElemento]
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .fill(value, start, end) █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
 Reemplazar UN VALOR value
 en los elementos de un array
 desde una start hasta otra end posición (indice)
@@ -259,35 +271,38 @@ Reemplazar por circulo '●'...
  ▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .filter() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
-*/
-
-/* En el array1 hay 3 cuadrados ['■']
-y un circulo ['●'] */
-const array1 = ['■', '■', '■', '●'];
-array1;
-// (4) ['■', '■', '■', '●']
-
-/* .filter() Crea un nuevo array2
-copiando solamente los cuadrados '■' del array1
-y elimina las otras figuras q NO son cuadrados */
-const array2 = array1.filter((elemento) => elemento === '■');
-array2;
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+En el array1 original hay 3 cuadrados
+y un circulo ['■', '■', '■', '●']
+pero despues de ejecutar .filter()
+se crea un nuevo array2
+q solamente copia los cuadrados '■' del array1
+y ELIMINA las otras figuras q NO son cuadrados */
+['■', '■', '■', '●'].filter((elemento) => elemento === '■');
 // (3) ['■', '■', '■']
 
 /*
  ▄▄▄▄▄▄▄▄▄▄
  █ .map() █
  ▀▀▀▀▀▀▀▀▀▀
-*/
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+En el array1 original hay 4 cuadrados ['■', '■', '■', '■']
+pero .map() devuelve una copia array2 en el q se
+MODIFICA CADA UNO de los elementos del array1 original
+concatenando los cuadrados con un triangulo '■▲' */
+['■', '■', '■', '■'].map((elemento) => `${elemento}▲`);
+// (4) ['■▲', '■▲', '■▲', '■▲']
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .reduce() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
 */
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .reduceRight() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight
 */

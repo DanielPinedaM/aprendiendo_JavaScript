@@ -114,19 +114,19 @@ Recorrer (iterar) un string usando el metodo Array.from() */
 const string = 'hola mundo';
 
 Array.from(string, (elemento, i) => {
-  console.log(`i=${i} / elemento='${elemento}'`);
+  console.log(`i=${i} | elemento='${elemento}'`);
 });
 /*
-i=0 / elemento='h'
-i=1 / elemento='o'
-i=2 / elemento='l'
-i=3 / elemento='a'
-i=4 / elemento=' '
-i=5 / elemento='m'
-i=6 / elemento='u'
-i=7 / elemento='n'
-i=8 / elemento='d'
-i=9 / elemento='o' */
+i=0 | elemento='h'
+i=1 | elemento='o'
+i=2 | elemento='l'
+i=3 | elemento='a'
+i=4 | elemento=' '
+i=5 | elemento='m'
+i=6 | elemento='u'
+i=7 | elemento='n'
+i=8 | elemento='d'
+i=9 | elemento='o' */
 
 /* ------------------------------------------------ */
 

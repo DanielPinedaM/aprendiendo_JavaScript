@@ -36,23 +36,23 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 for (let i = 0; i < array.length; i++) {
   const elemento = array[i];
-  console.log(`indice = ${i} / elemento = ${elemento}`);
+  console.log(`indice = ${i} | elemento = ${elemento}`);
 }
 /*
-indice = 0 / elemento = 1
-indice = 1 / elemento = 2
-indice = 2 / elemento = 3
-indice = 3 / elemento = 4
+indice = 0 | elemento = 1
+indice = 1 | elemento = 2
+indice = 2 | elemento = 3
+indice = 3 | elemento = 4
 */
 
 /* al restarle uno
 .length - 1 entonces obtengo la MAYOR (ULTIMA) POSICION (índice)
 en el array estan los numeros desde el 1 hasta el 4,
 entonces
-indice = 0 / elemento = 1
-indice = 1 / elemento = 2
-indice = 2 / elemento = 3
-indice = 3 / elemento = 4
+indice = 0 | elemento = 1
+indice = 1 | elemento = 2
+indice = 2 | elemento = 3
+indice = 3 | elemento = 4
 empezando a contar desde cero
 el numero MAYOR de todos los INDICES (POSICION) es 3
 y al mismo tiempo 3 es el ULTIMO indice (posicion) */
@@ -93,13 +93,13 @@ console.log(array);
 /* Sinembargo, al recorrer (iterar) el array con .forEach
 los elementos vacios NO estan */
 array.forEach((element, i) => {
-  console.log(`i = ${i} / elemento = ${element}`);
+  console.log(`i = ${i} | elemento = ${element}`);
 });
 /*
-i = 0 / elemento = 1
-i = 1 / elemento = 2
-i = 2 / elemento = 3
-i = 3 / elemento = 4
+i = 0 | elemento = 1
+i = 1 | elemento = 2
+i = 2 | elemento = 3
+i = 3 | elemento = 4
 */
 
 /* voy a re-asignar a .length
@@ -122,9 +122,9 @@ console.log(array);
 
 // esto lo compruebo recorriendo el array forEach
 array.forEach((element, i) => {
-  console.log(`i = ${i} / elemento = ${element}`);
+  console.log(`i = ${i} | elemento = ${element}`);
 });
-// i = 0 / elemento = 1
+// i = 0 | elemento = 1
 
 /* en este momento el array tiene una sola posicion [ 1 ]
 cuando agrego un nuevo elemento a una posicion mayor,
@@ -144,11 +144,11 @@ con el indice que 5
 q es el indice mayor
 al # verdadero de elementos del array */
 array.forEach((element, i) => {
-  console.log(`i = ${i} / elemento = ${element}`);
+  console.log(`i = ${i} | elemento = ${element}`);
 });
 /*
-i = 0 / elemento = 1
-i = 5 / elemento = posicion mayor al # de elementos
+i = 0 | elemento = 1
+i = 5 | elemento = posicion mayor al # de elementos
 */
 
 /* ---------------------------------------------------------- */
@@ -173,5 +173,5 @@ console.log(arrayVacio);
 
 // al recorrer el arrayVacio con forEach no se imprime nada
 arrayVacio.forEach((element, i) => {
-  console.log(`i = ${i} / elemento = ${element}`);
+  console.log(`i = ${i} | elemento = ${element}`);
 });

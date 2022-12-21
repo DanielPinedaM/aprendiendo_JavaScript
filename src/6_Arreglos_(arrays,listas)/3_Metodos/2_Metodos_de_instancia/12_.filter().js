@@ -10,7 +10,8 @@ https://youtu.be/fCvuOyVXUUQ
 Documentacion Oficial - .filter()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 
-.filter() Crear una COPIA de un ARRAY EXISTENTE dependiendo de la CONDICIÓN de una FUNCIÓN (FILTRAR array)
+.filter() Crear una COPIA de un ARRAY EXISTENTE
+dependiendo de la CONDICIÓN de una FUNCIÓN (FILTRAR array)
 
 .filter() hace lo siguiente:
 1) Itera (recorre) el array.
@@ -39,7 +40,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
    NO modifica el array1 original,
    .filter() es INMUTABLE
 
-6) (array1.length = array2.length) O (array2.length < array1.length)
+6) (array1.length <= array2.length)
    El numero de elementos .length del array1 original
    y la copia array2 puede ser el MISMO
    O la copia array2 puede tener MENOS elementos
@@ -72,7 +73,7 @@ entonces el elemento es AGREGADO a la copia del array,
 y si retorna FALSO return false
 entonces el elemento es ELIMINADO de la copia del array
 
-La funcion tiene los siguientes argumentos:
+La funcion .filter() tiene los siguientes argumentos:
 
 - element
 Es el elemento actual del array
@@ -162,7 +163,7 @@ console.log(figuras);
 /* copiar array llamado figuras
 a otro array llamado iterar */
 const iterar = figuras.filter((elemento, i) => {
-  console.log(`i = ${i} / elemento = '${elemento}'`);
+  console.log(`i = ${i} | elemento = '${elemento}'`);
 
   /* .filter() agrega al array iterar
    los elementos q cumplen con la condicion,
@@ -170,18 +171,14 @@ const iterar = figuras.filter((elemento, i) => {
    entonces .filter() agrega todos los elementos */
   return true;
 });
-
-console.log(iterar); // (4) ['▲', '●', '✖', '■']
-
 /*
-i = 0 / elemento = '▲'
-i = 1 / elemento = '●'
-i = 2 / elemento = '✖'
-i = 3 / elemento = '■'
+i = 0 | elemento = '▲'
+i = 1 | elemento = '●'
+i = 2 | elemento = '✖'
+i = 3 | elemento = '■'
 */
 
-console.log(iterar);
-// (4) ['▲', '●', '✖', '■']
+console.log(iterar); // (4) ['▲', '●', '✖', '■']
 
 /* ---------------------------------------------------------------- */
 
@@ -198,7 +195,8 @@ console.log(arrayDisperso);
 
 // Recorrer (iterar) array usando .filter()
 const filter = arrayDisperso.filter((elemento, i) => { // Funcion flecha () => {}
-  console.log(`i = ${i} / elemento = ${elemento}`);
+  console.log(`i = ${i} | elemento = ${elemento}`);
+
   return true; // condicion de la funcion
 });
 
@@ -209,12 +207,13 @@ Esto lo compruebo porq
 al iterar el arrayDisperso con .filter()
 NO se imprime la ranura vacia [,]
 NI la posicion 1 */
-console.log(filter); // (2) [1, 3]
 
 /*
-i = 0 / elemento = 1
-i = 2 / elemento = 3
+i = 0 | elemento = 1
+i = 2 | elemento = 3
 */
+
+console.log(filter); // (2) [1, 3]
 
 /* ---------------------------------------------------------------- */
 

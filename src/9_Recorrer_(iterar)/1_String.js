@@ -15,16 +15,16 @@ el indice
 y el CARACTER actual
 del STRING:
 
-i=0 / caracter='h'
-i=1 / caracter='o'
-i=2 / caracter='l'
-i=3 / caracter='a'
-i=4 / caracter=' '
-i=5 / caracter='m'
-i=6 / caracter='u'
-i=7 / caracter='n'
-i=8 / caracter='d'
-i=9 / caracter='o'
+i=0 | caracter='h'
+i=1 | caracter='o'
+i=2 | caracter='l'
+i=3 | caracter='a'
+i=4 | caracter=' '
+i=5 | caracter='m'
+i=6 | caracter='u'
+i=7 | caracter='n'
+i=8 | caracter='d'
+i=9 | caracter='o'
 */
 
 /*
@@ -49,7 +49,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do.
 j = 0;
 
 do {
-  console.log(`i=${j} / caracter='${string[j]}'`);
+  console.log(`i=${j} | caracter='${string[j]}'`);
   j += 1;
 } while (j < string.length);
 
@@ -60,7 +60,7 @@ do {
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 */
 for (let i = 0; i < string.length; i++) {
-  console.log(`i=${i} / caracter='${string[i]}'`);
+  console.log(`i=${i} | caracter='${string[i]}'`);
 }
 
 /*
@@ -72,7 +72,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 j = 0;
 
 for (const caracter of string) {
-  console.log(`i=${j} / caracter='${caracter}'`);
+  console.log(`i=${j} | caracter='${caracter}'`);
   j += 1;
 }
 
@@ -83,11 +83,12 @@ for (const caracter of string) {
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
 */
 for (const i in string) {
-  console.log(`i=${i} / caracter='${string[i]}'`);
+  console.log(`i=${i} | caracter='${string[i]}'`);
 }
 
-/* Las formas q explique anteriormente
-sirven para tipo string,
+/*
+Las formas q explique anteriormente
+sirven para iterar tipo string,
 pero si convierto de string a array,
 entonces puedo usar
 las formas de iterar array que son:
@@ -98,7 +99,8 @@ las formas de iterar array que son:
 - .forEach()
 - .map()
 - .filter()
-- .reduce() */
+- .reduce()
+*/
 const array = string.split(''); // .split() convertir de string a array
 console.log(array);
 // (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
@@ -112,5 +114,5 @@ porq converti de string a array
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 */
 array.forEach((caracter, i) => {
-  console.log(`i=${i} / caracter='${caracter}'`);
+  console.log(`i=${i} | caracter='${caracter}'`);
 });

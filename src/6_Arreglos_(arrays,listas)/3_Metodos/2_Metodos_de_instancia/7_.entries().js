@@ -3,7 +3,10 @@
 /* eslint-disable prefer-const */
 // @ts-nocheck
 
-/* Documentacion Oficial...
+/* Tutorial:
+https://youtu.be/sVO65BeJjq8
+
+Documentacion Oficial...
 - .entries()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
 
@@ -54,13 +57,13 @@ for (let i = 0; i < figuras.length; i++) {
   let indice = array2[0];
   let elemento = array2[1];
 
-  console.log(`i = ${indice} / elemento = '${elemento}'`);
+  console.log(`i = ${indice} | elemento = '${elemento}'`);
 }
 /*
-i = 0 / elemento = '▲'
-i = 1 / elemento = '●'
-i = 2 / elemento = '✖'
-i = 3 / elemento = '■'
+i = 0 | elemento = '▲'
+i = 1 | elemento = '●'
+i = 2 | elemento = '✖'
+i = 3 | elemento = '■'
 */
 
 /* ----------------------------------------------------- */
@@ -73,13 +76,13 @@ console.log(figuras);
 
 // for of y  [i, elemento]
 for (const [i, elemento] of figuras.entries()) {
-  console.log(`i = ${i} / elemento = '${elemento}'`);
+  console.log(`i = ${i} | elemento = '${elemento}'`);
 }
 /*
-i = 0 / elemento = '▲'
-i = 1 / elemento = '●'
-i = 2 / elemento = '✖'
-i = 3 / elemento = '■'
+i = 0 | elemento = '▲'
+i = 1 | elemento = '●'
+i = 2 | elemento = '✖'
+i = 3 | elemento = '■'
 */
 
 /* ----------------------------------------------------- */
@@ -96,13 +99,13 @@ console.log(iterador3);
 
 // for of
 for (const elemento of iterador3) {
-  console.log(`i = ${elemento[0]} / elemento = '${elemento[1]}'`);
+  console.log(`i = ${elemento[0]} | elemento = '${elemento[1]}'`);
 }
 /*
-i = 0 / elemento = '▲'
-i = 1 / elemento = '●'
-i = 2 / elemento = '✖'
-i = 3 / elemento = '■'
+i = 0 | elemento = '▲'
+i = 1 | elemento = '●'
+i = 2 | elemento = '✖'
+i = 3 | elemento = '■'
 */
 
 /* ----------------------------------------------------- */
@@ -131,12 +134,12 @@ console.log(iterador4);
 se imprime undefined en la posicion (indice) 1
 porque el elemento de esta posicion es una ranura vacia [,,] */
 for (const elemento of iterador4) {
-  console.log(`i = ${elemento[0]} / elemento = ${elemento[1]}`);
+  console.log(`i = ${elemento[0]} | elemento = ${elemento[1]}`);
 }
 /*
-i = 0 / elemento = 1
-i = 1 / elemento = undefined
-i = 2 / elemento = 3
+i = 0 | elemento = 1
+i = 1 | elemento = undefined
+i = 2 | elemento = 3
 */
 
 /* ----------------------------------------------------- */
