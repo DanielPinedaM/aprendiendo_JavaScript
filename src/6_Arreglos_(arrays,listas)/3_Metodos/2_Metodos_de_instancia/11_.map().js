@@ -30,9 +30,9 @@ de un array existente (MAPEAR Array)
    y NO modifica el array1 original
    https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy
 
-4) (array1.length = array2.length)
+4) array1.length = array2.length
    El numero de elementos .length del array1 original
-   y su copia array2 es EL MISMO
+   y su copia array2 es IGUAL
 
 Su sintaxis es:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map#syntax */
@@ -84,11 +84,14 @@ pero .map() devuelve una copia array2 en el q se
 MODIFICA CADA UNO de los elementos del array1 original
 concatenando los cuadrados con un triangulo '■▲' */
 
+// array1 original (existente)
 const array1 = ['■', '■', '■', '■'];
 console.log(array1);
 // (4) ['■', '■', '■', '■']
 
-// Agregar un triangulo '▲' a cada uno de los elementos del array1
+/* array2 es una copia modificada del array1
+
+En el array2 agregar un triangulo '▲' a cada uno de los elementos del array1 */
 const array2 = array1.map((elemento) => `${elemento}▲`);
 console.log(array2);
 // (4) [ '■▲', '■▲', '■▲', '■▲' ]
@@ -157,9 +160,9 @@ const map = arrayDisperso.map((elemento, i) => {
 en las ranuras vacias (empty item) [,] porque estas son ignoradas
 
 Esto lo compruebo porq la posicion 1
-q tiene la ranura vacia (empty item) [,]...
+q tiene la ranura vacia (empty item) [,] ...
 - NO se multiplica por 2
-- NO se imprime la ranura vacia [,] */
+- NO se imprime (itera) la ranura vacia [,] */
 
 /*
 i=0 | 1*2=2
@@ -183,9 +186,10 @@ console.log(numeros);
 // (5) [1, 2, 3, 4, 5]
 
 const potenciacion = numeros.map((elemento) => {
-  console.log(`${elemento}^2 = ${elemento * elemento}`);
+  const cuadrado = elemento * elemento;
+  console.log(`${elemento}^2 = ${cuadrado}`);
 
-  return elemento * elemento;
+  return cuadrado;
 });
 /*
 1^2 = 1
@@ -199,7 +203,7 @@ console.log(potenciacion); // (5) [1, 4, 9, 16, 25]
 
 /* ------------------------------------------------------------ */
 
-/* Ejemplo 6
+/* Ejemplo 6:
 https://youtu.be/FMubfnVET74 */
 
 // Crear un array con numeros
@@ -210,7 +214,15 @@ console.log(numeros);
    del array anterior dentro de un array anidado */
 const arrayAnidado = numeros.map((elemento) => [elemento, elemento]);
 console.log(arrayAnidado);
-// (5) [ [ 1, 1 ], [ 2, 2 ], [ 3, 3 ], [ 4, 4 ], [ 5, 5 ] ]
+/*
+(5) [
+      [ 1, 1 ],
+      [ 2, 2 ],
+      [ 3, 3 ],
+      [ 4, 4 ],
+      [ 5, 5 ]
+    ]
+*/
 
 /* ------------------------------------------------------------ */
 
@@ -239,13 +251,13 @@ const arrayEdad = mascotas.map((elemento) => elemento.edad);
 console.log(arrayEdad);
 // (4) [12, 3, 10, 12]
 
-// numero total de ELEMENTOS del array contando desde 1
+// .length numero total de ELEMENTOS del array contando desde 1
 const numeroElementos = arrayEdad.length;
 console.log(numeroElementos);
 // 4
 
 /* .reduce() Edad promedio de las mascotas
-(12 + 3 + 10 + 12) / 4 = 9.25 */
+   (12 + 3 + 10 + 12) / 4 = 9.25 */
 const promedio = arrayEdad.reduce((acumulador, elemento) => acumulador + elemento) / numeroElementos;
 console.log(promedio);
 // 9.25
@@ -255,10 +267,9 @@ console.log(promedio);
 /* Ejemplo 8 - Formatear Array de Objetos [{}]
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map#using_map_to_reformat_objects_in_an_array */
 
-/* Array q contiene objeto literal [{}]
-cada objeto literal tiene dos propiedades
+/* Cada objeto literal {} tiene dos propiedades
 que son propiedad1 y propiedad2 */
-const array = [
+const array = [ // Array q contiene objeto literal [{}]
 //  propiedad: valor,
   { propiedad1: 1, propiedad2: 10 },
   { propiedad1: 2, propiedad2: 20 },
@@ -293,6 +304,7 @@ console.log(formatearArray);
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map#calling_map_on_non-array_objects */
 
 const objetoLiteral = {
+// propiedad: valor,
   uno: 1,
   dos: 2,
   tres: 3,
@@ -346,7 +358,10 @@ const etiqueta = document.querySelectorAll('select option:checked');
 console.log(etiqueta);
 // NodeList []
 
-// Convertir de NodeList [] a array []
+/* Documentación Oficial - NodeList
+https://developer.mozilla.org/en-US/docs/Web/API/NodeList
+
+Convertir de NodeList [] a array [] */
 const values = Array.prototype.map.call(etiqueta, ({ value }) => value);
 console.log(values);
 // []
@@ -361,7 +376,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 2) Crear una copia array2 del array1
 
 3) Recortar el array2 para q contenga
-   los elementos de las posiciones 0 y 1
+   los elementos de las posiciones 0 y 1 del array1
 
 Ejemplo:
 Si el array1 es (5) [1, 2, 3, 4, 5]
@@ -386,7 +401,7 @@ console.log(recortarArray);
 
 /* Forma CORRECTA:
 En cambio,
-va a funcionar si hago lo mismo pero con .filter(),  */
+va a funcionar si hago lo mismo pero con .filter() */
 recortarArray = numeros.filter((elemento, i) => {
   if (i < 2) {
     return elemento;
@@ -397,7 +412,7 @@ console.log(recortarArray);
 
 /* La MEJOR forma es usar .slice() porque:
 - Es mas rapido porq no itera el array
-- escribo menos codigo (codigo limpio) */
+- Escribo menos codigo (codigo limpio) */
 recortarArray = numeros.slice(0, 2);
 console.log(recortarArray);
 // (2) [1, 2]
@@ -417,9 +432,10 @@ es usar el metodo Number(), ver:
 Stack Overflow - Diferencia Entre Number() y parseFloat()
 https://stackoverflow.com/questions/12227594/what-is-the-difference-between-unary-plus-numberx-and-parsefloatx */
 
-// .parseFloat()
+// parseFloat()
 const retornarNumero = (elemento) => parseFloat(elemento, 10);
 
+console.log(retornarNumero);        // [Function: retornarNumero]
 console.log(retornarNumero('1'));   // 1
 console.log(retornarNumero('1.1')); // 1.1
 

@@ -188,3 +188,25 @@ array.reduce((acumulador, elemento, i) => {
   console.log(`i = ${i} | elemento = '${elemento}'`);
   return array;
 }, 0);
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .reduceRight() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight
+
+.reduceRight() imprime un resultado diferente a las otras formas,
+porque recorre (itera) el array de derecha a izquierda
+(desde el ultimo hacia el primer elemento) */
+array.reduceRight((acumulador, elemento, i) => {
+  console.log(`i = ${i} | elemento = '${elemento}'`);
+  return array;
+}, 0);
+/*
+i=3 | elemento='■'
+i=2 | elemento='✖'
+i=1 | elemento='●'
+i=0 | elemento='▲'
+
+(4) ['▲', '●', '✖', '■']
+*/
