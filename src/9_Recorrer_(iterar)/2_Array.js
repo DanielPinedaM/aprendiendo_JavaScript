@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 // @ts-nocheck
@@ -7,16 +8,51 @@ console.log(array);
 // (4) ['▲', '●', '✖', '■']
 
 /*
-Todos los siguientes codigos
-imprimen por consola
-el indice
-y el ELEMENTO actual
-del ARRAY:
+Hay 2 formas diferentes de recorrer (iterar)
+los array de acuerdo a la DIRECCION de iteracion:
 
-i=0 | elemento='▲'
-i=1 | elemento='●'
-i=2 | elemento='✖'
-i=3 | elemento='■'
+1) De izquierda a derecha
+   (desde el PRIMER 0 elemento hacia el ULTIMO -1 elemento),
+   para esto se usan los codigos:
+
+   - while () {}
+   - do {} while ()
+   - for i++
+   - for of
+   - for in
+   - Array.from()
+   - .entries()
+   - .every()
+   - .some()
+   - .forEach()
+   - .map()
+   - .filter()
+   - .reduce()
+   - .find()
+   - .findIndex()
+
+   El resultado es:
+
+   i=0 | elemento='▲'
+   i=1 | elemento='●'
+   i=2 | elemento='✖'
+   i=3 | elemento='■'
+
+2) Al revés, de derecha a izquierda
+   (desde el ULTIMO -1 elemento hacia el PRIMERO 0 elemento),
+   para esto se usan los codigos:
+
+   - for i--
+   - .reduceRight()
+   - .findLast()
+   - .findLastIndex()
+
+   El resultado es:
+
+   i=3 | elemento='■'
+   i=2 | elemento='✖'
+   i=1 | elemento='●'
+   i=0 | elemento='▲'
 */
 
 /*
@@ -46,9 +82,9 @@ do {
 } while (j < array.length);
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ for () {} █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀
+ ▄▄▄▄▄▄▄▄▄▄▄
+ █ for i++ █
+ ▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 */
 for (let i = 0; i < array.length; i++) {
@@ -112,7 +148,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 ¿TODOS los elementos del array cumplen con la condición de la función?
 */
 array.every((elemento, i) => {
-  console.log(`i = ${i} | elemento = '${elemento}'`);
+  console.log(`i=${i} | elemento='${elemento}'`);
   return true;
 });
 
@@ -123,7 +159,7 @@ array.every((elemento, i) => {
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 */
 array.some((elemento, i) => {
-  console.log(`i = ${i} | elemento = '${elemento}'`);
+  console.log(`i=${i} | elemento='${elemento}'`);
 
   /* .some() deja de iterar cuando
   AL MENOS UN SOLO elemento del array
@@ -167,7 +203,7 @@ array.map((elemento, i) => {
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 */
 array.filter((elemento, i) => {
-  console.log(`i = ${i} | elemento = '${elemento}'`);
+  console.log(`i=${i} | elemento='${elemento}'`);
 
   /* .filter() agrega al array
   los elementos q cumplen
@@ -185,28 +221,65 @@ array.filter((elemento, i) => {
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
 */
 array.reduce((acumulador, elemento, i) => {
-  console.log(`i = ${i} | elemento = '${elemento}'`);
+  console.log(`i=${i} | elemento='${elemento}'`);
   return array;
 }, 0);
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄
+ █ .find() █
+ ▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+*/
+array.find((elemento, i) => {
+  console.log(`i=${i} | elemento='${elemento}'`);
+});
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .findIndex() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+*/
+array.findIndex((elemento, i) => {
+  console.log(`i=${i} | elemento='${elemento}'`);
+});
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄
+ █ for i-- █
+ ▀▀▀▀▀▀▀▀▀▀▀
+*/
+for (let i = array.length - 1; i >= 0; i--) {
+  console.log(`i=${i} | elemento='${array[i]}'`);
+}
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .reduceRight() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight
-
-.reduceRight() imprime un resultado diferente a las otras formas,
-porque recorre (itera) el array de derecha a izquierda
-(desde el ultimo hacia el primer elemento) */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight */
 array.reduceRight((acumulador, elemento, i) => {
-  console.log(`i = ${i} | elemento = '${elemento}'`);
+  console.log(`i=${i} | elemento='${elemento}'`);
   return array;
 }, 0);
-/*
-i=3 | elemento='■'
-i=2 | elemento='✖'
-i=1 | elemento='●'
-i=0 | elemento='▲'
 
-(4) ['▲', '●', '✖', '■']
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .findLast() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast
 */
+array.findLast((elemento, i) => {
+  console.log(`i=${i} | elemento='${elemento}'`);
+});
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .findLastIndex() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLastIndex
+*/
+array.findLastIndex((elemento, i) => {
+  console.log(`i=${i} | elemento='${elemento}'`);
+});

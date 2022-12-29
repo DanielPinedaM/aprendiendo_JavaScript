@@ -49,9 +49,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 3) Usar .reduce() para REDUCIR un array, 
    NO como si fuera un bucle (for, while, etc.) para iterar un array
 
-ACUMULAR los elementos de un array para devolver un solo dato iterando de (REDUCIR Array)...
-- .reduce()      izquierda a derecha   (desde el PRIMER 0 elemento hacia el ULTIMO -1 elemento)
-- .reduceRight() derecha   a izquierda (desde el ULTIMO -1 elemento hacia el PRIMERO 0 elemento)
+ACUMULAR los elementos de un array para devolver un solo dato iterando de (REDUCIR array)...
+- .reduce()                de izquierda a derecha   (desde el PRIMER 0 elemento hacia el ULTIMO -1 elemento)
+- .reduceRight() al reves, de derecha   a izquierda (desde el ULTIMO -1 elemento hacia el PRIMERO 0 elemento)
 
 .reduce() y .reduceRight() hacen lo siguiente:
 1) Itera (recorre) el array.
@@ -89,6 +89,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 /* 
 Donde...
+- []
+Es un array
+
 - .reduce() y .reduceRight()
 Es el nombre del metodo
 
@@ -99,7 +102,7 @@ para cada uno de los elementos del array
 * Devuelve el resultado de acumular 
 todos los elementos del array
 
-Las funciones .reduce() y .reduceRight() 
+Las funciones (metodos) .reduce() y .reduceRight() 
 tienen los siguientes argumentos:
 
 - acumulador
@@ -166,23 +169,23 @@ Esto puede cambiar porque es solo UN EJEMPLO:
 |------------------------|---------------------------|-----------------------------------------------------------------------------------|
 | Tipo de dato del array | valorInicialDelAcumulador | Ejemplo                                                                           |
 |------------------------|---------------------------|-----------------------------------------------------------------------------------|
-| numeros                | 0                         | [1, 2, 3, 4, 5].reduce((acumulador, elemento) => acumulador + elemento, 0);       |
-|                        |                           | // 15                                                                             |
+| Numero                 | 0                         | [1, 2, 3, 4, 5].reduce((acumulador, elemento) => acumulador + elemento, 0);       |
+| Number()               |                           | // 15                                                                             |
 |------------------------|---------------------------|-----------------------------------------------------------------------------------|
-| texto                  | ''                        | ['▲', '●', '✖', '■'].reduce((acumulador, elemento) => acumulador + elemento, ''); |
-|                        |                           | // '▲●✖■'                                                                         |
+| Texto                  | ''                        | ['▲', '●', '✖', '■'].reduce((acumulador, elemento) => acumulador + elemento, ''); |
+| String()               |                           | // '▲●✖■'                                                                         |
 |------------------------|---------------------------|-----------------------------------------------------------------------------------|
 */
 
 /* ------------------------------------------------------------ */
 
-// Ejemplo 2
+// Ejemplo 2:
 
 const array = ['▲', '●', '✖', '■'];
 console.log(array);
 // (4) ['▲', '●', '✖', '■']
 
-/* .reduce() concatenar cada uno de los elementos del array (4) ['▲', '●', '✖', '■']
+/* .reduce() concatenar (unir) cada uno de los elementos del array (4) ['▲', '●', '✖', '■']
    en un solo string '▲●✖■' (REDUCIR array) */
 const reducir1 = array.reduce((acumulador, elemento) => acumulador + elemento, '');
 console.log(reducir1); // '▲●✖■' -> .reduce() itera de Izquierda a Derecha
@@ -217,7 +220,7 @@ const reduce = figuras.reduce((acumulador, elemento, i) => {
 }, 0);
 /*
 .reduce() ...
-1) itera de IZQUIERDA A DERECHA
+1) Itera de IZQUIERDA A DERECHA
    (desde el PRIMER 0 elemento hacia el ULTIMO -1 elemento)
 
 2) El contador i empieza en la PRIMERA posicion q es i=0
@@ -228,13 +231,13 @@ i=2 | elemento='✖'
 i=3 | elemento='■'
 */
 
-// 3) Esta retornando el cuadrado q es el ULTIMO -1 elemento
+// 3) Esta retornando el cuadrado '■' q es el ULTIMO -1 elemento
 console.log(reduce); // '■'
 
 /*
 en cambio, reduceRight() ...
-1) itera al reves, de DERECHA A IZQUIERDA
-   (desde el ULTIMO -1 elemento hacia el PRIMERO 0 elemento)
+1) Itera al reves, de DERECHA A IZQUIERDA
+   (desde el ULTIMO -1 elemento hacia el PRIMER 0 elemento)
 
 2) El contador i empieza en la ULTIMA posicion q es i=3
 */
@@ -243,7 +246,6 @@ const reduceRight = figuras.reduceRight((acumulador, elemento, i) => {
 
   return elemento; // '▲'
 }, 0);
-
 /*
 i=3 | elemento='■'
 i=2 | elemento='✖'
@@ -251,7 +253,7 @@ i=1 | elemento='●'
 i=0 | elemento='▲'
 */
 
-// 3) Esta retornando el triangulo q es el PRIMER 0 elemento
+// 3) Esta retornando el triangulo '▲' q es el PRIMER 0 elemento
 console.log(reduceRight); // '▲'
 
 /* ------------------------------------------------------------ */
@@ -281,7 +283,7 @@ const resultado1 = sumar(numeros);
 console.log(resultado1);
 // 15
 
-/* Refactorizar codigo - FORMA CORRECTA
+/* Refactorizar codigo - BUENA PRACTICA:
 .reduce() Recorre (itera) cada uno de los elementos del array,
 agregando en cada iteracion el elementoActual 
 del array al resultado del paso anterior
@@ -351,7 +353,7 @@ console.log(array2);
 
 /*  Cuando SI se escribe el valorInicialDelAcumulador 
 entonces el ELEMENTO ACTUAL empieza en la 
-primera posicion -> indice 0 -> array[0] */
+primera posicion → indice 0 → array[0] */
 array2.reduce((_, elementoActual) => { // El guion bajo _ es para ignorar la variable acumulador
   console.log(`elementoActual = '${elementoActual}'`);
 }, 0); // -> SI escribi el valorInicialDelAcumulador
@@ -364,7 +366,7 @@ elementoActual = 'mundo'
 
 /* en cambio, cuando NO se escribe el valorInicialDelAcumulador 
 el ELEMENTO ACTUAL empieza en la 
-segunda posicion -> indice 1 -> array[1] */
+segunda posicion → indice 1 → array[1] */
 array2.reduce((_, elementoActual) => {
   console.log(`elementoActual = '${elementoActual}'`);
 }); // NO escribi el valorInicialDelAcumulador
@@ -525,8 +527,6 @@ https://www.youtube.com/watch?v=qaGjS7-qWzg&t=397s */
 console.log(numeros);
 // (5) [1, 2, 3, 4, 5]
 
-// [].reduce((acumulador, elementoActual, indice, array) => { /* ... */ }, valorInicialDelAcumulador)
-
 // .reduce() MALA PRACTICA:
 let mayor = numeros.reduce((acumulador, elemento) => {
   if (acumulador < elemento) {
@@ -579,11 +579,17 @@ invertir = numeros.reverse();
 console.log(invertir); // (5) [5, 4, 3, 2, 1]
 
 // en cambio, .reverse() MODIFICA el array original
-console.log(numeros); // (5) [5, 4, 3, 2, 1]
+console.log(numeros);      // (5) [5, 4, 3, 2, 1]
+
+numeros = [1, 2, 3, 4, 5];
+console.log(numeros);      // (5) [1, 2, 3, 4, 5]
 
 /* ------------------------------------------------------------ */
 
 /* Ejemplo 13 - Usar Juntos .filter() y .map() y NUNCA Usar .reduce() 
+
+https://www.youtube.com/watch?v=S1ZXSoAxEBg&t=461s
+
 https://www.youtube.com/watch?v=qaGjS7-qWzg&t=602s
 
 https://www.youtube.com/watch?v=qaGjS7-qWzg&t=1106s
@@ -593,7 +599,6 @@ https://www.youtube.com/watch?v=qaGjS7-qWzg&t=1214s
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#replace_.filter.map_with_.reduce */
 
 // Crear un array q contenga numeros
-numeros = [1, 2, 3, 4, 5];
 console.log(numeros);
 // (5) [1, 2, 3, 4, 5]
 
@@ -651,10 +656,8 @@ const reduce2 = arrayDisperso.reduce((acumulador, elemento, i) => {
 Esto lo compruebo porq
 al iterar el arrayDisperso con .reduce()
 NO se imprime la ranura vacia [,]
-NI la posicion 1 
-*/
+NI la posicion 1
 
-/* 
 i=0 | acumulador = 0 | elemento = 1
 i=2 | acumulador = 1 | elemento = 3
 */
@@ -663,7 +666,7 @@ console.log(reduce2); // 1+3 = 4
 
 /* ------------------------------------------------------------ */
 
-/* Ejemplo 15 - Contar el número de veces que se repite un elemento en un array
+/* Ejemplo 15 - Contar el número de veces que se repite cada uno de los elementos del array
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#counting_instances_of_values_in_an_object */
 
 const repetido = ['hola mundo', 'daniel', 'lorem ipsum', 'daniel', 'daniel'];
@@ -708,13 +711,13 @@ console.log(objetoContar);
 /* Ejemplo 16 - Agrupar objeto literal {} por una propiedad (clave):
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#grouping_objects_by_a_property */
 
-const personas = [ // array de objetos [{}]
+const personas = [ // Array de objetos [{}]
 //  propiedad: valor,
   { nombre: 'Alice', edad: 21 },
   { nombre: 'Max', edad: 20 },
   { nombre: 'Jane', edad: 20 },
 ];
-// console.log(personas);
+console.log(personas);
 /* 
 [
   { nombre: 'Alice', edad: 21 },  
@@ -724,7 +727,7 @@ const personas = [ // array de objetos [{}]
 */
 
 /*
-VARIABLES:
+VARIABLES Y FUNCIONES
 
 agrupar()   = Funcion q contiene otra funcion (metodo) .reduce()
 arrayObjeto = Array de objetos [{}] a agrupar
@@ -733,7 +736,7 @@ property    = Propiedad por la q se agrupan los objetos
 acumulador  = Valor acumulado (sumado)  a medida q se itera el array de objetos [{}]
 objeto      = Objeto actual q se esta iterando del array de objetos [{}]
 key         = Valor del objeto literal, son las edades de las personas: 21, 20 y 20
-curGroup    = Valor del objeto actual en el acumulador (si existe)  */
+curGroup    = Valor del objeto actual en el acumulador (si existe) */
 function agrupar(arrayObjeto, property) {
   return arrayObjeto.reduce((acumulador, objeto) => {
     const key = objeto[property];
@@ -766,7 +769,7 @@ console.log(resultado);
 /* Ejemplo 17:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#concatenating_arrays_contained_in_an_array_of_objects_using_the_spread_syntax_and_initialvalue */
 
-const personas2 = [ // array de objetos [{}]
+const personas2 = [ // Array de objetos [{}]
 //  propiedad: valor,
   { nombre: 'Anna', libros: [1, 2] },
   { nombre: 'Bob', libros: [3, 4] },
@@ -812,6 +815,7 @@ let arraySinRepetidos = repetido.reduce((acumulador, elemento) => {
   if (!acumulador.includes(elemento)) {
     return [...acumulador, elemento];
   }
+
   /* NO añadir elementos repetidos 
   a la variable acumulador */
   return acumulador; // else { /*...*/ }
@@ -824,6 +828,7 @@ console.log(arraySinRepetidos);
 
 /* BUENA PRACTICA:
 Set() Guarda los valores UNICOS del array
+
 Array.from() Convierte el resultado a array
 
 Con el objeto Set() y el metodo Array.from() 
@@ -890,9 +895,8 @@ console.log(objetoLiteral);
 }
 */
 
-/* Sumar los valores del objetoLiteral {}
+/* Object.values() Array con los valores del objetoLiteral {} que son 2, 3, 4
 
-Object.values() Array con los valores del objetoLiteral {}
 .reduce() Sumar los valores del objetoLiteral {} */
 const sumarValores = (objetoLiteral) => Object.values(objetoLiteral).reduce((a, b) => a + b, 0);
 console.log(sumarValores(objetoLiteral));

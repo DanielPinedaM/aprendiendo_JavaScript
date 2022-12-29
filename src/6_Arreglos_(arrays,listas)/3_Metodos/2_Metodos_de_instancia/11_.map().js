@@ -11,6 +11,11 @@ https://youtu.be/FMubfnVET74
 Documentacion Oficial - .map()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
+Recordatorio:
+Puedo convertir de string a array usando .map() ver
+“ 8.5.3.10.2) .map() Método de Array ”
+https://www.samanthaming.com/tidbits/83-4-ways-to-convert-string-to-character-array/
+
 .map() DEVOLVER un nuevo array
 con el RESULTADO de ejecutar una funcion
 a CADA UNO de los elementos
@@ -300,7 +305,7 @@ console.log(formatearArray);
 
 /* ------------------------------------------------------------ */
 
-/* Ejemplo 9 - .map() en Objeto Literal {}
+/* Ejemplo 9 - Método de Array .map() en Objeto Literal {}
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map#calling_map_on_non-array_objects */
 
 const objetoLiteral = {

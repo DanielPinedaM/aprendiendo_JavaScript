@@ -53,9 +53,12 @@ el número especificado fromIndex */
 
 /* Ejemplo 1:
 
-Posicion (indice) del ULTIMO circulo '●' */
-  ['▲', '●', '■', '●'].lastIndexOf('●'); // 3
+Posición (índice) del ULTIMO circulo '●' */
+  ['■', '●', '■', '●'].lastIndexOf('●'); // 3
 //  0    1    2    3
+
+// Devuelve -1 porq el elemento triangulo '▲' NO existe en el array
+['■', '●', '■', '●'].lastIndexOf('▲'); // -1
 
 /* ---------------------------------------------------------------- */
 

@@ -278,8 +278,13 @@ console.log(gatos);
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 7 - Encontrar todos los numeros primos q estan en un array:
+/* Ejemplo 7 - Usando .filter() encontrar TODOS los números primos q están en un array:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter#find_all_prime_numbers_in_an_array
+
+Recordatorio:
+Ver:
+" Ejemplo 6 - Usando .find() encontrar el PRIMER número primo de un array: "
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find#find_a_prime_number_in_an_array
 
 Un numero primo...
 1) Es un numero ENTERO MAYOR Q 1,

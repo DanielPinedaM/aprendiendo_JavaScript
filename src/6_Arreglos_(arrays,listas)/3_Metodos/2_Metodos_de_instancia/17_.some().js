@@ -20,6 +20,8 @@ Es el nombre del metodo
 
 - */
 
+/* ------------------------------------------------------------ */
+
 const array = ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o'];
 
 console.log(array);
@@ -58,3 +60,5 @@ const condicion = personas.some((persona) => persona.edad >= 18);
 // .some() devuelve true al encontrar el primer elemento q cumple con la condicion
 console.log(condicion);
 // true
+
+/* ------------------------------------------------------------ */

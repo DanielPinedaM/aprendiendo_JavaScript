@@ -78,6 +78,7 @@ numero total de ELEMENTOS (figuras) contando desde 1 */
 mayor (ultima) POSICION (indice) contando desde 0 */
   ['▲', '●', '✖', '■'].length - 1; // 3
 //  0    1    2    3   -> Los indices son asi
+//                 ↑
 
 /*
  ▄▄▄▄▄▄▄▄▄
@@ -91,6 +92,7 @@ obtener (acceder) en especifico a un ELEMENTO q se encuentra en una posicion (in
 0 PRIMER elemento */
   ['▲', '●', '✖', '■'][0];        // '▲' -> string
 //  0    1    2    3
+//  ↑
 
 // -1 ULTIMO elemento
    ['▲', '●', '✖', '■'].at(-1);    // '■' -> string
@@ -106,8 +108,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 PRIMER numero de posición (indice) del ELEMENTO buscado
 
 Posicion del PRIMER circulo '●' */
-  ['▲', '●', '■', '●'].indexOf('●'); // 1
+  ['■', '●', '■', '●'].indexOf('●'); // 1
 //  0    1    2    3
+//       ↑
+
+// -1 significa q el elemento triangulo '▲' NO existe en el array
+['■', '●', '■', '●'].indexOf('▲'); // -1
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -118,8 +124,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 ULTIMO numero de posición (indice) del ELEMENTO buscado
 
 Posicion del ULTIMO circulo '●' */
-  ['▲', '●', '■', '●'].lastIndexOf('●'); // 3
+  ['■', '●', '■', '●'].lastIndexOf('●'); // 3
 //  0    1    2    3
+//                 ↑
+
+// Devuelve -1 porq el elemento triangulo '▲' NO existe en el array
+['■', '●', '■', '●'].lastIndexOf('▲'); // -1
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄
@@ -355,8 +365,12 @@ la unica diferencia es el orden de iteracion */
  ▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
 
-INCOMPLETO
-*/
+PRIMER elemento q es un circulo '●' */
+['■', '●', '■', '●'].find((elemento) => elemento === '●'); // '●'
+//     ↑
+
+// Devuelve undefined porq el elemento triangulo '▲' NO existe en el array
+['■', '●', '■', '●'].find((elemento) => elemento === '▲'); // undefined
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -364,8 +378,13 @@ INCOMPLETO
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
 
-INCOMPLETO
-*/
+PRIMER numero de posicion (indice) del circulo '●' */
+  ['■', '●', '■', '●'].findIndex((elemento) => elemento === '●'); // 1
+//  0    1    2    3
+//       ↑
+
+// Devuelve -1 porq el elemento triangulo '▲' NO existe en el array
+['■', '●', '■', '●'].findIndex((elemento) => elemento === '▲'); // -1
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -373,8 +392,13 @@ INCOMPLETO
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast
 
-INCOMPLETO
-*/
+ULTIMO elemento q es un circulo '●' */
+  ['■', '●', '■', '●'].findLast((elemento) => elemento === '●'); // '●'
+//  0    1    2    3
+//                 ↑
+
+// Devuelve undefined porq el elemento triangulo '▲' NO existe en el array
+['■', '●', '■', '●'].findLast((elemento) => elemento === '▲'); // undefined
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -382,5 +406,10 @@ INCOMPLETO
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLastIndex
 
-INCOMPLETO
-*/
+ULTIMO numero de posicion (indice) del circulo '●' */
+  ['■', '●', '■', '●'].findLastIndex((elemento) => elemento === '●'); // 3
+//  0    1    2    3
+//                 ↑
+
+// Devuelve -1 porq el elemento triangulo '▲' NO existe en el array
+['■', '●', '■', '●'].findLastIndex((elemento) => elemento === '▲'); // -1
