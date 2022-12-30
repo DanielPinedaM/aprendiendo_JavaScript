@@ -345,9 +345,9 @@ console.log(numeroPrimo);
 console.log(array3.filter(numeroPrimo));
 // (6) [2, 3, 5, 7, 11, 13]
 
-// Otra forma de llamar la () => {} funcion flecha numeroPrimo es:
+// Otra forma de llamar la () => {} funcion flecha numeroPrimo() es:
 console.log(numeroPrimo(0)); // false -> 0 NO es un numero primo
-console.log(numeroPrimo(2)); // true  -> 1 SI "                "
+console.log(numeroPrimo(2)); // true  -> 2 SI "                "
 
 /* ---------------------------------------------------------------- */
 

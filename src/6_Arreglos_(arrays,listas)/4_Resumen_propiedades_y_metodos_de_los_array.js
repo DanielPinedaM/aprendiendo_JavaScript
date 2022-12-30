@@ -5,6 +5,8 @@
 // @ts-nocheck
 /* eslint-disable no-unused-expressions */
 
+/* -------------------------------------------------------------- */
+
 /* Propiedades y metodos de los array...
 - Tutorial:
 https://youtu.be/LYF4FeJyccc
@@ -12,7 +14,7 @@ https://youtu.be/LYF4FeJyccc
 - Documentacion Oficial
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#static_methods */
 
-const array = ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o'];
+/* -------------------------------------------------------------- */
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -306,7 +308,7 @@ Reemplazar por circulo '●'...
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 
-En el array1 original hay 3 cuadrados
+En el array1 original (existente) hay 3 cuadrados
 y un circulo ['■', '■', '■', '●']
 pero despues de ejecutar .filter()
 se crea un nuevo array2
@@ -321,7 +323,19 @@ y ELIMINA las otras figuras q NO son cuadrados */
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
-INCOMPLETO
+Recorrer (Iterar) Array y Ejecutar una Función para Cada Elemento */
+['▲', '●', '✖', '■'].forEach((elemento, i) => {
+  console.log(`i=${i} | elemento='${elemento}'`);
+
+  /* Aqui se escribe el codigo q se ejecuta
+  para cada uno de los elementos del array,
+  .forEach() NO retorna return ningun valor */
+});
+/*
+i=0 | elemento='▲'
+i=1 | elemento='●'
+i=2 | elemento='✖'
+i=3 | elemento='■'
 */
 
 /*
@@ -330,10 +344,10 @@ INCOMPLETO
  ▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
-En el array1 original hay 4 cuadrados ['■', '■', '■', '■']
+En el array1 original (existente) hay 4 cuadrados ['■', '■', '■', '■']
 pero .map() devuelve una copia array2 en el q se
 MODIFICA CADA UNO de los elementos del array1 original
-concatenando los cuadrados con un triangulo '■▲' */
+concatenando (uniendo) los cuadrados con un triangulo '■▲' */
 ['■', '■', '■', '■'].map((elemento) => `${elemento}▲`);
 // (4) ['■▲', '■▲', '■▲', '■▲']
 
@@ -343,7 +357,9 @@ concatenando los cuadrados con un triangulo '■▲' */
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
 
-.reduce() concatenar cada uno de los elementos del array (4) ['▲', '●', '✖', '■']
+.reduce() concatenar (unir)
+cada uno de los elementos
+del array (4) ['▲', '●', '✖', '■']
 en un solo string '▲●✖■' (REDUCIR array) */
 ['▲', '●', '✖', '■'].reduce((acumulador, elemento) => acumulador + elemento, '');
 // '▲●✖■' -> .reduce() itera de Izquierda a Derecha
@@ -365,12 +381,15 @@ la unica diferencia es el orden de iteracion */
  ▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
 
-PRIMER elemento q es un circulo '●' */
+Primer Elemento que Coincide con la Condición de la Función
+
+Devolver el PRIMER elemento q sea un circulo '●' */
 ['■', '●', '■', '●'].find((elemento) => elemento === '●'); // '●'
 //     ↑
 
 // Devuelve undefined porq el elemento triangulo '▲' NO existe en el array
-['■', '●', '■', '●'].find((elemento) => elemento === '▲'); // undefined
+['■', '●', '■', '●'].find((elemento) => elemento === '▲');
+// undefined
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄

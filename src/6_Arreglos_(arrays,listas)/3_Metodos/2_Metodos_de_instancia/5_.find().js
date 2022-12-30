@@ -21,8 +21,7 @@ en caso de que NO se encuentre el elemento buscado
 entonces devuelve undefined
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find#return_value
 
-.find() Devuelve un nuevo array
-que NO modifica el array original (existente)
+.find() NO modifica el array original (existente)
 
 Alternativas al metodo .find():
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find#try_it
@@ -110,7 +109,7 @@ const figuras = ['▲', '●', '✖', '■'];
 console.log(figuras);
 // (4) ['▲', '●', '✖', '■']
 
-figuras.find((elemento, i) => {
+const iterar = figuras.find((elemento, i) => {
     console.log(`i=${i} | elemento='${elemento}'`);
 });
 /*
@@ -119,6 +118,12 @@ i=1 | elemento='●'
 i=2 | elemento='✖'
 i=3 | elemento='■'
 */
+
+/* .find() devuelve undefined
+porq la funcion (metodo)
+NO tiene un valor de retorno return */
+console.log(iterar);
+// undefined
 
 /* ------------------------------------------------------------ */
 
@@ -145,7 +150,7 @@ como si fueran undefined
 Esto lo compruebo porq
 al iterar el arrayDisperso
 se imprime undefined en la posicion (indice) 1
-q es donde esta la ranura vacia: */
+q es donde esta la ranura vacia [,] */
 
 /*
 i = 0 | elemento = 1
@@ -153,8 +158,11 @@ i = 1 | elemento = undefined
 i = 2 | elemento = 3
 */
 
-// Devuelve undefined porq .find() no esta retornando return ningun valor:
-console.log(find); // undefined
+/* .find() devuelve undefined
+porq la funcion (metodo)
+NO tiene un valor de retorno return */
+console.log(find);
+// undefined
 
 /* ------------------------------------------------------------ */
 
@@ -170,7 +178,7 @@ const numeros = [1, 2, 3, 10, 11, 12];
 console.log(numeros);
 // (6) [1, 2, 3, 10, 11, 12]
 
-// .find() imprimir el PRIMER ELEMENTO del array numeros q es mayor a 10
+// .find() imprimir el PRIMER ELEMENTO del array numeros q es mayor a 3
 const find2 = numeros.find((elemento) => elemento > 3);
 console.log(find2);
 // 10
@@ -206,11 +214,12 @@ entonces imprimir 'NO existen personas con 20 años'
 
 Stack Overflow - Validar si una variable es o no undefined en JS:
 https://stackoverflow.com/questions/3390396/how-can-i-check-for-undefined-in-javascript */
+
 const find3 = personas.find((elemento) => elemento.edad === 20);
 
 if (find3 === undefined) {
     console.log('NO existen personas con 20 años');
-} else {
+} else /* (find3 !== undefined) */ {
     console.log('La persona con 20 años es: \n', find2);
 }
 /*
@@ -285,16 +294,19 @@ el resto de los numeros 2, 3, 5 SI son primos
 console.log([0, 2, 3, 5].find(numeroPrimo)); // 2
 //              ↑
 
-// 2) Otra forma de llamar la () => {} funcion flecha numeroPrimo es:
+// 2) Otra forma de llamar la () => {} funcion flecha numeroPrimo() es:
 console.log(numeroPrimo(0)); // false -> 0 NO es un numero primo
-console.log(numeroPrimo(2)); // true  -> 1 SI "                "
+console.log(numeroPrimo(2)); // true  -> 2 SI "                "
 
 /* ------------------------------------------------------------ */
 
 /* Ejemplo 7 - Metodo de Array .find() en objetoLiteral {}
+El método .find() lee la propiedad length de this
+y luego accede a cada índice entero.
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find#calling_find_on_non-array_objects */
 
-// objetoLiteral {} con numeros decimales
+// objetoLiteral {} con numeros decimales en sus valores
 const objetoLiteral = {
 // propiedad: valor,
   0: 4,

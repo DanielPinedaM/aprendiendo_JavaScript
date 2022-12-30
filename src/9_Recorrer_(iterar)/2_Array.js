@@ -60,7 +60,10 @@ los array de acuerdo a la DIRECCION de iteracion:
  █ while () {} █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while
-*/
+
+1) Evalua la condicion
+
+2) Itera el array hasta que termine de cumplirse la condicion */
 let j = 0;
 
 while (j < array.length) {
@@ -73,7 +76,12 @@ while (j < array.length) {
  █ do {} while () █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while
-*/
+
+1) Ejecuta las instrucciones del bucle (ciclo) al menos una vez
+
+2) evalua la condicion
+
+3) Itera el array hasta que termine de cumplirse la condicion */
 j = 0;
 
 do {
@@ -86,7 +94,10 @@ do {
  █ for i++ █
  ▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
-*/
+
+Iterar array en orden ASCENDENTE (de IZQUIERDA A DERECHA) i++
+desde la PRIMERA posicion (indice) let i = 0
+hasta la ULTIMA posicion i < array.length */
 for (let i = 0; i < array.length; i++) {
   console.log(`i=${i} | elemento='${array[i]}'`);
 }
@@ -119,6 +130,7 @@ for (const i in array) {
  █ Array.from() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+Convertir a Array y Ejecutar una Función para Cada Elemento
 */
 Array.from(array, (elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
@@ -130,6 +142,7 @@ Array.from(array, (elemento, i) => {
  █ .entries() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
+Iterador de un Array
 */
 const iterador = array.entries();
 console.log(iterador);
@@ -157,6 +170,7 @@ array.every((elemento, i) => {
  █ .some() █
  ▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+¿AL MENOS UN SOLO Elemento del Array Cumple con la Condición de la Función?
 */
 array.some((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
@@ -175,7 +189,7 @@ array.some((elemento, i) => {
  █ .forEach() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
-*/
+Recorrer (Iterar) Array y Ejecutar una Función para Cada Elemento */
 array.forEach((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
 });
@@ -185,14 +199,13 @@ array.forEach((elemento, i) => {
  █ .map() █
  ▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
-*/
+Devolver un Nuevo Array
+con el Resultado de Ejecutar una Función
+a Cada Uno de los Elementos
+de un Array Existente (Mapear Array) */
 array.map((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
 
-  /* .map() devuelve el elemento actual
-  q cambia dependiendo de la posicion (indice) q se esta iterando,
-  al terminar de iterar se copia el array llamado figuras
-  en otro array llamado iterar */
   return elemento;
 });
 
@@ -219,9 +232,18 @@ array.filter((elemento, i) => {
  █ .reduce() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+
+Acumular los Elementos de un Array
+para Devolver un Solo Dato
+Iterando de Izquierda a Derecha (Reducir Array)
+
+.reduce() imprime todos los elementos porque
+NO se esta usando la variable acumulador
+para reducir el array a un solo dato
 */
 array.reduce((acumulador, elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
+
   return array;
 }, 0);
 
@@ -230,7 +252,10 @@ array.reduce((acumulador, elemento, i) => {
  █ .find() █
  ▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
-*/
+.find() Busca el PRIMER ELEMENTO
+que coincide con la condición de la función return
+
+Itera todo el array porque no hay ningun return */
 array.find((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
 });
@@ -240,7 +265,9 @@ array.find((elemento, i) => {
  █ .findIndex() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
-*/
+Devolver el PRIMER NÚMERO de posición (índice) del elemento buscado en un array
+
+Itera todo el array porque no hay ningun return */
 array.findIndex((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
 });
@@ -249,6 +276,9 @@ array.findIndex((elemento, i) => {
  ▄▄▄▄▄▄▄▄▄▄▄
  █ for i-- █
  ▀▀▀▀▀▀▀▀▀▀▀
+Iterar array en orden DESCENDENTE (de DERECHA A IZQUIERDA) i--
+desde la ULTIMA posicion (indice) let i = array.length - 1
+hasta la PRIMERA posicion i >= 0
 */
 for (let i = array.length - 1; i >= 0; i--) {
   console.log(`i=${i} | elemento='${array[i]}'`);
@@ -258,7 +288,9 @@ for (let i = array.length - 1; i >= 0; i--) {
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .reduceRight() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight
+.reduceRight() hace lo mismo q .reduce(),
+lo unico q cambia es el orden de iteracion */
 array.reduceRight((acumulador, elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
   return array;

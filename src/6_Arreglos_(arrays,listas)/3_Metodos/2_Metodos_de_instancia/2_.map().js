@@ -42,13 +42,13 @@ de un array existente (MAPEAR Array)
 Su sintaxis es:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map#syntax */
 
-// Funcion Flecha (Arrow Function)
+// Funcion Flecha (Arrow Function):
 // .map((element, index, array) => { /* … */ })
 
-// Función Retrollamada (Callback Function)
+// Función Retrollamada (Callback Function):
 // .map(callbackFn, thisArg)
 
-// Función Retrollamada en una Sola Línea (Inline Callback Function)
+// Función Retrollamada en una Sola Línea (Inline Callback Function):
 // .map(function (element, index, array) { /* … */ }, thisArg)
 
 /* Donde...
@@ -77,6 +77,8 @@ q la puedo obtener con la propiedad array.length - 1
 Es el array para el que se evalua la condicion de la funcion
 
 - thisArg
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods
+
 * Es opcional
 
 * Es un valor para usar como this al ejecutar la funcion callbackFn */

@@ -76,9 +76,11 @@ que empieza desde 0,
 es opcional
 
 - thisArg
-Valor a utilizar como this
-al ejecutar la funcion mapFn,
-es opcional */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods
+
+* Es opcional
+
+* Es un valor para usar como this al ejecutar la funcion mapFn */
 
 /* ------------------------------------------------ */
 
