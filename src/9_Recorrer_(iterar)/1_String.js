@@ -87,6 +87,11 @@ for (const i in string) {
 }
 
 /*
+Recordatorio:
+Ver:
+" 8.5.3.10) Formas de Convertir de String a Array "
+https://www.samanthaming.com/tidbits/83-4-ways-to-convert-string-to-character-array/
+
 Las formas q explique anteriormente
 sirven para iterar tipo string,
 pero si convierto de string a array,

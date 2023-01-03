@@ -16,10 +16,11 @@ pero para esto debería usarse los otros métodos de array que son:
 
 Recordatorio:
 Ver:
-" 9.4.3.1) Resumen: Diferencia Entre .forEach() .map() .filter() .reduce() .find()s "
+" 9.4.3.1) Resumen: Diferencia Entre .forEach() .map() .filter() .reduce() .find() "
 
 .forEach() NO tiene valor de retorno return,
-siempre retorna undefined
+SIEMPRE retorna undefined, ver:
+" Ejemplo 2 - Recorrer (iterar) array usando el método .forEach() "
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#description
 
@@ -87,7 +88,7 @@ DIFERENCIAS:
 - .forEach() es un METODO de array,
   en cambio for () {} es un BUCLE (ciclo, estructura de control)
 
-- .forEach() SOLAMENTE sirve iterar array,
+- .forEach() SOLAMENTE sirve para iterar array,
   en cambio for () {} se puede usar con CUALQUIER tipo de dato
 
 - .forEach() se ejecuta para TODOS los elementos del array
@@ -96,15 +97,12 @@ DIFERENCIAS:
   * for () {}
   * for of
   * for in
-  * every()
-  * some()
-  * find()
-  * findIndex()
+  * .Severy()
+  * .Ssome()
+  * .Sfind()
+  * .SfindIndex()
 
-  en cambio  NO necesariamente,
-  porque se puede detener su  con
-
-- forEach() NO sirve con la palabra clave await,
+- .forEach() NO sirve con la palabra clave await,
   en cambio for () {} SI */
 
 //  - Su sintaxis es diferente:
@@ -112,7 +110,7 @@ DIFERENCIAS:
 //  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#syntax
 
 // for (initialization; condition; afterthought) {
-// statement
+//      // statement
 // }
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for#syntax
 
@@ -124,8 +122,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 Puedo hacer que .forEach() MODIFIQUE (mute) el array original (existente),
 dependiendo de lo que escriba dentro del par de parentesis () del metodo */
 
-/* El array original (existente)
-tiene 2 elementos que son circulo '●' */
+// Array original (existente)
 const figuras = ['▲', '●', '✖', '■'];
 console.log(figuras);
 // (4) ['▲', '●', '✖', '■']
@@ -151,7 +148,7 @@ console.log(figuras);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 2 - Recorrer (iterar) array usando el metodo .forEach()
+/* Ejemplo 2 - Recorrer (iterar) array usando el método .forEach()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#try_it */
 
 const figuras2 = ['▲', '●', '✖', '■'];
@@ -171,7 +168,8 @@ Array(4)
 const iterar = figuras2.forEach((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
 
-  /* Aqui se escribe el codigo q se ejecuta una sola vez
+  /* Aqui se escribe el codigo
+  q se ejecuta una sola vez
   para cada uno de los elementos del array */
 });
 /*
@@ -241,7 +239,7 @@ Array(3)
 */
 
 /* Variable q contiene el resultado
-de sumar los elementos del array anterior */
+de sumar los numeros (elementos) del array anterior */
 let acumuladorSuma = 0;
 console.log(acumuladorSuma);
 // 0
@@ -257,8 +255,10 @@ numeros.forEach(async (elemento) => {
 });
 
 /* El resultado correcto es 1+2+3 = 6,
-pero se obtiene 0 porq
-.forEach() NO funciona con promesas NI funciones asíncronas */
+pero se obtiene 0
+porq .forEach()
+NO funciona con promesas
+NI funciones asíncronas */
 console.log(acumuladorSuma);
 // 0
 
@@ -269,16 +269,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 // Array original (existente)
 console.log(numeros);
-/*
-┌─────────┬────────┐
-│ (index) │ Values │
-├─────────┼────────┤
-│    0    │   1    │
-│    1    │   2    │
-│    2    │   3    │
-└─────────┴────────┘
-Array(3)
-*/
+// (3) [1, 2, 3]
 
 // Array vacio []
 let copiarArray = [];
@@ -294,16 +285,7 @@ for (let i = 0; i < numeros.length; i++) {
 /* Ahora los array numeros y copiarArray
    tienen los mismos elementos: */
 console.log(copiarArray);
-/*
-┌─────────┬────────┐
-│ (index) │ Values │
-├─────────┼────────┤
-│    0    │   1    │
-│    1    │   2    │
-│    2    │   3    │
-└─────────┴────────┘
-Array(3)
-*/
+// (3) [1, 2, 3]
 
 // Vaciar array []
 copiarArray = [];
@@ -313,16 +295,7 @@ console.log(copiarArray);
 // Hacer lo mismo pero con .forEach()
 numeros.forEach((elemento) => copiarArray.push(elemento));
 console.log(copiarArray);
-/*
-┌─────────┬────────┐
-│ (index) │ Values │
-├─────────┼────────┤
-│    0    │   1    │
-│    1    │   2    │
-│    2    │   3    │
-└─────────┴────────┘
-Array(3)
-*/
+// (3) [1, 2, 3]
 
 /* --------------------------------------------------------------- */
 
@@ -358,7 +331,7 @@ class Counter {
 }
 
 /* Llamar clase Counter
-y asignarle la variable objeto (instanciar clase) */
+y asignarle la variable objeto {} (instanciar clase) */
 const objeto = new Counter();
 console.log(objeto);
 // Counter { sumar: 0, contador: 0 }
@@ -405,13 +378,16 @@ const funcionCopiarObjeto = (obj) => {
     Object.defineProperty(copy, name, desc);
   });
 
-  // Devolvemos el objeto vacío que hemos rellenado con las propiedades del objeto original
+  /* Devolvemos el objeto vacío
+  que hemos rellenado
+  con las propiedades
+  del objeto original */
   return copy;
 };
 
-// Copiar objetoLiteral1 en objetoLiteral2
+// Copiar objetoLiteral1 {} en objetoLiteral2 {}
 const objetoLiteral1 = { a: 1, b: 2 };
-// console.log(objetoLiteral1);
+console.log(objetoLiteral1);
 /*
 {
   a: 1,
@@ -438,7 +414,7 @@ Este ejemplo es solo por aprender,
 la forma correcta (buena practica) de aplanar un array
 es con el metodo .flat() */
 
-// Funcion flecha para aplanar array
+// () => {} Funcion flecha para aplanar array
 const flat = (array) => {
   // Variable donde guardo el array aplanado
   const resultado = [];

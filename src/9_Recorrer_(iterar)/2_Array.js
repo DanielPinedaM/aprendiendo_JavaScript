@@ -30,6 +30,7 @@ los array de acuerdo a la DIRECCION de iteracion:
    - .reduce()
    - .find()
    - .findIndex()
+   - .indexOf()
 
    El resultado es:
 
@@ -130,6 +131,7 @@ for (const i in array) {
  █ Array.from() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+
 Convertir a Array y Ejecutar una Función para Cada Elemento
 */
 Array.from(array, (elemento, i) => {
@@ -142,6 +144,7 @@ Array.from(array, (elemento, i) => {
  █ .entries() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
+
 Iterador de un Array
 */
 const iterador = array.entries();
@@ -158,6 +161,7 @@ for (const elemento of iterador) {
  █ .every() █
  ▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+
 ¿TODOS los elementos del array cumplen con la condición de la función?
 */
 array.every((elemento, i) => {
@@ -170,6 +174,7 @@ array.every((elemento, i) => {
  █ .some() █
  ▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+
 ¿AL MENOS UN SOLO Elemento del Array Cumple con la Condición de la Función?
 */
 array.some((elemento, i) => {
@@ -189,6 +194,7 @@ array.some((elemento, i) => {
  █ .forEach() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+
 Recorrer (Iterar) Array y Ejecutar una Función para Cada Elemento */
 array.forEach((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
@@ -199,6 +205,7 @@ array.forEach((elemento, i) => {
  █ .map() █
  ▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
 Devolver un Nuevo Array
 con el Resultado de Ejecutar una Función
 a Cada Uno de los Elementos
@@ -252,6 +259,7 @@ array.reduce((acumulador, elemento, i) => {
  █ .find() █
  ▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+
 .find() Busca el PRIMER ELEMENTO
 que coincide con la condición de la función return
 
@@ -265,12 +273,24 @@ array.find((elemento, i) => {
  █ .findIndex() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+
 Devolver el PRIMER NÚMERO de posición (índice) del elemento buscado en un array
 
 Itera todo el array porque no hay ningun return */
 array.findIndex((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
 });
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .indexOf() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+*/
+for (const elemento of array) {
+  const i = array.indexOf(elemento);
+  console.log(`i=${i} | elemento='${elemento}'`);
+}
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄
@@ -289,6 +309,7 @@ for (let i = array.length - 1; i >= 0; i--) {
  █ .reduceRight() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight
+
 .reduceRight() hace lo mismo q .reduce(),
 lo unico q cambia es el orden de iteracion */
 array.reduceRight((acumulador, elemento, i) => {

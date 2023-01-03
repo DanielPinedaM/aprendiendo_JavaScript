@@ -5,20 +5,41 @@
 https://youtu.be/Mz9HSiXSSVU */
 
 const objetoLiteral = {
-// propiedad: valor,
-  noticias: [1, 2],
-  perfiles: {
-    usuarios: [3, 4],
-  },
+  uno: 1,
+  dos: 2,
+  tres: 3,
 };
 console.log(objetoLiteral);
 /*
 {
-  noticias: [ 1, 2 ],
-  perfiles: {
-             usuarios: [ 3, 4 ]
-            }
+  uno: 1,
+  dos: 2,
+  tres: 3
 }
+*/
+
+/*
+Con todas las siguientes formas,
+obtengo el mismo resultado:
+
+uno  ➜ 1
+dos  ➜ 2
+tres ➜ 3
+*/
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ while () {} █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+
+INCOMPLETO
+*/
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ do {} while () █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while
 */
 
 /*
@@ -31,6 +52,24 @@ INCOMPLETO
 */
 
 /*
+ ▄▄▄▄▄▄▄▄▄▄
+ █ for of █
+ ▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
+
+INCOMPLETO
+*/
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄
+ █ for in █
+ ▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
+
+INCOMPLETO
+*/
+
+/*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Object.keys() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
@@ -38,7 +77,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 */
 Object.keys(objetoLiteral).map((propiedad) => {
   const valor = objetoLiteral[propiedad];
-  console.log(`${propiedad} : ${valor}`);
+  console.log(`${propiedad} ➜ ${valor}`);
 });
 
 /*
@@ -54,6 +93,7 @@ console.log(Object.values(objetoLiteral));
  █ Object.entries() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
+
 Convertir de objeto literal {} a array [],
 el array contiene [propiedad, valor]
 */
