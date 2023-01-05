@@ -15,8 +15,93 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 - .matchAll()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll
 
-Ambos .match() y .matchAll() comparan un string con una expresión regular
+Ambos .match() y .matchAll()
+comparan un string con una expresión regular
+
+                                       |------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+                                       | .match()                                                   | .matchAll()                                                                                       |
+|--------------------------------------|------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| ¿Compara string                      | ✓                                                          | ✓                                                                                                 |
+| con expresión regular?               |                                                            |                                                                                                   |
+|--------------------------------------|------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| TIPO DE DATO devuelto                | Array                                                      | Iterador que contiene arrays                                                                      |
+| cuando el string                     |                                                            |                                                                                                   |
+| SI coincide con la expresión regular | Array.isArray() devuelve true                              | const matchAll = string.matchAll(/[a-z]/g);                                                       |
+|                                      | porq .match() devuelve un array []                         | console.log(typeof matchAll);                                                                     |
+|                                      |                                                            | // 'object'                                                                                       |
+|                                      | const string = 'hola mundo';                               |                                                                                                   |
+|                                      | Array.isArray(string.match(/[a-z]/));                      | console.log(matchAll);                                                                            |
+|                                      | // true                                                    | // Object [RegExp String Iterator] {}                                                             |
+|--------------------------------------|------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| Valor devuelto                       | null nulo                                                  | {} objeto literal vacío                                                                           |
+| cuando el string                     |                                                            |                                                                                                   |
+| NO coincide con la expresión regular | el string 'hola mundo' esta en minuscula,                  | console.log(string.matchAll(/[A-Z]/g));                                                           |
+|                                      | por lo tanto NO coincide con la expresion regular          | // Object [RegExp String Iterator] {}                                                             |
+|                                      | /[A-Z]/ q esta en MAYUSCULA                                |                                                                                                   |
+|                                      |                                                            |                                                                                                   |
+|                                      | string.match(/[A-Z]/);                                     |                                                                                                   |
+|                                      | // null                                                    |                                                                                                   |
+|--------------------------------------|------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| ¿Se puede usar CON /g                | ✓                                                          | ✓                                                                                                 |
+| en la expresión regular?             |                                                            |                                                                                                   |
+|                                      | /g en la expresion regular devuelve                        | crear un array a partir del metodo .matchAll()                                                    |
+|                                      | TODOS los caracteres q coinciden                           | const array = [...string.matchAll(/[a-z]/g)];                                                     |
+|                                      | con la expresion regular                                   | console.log(array);                                                                               |
+|                                      |                                                            | // (9) [Array(1), Array(1), Array(1), Array(1), Array(1), Array(1), Array(1), Array(1), Array(1)] |
+|                                      | string.match(/[a-z]/g);                                    |                                                                                                   |
+|                                      | // (9) ['h', 'o', 'l', 'a', 'm', 'u', 'n', 'd', 'o']       | Recorrer (iterar) array                                                                           |
+|                                      |                                                            | array.forEach((elemento3, i) => {                                                                 |
+|                                      |                                                            |   console.log(`i = ${i} | elemento = '${elemento3}'`);                                            |
+|                                      |                                                            | });                                                                                               |
+|                                      |                                                            |                                                                                                   |
+|                                      |                                                            | // i = 0 | elemento = 'h'                                                                         |
+|                                      |                                                            | // i = 1 | elemento = 'o'                                                                         |
+|                                      |                                                            | // i = 2 | elemento = 'l'                                                                         |
+|                                      |                                                            | // i = 3 | elemento = 'a'                                                                         |
+|                                      |                                                            | // i = 4 | elemento = 'm'                                                                         |
+|                                      |                                                            | // i = 5 | elemento = 'u'                                                                         |
+|                                      |                                                            | // i = 6 | elemento = 'n'                                                                         |
+|                                      |                                                            | // i = 7 | elemento = 'd'                                                                         |
+|                                      |                                                            | // i = 8 | elemento = 'o'                                                                         |
+|                                      |                                                            |                                                                                                   |
+|                                      |                                                            | .matchAll() devuelve un iterador                                                                  |
+|                                      |                                                            | q contiene arrays con                                                                             |
+|                                      |                                                            | TODOS los caracteres                                                                              |
+|                                      |                                                            | q coinciden con la expresion regular                                                              |
+|                                      |                                                            | const matchAll = string.matchAll(/[a-z]/g);                                                       |
+|                                      |                                                            |                                                                                                   |
+|                                      |                                                            | Recorrer (iterar)                                                                                 |
+|                                      |                                                            | Array.from(matchAll, (elemento1) => console.log(elemento1));                                      |
+|                                      |                                                            |                                                                                                   |
+|                                      |                                                            | for (const elemento2 of matchAll) {                                                               |
+|                                      |                                                            |   console.log(elemento2);                                                                         |
+|                                      |                                                            | }                                                                                                 |
+|                                      |                                                            | // [ 'h', index: 0, input: 'hola mundo', groups: undefined ]                                      |
+|                                      |                                                            | // [ 'o', index: 1, input: 'hola mundo', groups: undefined ]                                      |
+|                                      |                                                            | // [ 'l', index: 2, input: 'hola mundo', groups: undefined ]                                      |
+|                                      |                                                            | // [ 'a', index: 3, input: 'hola mundo', groups: undefined ]                                      |
+|                                      |                                                            | // [ 'm', index: 5, input: 'hola mundo', groups: undefined ]                                      |
+|                                      |                                                            | // [ 'u', index: 6, input: 'hola mundo', groups: undefined ]                                      |
+|                                      |                                                            | // [ 'n', index: 7, input: 'hola mundo', groups: undefined ]                                      |
+|                                      |                                                            | // [ 'd', index: 8, input: 'hola mundo', groups: undefined ]                                      |
+|                                      |                                                            | // [ 'o', index: 9, input: 'hola mundo', groups: undefined ]                                      |
+|--------------------------------------|------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| ¿Se puede usar SIN /g                | ✓                                                          | X                                                                                                 |
+| en la expresión regular?             | cuando NO se escribe /g                                    | ERROR: con el metodo .matchAll()                                                                  |
+|                                      | en la expresion regular                                    | es obligatorio escribir /g en la expresion regular                                                |
+|                                      | se devuelve la PRIMERA coincidencia                        |                                                                                                   |
+|                                      | de la expresion regular                                    | string.matchAll(/[a-z]/)                                                                          |
+|                                      | el PRIMER caracter (letra) de 'hola mundo'                 |                                                                                                   |
+|                                      | q coincide con la expresion regular                        |                                                                                                   |
+|                                      | /[a-z]/ es la 'h'                                          |                                                                                                   |
+|                                      |                                                            |                                                                                                   |
+|                                      | string.match(/[a-z]/);                                     |                                                                                                   |
+|                                      | // ['h', index: 0, input: 'hola mundo', groups: undefined] |                                                                                                   |
+|--------------------------------------|------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+
 */
+
+/* ------------------------------------------------------------------------------------ */
 
 const string = 'hola mundo';
 
@@ -81,7 +166,7 @@ console.log(matchAll);
 // Object [RegExp String Iterator] {}
 
 console.log(typeof matchAll);
-// object
+// 'object'
 
 // false porq .matchAll() NO devuelve un array
 console.log(Array.isArray(matchAll));

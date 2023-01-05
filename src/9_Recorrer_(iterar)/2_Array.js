@@ -46,6 +46,7 @@ los array de acuerdo a la DIRECCION de iteracion:
    - for i--
    - .reduceRight()
    - .findLast()
+   - .lastIndexOf()
    - .findLastIndex()
 
    El resultado es:
@@ -107,8 +108,7 @@ for (let i = 0; i < array.length; i++) {
  ▄▄▄▄▄▄▄▄▄▄
  █ for of █
  ▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
-*/
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of */
 j = 0;
 
 for (const elemento of array) {
@@ -120,8 +120,7 @@ for (const elemento of array) {
  ▄▄▄▄▄▄▄▄▄▄
  █ for in █
  ▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
-*/
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in */
 for (const i in array) {
   console.log(`i=${i} | elemento='${array[i]}'`);
 }
@@ -132,8 +131,7 @@ for (const i in array) {
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
 
-Convertir a Array y Ejecutar una Función para Cada Elemento
-*/
+Convertir a Array y Ejecutar una Función para Cada Elemento */
 Array.from(array, (elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
   return elemento;
@@ -145,8 +143,7 @@ Array.from(array, (elemento, i) => {
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
 
-Iterador de un Array
-*/
+Iterador de un Array */
 const iterador = array.entries();
 console.log(iterador);
 // Object [Array Iterator] {}
@@ -162,8 +159,7 @@ for (const elemento of iterador) {
  ▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
 
-¿TODOS los elementos del array cumplen con la condición de la función?
-*/
+¿TODOS los elementos del array cumplen con la condición de la función? */
 array.every((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
   return true;
@@ -175,8 +171,7 @@ array.every((elemento, i) => {
  ▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 
-¿AL MENOS UN SOLO Elemento del Array Cumple con la Condición de la Función?
-*/
+¿AL MENOS UN SOLO Elemento del Array Cumple con la Condición de la Función? */
 array.some((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
 
@@ -221,7 +216,8 @@ array.map((elemento, i) => {
  █ .filter() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
-*/
+
+Crear una Copia de un Array Existente Dependiendo de la Condición de una Función (Filtrar Array) */
 array.filter((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
 
@@ -246,8 +242,7 @@ Iterando de Izquierda a Derecha (Reducir Array)
 
 .reduce() imprime todos los elementos porque
 NO se esta usando la variable acumulador
-para reducir el array a un solo dato
-*/
+para reducir el array a un solo dato */
 array.reduce((acumulador, elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
 
@@ -286,9 +281,10 @@ array.findIndex((elemento, i) => {
  █ .indexOf() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
-*/
+
+PRIMER Número de Posición (Índice) del Elemento Buscado */
 for (const elemento of array) {
-  const i = array.indexOf(elemento);
+  const i = array.indexOf(elemento); // MALA PRACTICA: obtener indice actual con .indexOf()
   console.log(`i=${i} | elemento='${elemento}'`);
 }
 
@@ -298,8 +294,7 @@ for (const elemento of array) {
  ▀▀▀▀▀▀▀▀▀▀▀
 Iterar array en orden DESCENDENTE (de DERECHA A IZQUIERDA) i--
 desde la ULTIMA posicion (indice) let i = array.length - 1
-hasta la PRIMERA posicion i >= 0
-*/
+hasta la PRIMERA posicion i >= 0 */
 for (let i = array.length - 1; i >= 0; i--) {
   console.log(`i=${i} | elemento='${array[i]}'`);
 }
@@ -322,17 +317,31 @@ array.reduceRight((acumulador, elemento, i) => {
  █ .findLast() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast
-*/
+
+ÚLTIMO Elemento que Coincide con la Condición de la Función */
 array.findLast((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
 });
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .lastIndexOf() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexO
+
+ULTIMO Número de Posición (Índice) del Elemento Buscado */
+for (let i = array.length - 1; i >= 0; i--) {
+  const k = array.lastIndexOf(array[i]); // MALA PRACTICA: obtener indice actual con .lastIndexOf()
+  console.log(`i=${k} | elemento='${array[j]}'`);
+}
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .findLastIndex() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLastIndex
-*/
+
+ULTIMO Número de Posición (Índice) del Elemento Buscado */
 array.findLastIndex((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
 });

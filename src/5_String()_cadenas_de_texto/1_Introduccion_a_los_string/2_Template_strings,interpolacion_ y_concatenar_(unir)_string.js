@@ -5,25 +5,26 @@
 Tutorial Jon Mircha - Template literals (Template strings):
 https://youtu.be/arOXcy7K4XQ
 
--------------------------------------------------------------------------
-| Cadena de Texto              |  Regular String  |  Template Literal   |
-|                              |                  |  (Template String)  |
-|------------------------------|------------------|---------------------|
-| Tipo de Comillas             |  Simples ' '     |  Invertidas ` `     |
-|                              |  Dobles " "      |                     |
-|------------------------------|------------------|---------------------|
-| ¿Ocupa un solo o             |  Uno             |  Varias             |
-| varias líneas (renglones)    |                  |                     |
-| de código?                   |                  |                     |
-|------------------------------|------------------|---------------------|
-| ¿Permite concatenar (unir)?  |  SI              |  SI                 |
-| +                            |                  |                     |
-| +=                           |                  |                     |
-| ,                            |                  |                     |
-|------------------------------|------------------|---------------------|
-| ¿Permite interpolar?         |  NO              |  SI                 |
-| ${}                          |                  |                     |
--------------------------------------------------------------------------
+|------------------------------------------------------------------------|
+| Cadena de Texto              | Literal de cadena | Plantilla de cadena |
+|                              | (string literals, | (template literal,  |
+|                              | regular string)   | template string )   |
+|------------------------------|-------------------|---------------------|
+| Tipo de Comillas             |  Simples ' '      |  Invertidas ` `     |
+|                              |  Dobles " "       |                     |
+|------------------------------|-------------------|---------------------|
+| ¿Ocupa un solo o             |  Uno              |  Varias             |
+| varias líneas (renglones)    |                   |                     |
+| de código?                   |                   |                     |
+|------------------------------|-------------------|---------------------|
+| ¿Permite concatenar (unir)?  |  ✓                |  ✓                  |
+| +                            |                   |                     |
+| +=                           |                   |                     |
+| ,                            |                   |                     |
+|------------------------------|-------------------|---------------------|
+| ¿Permite interpolar?         |  X                |  ✓                  |
+| ${}                          |                   |                     |
+|------------------------------------------------------------------------|
 
 La extensión de VS Code llamada
 Template String Converter meganrogge

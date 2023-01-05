@@ -3,7 +3,32 @@
 /* eslint-disable no-new-wrappers */
 
 /* Tutorial Jon Mircha - String() Cadenas de Texto:
-https://youtu.be/s-C8OpALC6E */
+https://youtu.be/s-C8OpALC6E
+
+|------------------------------------------------------------------------|
+| Cadena de Texto              | Literal de cadena | Plantilla de cadena |
+|                              | (string literals, | (template literal,  |
+|                              | regular string)   | template string )   |
+|------------------------------|-------------------|---------------------|
+| Tipo de Comillas             |  Simples ' '      |  Invertidas ` `     |
+|                              |  Dobles " "       |                     |
+|------------------------------|-------------------|---------------------|
+| ¿Ocupa un solo o             |  Uno              |  Varias             |
+| varias líneas (renglones)    |                   |                     |
+| de código?                   |                   |                     |
+|------------------------------|-------------------|---------------------|
+| ¿Permite concatenar (unir)?  |  ✓                |  ✓                  |
+| +                            |                   |                     |
+| +=                           |                   |                     |
+| ,                            |                   |                     |
+|------------------------------|-------------------|---------------------|
+| ¿Permite interpolar?         |  X                |  ✓                  |
+| ${}                          |                   |                     |
+|------------------------------------------------------------------------|
+
+*/
+
+/* ----------------------------------------------------------------------- */
 
 const nombre = 'Daniel';
 const apellido = 'Pineda';

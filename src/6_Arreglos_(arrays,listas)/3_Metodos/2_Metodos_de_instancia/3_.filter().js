@@ -4,7 +4,67 @@
 /* eslint-disable max-len */
 // @ts-nocheck
 
-/* Tutorial:
+/*
+Recordatorio:
+
+Resumen: Diferencia Entre .forEach() .map() .filter() .reduce() .find()
+
+             |------------------|---------------------------------|-------------------------------|--------------------------------------------------|----------------------------------|------------------------------------------------------------------------------------|
+             | ¿Recorre (itera) | ¿Crea una nueva copia           | ¿Modifica el array original?  | Valor de retorno return                          | Comparación entre el             | Ejemplo                                                                            |
+             | el array?        | del array original (existente)? | (mutable / inmutable)         |                                                  | número de elementos .length      |                                                                                    |
+             |                  |                                 |                               |                                                  | del array1 original              |                                                                                    |
+             |                  |                                 |                               |                                                  | y su copia array2                |                                                                                    |
+|------------|------------------|---------------------------------|-------------------------------|--------------------------------------------------|----------------------------------|------------------------------------------------------------------------------------|
+| .forEach() | ✓                | X                               | ✓                             | X                                                | X                                | ['▲', '●', '✖', '■'].forEach((elemento, i) => {                                   |
+|            |                  | Si es posible,                  | Dependiendo de lo que escriba | NO tiene valor de retorno                        |                                  |   console.log(`i=${i} | elemento='${elemento}'`);                                  |
+|            |                  | pero para esto debería usarse   | en la función .forEach()      | Siempre retorna undefined                        |                                  |                                                                                    |
+|            |                  | los otros métodos de array      | puedo escoger si editar o no  | Ejecuta una función para cada uno                |                                  |   // Aqui se escribe el codigo q se ejecuta                                        |
+|            |                  |                                 | el array original             | de los elementos del array,                      |                                  |   // para cada uno de los elementos del array,                                     |
+|            |                  |                                 |                               | es similar al bucle for () {}                    |                                  |   // .forEach() NO retorna return ningun valor                                     |
+|            |                  |                                 |                               |                                                  |                                  | });                                                                                |
+|            |                  |                                 |                               |                                                  |                                  |                                                                                    |
+|            |                  |                                 |                               |                                                  |                                  | // i=0 | elemento='▲'                                                              |
+|            |                  |                                 |                               |                                                  |                                  | // i=1 | elemento='●'                                                              |
+|            |                  |                                 |                               |                                                  |                                  | // i=2 | elemento='✖'                                                             |
+|            |                  |                                 |                               |                                                  |                                  | // i=3 | elemento='■'                                                              |
+|------------|------------------|---------------------------------|-------------------------------|--------------------------------------------------|----------------------------------|------------------------------------------------------------------------------------|
+| .map()     | ✓                | ✓                               | X                             | ✓                                                | array1.length                    | En el array1 original (existente)                                                  |
+|            |                  |                                 |                               | Un nuevo array2 que MODIFICA                     | =                                | hay 4 cuadrados (4) ['■', '■', '■', '■']                                           |
+|            |                  |                                 |                               | cada uno de los elementos                        | array2.length                    | pero .map() devuelve una copia array2                                              |
+|            |                  |                                 |                               | del array1 original (existente)                  |                                  | en el q se MODIFICA CADA UNO de los elementos del array1 original                  |
+|            |                  |                                 |                               | (MAPEAR array)                                   |                                  | concatenando (uniendo) los cuadrados con un triángulo '■▲'                         |
+|            |                  |                                 |                               |                                                  |                                  |                                                                                    |
+|            |                  |                                 |                               |                                                  |                                  | ['■', '■', '■', '■'].map((elemento) => `${elemento}▲`);                            |
+|            |                  |                                 |                               |                                                  |                                  | // (4) ['■▲', '■▲', '■▲', '■▲']                                                    |
+|------------|------------------|---------------------------------|-------------------------------|--------------------------------------------------|----------------------------------|------------------------------------------------------------------------------------|
+| .filter()  | ✓                | ✓                               | X                             | ✓                                                | array1.length                    | En el array1 original (existente)                                                  |
+|            |                  |                                 |                               | Un nuevo array2 en el que                        | <=                               | hay 3 cuadrados y un círculo (4) ['■', '■', '■', '●']                              |
+|            |                  |                                 |                               | se ELIMINAN los elementos del array1 original    | array2.length                    | pero después de ejecutar .filter() se crea un nuevo array2                         |
+|            |                  |                                 |                               | que NO cumplen con la condición de la función    |                                  | q solamente copia los cuadrados '■' del array1                                     |
+|            |                  |                                 |                               | (FILTRAR array)                                  |                                  | y ELIMINA las otras figuras q NO son cuadrados                                     |
+|            |                  |                                 |                               |                                                  |                                  |                                                                                    |
+|            |                  |                                 |                               |                                                  |                                  | ['■', '■', '■', '●'].filter((elemento) => elemento === '■');                       |
+|            |                  |                                 |                               |                                                  |                                  | // (3) ['■', '■', '■']                                                             |
+|------------|------------------|---------------------------------|-------------------------------|--------------------------------------------------|----------------------------------|------------------------------------------------------------------------------------|
+| .reduce()  | ✓                | X                               | X                             | ✓                                                | UN SOLO VALOR                    | Concatenar (unir)                                                                  |
+| (mala      |                  |                                 |                               | Devuelve UN SOLO dato,                           | que puede ser de cualquier tipo: | cada uno de los elementos del array                                                |
+| práctica)  |                  |                                 |                               | q es el resultado de ACUMULAR (sumar)            | '' string,                       | (4) ['▲', '●', '✖', '■']                                                           |
+|            |                  |                                 |                               | todos los elementos del array                    | number,                          | en un solo string '▲●✖■'                                                           |
+|            |                  |                                 |                               | (REDUCIR array)                                  | [] array,                        | (REDUCIR array)                                                                    |
+|            |                  |                                 |                               |                                                  | {} object,                       |                                                                                    |
+|            |                  |                                 |                               |                                                  | etc...                           | ['▲', '●', '✖', '■'].reduce((acumulador, elemento) => acumulador + elemento, '');  |
+|            |                  |                                 |                               |                                                  |                                  | // '▲●✖■' -> .reduce() itera de Izquierda a Derecha                                |
+|------------|------------------|---------------------------------|-------------------------------|--------------------------------------------------|----------------------------------|------------------------------------------------------------------------------------|
+| .find()    | ✓                | X                               | X                             | ✓                                                | X                                | Devolver el PRIMER elemento q sea un círculo '●'                                   |
+|            |                  |                                 |                               | Devuelve el PRIMER ELEMENTO                      |                                  | ['■', '●', '■', '●'].find((elemento) => elemento === '●'); // '●'                  |
+|            |                  |                                 |                               | que cumple con la condición de la función return |                                  | //     ↑                                                                           |
+|            |                  |                                 |                               | y cuando NO encuentre el elemento buscado        |                                  |                                                                                    |
+|            |                  |                                 |                               | devuelve undefined                               |                                  | Devuelve undefined porque el elemento triangulo '▲' NO existe en el array          |
+|            |                  |                                 |                               |                                                  |                                  | ['■', '●', '■', '●'].find((elemento) => elemento === '▲');                         |
+|            |                  |                                 |                               |                                                  |                                  | // undefined                                                                       |
+|------------|------------------|---------------------------------|-------------------------------|--------------------------------------------------|----------------------------------|------------------------------------------------------------------------------------|
+
+Tutorial:
 https://youtu.be/fCvuOyVXUUQ
 
 Documentacion Oficial - .filter()
@@ -282,9 +342,14 @@ console.log(gatos);
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter#find_all_prime_numbers_in_an_array
 
 Recordatorio:
-Ver:
-" Ejemplo 6 - Usando .find() encontrar el PRIMER número primo de un array: "
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find#find_a_prime_number_in_an_array
+Hay otros ejemplos similares a este, ver:
+- " Ejemplo 6 - Usando .find() encontrar el PRIMER número primo de un array: "
+
+- " Ejemplo 12 - Usando .findIndex() encontrar la PRIMERA posicion (indice) del numero primo de un array: "
+
+- " Ejemplo 10 - Usando .findLastIndex() encontrar la ULTIMA posicion (indice) del numero primo de un array: "
+
+Explicación:
 
 Un numero primo...
 1) Es un numero ENTERO MAYOR Q 1,
@@ -296,58 +361,43 @@ Ejemplo:
 2 es un numero primo porque:
 2 > 1     -> 2 es MAYOR Q 1
 2 / 1 = 2 -> 2 es divisible por 1
-2 / 2 = 1 -> 2 "              " si mismo */
+2 / 2 = 1 -> 2 "              " si mismo
 
-// ¿Que numeros de este array3 son primos?
+Solución:
+
+Stack Overflow - Funcion para saber cuando un numero si es o no primo:
+https://stackoverflow.com/questions/40200089/check-number-prime-in-javascript
+
+esPrimo() funcion flecha para saber cuando un numero si es o no primo
+numero    es el numero q quiero saber si es o no primo */
+const esPrimo = (numero) => {
+  // NO son primos los numeros q NO son enteros (1.1 'hola mundo' ...)
+  if (!Number.isInteger(numero)) return false;
+
+  // Iterar desde 2 hasta la raíz cuadrada del número
+  for (let i = 2, s = Math.sqrt(numero); i <= s; i++) {
+    // El numero NO es primo cuando el indice i es divisible por el numero
+    if (numero % i === 0) return false;
+  }
+
+  // NO son primos los numeros MENORES a 2 (1, 0, -1, -2 ...)
+  return numero > 1; // else { return num > 1; }
+};
+
+/* Problema:
+¿Que numeros de este array3 son primos? */
 const array3 = [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+//                        ↑  ↑     ↑     ↑            ↑       ↑
 console.log(array3);
 // (15) [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
-/* El parametro numero de la () => {} funcion flecha
-es cada uno de los numeros (elementos) del array3,
-es el elemento actual */
-
-const numeroPrimo = (numero) => {
-  /* let i = 2
-  Significa que i empieza en 2 porq
-  los numeros primos son un numero ENTERO MAYOR Q 1
-
-  numero > i
-  El bucle continuará iterando
-  mientras q el numero (elemento) actual
-  sea mayor que i
-
-  i++ El valor de i incrementa de uno en uno (2, 3, 4...) */
-  for (let i = 2; numero > i; i++) { // for () {} Recorrer (iterar) array3
-    /* Dividir cada uno de los numeros del array3 por el indice
-    y obtener su modulo %
-
-    El numero NO false es primo cuando
-    (numero % i === 0) el numero actual
-    sea divisible por el indice  */
-    if (numero % i === 0) {
-      return false;
-    }
-  }
-  /* El numero SI true es primo cuando
-  el bucle for termina sin encontrar
-  un número que divide al numero (elemento) actual del array3
-
-  numero > 1 verifica q los numeros del array sean MAYOR Q 1 */
-  return numero > 1; // else { /*...*/ }
-};
-
-// Imprimir la () => {}  función flecha numeroPrimo
-console.log(numeroPrimo);
-// [Function: numeroPrimo]
-
 // .filter() Del array3 FILTRAR los numeros q son primos
-console.log(array3.filter(numeroPrimo));
+console.log(array3.filter(esPrimo));
 // (6) [2, 3, 5, 7, 11, 13]
 
-// Otra forma de llamar la () => {} funcion flecha numeroPrimo() es:
-console.log(numeroPrimo(0)); // false -> 0 NO es un numero primo
-console.log(numeroPrimo(2)); // true  -> 2 SI "                "
+// Esta es otra forma de llamar la () => {} funcion flecha esPrimo()
+console.log(esPrimo(0)); // false -> 0 NO es primo
+console.log(esPrimo(2)); // true  -> 2 SI es primo
 
 /* ---------------------------------------------------------------- */
 

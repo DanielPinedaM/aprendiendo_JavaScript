@@ -1,3 +1,4 @@
+/* eslint-disable no-self-compare */
 /* eslint-disable no-shadow */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable array-callback-return */
@@ -8,7 +9,11 @@
 /* eslint-disable no-sparse-arrays */
 // @ts-nocheck
 
-/* Documentacion Oficial...
+/*
+Diferencias y Similitudes Entre .indexOf() y .findIndex() -
+PRIMER Número de Posición (Índice) del Elemento Buscado
+
+Documentacion Oficial...
 - .indexOf()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
 
@@ -18,6 +23,58 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 Recordatorio:
 .indexOf() también sirve para STRING, ver:
 ...\aprendiendo_JS\src\5_String()_cadenas_de_texto\3_Metodos\2_Metodos_de_instancia\7_.indexOf().js
+
+Stack Overflow - Diferencia Entre .indexOf() y .findIndex()
+https://stackoverflow.com/questions/41443029/difference-between-indexof-and-findindex-function-of-array
+
+                                              |------------------------------------------------------------------------------------------------------------------------------|
+                                              |                                               Método de Array                                                                |
+                                              |------------------------------------------------------|-----------------------------------------------------------------------|
+                                              | .indexOf()                                           | .findIndex()                                                          |
+|---------------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------|
+| Devuelve el PRIMER                          | ✓                                                    | ✓                                                                     |
+| número de posición (índice)                 |                                                      |                                                                       |
+| del elemento buscado en un array            |                                                      |                                                                       |
+|---------------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------|
+| ¿Qué parámetros se pueden escribir          | Valor                                                | Función                                                               |
+| dentro del par de paréntesis () del método? |                                                      |                                                                       |
+|---------------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------|
+| Sintaxis                                    | .indexOf(searchElement, fromIndex)                   | .findIndex((element, index, array) => { })                            |
+|---------------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------|
+| Valor de retorno return                     | -1                                                   | -1                                                                    |
+| cuando NO se encuentra                      | // .indexOf() devuelve -1 porq el elemento           | // .findIndex() devuelve -1 porq el elemento                          |
+| el elemento buscado                         | // triangulo '▲' NO existe en el array               | // triangulo '▲' NO existe en el array                                |
+|                                             | ['■', '●', '■', '●'].indexOf('▲'); // -1             | ['■', '●', '■', '●'].findIndex((elemento) => elemento === '▲'); // -1 |
+|---------------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------|
+| Usar para buscar                            | Datos primitivos:                                    | Datos compuestos (objetos):                                           |
+| en los elementos de un array                | - ['hola mundo'] Cadenas de texto                    | - [[]] Array anidado                                                  |
+| los tipos de datos...                       | - [1, 2, 3] Numero                                   | - [{}] Array de objetos                                               |
+|                                             | - [1n, 2n, 3n] Numero grande (Big Int)               | - [function () {}] Array de funciones                                 |
+|                                             | - [true, false] Booleano                             | - [class {}] Array de clases                                          |
+|                                             | - [Symbol()] Símbolo (identificador único)           |                                                                       |
+|                                             | - [null] Nulo                                        |                                                                       |
+|                                             | - [undefined] Indefinido                             |                                                                       |
+|                                             | - [NaN] No es un Numero                              |                                                                       |
+|---------------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------|
+| ¿Puedo usar el método                       | ✓                                                    | ✓                                                                     |
+| para recorrer (iterar) array?               |                                                      |                                                                       |
+|---------------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------|
+| ¿Sirve para las ranuras vacías              | X                                                    | X                                                                     |
+| de los array dispersos [,]?                 |                                                      |                                                                       |
+|---------------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------|
+| ¿Modifica (muta)                            | X                                                    | X                                                                     |
+| el array original (existente)?              |                                                      |                                                                       |
+|---------------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------|
+| ¿Distingue entre MAYUSCULAS y minúsculas?   | ✓                                                    | ✓                                                                     |
+|---------------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------|
+| Ejemplo                                     | // .indexOf()                                        | // .findIndex()                                                       |
+|                                             | // PRIMER numero de posicion (indice) del ELEMENTO 3 | // PRIMER numero de posicion (indice) del elemento MAYOR Q 3          |
+|                                             | // El argumento es un VALOR                          | // el argumento de una FUNCIÓN                                        |
+|                                             | console.log(numeros.indexOf(3)); // 2                | console.log(numeros.findIndex(elemento) => elemento > 3)); // 4       |
+|                                             | // [1, 2, 3, 3, 4, 5]  ARRAY                         | // [1, 2, 3, 3, 4, 5]  ARRAY                                          |
+|                                             | //  0  1  2  3  4  5   POSICIÓN (ÍNDICE)             | //  0  1  2  3  4  5   POSICIÓN (ÍNDICE)                              |
+|                                             | //        ↑                                          | //              ↑                                                     |
+|---------------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------|
 
 Ambos .indexOf() y .findIndex()
 empiezan a contar las posiciones (índices)
@@ -117,11 +174,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 /* Ejemplo 1:
 
 PRIMER numero de posicion (indice) del circulo '●' */
-  ['■', '●', '■', '●'].indexOf('●');                            // 1 -> .indexOf()
+  ['■', '●', '■', '●'].indexOf('●');                              // 1 -> .indexOf()
+  ['■', '●', '■', '●'].findIndex((elemento) => elemento === '●'); // 1 -> .findIndex()
 //  0    1    2    3
 //       ↑
-
-['■', '●', '■', '●'].findIndex((elemento) => elemento === '●'); // 1 -> .findIndex()
 
 // Devuelve -1 porq el elemento triangulo '▲' NO existe en el array
 ['■', '●', '■', '●'].indexOf('▲');                              // -1 -> .indexOf()
@@ -135,8 +191,10 @@ const figuras = ['▲', '●', '✖', '■'];
 console.log(figuras);
 // (4) ['▲', '●', '✖', '■']
 
-figuras.findIndex((elemento, i) => {
+const iterar = figuras.findIndex((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
+
+  // aqui NO escribi return
 });
 /*
 i=0 | elemento='▲'
@@ -144,6 +202,11 @@ i=1 | elemento='●'
 i=2 | elemento='✖'
 i=3 | elemento='■'
 */
+
+/* .findIndex() devuelve -1
+porq NO tiene valor de retorno return */
+console.log(iterar);
+// -1
 
 /* ---------------------------------------------------------------- */
 
@@ -153,7 +216,7 @@ console.log(figuras);
 // (4) ['▲', '●', '✖', '■']
 
 for (const elemento of figuras) {
-  const i = figuras.indexOf(elemento);
+  const i = figuras.indexOf(elemento); // MALA PRACTICA: obtener indice actual con .indexOf()
   console.log(`i=${i} | elemento='${elemento}'`);
 }
 /*
@@ -169,6 +232,8 @@ i=3 | elemento='■'
 
 // Array [] con numeros
 const numeros = [1, 2, 3, 3, 4, 5];
+console.log(numeros);
+// (6) [1, 2, 3, 3, 4, 5]
 
 /* .indexOf()
 PRIMER numero de posicion (indice) del ELEMENTO 3
@@ -249,7 +314,7 @@ indice = frutas.indexOf('naranja');
 console.log(indice);
 // 1
 
-// Con el indice puedo obtener el ELEMENTO
+// Con el indice puedo obtener el ELEMENTO 'naranja'
 const elemento2 = frutas[indice];
 console.log(elemento2);
 // 'naranja'
@@ -269,7 +334,7 @@ de la PRIMERA aparicion del ELEMENTO ['o']
 
 en el ARRAY ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o']
 hay dos ELEMENTOS ['o']
-pero .indexOf() SOLAMENTE imprime la posicion (indice) del PRIMER elemento ['o'] */
+pero .indexOf() y .findIndex() SOLAMENTE imprimen la posicion (indice) del PRIMER elemento ['o'] */
 
 let buscar = 'o';
 
@@ -356,16 +421,18 @@ console.log(`el ELEMENTO ['${buscar}'] NO existe en el ARRAY [${array}]: ${array
 /* cuando NO se escribo nada
 dentro del par de parentesis () ...
 
-1)  .indexOf() imprime -1 */
-console.log(array.indexOf());   // -1
-console.log([].indexOf());      // -1
+1) .indexOf() imprime -1 */
+console.log(array.indexOf()); // -1
+console.log([].indexOf());    // -1
 
 // 2) .findIndex() da error
-// console.log(array.findIndex());                           // ERROR -> undefined is not a function
+// console.log(array.findIndex());
+// ERROR -> undefined is not a function
 
 /* 3) .findIndex() Si busco un array vacio []
 devuelve -1 porque en JS NO existen dos array iguales */
 console.log([].findIndex((elemento) => elemento === [])); // -1
+console.log([] === []);                                   // false
 
 /* ---- */
 
@@ -428,7 +495,7 @@ existe el ELEMENTO ['o']
 
 Recordatorio:
 La forma mas facil de solucionar esto es usar .includes(),
-pero para aprender aqui lo explicare con .indexOf() y .findIndex()  */
+pero para aprender aqui lo explicare con .indexOf() y .findIndex() */
 
 console.log(array);
 // (10) ['h', 'o', 'l', 'a', '', 'm', 'u', 'n', 'd', 'o']
@@ -494,7 +561,8 @@ array.findIndex((elemento) => {
     contador++;
   }
 
-  // Itera todo el array porque no hay ningun return
+  /*  .findIndex() Itera todo el array
+  porque NO escribi valor de retorno return */
 });
 
 console.log(`el ELEMENTO ['${buscar}'] se repite ${contador} veces en el ARRAY`, array);
@@ -510,12 +578,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 usando el método de array .indexOf()
 y otra vez usando .findIndex()
 
-2) Crear un array 1
+2) Crear un array1
 que contenga elementos repetidos
 
-3) Buscar un elemento en el array 1
+3) Buscar un elemento en el array1
 
-4) Guardar en un array 2
+4) Guardar en un array2
 los números de posición (índice)
 repetidos del elemento buscado en el array 1 */
 
@@ -552,7 +620,8 @@ array2.findIndex((elemento, i) => {
     indices.push(i);
   }
 
-  // Itera todo el array porque no hay ningun return
+  /*  .findIndex() Itera todo el array
+  porque NO escribi valor de retorno return */
 });
 console.log(`el ELEMENTO ['${buscar}'] se repite en las posiciones (indices):`, indices);
 /* el ELEMENTO ['a'] se repite en las posiciones (indices): (3) [0, 2, 4]
@@ -595,6 +664,8 @@ function actualizarArray(array4, nuevoElemento) {
 }
 
 let array4 = ['potato', 'tomato', 'chillies', 'green-pepper'];
+console.log(array4);
+// (4) ['potato', 'tomato', 'chillies', 'green-pepper']
 
 actualizarArray(array4, 'spinach');
 /* Nuevo elemento spinach agregado al array:
@@ -612,6 +683,8 @@ actualizarArray(array4, 'spinach');
 
 // .findIndex()
 array4 = ['potato', 'tomato', 'chillies', 'green-pepper'];
+console.log(array4);
+// (4) ['potato', 'tomato', 'chillies', 'green-pepper']
 
 function actualizarArray2(array4, nuevoElemento) {
   findIndex = array4.findIndex((elemento) => elemento === nuevoElemento);
@@ -649,10 +722,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays
 
 Ambos .indexOf() y .findIndex():
-- NO buscan "ranuras vacías" (empty items) en los array dispersos []
+- NO buscan "ranuras vacías" (empty items) en los array dispersos [,]
 
 - Reemplazan las ranuras vacías (empty items) [,] por undefined */
 
+// La posicion (indice) 1 tiene una ranura vacia [,]
 const arrayDisperso = [1, , 3];
 //                     0 1  2
 //                       ↑
@@ -667,7 +741,7 @@ for (const elemento of arrayDisperso) {
 }
 /*
 i=0  | elemento=1
-i=-1 | elemento=undefined
+i=-1 | elemento=undefined -> i=-1 el elemento buscado ( ranura vacia [,] ) NO existe en el array
 i=2  | elemento=3
 */
 
@@ -679,11 +753,12 @@ arrayDisperso.findIndex((elemento, i) => {
 });
 /*
 i=0 | elemento=1
-i=1 | elemento=undefined -> 1 PRIMER numero de posicion (indice) con ranura vacia [,]
+i=1 | elemento=undefined -> i=1 PRIMER numero de posicion (indice) con ranura vacia [,]
 i=2 | elemento=3
 */
 
-console.log(arrayDisperso.findIndex((elemento) => elemento === undefined)); // 1
+findIndex = arrayDisperso.findIndex((elemento) => elemento === undefined);
+console.log(findIndex); // 1
 
 /* ---------------------------------------------------------------- */
 
@@ -695,6 +770,8 @@ Hay otros ejemplos similares a este, ver:
 - " Ejemplo 7 - Usando .filter() encontrar TODOS los números primos q están en un array: "
 
 - " Ejemplo 6 - Usando .find() encontrar el PRIMER número primo de un array: "
+
+- " Ejemplo 10 - Usando .findLastIndex() encontrar la ULTIMA posicion (indice) del numero primo de un array: "
 
 Explicacion:
 Un numero primo...
@@ -717,48 +794,52 @@ de un numero primo en un array
 3) Devolver -1 en caso de que
 NO exista ningun numero primo en el array
 
-Solucion: */
+Solucion:
 
-const primerPrimo = (element) => {
-  /* Los numeros MENORES a 2 (1, 0, -1, -2...)
-  y DECIMALES NO son primos */
-  if (!Number.isInteger(element) || element < 2) {
-    return false;
+Stack Overflow - Funcion para saber cuando un numero si es o no primo:
+https://stackoverflow.com/questions/40200089/check-number-prime-in-javascript
+
+esPrimo() funcion flecha para saber cuando un numero si es o no primo
+numero    es el numero q quiero saber si es o no primo */
+const esPrimo = (numero) => {
+  // NO son primos los numeros q NO son enteros (1.1 'hola mundo' ...)
+  if (!Number.isInteger(numero)) return false;
+
+  // Iterar desde 2 hasta la raíz cuadrada del número
+  for (let i = 2, s = Math.sqrt(numero); i <= s; i++) {
+    // El numero NO es primo cuando el indice i es divisible por el numero
+    if (numero % i === 0) return false;
   }
 
-  for (let factor = 2; factor <= Math.sqrt(element); factor++) {
-    if (element % factor === 0) {
-      return false;
-    }
-  }
-
-  return true; // else { return true }
+  // NO son primos los numeros MENORES a 2 (1, 0, -1, -2 ...)
+  return numero > 1; // else { return num > 1; }
 };
 
 // .findIndex() devuelve -1 porq NO hay numeros primos en el array
-console.log([-1, 0, 1, 2.1].findIndex(primerPrimo)); // -1
+console.log([-1, 0, 1, 2.1].findIndex(esPrimo));
+// -1
 
 /* -1 y 0 NO son primos,
 3 y 5 SI son primos,
-el PRIMER numero primo es 3,
+el .findIndex() PRIMER numero primo es 3,
 la posicion del numero (elemento) 3 es 2 */
-console.log([-1, 0, 3, 5].findIndex(primerPrimo));   // 2
+console.log([-1, 0, 3, 5].findIndex(esPrimo)); // 2
 //            0  1  2  3
 //                  ↑
 
-// Otra forma de llamar la () => {} funcion flecha primerPrimo() es:
-console.log(primerPrimo(0)); // false -> 0 NO es primo
-console.log(primerPrimo(3)); // true  -> 3 SI es primo
+// Esta es otra forma de llamar la () => {} funcion flecha esPrimo()
+console.log(esPrimo(0)); // false -> 0 NO es primo
+console.log(esPrimo(2)); // true  -> 2 SI es primo
 
 /* ---------------------------------------------------------------- */
 
 /* Ejemplo 13:
 
 Recordatorio:
-Este Ejemplo 12 lo escribi en otra seccion, ver:
+Este Ejemplo 13 lo escribi en otra seccion, ver:
 
 Ruta:
 ...\aprendiendo_JS\src\6_Arreglos_(arrays,listas)\3_Metodos\2_Metodos_de_instancia\3_.lastIndexOf().js
 
 Nombre del ejemplo:
-" Ejemplo 5 - .indexOf() y .lastIndexOf() en Objeto Literal {} " */
+" Ejemplo 6 - Métodos de Array .indexOf() y .lastIndexOf() en objetoLiteral {} " */
