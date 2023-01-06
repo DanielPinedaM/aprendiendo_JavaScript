@@ -13,6 +13,7 @@ const string = 'hola mundo';
  █ String.fromCharCode() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode
+
 convertir de formato UTF-16 a texto */
 String.fromCharCode(104, 111, 108, 97, 32, 109, 117, 110, 100, 111); // 'hola mundo'
 
@@ -21,6 +22,7 @@ String.fromCharCode(104, 111, 108, 97, 32, 109, 117, 110, 100, 111); // 'hola mu
  █ .charCodeAt() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt
+
 convertir la posicion (indice) del string a formato de codificacion UTF-16 (104 = 'H') */
 string.charCodeAt(0); // 104
 
@@ -29,6 +31,7 @@ string.charCodeAt(0); // 104
  █ String.fromCodePoint() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint
+
 convertir de puntos de codigo a texto */
 String.fromCodePoint(104, 111, 108, 97, 32, 109, 117, 110, 100, 111); // 'hola mundo'
 
@@ -37,6 +40,7 @@ String.fromCodePoint(104, 111, 108, 97, 32, 109, 117, 110, 100, 111); // 'hola m
  █ .codePointAt() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt
+
 convertir la posicion (indice) del string a punto de codigo (104 = 'H') */
 string.codePointAt(0); // 104
 
@@ -45,6 +49,7 @@ string.codePointAt(0); // 104
  █ .normalize() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize
+
 forma de normalización unicode de un string */
 const string1 = '\u00F1'.normalize('NFC');       // 'ñ'
 const string2 = '\u006E\u0303'.normalize('NFC'); // 'ñ'
@@ -57,6 +62,7 @@ string1.length === string2.length;               // true
  █ String.raw`` █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw
+
 guardar string de una ruta (TEXTO SIN PROCESAR) */
 String.raw`C:\Windows\System32`; // 'C:\Windows\System32'
 
@@ -65,6 +71,7 @@ String.raw`C:\Windows\System32`; // 'C:\Windows\System32'
  █ .length █
  ▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length
+
 numero total de CARACTERES (letras) contando desde 1 */
 string.length;     // 10
 
@@ -72,6 +79,7 @@ string.length;     // 10
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .length - 1 █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+
 mayor (ultima) POSICION (indice) contando desde 0 */
 string.length - 1; // 9
 
@@ -102,6 +110,7 @@ string.slice(-1);    // 'o'
  █ .indexOf() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
+
 PRIMER numero de posicion (indice) del caracter buscado */
 string.indexOf('o');     // 1
 
@@ -110,6 +119,7 @@ string.indexOf('o');     // 1
  █ .lastIndexOf() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf
+
 ULTIMO numero de posicion (indice) del caracter buscado */
 string.lastIndexOf('o'); // 9
 
@@ -140,6 +150,7 @@ string.substring(string.length - 5, string.length - 2); // 'mun'
  █ .search() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
+
 PRIMER numero de POSICION (INDICE) q coincide con la EXPRESION REGULAR o CARACTER */
 string.search('o'); // 1
 
@@ -172,8 +183,9 @@ string.match(/[a-z]/); // ['h', index: 0, input: 'hola mundo', groups: undefined
  ▄▄▄▄▄▄▄▄▄▄▄▄
  █ .split() █
  ▀▀▀▀▀▀▀▀▀▀▀▀
-convertir de STRING A ARRAY
-https://www.samanthaming.com/tidbits/83-4-ways-to-convert-string-to-character-array/  */
+https://www.samanthaming.com/tidbits/83-4-ways-to-convert-string-to-character-array/
+
+convertir de STRING A ARRAY */
 let array = string.split(''); // .split('') caracter en blanco
 console.log(array);
 /* (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
@@ -210,6 +222,7 @@ length: 1
  █ .includes() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
+
 buscar caracteres en CUALQUIER PARTE de un string */
 string.includes('o'); // true
 
@@ -218,6 +231,7 @@ string.includes('o'); // true
  █ .endsWith() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith
+
 buscar caracteres AL FINAL de un String */
 string.endsWith('mundo'); // true
 
@@ -251,6 +265,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
  █ .padStart() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
+
 agregar nuevos caracteres AL PRINCIPIO de un string */
 string.padStart(string.length + 5);    // '     hola mundo'
 
@@ -259,6 +274,7 @@ string.padStart(string.length + 5);    // '     hola mundo'
  █ .padEnd() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd
+
 agregar nuevos caracteres AL FINAL de un string */
 string.padEnd(string.length + 5, '.'); // 'hola mundo.....'
 
@@ -267,6 +283,7 @@ string.padEnd(string.length + 5, '.'); // 'hola mundo.....'
  █ .repeat() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat
+
 REPETIR string */
 string.repeat(3);                                       // 'hola mundohola mundohola mundo'
 string.padEnd(string.length + 1, ' ').repeat(3).trim(); // 'hola mundo hola mundo hola mundo'
@@ -276,6 +293,7 @@ string.padEnd(string.length + 1, ' ').repeat(3).trim(); // 'hola mundo hola mund
  █ .replace() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+
 reemplazar el PRIMER caracter buscado */
 string.replace('o', 'REPLACE');        // 'hREPLACEla mundo'
 
@@ -284,6 +302,7 @@ string.replace('o', 'REPLACE');        // 'hREPLACEla mundo'
  █ .replaceAll() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll
+
 reemplazar TODOS los caracteres q coincidan con el caracter buscado */
 string.replaceAll('o', 'REPLACE_ALL'); // 'hREPLACE_ALLla mundREPLACE_ALL'
 
@@ -334,6 +353,7 @@ convertir string a MAYÚSCULA */
  █ .localeCompare() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
+
 comparar orden de dos string en el ABECEDARIO */
 'a'.localeCompare('z'); // -1 -> NEGATIVO porq en el abecedario la letra 'a' esta ANTES   q la letra 'z'
 'z'.localeCompare('a'); // 1  -> POSITIVO "                            " 'z' "  " DESPUES "        " 'a'
@@ -344,6 +364,7 @@ comparar orden de dos string en el ABECEDARIO */
  █ .valueOf() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/valueOf
+
 convertir de TIPO OBJETO new String() a dato primitivo STRING (texto) */
 const stringObjeto = new String('hola mundo'); // MALA PRACTICA new String()
 stringObjeto;                                  // String {'hola mundo'}
@@ -363,8 +384,9 @@ string3 === string4;                           // true
  █ String()    █
  █ .toString() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-convertir a tipo TEXTO (string)
-https://stackoverflow.com/questions/3945202/whats-the-difference-between-stringvalue-vs-value-tostring */
+https://stackoverflow.com/questions/3945202/whats-the-difference-between-stringvalue-vs-value-tostring
+
+convertir a tipo TEXTO (string) */
 String(null);         // 'null'    -> BUENA PRACTICA String()
 null.toString();      // TypeError -> MALA PRACTICA .toString()
 
@@ -376,5 +398,6 @@ undefined.toString(); // TypeError
  █ .concat() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat
+
 concatenar (unir) string */
 'concatenar'.concat(' ', string, 123); // 'concatenar hola mundo123'

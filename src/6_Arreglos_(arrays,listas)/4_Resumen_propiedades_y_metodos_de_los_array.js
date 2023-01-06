@@ -281,8 +281,36 @@ INCOMPLETO
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
 
-INCOMPLETO
-*/
+Buscar ELEMENTOS en cualquier parte de un array
+
+¿El elemento circulo '●' existe en el array?, true significa que si */
+console.log(['■', '●', '■', '■'].includes('●')); // true
+//                 ↑
+
+// false significa q el elemento triangulo '▲' NO existe en el array
+console.log(['■', '●', '■', '■'].includes('▲'));
+// false
+
+/* Buscar el circulo '●' A PARTIR de la posicion (indice) 1 hacia adelante (1, 2, 3),
+devuelve true porq en el array ['■', '●', '■', '■']
+el circulo '●' esta en esta parte ['●', '■', '■']  */
+console.log(['■', '●', '■', '■'].includes('●', 1)); // true
+//            0    1    2    3
+//                 ↑
+
+/* Los indices negativos sirven para buscar en las ultimas posiciones,
+buscar el circulo '●' A PARTIR de la posicion (indice) -3 hacia adelante (-3, -2, -1) */
+console.log(['■', '●', '■', '■'].includes('●', -3)); // true
+//           -4    -3   -2   -1
+//                 ↑
+
+// false porq el circulo '●' NO esta en posiciones 2 NI 3
+console.log(['■', '●', '■', '■'].includes('●', 2)); // false
+//            0    1    2    3
+
+// false porq el circulo '●' NO esta en posiciones -2 NI -1
+console.log(['■', '●', '■', '■'].includes('●', -2)); // false
+//           -4    -3   -2   -1
 
 /*
  ▄▄▄▄▄▄▄▄▄
