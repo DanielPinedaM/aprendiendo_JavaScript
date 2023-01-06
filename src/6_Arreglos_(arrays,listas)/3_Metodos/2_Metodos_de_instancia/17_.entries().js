@@ -122,8 +122,11 @@ el metodo .entries() reemplaza las
 /* la posicion (indice) 1
 del arrayDisperso es una ranura vacia [,,] */
 const arrayDisperso = [1, , 3];
+//                     0 1  2
+//                       ↑
+
 console.log(arrayDisperso);
-// [ 1, <1 empty item>, 3 ]
+// (3) [ 1, <1 empty item>, 3 ]
 
 // el metodo .entries() genera un iterador de array
 const iterador4 = arrayDisperso.entries();

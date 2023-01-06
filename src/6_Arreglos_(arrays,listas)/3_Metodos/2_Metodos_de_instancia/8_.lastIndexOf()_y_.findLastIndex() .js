@@ -506,7 +506,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collection
 const arrayDisperso = [1, , 3];
 //                     0 1  2
 //                       ↑
-//          .findLastIndex()
+//        .findLastIndex()
+
+console.log(arrayDisperso);
+// (3) [ 1, <1 empty item>, 3 ]
 
 /* .lastIndexOf() NO sirve para buscar
 "ranuras vacías" (empty items) en los array dispersos [,] */
@@ -532,6 +535,8 @@ Hay otros ejemplos similares a este, ver:
 - " Ejemplo 6 - Usando .find() encontrar el PRIMER número primo de un array: "
 
 - " Ejemplo 12 - Usando .findIndex() encontrar la PRIMERA posicion (indice) del numero primo de un array: "
+
+- " Ejemplo 6 - Usando .findLast() encontrar el ULTIMO número primo de un array: "
 
 Explicacion:
 Un numero primo...
@@ -619,8 +624,9 @@ console.log(objetoLiteral);
 }
 */
 
-/* .length Numero de propiedad: valor, del objetoLiteral {}
-https://stackoverflow.com/questions/4690520/javascript-object-literal-length-undefined */
+/* Object.keys() convertir a array las propiedades (claves) del objetoLiteral {}
+   .length Numero de propiedades (claves) del objetoLiteral {}
+   https://stackoverflow.com/questions/4690520/javascript-object-literal-length-undefined */
 const longitud = Object.keys(objetoLiteral).length;
 console.log(longitud);
 // 3

@@ -250,6 +250,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collection
 
 // La posicion (indice) 1 tiene una ranura vacia (empty item) [,]
 const arrayDisperso = [1, , 3];
+//                     0 1  2
+//                       ↑
+
 console.log(arrayDisperso);
 // (3) [ 1, <1 empty item>, 3 ]
 
@@ -348,6 +351,8 @@ Hay otros ejemplos similares a este, ver:
 - " Ejemplo 12 - Usando .findIndex() encontrar la PRIMERA posicion (indice) del numero primo de un array: "
 
 - " Ejemplo 10 - Usando .findLastIndex() encontrar la ULTIMA posicion (indice) del numero primo de un array: "
+
+- " Ejemplo 6 - Usando .findLast() encontrar el ULTIMO número primo de un array: "
 
 Explicación:
 

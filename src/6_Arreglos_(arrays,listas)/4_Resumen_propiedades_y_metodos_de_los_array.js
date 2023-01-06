@@ -175,10 +175,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 ULTIMO elemento q es un circulo '●' */
   ['■', '●', '■', '●'].findLast((elemento) => elemento === '●'); // '●'
-//  0    1    2    3
 //                 ↑
 
-// Devuelve undefined porq el elemento triangulo '▲' NO existe en el array
+// undefined significa q el elemento triangulo '▲' NO existe en el array
 ['■', '●', '■', '●'].findLast((elemento) => elemento === '▲'); // undefined
 
 /*
@@ -304,7 +303,7 @@ obtener (acceder) en especifico a un ELEMENTO q se encuentra en una posicion (in
    ['▲', '●', '✖', '■'].slice(-1); // ['■'] -> array
 //  -4   -3   -2    -1  -> Indices negativos
 
-// Devuelve -1 porq el elemento triangulo '▲' NO existe en el array
+// -1 significa q el elemento triangulo '▲' NO existe en el array
 ['■', '●', '■', '●'].findIndex((elemento) => elemento === '▲'); // -1
 
 /*
@@ -416,9 +415,8 @@ Reemplazar por circulo '●'...
 // - La ULTIMA -1 posicion
 ['■', '■', '■', '■'].fill('●', -1); // (4) ['■', '■', '■', '●']
 
-// Devuelve undefined porq el elemento triangulo '▲' NO existe en el array
-['■', '●', '■', '●'].find((elemento) => elemento === '▲');
-// undefined
+// undefined significa q el elemento triangulo '▲' NO existe en el array
+['■', '●', '■', '●'].find((elemento) => elemento === '▲'); // undefined
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄

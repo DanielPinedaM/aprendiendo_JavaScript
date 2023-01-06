@@ -773,6 +773,8 @@ Hay otros ejemplos similares a este, ver:
 
 - " Ejemplo 10 - Usando .findLastIndex() encontrar la ULTIMA posicion (indice) del numero primo de un array: "
 
+- " Ejemplo 6 - Usando .findLast() encontrar el ULTIMO número primo de un array: "
+
 Explicacion:
 Un numero primo...
 1) Es un numero ENTERO MAYOR Q 1, por lo tanto el 0, 1, los números negativos y decimales NO son primos

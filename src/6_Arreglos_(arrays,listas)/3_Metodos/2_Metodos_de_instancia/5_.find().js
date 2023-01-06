@@ -73,7 +73,7 @@ https://youtu.be/en5f0sYFJZE
 Documentacion Oficial - .find()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
 
-.find() Primer Elemento que Coincide con la Condicion de la Función
+.find() PRIMER ELEMENTO que Coincide con la Condicion de la Función
 
 .find() devuelve el PRIMER ELEMENTO
 que cumple con la condicion de la funcion return,
@@ -85,14 +85,28 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Alternativas al metodo .find():
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find#try_it
-- Usar .indexOf ó .findIndex()
+
+- Usar .findLast() para encontrar el ULTIMO ELEMENTO
+  q coincida con la condicion de la funcion
+
+- Usar .indexOf() ó .findIndex()
   para encontrar el PRIMER NUMERO
+  de POSICION (INDICE)
+  del elemento buscado en un array
+
+- Usar .lastIndexOf() ó .findLastIndex()
+  para encontrar el ULTIMO NUMERO
   de POSICION (INDICE)
   del elemento buscado en un array
 
 - Usar .includes() para saber
   cuando un elemento
   si existe o no en un array
+
+- Usar .every()  para saber si
+  ¿TODOS los
+  elementos del array
+  cumplen con la condición de la función?
 
 - Usar .some() para saber si
   ¿AL MENOS UN SOLO
@@ -127,7 +141,7 @@ q cumple con la condicion de la funcion return
 cuando NINGUN elemento
 cumple con la condicion de la funcion return
 
-La funcion tiene los siguientes argumentos:
+La funcion .find() tiene los siguientes argumentos:
 
 - element
 * Es el elemento actual del array
@@ -195,6 +209,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collection
 
 // La posicion (indice) 1 tiene una ranura vacia (empty item) [,]
 const arrayDisperso = [1, , 3];
+//                     0 1  2
+//                       ↑
+
 console.log(arrayDisperso);
 // (3) [ 1, <1 empty item>, 3 ]
 
@@ -245,7 +262,7 @@ console.log(find2);
 
 /* ------------------------------------------------------------ */
 
-/* Ejemplo 5 - Buscar por propiedad un objeto literal {} que esta dentro de un array de objetos [{}]
+/* Ejemplo 5 - Buscar una propiedad de un objeto en un array de objetos [{}]
 
 https://youtu.be/en5f0sYFJZE
 
@@ -302,6 +319,8 @@ Hay otros ejemplos similares a este, ver:
 - " Ejemplo 12 - Usando .findIndex() encontrar la PRIMERA posicion (indice) del numero primo de un array: "
 
 - " Ejemplo 10 - Usando .findLastIndex() encontrar la ULTIMA posicion (indice) del numero primo de un array: "
+
+- " Ejemplo 6 - Usando .findLast() encontrar el ULTIMO número primo de un array: "
 
 Explicacion:
 
@@ -379,12 +398,13 @@ console.log(objetoLiteral);
   0: 4,
   1: 5.3,
   2: 6,
-  3: 7.1,
+  3: 7.1
 }
 */
 
 /* Object.keys() convertir a array las propiedades (claves) del objetoLiteral {}
-   .length Numero de propiedades (claves) del objetoLiteral {} */
+   .length Numero de propiedades (claves) del objetoLiteral {}
+   https://stackoverflow.com/questions/4690520/javascript-object-literal-length-undefined */
 const longitud = Object.keys(objetoLiteral).length;
 console.log(longitud);
 // 4

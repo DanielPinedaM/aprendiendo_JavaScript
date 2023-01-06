@@ -14,7 +14,7 @@ ULTIMO numero de posicion (indice) del circulo '●' */
 //  0    1    2    3
 //                 ↑
 
-// Devuelve -1 porq el elemento triangulo '▲' NO existe en el array
+// -1 significa q el elemento triangulo '▲' NO existe en el array
 ['■', '●', '■', '●'].findLastIndex((elemento) => elemento === '▲'); // -1
 
 /* ------------------------------------------------------------ */

@@ -701,6 +701,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collection
 
 // La posicion (indice) 1 tiene una ranura vacia (empty item) [,]
 const arrayDisperso = [1, , 3];
+//                     0 1  2
+//                       ↑
+
 console.log(arrayDisperso);
 // (3) [ 1, <1 empty item>, 3 ]
 
