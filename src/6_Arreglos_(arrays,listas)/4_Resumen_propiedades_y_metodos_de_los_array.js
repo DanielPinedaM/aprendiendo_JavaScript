@@ -254,11 +254,8 @@ ULTIMO numero de posicion (indice) del circulo '●' */
  ▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
 
-¿TODOS los elementos del array cumplen con la CONDICION de la FUNCION?
-
-buscar el circulo ['●'] en el array */
+¿TODOS los elementos del array cumplen con la CONDICION de la FUNCION? */
 const buscarElemento = (elemento) => elemento === '●';
-buscarElemento; // [Function: buscarElemento]
 
 // ¿TODOS los elementos del array son circulo ['●']?
 ['▲', '●', '✖', '■'].every(buscarElemento); // false -> NO
@@ -270,10 +267,13 @@ buscarElemento; // [Function: buscarElemento]
  ▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 
-¿AL MENOS UN SOLO elemento del array cumple con la CONDICION de la FUNCION?
+¿AL MENOS UN SOLO elemento del array cumple con la CONDICION de la FUNCION? */
+const buscarElemento2 = (elemento) => elemento === '●';
 
-INCOMPLETO
-*/
+// ¿Hay AL MENOS UN SOLO circulo ['●'] o mas en el array ?
+['▲', '●', '✖', '■'].some(buscarElemento2);   // true  ->  SI
+['●', '●', '●', '●'].some(buscarElemento2);   // true  ->  SI
+['✖', '✖', '✖', '✖'].some(buscarElemento2);  // false ->  NO
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -301,7 +301,7 @@ console.log(['■', '●', '■', '■'].includes('●', 1)); // true
 /* Los indices negativos sirven para buscar en las ultimas posiciones,
 buscar el circulo '●' A PARTIR de la posicion (indice) -3 hacia adelante (-3, -2, -1) */
 console.log(['■', '●', '■', '■'].includes('●', -3)); // true
-//           -4    -3   -2   -1
+//           -4   -3   -2   -1
 //                 ↑
 
 // false porq el circulo '●' NO esta en posiciones 2 NI 3
@@ -310,7 +310,7 @@ console.log(['■', '●', '■', '■'].includes('●', 2)); // false
 
 // false porq el circulo '●' NO esta en posiciones -2 NI -1
 console.log(['■', '●', '■', '■'].includes('●', -2)); // false
-//           -4    -3   -2   -1
+//           -4   -3   -2   -1
 
 /*
  ▄▄▄▄▄▄▄▄▄

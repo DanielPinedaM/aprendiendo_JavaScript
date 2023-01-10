@@ -1,3 +1,5 @@
+/* eslint-disable guard-for-in */
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable array-callback-return */
 // @ts-nocheck
 
@@ -5,6 +7,7 @@
 https://youtu.be/Mz9HSiXSSVU */
 
 const objetoLiteral = {
+// propiedad: valor,
   uno: 1,
   dos: 2,
   tres: 3,
@@ -25,6 +28,13 @@ obtengo el mismo resultado:
 uno  ➜ 1
 dos  ➜ 2
 tres ➜ 3
+
+EXCEPTO con Object.values()
+que SOLAMENTE itera los valores del objetoLiteral {}
+
+1
+2
+3
 */
 
 /*
@@ -66,8 +76,17 @@ INCOMPLETO
  ▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
 
+Esto es MALA PRACTICA:
+https://eslint.org/docs/latest/rules/no-restricted-syntax
+
+https://eslint.org/docs/latest/rules/guard-for-in
+
 INCOMPLETO
 */
+for (const propiedad in objetoLiteral) {
+  const valor = objetoLiteral[propiedad];
+  console.log(`${propiedad} ➜ ${valor}`);
+}
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -86,7 +105,9 @@ Object.keys(objetoLiteral).map((propiedad) => {
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
 */
-console.log(Object.values(objetoLiteral));
+Object.values(objetoLiteral).map((valor) => {
+  console.log(valor);
+});
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -99,5 +120,5 @@ el array contiene [propiedad, valor]
 */
 Object.entries(objetoLiteral).map((entry) => {
   const [propiedad, valor] = entry;
-  console.log({ propiedad, valor });
+  console.log(`${propiedad} ➜ ${valor}`);
 });

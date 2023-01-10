@@ -56,7 +56,7 @@ que NO cumple con la condicion
 entonces devuelve false
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every#description
 
-La funcion tiene los siguientes argumentos:
+La funcion .every() tiene los siguientes argumentos:
 
 - element
 * Es el elemento actual del array
@@ -81,11 +81,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 1 - ¿TODOS los elementos del array tienen el mismo elemento buscado? */
+// Ejemplo 1 - ¿TODOS los elementos del array tienen el mismo elemento buscado?
 
 // Buscar el circulo ['●'] en el array
 const buscarElemento = (elemento) => elemento === '●';
-console.log(buscarElemento); // [Function: buscarElemento]
+console.log(buscarElemento);
+// [Function: buscarElemento]
 
 // ¿TODOS los elementos del array son circulo ['●']?
 console.log(['▲', '●', '✖', '■'].every(buscarElemento)); // false -> NO
@@ -93,7 +94,34 @@ console.log(['●', '●', '●', '●'].every(buscarElemento)); // true  -> SI
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 2:
+// Ejemplo 2 - Recorrer (iterar) array usando el método .every()
+
+const figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
+
+/* Para q .every() itere todos los elementos del array,
+tiene que devolver verdadero return true,
+porque el bucle se detiene cuando retorna falso
+q es cuando se encuentra un elemento
+q NO cumple con la condicion de la funcion */
+const iterar = figuras.every((elemento, i) => {
+  console.log(`i=${i} | elemento='${elemento}'`);
+  return true;
+});
+/*
+i=0 | elemento='▲'
+i=1 | elemento='●'
+i=2 | elemento='✖'
+i=3 | elemento='■'
+*/
+
+console.log(iterar);
+// true
+
+/* ---------------------------------------------------------------- */
+
+/* Ejemplo 3:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every#testing_size_of_all_array_elements
 
 menorAcuarenta y mayorAcuarenta
@@ -127,7 +155,7 @@ console.log(numeros.every(mayorAcuarenta));
 
 /* ---------------------------------------------------------------- */
 
-// Ejemplo 3 - ¿TODOS los elementos del array son numeros pares o impares?
+// Ejemplo 4 - ¿TODOS los elementos del array son numeros pares o impares?
 
 // array con numeros PARES
 const arrayPar = [2, 4, 6];
@@ -189,7 +217,7 @@ console.log(esImpar);
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 4 - ¿El array1 es un Sub-conjunto del array2?
+/* Ejemplo 5 - ¿El array1 es un Sub-conjunto del array2?
 Comprobar si TODOS los elementos del array2 están en el array1
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every#check_if_one_array_is_a_subset_of_another_array */
@@ -239,7 +267,7 @@ console.log(esSubconjunto(array1, array2));
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 5 - Array Disperso (Sparse Array) y Método .every()
+/* Ejemplo 6 - Array Disperso (Sparse Array) y Método .every()
 El metodo .every()
 NO ejecuta la funcion callbackFn
 para las ranuras vacias (empty items)
@@ -257,7 +285,7 @@ console.log([2, , 2].every((x) => x === [, ,]));     // false
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 6 - Metodo .every() cuando se modifica el array:
+/* Ejemplo 7 - Metodo .every() cuando se modifica el array:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every#affecting_initial_array_modifying_appending_and_deleting */
 
 // -----------------------------
@@ -364,7 +392,7 @@ console.log(array3);
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 7 - Metodo de Array [] .every() en ObjetoLiteral {}
+/* Ejemplo 8 - Metodo de Array [] .every() en ObjetoLiteral {}
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every#calling_every_on_non-array_objects */
 
 const objetoLiteral = {
@@ -398,7 +426,7 @@ console.log(every);
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 8 - Array Vacio []
+/* Ejemplo 9 - Array Vacio [] y Método .every()
 El metodo .every()
 SIEMPRE devuelve true
 para CUALQUIER condicion

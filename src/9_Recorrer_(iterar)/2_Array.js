@@ -162,6 +162,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 ¿TODOS los elementos del array cumplen con la condición de la función? */
 array.every((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
+
+  /* Para q .every() itere todos los elementos del array,
+  tiene que devolver verdadero return true,
+  porque el bucle se detiene cuando retorna falso
+  q es cuando se encuentra un elemento
+  q NO cumple con la condicion de la funcion */
   return true;
 });
 
