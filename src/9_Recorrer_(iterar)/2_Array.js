@@ -26,6 +26,7 @@ los array de acuerdo a la DIRECCION de iteracion:
    - .some()
    - .forEach()
    - .map()
+   - .flatMap()
    - .filter()
    - .reduce()
    - .find()
@@ -212,6 +213,25 @@ con el Resultado de Ejecutar una Función
 a Cada Uno de los Elementos
 de un Array Existente (Mapear Array) */
 array.map((elemento, i) => {
+  console.log(`i=${i} | elemento='${elemento}'`);
+
+  return elemento;
+});
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .flatMap() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://youtu.be/em_Vh7ZGrnw
+
+.flatMap() hace lo siguiente, en este orden:
+1) Ejecuta .map():
+Crea un nuevo array2 que MODIFICA
+cada uno de los elementos del array1 original (existente)
+(MAPEAR array)
+
+2) Aplana el array original */
+array.flatMap((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
 
   return elemento;

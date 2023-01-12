@@ -107,7 +107,7 @@ i=3 | elemento='■'
  ▄▄▄▄▄▄▄▄▄▄
  █ .map() █
  ▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+https://youtu.be/FMubfnVET74
 
 En el array1 original (existente) hay 4 cuadrados ['■', '■', '■', '■']
 pero .map() devuelve una copia array2 en el q se
@@ -120,7 +120,7 @@ concatenando (uniendo) los cuadrados con un triangulo '■▲' */
  ▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .filter() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+https://youtu.be/fCvuOyVXUUQ
 
 En el array1 original (existente) hay 3 cuadrados
 y un circulo ['■', '■', '■', '●']
@@ -135,7 +135,7 @@ y ELIMINA las otras figuras q NO son cuadrados */
  ▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .reduce() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+https://youtu.be/qaGjS7-qWzg
 
 .reduce() concatenar (unir)
 cada uno de los elementos
@@ -159,7 +159,7 @@ la unica diferencia es el orden de iteracion */
  ▄▄▄▄▄▄▄▄▄▄▄
  █ .find() █
  ▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+https://youtu.be/en5f0sYFJZE
 
 Primer Elemento que Coincide con la Condición de la Función
 
@@ -184,7 +184,7 @@ ULTIMO elemento q es un circulo '●' */
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .indexOf() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+https://stackoverflow.com/questions/41443029/difference-between-indexof-and-findindex-function-of-array
 
 Recibe como parametro dentro del par de parentesis () un VALOR
 
@@ -202,7 +202,7 @@ Posicion del PRIMER circulo '●' */
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .findIndex() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+https://stackoverflow.com/questions/41443029/difference-between-indexof-and-findindex-function-of-array
 
 Recibe como parametro dentro del par de parentesis () una FUNCIÓN
 
@@ -252,7 +252,7 @@ ULTIMO numero de posicion (indice) del circulo '●' */
  ▄▄▄▄▄▄▄▄▄▄▄▄
  █ .every() █
  ▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+https://youtu.be/sVO65BeJjq8
 
 ¿TODOS los elementos del array cumplen con la CONDICION de la FUNCION? */
 const buscarElemento = (elemento) => elemento === '●';
@@ -265,7 +265,7 @@ const buscarElemento = (elemento) => elemento === '●';
  ▄▄▄▄▄▄▄▄▄▄▄
  █ .some() █
  ▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+https://youtu.be/sVO65BeJjq8
 
 ¿AL MENOS UN SOLO elemento del array cumple con la CONDICION de la FUNCION? */
 const buscarElemento2 = (elemento) => elemento === '●';
@@ -317,9 +317,9 @@ console.log(['■', '●', '■', '■'].includes('●', -2)); // false
  █ []    █
  █ .at() █
  ▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at
+https://youtu.be/gSSjhChWYK4
 
-obtener (acceder) en especifico a un ELEMENTO q se encuentra en una posicion (indice)
+Obtener (acceder) en especifico a un ELEMENTO q se encuentra en una posicion (indice)
 
 0 PRIMER elemento */
   ['▲', '●', '✖', '■'][0];        // '▲' -> string
@@ -478,3 +478,26 @@ i = 1 | elemento = '●'
 i = 2 | elemento = '✖'
 i = 3 | elemento = '■'
 */
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄
+ █ .flat() █
+ ▀▀▀▀▀▀▀▀▀▀▀
+https://youtu.be/em_Vh7ZGrnw
+
+Solamente aplana array */
+['▲', '●', ['✖', '■']].flat(Infinity);                // (4) ['▲', '●', '✖', '■']
+['▲', '●', ['✖', '■']].flat(Number.MAX_SAFE_INTEGER); // (4) ['▲', '●', '✖', '■']
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .flatMap() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://youtu.be/em_Vh7ZGrnw
+
+Primero ejecuta .map()
+y despues aplana array
+
+Aplanar array y concatenar cada uno de los elementos del array con un corazon '❤' */
+['▲', '●', ['✖'], '■'].flatMap((elemento) => `${elemento}❤`);
+// (4) ['▲❤', '●❤', '✖❤', '■❤']

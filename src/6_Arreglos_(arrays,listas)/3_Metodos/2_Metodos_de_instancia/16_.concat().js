@@ -15,12 +15,13 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods */
 
 // Su sintaxis es:
-// concat(value0, value1, /* ... ,*/ valueN)
+// .concat(value0, value1, /* ... ,*/ valueN)
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat#syntax
+
 // Donde...
 // - .concat()
 // Es el nombre del metodo
-// value0, value1, /* … ,*/ valueN
+// value0, value1, /* ... ,*/ valueN
 // Son los valores q quiero concatenar,
 // pueden ser arrays ó cualquier otro tipo de dato
 

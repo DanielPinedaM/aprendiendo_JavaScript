@@ -670,7 +670,7 @@ y multiplicarlos por 2
 .reduce() MALA PRACTICA: */
 let parMultiplicar = numeros.reduce((acumulador, elemento) => {
   if (elemento % 2 === 0) {
-    return [...acumulador, elemento * 2]; // 
+    return [...acumulador, elemento * 2];
   }
 
   return acumulador;

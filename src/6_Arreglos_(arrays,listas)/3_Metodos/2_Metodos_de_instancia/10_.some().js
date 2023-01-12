@@ -77,7 +77,7 @@ const buscarElemento = (elemento) => elemento === '●';
 console.log(buscarElemento);
 // [Function: buscarElemento]
 
-// ¿Hay AL MENOS un solo circulo ['●'] o mas en el array ?
+// ¿Hay AL MENOS un solo circulo ['●'] o mas en el array?
 console.log(['▲', '●', '✖', '■'].some(buscarElemento));  // true  ->  SI
 console.log(['●', '●', '●', '●'].some(buscarElemento));  // true  ->  SI
 console.log(['✖', '✖', '✖', '✖'].some(buscarElemento)); // false ->  NO
@@ -115,6 +115,7 @@ console.log(iterar);
 /* ------------------------------------------------------------ */
 
 /* Ejemplo 3:
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some#try_it
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some#testing_value_of_array_elements
@@ -125,7 +126,7 @@ const numeros = [1, 2, 3, 4, 5];
 console.log(numeros);
 // (5) [1, 2, 3, 4, 5]
 
-/* () => {} Funcion flecha para saber Si un numero...
+/* () => {} Funcion flecha para saber si un numero...
 - Es o no par */
 const par = (numero) => numero % 2 === 0;
 console.log(par);
@@ -153,12 +154,10 @@ console.log(mayorAtres(numeros[1])); // false
 
 /* ------------------------------------------------------------ */
 
-/* Ejemplo 4:
-Buscar si un array de objetos [{}] cumple una condicion
-
+/* Ejemplo 4 - Buscar si un array de objetos [{}] cumple una condicion:
 https://youtube.com/shorts/Q8SX7gaA-wI?feature=share */
 
-// Array q contiene un objeto [{}]
+// Array de objetos [{}]
 const personas = [
   { nombre: 'Midudev', edad: 17 }, // SI hay personas mayor a 18 años
   { nombre: 'Daniel', edad: 18 },
@@ -176,7 +175,10 @@ console.log(personas);
 // ¿Hay personas mayores de edad (con 18 o mas años)?
 const condicion = personas.some((persona) => persona.edad >= 18);
 
-// .some() devuelve true al encontrar el primer elemento q cumple con la condicion
+/* Cuando .some() encuentra el primer elemento
+q cumple con la condicion de la funcion return:
+1) Detiene la iteracion
+2) Devuelve true */
 console.log(condicion);
 // true
 
@@ -185,7 +187,7 @@ console.log(condicion);
 /* Ejemplo 5 - Metodo de array .some() en objetoLiteral {}
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some#calling_some_on_non-array_objects */
 
-// TODOS los valores del objetoLiteral NO son de tipo numero
+// TODOS los valores del objetoLiteral {} NO son de tipo numero
 const objetoLiteral = {
 // propiedad: valor,
   0: 'a',
@@ -252,14 +254,14 @@ console.log(includes(frutas, 'ELEMENTO INEXISTENTE')); // false
 /* ------------------------------------------------------------ */
 
 /* Ejemplo 7 - Array Disperso (Sparse Array) y Método .some()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some#description
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some#using_some_on_sparse_arrays
+
 El metodo .some()
 NO ejecuta la funcion callbackFn
 para las ranuras vacias (empty items)
-de los arrays dispersos (sparse array) [,]
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some#description
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some#using_some_on_sparse_arrays */
+de los arrays dispersos (sparse array) [,] */
 
 console.log([1, , 3].some((x) => x === undefined)); // false
 console.log([1, , 1].some((x) => x !== 1));         // false
@@ -270,6 +272,8 @@ console.log([1, , 1].some((x) => x === [, ,]));     // false
 /* ------------------------------------------------------------ */
 
 /* Ejemplo 8 - Array Vacio [] y Método .some()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some#description
+
 El metodo .some()
 SIEMPRE devuelve false
 para CUALQUIER condicion
