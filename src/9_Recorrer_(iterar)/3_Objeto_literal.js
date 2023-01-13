@@ -93,6 +93,12 @@ for (const propiedad in objetoLiteral) {
  █ Object.keys() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
+Object.keys() Convierte a array [] las propiedades (claves)
+              y con la propiedad puedo obtener el valor del objetoLiteral {}
+
+.map()        Devolver un Nuevo Array con el Resultado de Ejecutar una Función
+              a Cada Uno de los Elementos de un Array Existente (Mapear Array)
 */
 Object.keys(objetoLiteral).map((propiedad) => {
   const valor = objetoLiteral[propiedad];
@@ -104,7 +110,8 @@ Object.keys(objetoLiteral).map((propiedad) => {
  █ Object.values() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
-*/
+
+Convertir a array los valores del objetoLiteral {} */
 Object.values(objetoLiteral).map((valor) => {
   console.log(valor);
 });
@@ -115,9 +122,8 @@ Object.values(objetoLiteral).map((valor) => {
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
 
-Convertir de objeto literal {} a array [],
-el array contiene [propiedad, valor]
-*/
+Convertir el objetoLiteral {} a array [],
+el array contiene pares de [propiedad, valor] */
 Object.entries(objetoLiteral).map((entry) => {
   const [propiedad, valor] = entry;
   console.log(`${propiedad} ➜ ${valor}`);

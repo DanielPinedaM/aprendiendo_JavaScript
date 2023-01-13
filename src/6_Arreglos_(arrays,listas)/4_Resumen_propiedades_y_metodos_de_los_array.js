@@ -510,7 +510,6 @@ Aplanar array y concatenar cada uno de los elementos del array con un corazon '�
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
 
 Convertir de Array a String (Texto) */
-
 ['▲', '●', '✖', '■'].join();    // '▲,●,✖,■' -> NO escribir nada dentro del par de parentesis de .join()
 ['▲', '●', '✖', '■'].join(','); // '▲,●,✖,■' -> es lo mismo q separar el string por una coma ,
 
@@ -523,3 +522,15 @@ Convertir de Array a String (Texto) */
 ['▲'].join('');  // '▲'
 ['▲'].join(' '); // '▲'
 ['▲'].join('-'); // '▲'
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄
+ █ .keys() █
+ ▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/keys */
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .values() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values */

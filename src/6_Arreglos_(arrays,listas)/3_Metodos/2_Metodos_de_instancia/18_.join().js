@@ -71,7 +71,31 @@ entonces se devuelve el mismo elemento SIN el separador: */
 
 /* ----------------------------------------------------- */
 
-/* Ejemplo 2 - Array vacio [] y .join()
+// Ejemplo 2 - Recorrer (iterar) array usando .join()
+
+const array = ['▲', '●', '✖', '■'];
+console.log(array);
+// (4) ['▲', '●', '✖', '■']
+
+// .join() Convertir de array a string
+const string = array.join('');
+console.log(string);
+// '▲●✖■'
+
+// for () {} Recorrer (iterar) string
+for (let i = 0; i < string.length; i++) {
+  console.log(`i=${i} | caracter='${string[i]}'`);
+}
+/*
+i=0 | caracter='▲'
+i=1 | caracter='●'
+i=2 | caracter='✖'
+i=3 | caracter='■'
+*/
+
+/* ----------------------------------------------------- */
+
+/* Ejemplo 3 - Array vacio [] y .join()
 .join() devuelve un caracter en blanco '' cuando el array esta vacio []
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join#return_value */
 
@@ -82,7 +106,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 /* ----------------------------------------------------- */
 
-/* Ejemplo 3 - null, undefined, NaN y .join()
+/* Ejemplo 4 - null, undefined, NaN y .join()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join#description */
 
 /* Si hay un elemento del array que sea null ó undefined,
@@ -100,7 +124,7 @@ que SI se convierte a string */
 
 /* ----------------------------------------------------- */
 
-/* Ejemplo 4 - Array Disperso (Sparse Array) [,] y Método de Array .join()
+/* Ejemplo 5 - Array Disperso (Sparse Array) [,] y Método de Array .join()
 Las ranuras vacias de los array dispersos [,]
 y elementos del array que son undefined
 se convierten a string caracter en blanco ''
@@ -117,7 +141,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 /* ----------------------------------------------------- */
 
-/* Ejemplo 5 - Metodo de array .join() en objetoLiteral {}
+/* Ejemplo 6 - Metodo de array .join() en objetoLiteral {}
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join#calling_join_on_non-array_objects */
 
 const objetoLiteral = {
@@ -141,13 +165,13 @@ NO funciona si los valores tienen un objeto literal anidado {{}}
 Object.values() Array [] con los valores del objetoLiteral {}
 .flat(Infinity) Aplanar array multi-dimensional
 .join('')       Convertir de array a string */
-const string = Object.values(objetoLiteral).flat(Infinity).join('');
-console.log(string);
+const string2 = Object.values(objetoLiteral).flat(Infinity).join('');
+console.log(string2);
 // '12345678'
 
 /* ----------------------------------------------------- */
 
-/* Ejemplo 6 - Intl.ListFormat()
+/* Ejemplo 7 - Intl.ListFormat()
 https://youtu.be/59tYAYnt_sg
 
 https://twitter.com/ericclemmons/status/1488558951008509963
@@ -159,8 +183,8 @@ console.log(numeros);
 // (3) [1, 2, 3]
 
 // .join(', ') Convertir de array a string y separar los caracteres por comas:
-let string2 = numeros.join(', ');
-console.log(string2);
+let string3 = numeros.join(', ');
+console.log(string3);
 // '1, 2, 3'
 
 /* --- */
@@ -177,10 +201,10 @@ if (lenguaje === 'en') {
 } */
 const conector = lenguaje === 'en' ? ' and ' : ' y ';
 
-string2 = numeros.slice(0, -1)
+string3 = numeros.slice(0, -1)
                  .join(', ')
                  .concat(conector + numeros.slice(-1));
-console.log(string2);
+console.log(string3);
 // '1, 2 and 3'
 
 /* --- */
@@ -192,23 +216,23 @@ console.log(elementoString);
 
 /* Intl.ListFormat() BUENA PRACTICA:
 Permite escribir el idioma dentro del par de parentesis () */
-string2 = new Intl.ListFormat('es').format(elementoString);
-console.log(string2);
+string3 = new Intl.ListFormat('es').format(elementoString);
+console.log(string3);
 // '1, 2 y 3'
 
 /* Ademas cuando el idioma es ingles agrega una coma antes del and
 lo cual hace parte de la ortografia del ingles */
-string2 = new Intl.ListFormat('en').format(elementoString);
-console.log(string2);
+string3 = new Intl.ListFormat('en').format(elementoString);
+console.log(string3);
 // '1, 2, and 3'
 
 /* Tambien puedo elegir usar...
 - y
 - o */
-string2 = new Intl.ListFormat('es', { type: 'conjunction' }).format(elementoString);
-console.log(string2);
+string3 = new Intl.ListFormat('es', { type: 'conjunction' }).format(elementoString);
+console.log(string3);
 // '1, 2 y 3'
 
-string2 = new Intl.ListFormat('es', { type: 'disjunction' }).format(elementoString);
-console.log(string2);
+string3 = new Intl.ListFormat('es', { type: 'disjunction' }).format(elementoString);
+console.log(string3);
 // '1, 2 o 3'

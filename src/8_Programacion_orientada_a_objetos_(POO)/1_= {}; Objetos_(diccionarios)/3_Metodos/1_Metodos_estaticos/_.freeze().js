@@ -34,9 +34,19 @@ Es el nombre del metodo
 
 /* ----------------------------------------------------------------- */
 
-const objetoLiteral = {};
-
+const objetoLiteral = {
+  uno: 1,
+  dos: 2,
+  tres: 3,
+};
 console.log(objetoLiteral);
+/*
+{
+  uno: 1,
+  dos: 2,
+  tres: 3
+}
+*/
 
 /* ----------------------------------------------------------------- */
 

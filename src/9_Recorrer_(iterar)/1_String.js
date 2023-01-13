@@ -99,12 +99,21 @@ entonces puedo usar
 las formas de iterar array que son:
 - Array.from()
 - .entries()
+- .keys() y .values()
 - .every()
 - .some()
 - .forEach()
 - .map()
+- .flatMap()
 - .filter()
 - .reduce()
+- .reduceRight()
+- .find()
+- .findLast()
+- .findLastIndex()
+- .findIndex()
+- .indexOf()
+- .lastIndexOf()
 */
 const array = string.split(''); // .split() convertir de string a array
 console.log(array);

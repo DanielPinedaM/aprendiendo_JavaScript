@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable prefer-const */
@@ -14,6 +15,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators
 
 .entries() devuelve el iterador de un array
+
+.entries() Iterador de un Array que Contiene [i, elemento]
 
 .entries() devuelve un array
 q contiene en sus elementos pares de [indice, elemento]
@@ -57,13 +60,13 @@ for (let i = 0; i < figuras.length; i++) {
   let indice = array2[0];
   let elemento = array2[1];
 
-  console.log(`i = ${indice} | elemento = '${elemento}'`);
+  console.log(`i=${indice} | elemento='${elemento}'`);
 }
 /*
-i = 0 | elemento = '▲'
-i = 1 | elemento = '●'
-i = 2 | elemento = '✖'
-i = 3 | elemento = '■'
+i=0 | elemento='▲'
+i=1 | elemento='●'
+i=2 | elemento='✖'
+i=3 | elemento='■'
 */
 
 /* ----------------------------------------------------- */
@@ -76,13 +79,13 @@ console.log(figuras);
 
 // for of y  [i, elemento]
 for (const [i, elemento] of figuras.entries()) {
-  console.log(`i = ${i} | elemento = '${elemento}'`);
+  console.log(`i=${i} | elemento='${elemento}'`);
 }
 /*
-i = 0 | elemento = '▲'
-i = 1 | elemento = '●'
-i = 2 | elemento = '✖'
-i = 3 | elemento = '■'
+i=0 | elemento='▲'
+i=1 | elemento='●'
+i=2 | elemento='✖'
+i=3 | elemento='■'
 */
 
 /* ----------------------------------------------------- */
@@ -147,39 +150,29 @@ i = 2 | elemento = 3
 
 /* ----------------------------------------------------- */
 
-/* Ejemplo 6 - Recorrer (Iterar) Objeto Literal {} Usando el Metodo de Array [] .entries()
-El método .entries() lee la propiedad length de this
-y despues accede a cada índice entero
+/* Ejemplo 6 - Object.entries() en objetoLiteral {}
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries#calling_entries_on_non-array_objects */
+Tutorial de Midudev:
+https://youtu.be/Mz9HSiXSSVU */
 
 const objetoLiteral = {
 // propiedad: valor,
-  length: 3,
-  0: 'a',
-  1: 'b',
-  2: 'c',
+  uno: 1,
+  dos: 2,
+  tres: 3,
 };
-console.log(objetoLiteral);
-/*
-{
-  '0': 'a',
-  '1': 'b',
-  '2': 'c',
-  length: 3
-}
-*/
 
-const iterador5 = Array.prototype.entries.call(objetoLiteral);
-console.log(iterador5);
-// Object [Array Iterator] {}
+/* Object.entries() Convertir el objetoLiteral {} a array [],
+                    el array contiene pares de [propiedad, valor]
 
-for (const array3 of iterador5) {
-  //             propiedad: valor,
-  console.log(`${array3[0]} : ${array3[1]}`);
-}
+.map()              Devolver un Nuevo Array con el Resultado de Ejecutar una Función
+                    a Cada Uno de los Elementos de un Array Existente (Mapear Array) */
+Object.entries(objetoLiteral).map((entry) => {
+  const [propiedad, valor] = entry;
+  console.log(`${propiedad} ➜ ${valor}`);
+});
 /*
-0 : a
-1 : b
-2 : c
+uno  ➜ 1
+dos  ➜ 2
+tres ➜ 3
 */

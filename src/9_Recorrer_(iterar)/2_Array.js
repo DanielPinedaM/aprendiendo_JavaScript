@@ -3,10 +3,6 @@
 /* eslint-disable no-restricted-syntax */
 // @ts-nocheck
 
-const array = ['▲', '●', '✖', '■'];
-console.log(array);
-// (4) ['▲', '●', '✖', '■']
-
 /*
 Hay 2 formas diferentes de recorrer (iterar)
 los array de acuerdo a la DIRECCION de iteracion:
@@ -18,10 +14,12 @@ los array de acuerdo a la DIRECCION de iteracion:
    - while () {}
    - do {} while ()
    - for i++
+   - for i++ y .join()
    - for of
    - for in
    - Array.from()
    - .entries()
+   - .keys() y .values()
    - .every()
    - .some()
    - .forEach()
@@ -45,6 +43,7 @@ los array de acuerdo a la DIRECCION de iteracion:
    para esto se usan los codigos:
 
    - for i--
+   - for i-- y .join()
    - .reduceRight()
    - .findLast()
    - .lastIndexOf()
@@ -57,6 +56,10 @@ los array de acuerdo a la DIRECCION de iteracion:
    i=1 | elemento='●'
    i=0 | elemento='▲'
 */
+
+const array = ['▲', '●', '✖', '■'];
+console.log(array);
+// (4) ['▲', '●', '✖', '■']
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -137,22 +140,6 @@ Array.from(array, (elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
   return elemento;
 });
-
-/*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .entries() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
-
-Iterador de un Array */
-const iterador = array.entries();
-console.log(iterador);
-// Object [Array Iterator] {}
-
-// for of
-for (const elemento of iterador) {
-  console.log(`i=${elemento[0]} | elemento='${elemento[1]}'`);
-}
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄
@@ -358,7 +345,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 ULTIMO Número de Posición (Índice) del Elemento Buscado */
 for (let i = array.length - 1; i >= 0; i--) {
   const k = array.lastIndexOf(array[i]); // MALA PRACTICA: obtener indice actual con .lastIndexOf()
-  console.log(`i=${k} | elemento='${array[j]}'`);
+  console.log(`i=${k} | elemento='${array[k]}'`);
 }
 
 /*
@@ -371,3 +358,63 @@ ULTIMO Número de Posición (Índice) del Elemento Buscado */
 array.findLastIndex((elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
 });
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄
+ █ .join() █
+ ▀▀▀▀▀▀▀▀▀▀▀
+https://youtu.be/59tYAYnt_sg
+
+.join() Convertir de array a string */
+const string = array.join('');
+console.log(string);
+// '▲●✖■'
+
+// for () {} Recorrer (iterar) string
+for (let i = 0; i < string.length; i++) {
+  console.log(`i=${i} | caracter='${string[i]}'`);
+}
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .entries() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
+
+Iterador de un Array que Contiene [i, elemento]  */
+const iterador = array.entries();
+console.log(iterador);
+// Object [Array Iterator] {}
+
+// for of
+for (const [i, elemento] of iterador) {
+  console.log(`i=${i} | elemento='${elemento}'`);
+}
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .keys() y .values() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/keys
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values
+
+Iterador de Índices .keys() y Elementos .values() de un Array */
+
+// Índices = .keys()
+const keys = array.keys();
+console.log(keys);
+// Object [Array Iterator] {}
+
+// Elementos = .values()
+const values = array.values();
+console.log(values);
+// Object [Array Iterator] {}
+
+// for () {}
+for (let i = 0; i < array.length; i++) {
+  const indices = keys.next().value;
+  const elementos = values.next().value;
+
+  console.log(`i=${indices} | elemento='${elementos}'`);
+}
