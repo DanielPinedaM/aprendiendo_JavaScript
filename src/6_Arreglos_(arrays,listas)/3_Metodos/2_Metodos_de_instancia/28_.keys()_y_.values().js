@@ -113,7 +113,7 @@ i=3 | elemento='■'
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 3 - Modificacion de elementos del array durante la iteracion con .values()
+/* Ejemplo 3 - .values() y modificar elementos del array durante la iteración
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values#mutations_during_iteration */
 
 const figuras = ['▲', '●', '✖', '■'];

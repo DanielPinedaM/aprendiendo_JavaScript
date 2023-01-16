@@ -401,17 +401,17 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Iterador de Índices .keys() y Elementos .values() de un Array */
 
-// Índices = .keys()
+// Índices = array.keys()
 const keys = array.keys();
 console.log(keys);
 // Object [Array Iterator] {}
 
-// Elementos = .values()
+// Elementos = array.values()
 const values = array.values();
 console.log(values);
 // Object [Array Iterator] {}
 
-// for () {}
+// Recorrer (iterar) array usando .keys() y .values()
 for (let i = 0; i < array.length; i++) {
   const indices = keys.next().value;
   const elementos = values.next().value;

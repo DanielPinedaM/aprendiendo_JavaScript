@@ -2,8 +2,8 @@
 /* eslint-disable max-len */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-multi-spaces */
-// @ts-nocheck
 /* eslint-disable no-unused-expressions */
+// @ts-nocheck
 
 /* -------------------------------------------------------------- */
 
@@ -62,7 +62,7 @@ length: 3
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of
 
 crear un nuevo array a partir de ARGUMENTOS */
-console.log(Array.of('1', '2', '3', 4, 5));
+Array.of('1', '2', '3', 4, 5);
 /* (5) ['1', '2', '3', 4, 5]
 0: "1"
 1: "2"
@@ -284,81 +284,33 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 Buscar ELEMENTOS en cualquier parte de un array
 
 ¿El elemento circulo '●' existe en el array?, true significa que si */
-console.log(['■', '●', '■', '■'].includes('●')); // true
-//                 ↑
+['■', '●', '■', '■'].includes('●'); // true
+//     ↑
 
 // false significa q el elemento triangulo '▲' NO existe en el array
-console.log(['■', '●', '■', '■'].includes('▲'));
+['■', '●', '■', '■'].includes('▲');
 // false
 
 /* Buscar el circulo '●' A PARTIR de la posicion (indice) 1 hacia adelante (1, 2, 3),
 devuelve true porq en el array ['■', '●', '■', '■']
 el circulo '●' esta en esta parte ['●', '■', '■']  */
-console.log(['■', '●', '■', '■'].includes('●', 1)); // true
-//            0    1    2    3
-//                 ↑
+  ['■', '●', '■', '■'].includes('●', 1); // true
+//  0    1    2    3
+//       ↑
 
 /* Los indices negativos sirven para buscar en las ultimas posiciones,
 buscar el circulo '●' A PARTIR de la posicion (indice) -3 hacia adelante (-3, -2, -1) */
-console.log(['■', '●', '■', '■'].includes('●', -3)); // true
-//           -4   -3   -2   -1
-//                 ↑
+  ['■', '●', '■', '■'].includes('●', -3); // true
+//  -4   -3   -2   -1
+//       ↑
 
 // false porq el circulo '●' NO esta en posiciones 2 NI 3
-console.log(['■', '●', '■', '■'].includes('●', 2)); // false
-//            0    1    2    3
+  ['■', '●', '■', '■'].includes('●', 2); // false
+//  0    1    2    3
 
 // false porq el circulo '●' NO esta en posiciones -2 NI -1
-console.log(['■', '●', '■', '■'].includes('●', -2)); // false
-//           -4   -3   -2   -1
-
-/*
- ▄▄▄▄▄▄▄▄▄
- █ []    █
- █ .at() █
- ▀▀▀▀▀▀▀▀▀
-https://youtu.be/gSSjhChWYK4
-
-Obtener (acceder) en especifico a un ELEMENTO q se encuentra en una posicion (indice)
-
-0 PRIMER elemento */
-  ['▲', '●', '✖', '■'][0];        // '▲' -> string
-//  0    1    2    3
-//  ↑
-
-// -1 ULTIMO elemento
-   ['▲', '●', '✖', '■'].at(-1);    // '■' -> string
-   ['▲', '●', '✖', '■'].slice(-1); // ['■'] -> array
-//  -4   -3   -2    -1  -> Indices negativos
-
-// -1 significa q el elemento triangulo '▲' NO existe en el array
-['■', '●', '■', '●'].findIndex((elemento) => elemento === '▲'); // -1
-
-/*
- ▄▄▄▄▄▄▄▄▄▄▄▄
- █ .slice() █
- ▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
-
-Extraer una parte de un ARRAY de acuerdo a sus posiciones (indices) */
-
-// array A PARTIR de la segunda posicion 1
-  ['▲', '●', '✖', '■'].slice(1);      // (3) ['●', '✖', '■']
-//  0    1    2    3
-
-// array A PARTIR de la PE-nultima posicion -2
-  ['▲', '●', '✖', '■'].slice(-2);     // (2) ['✖', '■']
-//  -4   -3   -2   -1
-
-/* array DESDE la posicion 0 HASTA 2,
-NO se incluye la posicion 3 */
-  ['▲', '●', '✖', '■'].slice(0, 3);   // (3) ['▲', '●', '✖']
-//  0    1    2    3
-
-/* posiciones -2 y -3 del array,
-NO se incluye la posicion -1 */
-  ['▲', '●', '✖', '■'].slice(-3, -1); // (2) ['●', '✖']
-// -4   -3   -2    -1
+  ['■', '●', '■', '■'].includes('●', -2); // false
+// -4   -3   -2   -1
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -460,25 +412,135 @@ puede ser cualquier tipo de dato */
 // (8) ['▲', '●', '✖', '■', 'hola mundo', 1, true, false]
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .entries() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .shift() y .pop() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift
 
-Iterador de un array */
-['▲', '●', '✖', '■'].entries();
-// Object [Array Iterator] {}
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop */
 
-// Recorrer (iterar) array usando .entries(), for of y  [i, elemento]
-for (const [i, elemento] of ['▲', '●', '✖', '■'].entries()) {
-  console.log(`i = ${i} | elemento = '${elemento}'`);
-}
+let array = [1, 2, 3, 4, 5];
+
+// Eliminar y devolver el .shift() PRIMER
+const primero = array.shift();
+console.log(primero); // 1
+console.log(array);   // (4) [2, 3, 4, 5]
+
+// y .pop() ULTIMO elemento del array
+array = [1, 2, 3, 4, 5];
+
+const ultimo = array.pop();
+console.log(ultimo);  // 5
+console.log(array);   // (4) [1, 2, 3, 4]
+
 /*
-i = 0 | elemento = '▲'
-i = 1 | elemento = '●'
-i = 2 | elemento = '✖'
-i = 3 | elemento = '■'
-*/
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .unshift() y .push() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push */
+
+const circulos = ['●', '●'];
+console.log(circulos);        // (2) ['●', '●']
+console.log(circulos.length); // 2
+
+// Agregar nuevo elemento al .unshift() PRINCIPIO
+const unshift = circulos.unshift('❤️');
+console.log(unshift);         // 3
+console.log(circulos);        // (3) ['❤️', '●', '●']
+
+/*  y .push() FINAL del array
+y devolver la nueva longitud .length del array */
+const push = circulos.push('❤️');
+console.log(push);            // 4
+console.log(circulos);        // (4) ['❤️', '●', '●', '❤️']
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .splice() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀
+
+Agregar o Eliminar Elemento de Array en una Posición (Índice) en Especifico
+
+INCOMPLETO */
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .reverse() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
+
+Invertir (voltear) el orden de los elementos del array */
+const array2 = [1, 2, 3];
+console.log(array2); // (3) [1, 2, 3]
+
+array2.reverse();
+console.log(array2); // (3) [3, 2, 1]
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .sort() y .sort().reverse() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort */
+
+// .sort() Ordenar de menor a mayor (ascendente)
+[2, 4, 3, 5, 1].sort();                     // (5) [1, 2, 3, 4, 5]
+['b', 'd', 'c', 'e', 'a'].sort();           // (5) ['a', 'b', 'c', 'd', 'e']
+[1, 'a', 2, 'b', 3, 'c'].sort();            // (6) [1, 2, 3, 'a', 'b', 'c']
+
+// .sort().reverse() de mayor a menor (descendente) array con números y letras
+[2, 4, 3, 5, 1].sort().reverse();           // (5) [5, 4, 3, 2, 1]
+['a', 'b', 'c', 'd', 'e'].sort().reverse(); // (5) ['e', 'd', 'c', 'b', 'a']
+[1, 'a', 2, 'b', 3, 'c'].sort().reverse();  // (6) ['c', 'b', 'a', 3, 2, 1]
+
+/*
+ ▄▄▄▄▄▄▄▄▄
+ █ []    █
+ █ .at() █
+ ▀▀▀▀▀▀▀▀▀
+https://youtu.be/gSSjhChWYK4
+
+Obtener (acceder) en especifico a un ELEMENTO q se encuentra en una posicion (indice)
+
+0 PRIMER elemento */
+  ['▲', '●', '✖', '■'][0];        // '▲' -> string
+//  0    1    2    3
+//  ↑
+
+// -1 ULTIMO elemento
+   ['▲', '●', '✖', '■'].at(-1);    // '■' -> string
+   ['▲', '●', '✖', '■'].slice(-1); // ['■'] -> array
+//  -4   -3   -2    -1  -> Indices negativos
+
+// -1 significa q el elemento triangulo '▲' NO existe en el array
+['■', '●', '■', '●'].findIndex((elemento) => elemento === '▲'); // -1
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .slice() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+Extraer una parte de un ARRAY de acuerdo a sus posiciones (indices) */
+
+// array A PARTIR de la segunda posicion 1
+  ['▲', '●', '✖', '■'].slice(1);      // (3) ['●', '✖', '■']
+//  0    1    2    3
+
+// array A PARTIR de la PE-nultima posicion -2
+  ['▲', '●', '✖', '■'].slice(-2);     // (2) ['✖', '■']
+//  -4   -3   -2   -1
+
+/* array DESDE la posicion 0 HASTA 2,
+NO se incluye la posicion 3 */
+  ['▲', '●', '✖', '■'].slice(0, 3);   // (3) ['▲', '●', '✖']
+//  0    1    2    3
+
+/* posiciones -2 y -3 del array,
+NO se incluye la posicion -1 */
+  ['▲', '●', '✖', '■'].slice(-3, -1); // (2) ['●', '✖']
+// -4   -3   -2    -1
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄
@@ -524,13 +586,56 @@ Convertir de Array a String (Texto) */
 ['▲'].join('-'); // '▲'
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄
- █ .keys() █
- ▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/keys */
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .entries() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
+
+Iterador de un array que contiene [i, elemento] */
+['▲', '●', '✖', '■'].entries();
+// Object [Array Iterator] {}
+
+// Recorrer (iterar) array
+for (const [i, elemento] of ['▲', '●', '✖', '■'].entries()) {
+  console.log(`i=${i} | elemento='${elemento}'`);
+}
+/*
+i=0 | elemento='▲'
+i=1 | elemento='●'
+i=2 | elemento='✖'
+i=3 | elemento='■'
+*/
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .values() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values */
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .keys() y .values() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/keys
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values
+
+Iterador de Índices .keys() y Elementos .values() de un Array */
+
+// Índices = array.keys()
+const keys = ['▲', '●', '✖', '■'].keys();
+console.log(keys);
+// Object [Array Iterator] {}
+
+// Elementos = array.values()
+const values = ['▲', '●', '✖', '■'].values();
+console.log(values);
+// Object [Array Iterator] {}
+
+// Recorrer (iterar) array usando .keys() y .values()
+for (let i = 0; i < ['▲', '●', '✖', '■'].length; i++) {
+  const indices = keys.next().value;
+  const elementos = values.next().value;
+
+  console.log(`i=${indices} | elemento='${elementos}'`);
+}
+/*
+i=0 | elemento='▲'
+i=1 | elemento='●'
+i=2 | elemento='✖'
+i=3 | elemento='■'
+*/
