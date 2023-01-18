@@ -490,9 +490,251 @@ console.log(circulos);        // (4) ['❤️', '●', '●', '❤️']
 https://youtu.be/luXkteqv0I8
 
 Eliminar, Reemplazar o Agregar Elemento de Array
-INICIANDO en una Posición (Índice) en Especifico
+INICIANDO en una Posición (Índice) en Especifico */
 
-INCOMPLETO */
+// Array original (existente) que modificare despues con .splice()
+let figuras = ['▲', '●', '✖', '■'];
+//              0    1    2    3   -> Posiciones (indices) POSITIVOS
+//             -4    -3   -2   -1  -> "                  " NEGATIVOS
+
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
+
+/* * (SI escribo start) Y (NO escribo deleteCount) Y (NO escribo item1, item2, itemN)
+Cuando escribo un solo numero dentro del par de parentesis de .splice()
+entonces se eliminan elementos
+
+Eliminar los elementos que estan A PARTIR del indice 2
+HASTA el ULTIMO elemento del array,
+SI se incluye el indice 2 y el ultimo elemento del array,
+se eliminan elementos de indices 2 y 3
+
+Cuando del array (4) ['▲', '●', '✖', '■'] elimino (2) ['✖', '■']
+quedan los elementos (2) ['▲', '●']
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_all_elements_starting_from_index_2 */
+console.log(figuras.splice(2)); // (2) ['✖', '■']
+console.log(figuras);           // (2) ['▲', '●']
+
+// Hacer otra vez que el array tenga todas las figuras
+figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
+
+/* * start < 0
+Si start es negativo,
+entonces los números negativos
+cuentan al revés de atrás (ultima)
+hacia adelante (primera) posición
+
+Eliminar los elementos que estan A PARTIR del indice -2
+HASTA el ultimo elemento del array,
+SI se incluye el indice -2 y el ultimo elemento del array,
+se eliminan elementos de indices -2 y -1
+
+Cuando del array (4) ['▲', '●', '✖', '■'] elimino (2) ['✖', '■']
+quedan los elementos (2) ['▲', '●'] */
+console.log(figuras.splice(-2)); // (2) ['✖', '■']
+console.log(figuras);            // (2) ['▲', '●']
+
+figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
+
+/* Eliminar UN SOLO elemento q esta en un indice en especifico
+
+Del array (4) ['▲', '●', '✖', '■']
+eliminar ['✖'] que esta en el indice -2
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_1_element_from_index_-2 */
+console.log(figuras.splice(-2, 1)); // ['✖']
+console.log(figuras);               // (3) ['▲', '●', '■']
+
+figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
+
+/* * (escribo start) Y (deleteCount = Infinity)
+Eliminar los elementos q estan DESDE el indice 1,
+hasta el ULTIMO elemento del array,
+SI se incluye el indice 1
+y el ultimo elemento del array,
+se eliminan los elementos de los indices 1, 2 y 3
+
+Cuando del array (4) ['▲', '●', '✖', '■']
+elimino (3) ['●', '✖', '■']
+queda el elemento ['▲'] */
+console.log(figuras.splice(1, Infinity)); // (3) ['●', '✖', '■']
+console.log(figuras);                     // ['▲']
+
+figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
+
+/* * (escribo start) Y (deleteCount = Number.MAX_SAFE_INTEGER)
+Obtengo el mismo resultado con Number.MAX_SAFE_INTEGER */
+console.log(figuras.splice(1, Number.MAX_SAFE_INTEGER)); // (3) ['●', '✖', '■']
+console.log(figuras);                                    // ['▲']
+
+figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
+
+/* * (escribo start) Y (deleteCount = 1) Y (NO escribo item1, item2, itemN)
+Eliminar UN elemento q esta en un indice en especifico
+
+Cuando del array (4) ['▲', '●', '✖', '■']
+elimino el elemento circulo ['●'] q esta en el indice 1
+quedan los elementos (3) ['▲', '✖', '■']
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_1_element_at_index_3 */
+console.log(figuras.splice(1, 1)); // ['●']
+console.log(figuras);              // (3) ['▲', '✖', '■']
+
+figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
+
+/* * (escribo start) Y (deleteCount = 2) Y (NO escribo item1, item2, itemN)
+Eliminar DOS elementos DESDE el indice 1,
+se eliminan elementos de indices 1 y 2
+
+Cuando del array (4) ['▲', '●', '✖', '■']
+elimino (2) ['●', '✖']
+quedan los elementos (2) ['▲', '■']
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_2_elements_starting_from_index_2 */
+console.log(figuras.splice(1, 2)); // (2) ['●', '✖']
+console.log(figuras);              // (2) ['▲', '■']
+
+figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
+
+/* * (escribo start) Y (deleteCount = 0) Y (escribo item1, item2, itemN)
+.splice() devuelve un array vacio []
+cuando agrego un nuevo elemento en un indice en especifico
+
+Cuando al array (4) ['▲', '●', '✖', '■']
+le agrego un elemento corazon '❤️' en el indice 1,
+el array con el nuevo elemento agregado es (5) ['▲', '❤️', '●', '✖', '■']
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_0_zero_elements_before_index_2_and_insert_drum */
+console.log(figuras.splice(1, 0, '❤️')); // []
+console.log(figuras);                    // (5) ['▲', '❤️', '●', '✖', '■']
+
+figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
+
+/* Agregar 2 nuevos elementos DESDE un indice en especifico,
+agregar dos corazones '❤️', '❤️' DESDE el indice 1
+
+Cuando al array (4) ['▲', '●', '✖', '■']
+le agrego dos corazones '❤️', '❤️' en los indices 1 y 2,
+el array con los nuevos elementos agregados es (5) ['▲', '❤️', '❤️' '●', '✖', '■']
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_0_zero_elements_before_index_2_and_insert_drum_and_guitar */
+console.log(figuras.splice(1, 0, '❤️', '❤️')); // []
+console.log(figuras);                          // (5) ['▲', '❤️', '❤️' '●', '✖', '■']
+
+figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
+
+/* * (escribo start) Y (deleteCount = 1) Y (escribo item1, item2, itemN)
+Reemplazar UN SOLO elemento que esta en un indice en especifico
+por otro(s) nuevo(s) elemento(s)
+
+Reemplazar el elemento circulo ['●'] q esta en el indice 1
+por UN elemento corazon '❤️'
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_1_element_at_index_2_and_insert_trumpet */
+console.log(figuras.splice(1, 1, '❤️')); // ['●']
+console.log(figuras);                    // (4) ['▲', '❤️', '✖', '■']
+
+figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
+
+/* Reemplazar el elemento circulo ['●'] q esta en el indice 1
+por DOS corazones '❤️', '❤️' */
+console.log(figuras.splice(1, 1, '❤️', '❤️')); // ['●']
+console.log(figuras);                          // (5) ['▲', '❤️', '❤️', '✖', '■']
+
+figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
+
+/* * (escribo start) Y (deleteCount = 2) Y (escribo item1, item2, itemN)
+Reemplazar DOS elementos A PARTIR del indice 1
+
+Reemplazar los dos elementos (2) ['●', '✖']
+por dos corazones '❤️', '❤️'
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_2_elements_from_index_0_and_insert_parrot_anemone_and_blue */
+console.log(figuras.splice(1, 2, '❤️', '❤️')); // (2) ['●', '✖']
+console.log(figuras);                          // (4) ['▲', '❤️', '❤️', '■']
+
+figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);
+// (4) ['▲', '●', '✖', '■']
+
+/* * (start = 0) ó (start <= -array.length)
+TODOS los elementos se eliminan del array ( vaciar array [] )
+cuando sucede alguno de estos casos:
+- .splice(0)
+
+- start es MENOR O IGUAL Q
+el numero de elementos del array .length pero NEGATIVO */
+console.log(figuras.splice(0));  // (4) ['▲', '●', '✖', '■']
+console.log(figuras);            // []
+
+figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);            // (4) ['▲', '●', '✖', '■']
+
+console.log(figuras.length);     // 4 -> longitud array, -4 ó numero menor a -4 (-4, -5, -6...) vacia el array []
+console.log(figuras.splice(-4)); // (4) ['▲', '●', '✖', '■']
+console.log(figuras);            // []
+
+figuras = ['▲', '●', '✖', '■'];
+console.log(figuras);            // (4) ['▲', '●', '✖', '■']
+
+/* .splice() devuelve un array vacio []
+y NO modifica el array original (existente)
+cuando sucede alguno de estos casos:
+- .splice() NO escribo nada dentro del par de parentesis
+
+- (deleteCount <= 0) Y (NO escribo item1, item2, itemN)
+  (deleteCount es 0 ó un numero negativo) Y (NO escribo item1, item2, itemN)
+
+- (start >= array.length)
+start es MAYOR O IGUAL Q
+el numero de elementos del array .length
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#return_value */
+console.log(figuras.splice());     // []
+console.log(figuras);              // (4) ['▲', '●', '✖', '■']
+
+console.log(figuras.splice(1, 0)); // []
+console.log(figuras);              // (4) ['▲', '●', '✖', '■']
+
+console.log(figuras.length);       // 4 -> longitud array, 4 ó un numero mayor a 4 (4, 5, 6...) NO modifica el array original
+console.log(figuras.splice(4));    // []
+console.log(figuras);              // (4) ['▲', '●', '✖', '■']
+
+/* * (start >= array.length) Y (escribo deleteCount) Y (escribo item1, item2, itemN)
+SI se cumplen TODAS las siguientes condiciones:
+- start es MAYOR O IGUAL Q
+el numero de elementos del array .length
+
+- escribo deleteCount,
+NO importa q numero sea deleteCount
+
+- escribo uno o mas nuevos elementos a agregar item1, item2, itemN
+
+Entonces se agregan nuevos elementos AL FINAL del array
+
+.length longitud array,
+para q se agreguen nuevos elementos
+start tiene q ser 4 ó un numero mayor a 4 (4, 5, 6) */
+console.log(figuras.length);                     // 4
+
+// Agregar 2 nuevos elementos corazones '❤️', '❤️' AL FINAL del array
+console.log(figuras.splice(4, 999, '❤️', '❤️')); // []
+console.log(figuras);                            // (6) ['▲', '●', '✖', '■', '❤️', '❤️']
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -500,12 +742,27 @@ INCOMPLETO */
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
 
-Invertir (voltear) el orden de los elementos del array */
-const array2 = [1, 2, 3];
+Invertir (voltear) el orden de los elementos del array
+
+.reverse():
+MODIFICAR el array original (existente) (MUtabilidad) */
+let array2 = [1, 2, 3];
 console.log(array2); // (3) [1, 2, 3]
 
 array2.reverse();
-console.log(array2); // (3) [3, 2, 1]
+console.log(array2); // (3) [3, 2, 1] -> SI se modifica el array original
+
+// Hacer otra vez q array2 tenga numeros del 1 al 3
+array2 = [1, 2, 3];
+console.log(array2); // (3) [1, 2, 3]
+
+/* Sintaxis de propagación:
+Crear una COPIA invertida (volteada) del array */
+const copia = [...array2].reverse();
+console.log(copia);  // (3) [3, 2, 1]
+
+// NO se modifica el array original (INmutabilidad)
+console.log(array2); // (3) [1, 2, 3]
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄

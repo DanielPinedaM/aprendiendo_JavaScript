@@ -134,7 +134,7 @@ console.log(figuras);
 // (4) ['▲', '●', '✖', '■']
 
 /* * (escribo start) Y (deleteCount = Number.MAX_SAFE_INTEGER)
-Obtengo el mismo resultado con Number.MAX_SAFE_INTEGER */
+     Obtengo el mismo resultado con Number.MAX_SAFE_INTEGER */
 console.log(figuras.splice(1, Number.MAX_SAFE_INTEGER)); // (3) ['●', '✖', '■']
 console.log(figuras);                                    // ['▲']
 
@@ -316,14 +316,13 @@ en el indice 1 */
 console.log(figuras2.splice(1, 0, letras)); // []
 console.log(figuras2);                      // (5) [ '▲', [ 'a', 'b' ], '●', '✖', '■' ]
 
-// Aplanar array
+// .flat() Aplanar array
 figuras2 = figuras2.flat(Infinity);
 console.log(figuras2);                      // (6) ['▲', 'a', 'b', '●', '✖', '■']
 
 // Hacer otra vez que el array tenga todas las figuras
 figuras2 = ['▲', '●', '✖', '■'];
-console.log(figuras2);
-// (4) ['▲', '●', '✖', '■']
+console.log(figuras2);                      // (4) ['▲', '●', '✖', '■']
 
 /* * (escribo start) Y (deleteCount = 1) Y (item1, item2, itemN son un array)
 En el array (4) ['▲', '●', '✖', '■']
@@ -332,7 +331,7 @@ por el array (2) ['a', 'b'] */
 console.log(figuras2.splice(1, 1, letras)); // ['●']
 console.log(figuras2);                      // (4) [ '▲', [ 'a', 'b' ], '✖', '■' ]
 
-// Aplanar array
+// .flat() Aplanar array
 figuras2 = figuras2.flat(Infinity);
 console.log(figuras2);                      // (6) ['▲', 'a', 'b', '●', '✖', '■']
 
