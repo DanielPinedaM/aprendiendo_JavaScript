@@ -99,7 +99,7 @@ console.log(a);               // (3) [1, 2, 3]
 
 /* Recordatorio:
 .concat() es una alternativa a .unshift() y .push(), ver:
-" 9.4.3.3.3) .concat() Concatenar (Unir) Array "
+" 9.4.3.3.5) .concat() Concatenar (Unir) Array "
 
 Puedo lograr un resultado similar usando .concat(),
 la diferencia es que .unshift() y .push() SI modifican el array original (existente),
@@ -109,6 +109,7 @@ console.log(c);               // (6) [1, 2, 3, 'a', 'b', 'c']
 
 // Hacer otra vez q el array a tenga los numeros del 1 al 3
 a = [1, 2, 3];
+console.log(a);               // (3) [1, 2, 3]
 
 /* Otra alternativa es usar la sintaxis extendida junto con .unshift() y .push()
 
@@ -140,7 +141,7 @@ console.log(array);                  // (3) [4, 5, 6]
 (desde el PRIMER 0 elemento hacia el ULTIMO -1 elemento)
 
 CON bucle i++ (6) [3, 2, 1, 4, 5, 6] */
-for (let i = 1; i < 4; i++) { // Iterar de
+for (let i = 1; i < 4; i++) {
   array.unshift(i); // 1, 2, 3
   console.log(`nuevo elemento agregaro al array = ${i}`);
 }
@@ -152,7 +153,9 @@ nuevo elemento agregaro al array = 3
 
 console.log(array);                  // (6) [3, 2, 1, 4, 5, 6]
 
+// Hacer otra vez q el array a tenga los numeros del 4 al 6
 array = [4, 5, 6];
+console.log(array);                  // (3) [4, 5, 6]
 
 /* for i-- Iterar al revés, de derecha a izquierda
 (desde el ULTIMO -1 elemento hacia el PRIMERO 0 elemento)

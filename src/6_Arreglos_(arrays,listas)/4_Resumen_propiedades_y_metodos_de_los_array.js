@@ -399,17 +399,30 @@ Reemplazar por circulo '●'...
 ['■', '●', '■', '●'].find((elemento) => elemento === '▲'); // undefined
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .concat() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
+ ▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .slice() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
 
-Concatenar (unir) array
+Extraer una parte de un ARRAY de acuerdo a sus posiciones (indices) */
 
-Lo q esta dentro del parentesis de .concat()
-puede ser cualquier tipo de dato */
-['▲'].concat(['●', '✖'], ['■'], 'hola mundo', 1, true, false);
-// (8) ['▲', '●', '✖', '■', 'hola mundo', 1, true, false]
+// array A PARTIR de la segunda posicion 1
+['▲', '●', '✖', '■'].slice(1);      // (3) ['●', '✖', '■']
+//  0    1    2    3
+
+// array A PARTIR de la PE-nultima posicion -2
+  ['▲', '●', '✖', '■'].slice(-2);     // (2) ['✖', '■']
+//  -4   -3   -2   -1
+
+/* array DESDE la posicion 0 HASTA 2,
+NO se incluye la posicion 3 */
+  ['▲', '●', '✖', '■'].slice(0, 3);   // (3) ['▲', '●', '✖']
+//  0    1    2    3
+
+/* posiciones -2 y -3 del array,
+NO se incluye la posicion -1 */
+  ['▲', '●', '✖', '■'].slice(-3, -1); // (2) ['●', '✖']
+// -4   -3   -2    -1
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -432,6 +445,19 @@ array = [1, 2, 3, 4, 5];
 const ultimo = array.pop();
 console.log(ultimo);  // 5
 console.log(array);   // (4) [1, 2, 3, 4]
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .concat() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
+
+Concatenar (unir) array
+
+Lo q esta dentro del parentesis de .concat()
+puede ser cualquier tipo de dato */
+['▲'].concat(['●', '✖'], ['■'], 'hola mundo', 1, true, false);
+// (8) ['▲', '●', '✖', '■', 'hola mundo', 1, true, false]
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -457,11 +483,14 @@ console.log(push);            // 4
 console.log(circulos);        // (4) ['❤️', '●', '●', '❤️']
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .splice() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .splice(start, deleteCount, item1, item2, itemN) █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 
-Agregar o Eliminar Elemento de Array en una Posición (Índice) en Especifico
+https://youtu.be/luXkteqv0I8
+
+Eliminar, Reemplazar o Agregar Elemento de Array
+INICIANDO en una Posición (Índice) en Especifico
 
 INCOMPLETO */
 
@@ -515,32 +544,6 @@ Obtener (acceder) en especifico a un ELEMENTO q se encuentra en una posicion (in
 
 // -1 significa q el elemento triangulo '▲' NO existe en el array
 ['■', '●', '■', '●'].findIndex((elemento) => elemento === '▲'); // -1
-
-/*
- ▄▄▄▄▄▄▄▄▄▄▄▄
- █ .slice() █
- ▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
-
-Extraer una parte de un ARRAY de acuerdo a sus posiciones (indices) */
-
-// array A PARTIR de la segunda posicion 1
-  ['▲', '●', '✖', '■'].slice(1);      // (3) ['●', '✖', '■']
-//  0    1    2    3
-
-// array A PARTIR de la PE-nultima posicion -2
-  ['▲', '●', '✖', '■'].slice(-2);     // (2) ['✖', '■']
-//  -4   -3   -2   -1
-
-/* array DESDE la posicion 0 HASTA 2,
-NO se incluye la posicion 3 */
-  ['▲', '●', '✖', '■'].slice(0, 3);   // (3) ['▲', '●', '✖']
-//  0    1    2    3
-
-/* posiciones -2 y -3 del array,
-NO se incluye la posicion -1 */
-  ['▲', '●', '✖', '■'].slice(-3, -1); // (2) ['●', '✖']
-// -4   -3   -2    -1
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄

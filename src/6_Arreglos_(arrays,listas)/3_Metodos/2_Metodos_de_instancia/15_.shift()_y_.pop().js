@@ -12,7 +12,7 @@ Eliminar y Devolver el .shift() PRIMER y .pop() ULTIMO Elemento del Array
 
 Recordatorio:
 .slice() es una alternativa a .shift() y .pop(), ver:
-" 9.4.3.5) .slice() Extraer una Parte de un Array de Acuerdo a sus Posiciones (Índices) "
+" 9.4.3.3.3) .slice() Extraer una Parte de un Array de Acuerdo a sus Posiciones (Índices) "
 
 Ambos .shift() y .pop() modifican la longitud .length del array original (existente)
 
