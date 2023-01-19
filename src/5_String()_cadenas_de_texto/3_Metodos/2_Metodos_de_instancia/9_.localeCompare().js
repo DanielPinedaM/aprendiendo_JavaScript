@@ -15,7 +15,8 @@ str que es el string 1
 y str2 que es el string 2
 pero los nombres de las variables pueden ser cualquiera
 
-.localeCompare() devuelve un numero entero...
+.localeCompare() devuelve un número entero
+según el orden que se encuentran las letras en el abecedario:
 1) negativo ó -1 si str esta ANTES de str2
 
 2) positivo ó 1 si str esta DESPUES de str2
