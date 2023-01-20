@@ -824,24 +824,48 @@ Aplanar array y concatenar cada uno de los elementos del array con un corazon '�
 // (4) ['▲❤', '●❤', '✖❤', '■❤']
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄
- █ .join() █
- ▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+█ .join()           █
+█ Intl.ListFormat() █
+█ .toString()       █
+█ .toLocaleString() █
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://youtu.be/59tYAYnt_sg
 
-Convertir de Array a String (Texto) */
-['▲', '●', '✖', '■'].join();    // '▲,●,✖,■' -> NO escribir nada dentro del par de parentesis de .join()
-['▲', '●', '✖', '■'].join(','); // '▲,●,✖,■' -> es lo mismo q separar el string por una coma ,
+https://twitter.com/ericclemmons/status/1488558951008509963
 
-['▲', '●', '✖', '■'].join('');  // '▲●✖■'    -> .join('') caracter en blanco
-['▲', '●', '✖', '■'].join(' '); // '▲ ● ✖ ■' -> .join(' ') un espacio en blanco
-['▲', '●', '✖', '■'].join('-'); // '▲-●-✖-■' -> .join('-') guion
-['▲', '●', '✖', '■'].join(1);   // '▲1●1✖1■' -> El separador tipo numero Number() se convierte a texto String()
+Convertir de array a string (texto) */
+const array3 = [1, 2, 3];
+console.log(array3);
+// (3) [1, 2, 3]
 
-['▲'].join();    // '▲'
-['▲'].join('');  // '▲'
-['▲'].join(' '); // '▲'
-['▲'].join('-'); // '▲'
+// .join('-') separar los caracteres por un guion
+console.log(array3.join('-'));
+// '1-2-3'
+
+// .map() convertir a string cada uno de los elementos del array
+const elementoString = array3.map((elemento) => String(elemento));
+console.log(elementoString);
+// (3) ['1', '2', '3']
+
+/* new Intl.ListFormat() el array esta en español 'es',
+agregar 'y' antes del ultimo caracter */
+const string = new Intl.ListFormat('es', { type: 'conjunction' }).format(elementoString);
+console.log(string);
+// '1, 2 y 3'
+
+// .toString() conserva las comas , del array
+console.log(array3.toString());
+// '1,2,3'
+
+// .toLocaleString() convertir a string, array q tiene fecha y esta en ingles
+const fecha = [1, 'a', new Date('21 Dec 1997 14:12:00 UTC')];
+console.log(fecha);
+// (3) [ 1, 'a', 1997-12-21T14:12:00.000Z ]
+
+const string2 = fecha.toLocaleString('en', { timeZone: 'UTC' });
+console.log(string2);
+// '1,a,12/21/1997, 2:12:00 PM'
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
