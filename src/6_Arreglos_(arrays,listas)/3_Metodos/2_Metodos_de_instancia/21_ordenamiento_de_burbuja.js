@@ -12,6 +12,9 @@ https://en.wikipedia.org/wiki/Category:Sorting_algorithms
 - Ordenamiento de Burbuja:
 https://en.wikipedia.org/wiki/Bubble_sort
 
+Tutorial:
+https://youtu.be/P_xNb8nFgmA
+
 Pasos del algoritmo de ordenamiento burbuja:
 https://2.bp.blogspot.com/-gucziLSAYBg/W6QqupWX-ZI/AAAAAAAAB7s/aX7CLPbL1ZUSWwqDA9NwqFIzHE4RlLXZwCLcBGAs/s1600/metodo_de_la_burbuja%2B%25281%2529.png
 

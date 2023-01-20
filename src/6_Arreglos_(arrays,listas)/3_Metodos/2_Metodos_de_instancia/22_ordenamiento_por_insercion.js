@@ -9,7 +9,7 @@ https://en.wikipedia.org/wiki/Sorting_algorithm
 
 https://en.wikipedia.org/wiki/Category:Sorting_algorithms
 
-- Ordenamiento por insercion
+- Ordenamiento por Insercion:
 https://en.wikipedia.org/wiki/Insertion_sort
 
 Tutorial:
@@ -24,7 +24,8 @@ https://www.edureka.co/blog/insertion-sort-in-c/
 
 3) Guardar en una variable el indice anterior i-1
 
-4) Guardar en una variable temporal el numero actual
+4) temporal = arr[i]
+   Guardar en una variable temporal el numero actual
 
 5) (numero izquierda) > (numero actual)
    SI el numero q esta a la izquierda
