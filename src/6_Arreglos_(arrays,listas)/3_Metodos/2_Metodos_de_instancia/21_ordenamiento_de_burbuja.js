@@ -15,24 +15,25 @@ https://en.wikipedia.org/wiki/Bubble_sort
 Pasos del algoritmo de ordenamiento burbuja:
 https://2.bp.blogspot.com/-gucziLSAYBg/W6QqupWX-ZI/AAAAAAAAB7s/aX7CLPbL1ZUSWwqDA9NwqFIzHE4RlLXZwCLcBGAs/s1600/metodo_de_la_burbuja%2B%25281%2529.png
 
-1) Guardar en una variable n el numero de elementos (longitud) del arrayay .length
+1) Guardar en una variable n el número de elementos (longitud) del array .length
 
-2) Iterar el arrayay desde el primer hasta el penultimo elemento mientras q n sea mayor q 1
+2) Iterar array con dos bucles for anidados, ambos for empiezan en el indice 0
 
 3) Se compara el elemento anterior i con el siguiente i+1
 
-4) (elemento i) > (elemento i+1)
+4) (elemento anterior i) > (elemento siguiente i+1)
    Intercambiar los elementos si el elemento anterior i es mayor q el siguiente i+1
 
-5) Guardar en una variable newn el ultimo indice del elemento intercambiado
+5) Guardar en una variable temporal el último elemento intercambiado
 
-6) Asignar a newn como el nuevo valor de n
+6) El contador de los dos bucles for aumenta
 
-7) Repetir pasos 2) hasta 6) hasta q n sea menor o igual a 1
+7) Los pasos 2) hasta 6)
+se repiten hasta q se detengan los dos for,
+el for externo se detiene en la última posición del array
+y el for interno en la penúltima
 
-8) Detener la iteracion cuando n sea menor o igual q 1
-
-9) Despues de los pasos anteriores el arrayay se ordena de menor a mayor (ascendente) */
+8) Después de los pasos anteriores el array se ordena de menor a mayor (ascendente). */
 
 /* ----------------------------------------------------------- */
 
