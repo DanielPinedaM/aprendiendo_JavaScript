@@ -42,7 +42,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 /* Originalmente el array tiene los numeros del 1 al 5,
 pero lo modificare despues con .shift() y .pop() */
+
 let array = [1, 2, 3, 4, 5];
+//           ↑           ↑
+//    .shift()      .pop()
+
 console.log(array);   // (5) [1, 2, 3, 4, 5]
 
 /* .shift() elimina y devuelve el

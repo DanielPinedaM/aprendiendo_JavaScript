@@ -17,22 +17,26 @@ Recordatorio:
 // Ejemplo 1:
 
 // array A PARTIR de la segunda posicion 1
-['▲', '●', '✖', '■'].slice(1);      // (3) ['●', '✖', '■']
+  ['▲', '●', '✖', '■'].slice(1);      // (3) ['●', '✖', '■']
 //  0    1    2    3
+//       ↑    ↑    ↑
 
 // array A PARTIR de la PE-nultima posicion -2
   ['▲', '●', '✖', '■'].slice(-2);     // (2) ['✖', '■']
 //  -4   -3   -2   -1
+//            ↑    ↑
 
 /* array DESDE la posicion 0 HASTA 2,
 NO se incluye la posicion 3 */
   ['▲', '●', '✖', '■'].slice(0, 3);   // (3) ['▲', '●', '✖']
 //  0    1    2    3
+//  ↑    ↑    ↑
 
 /* posiciones -2 y -3 del array,
 NO se incluye la posicion -1 */
   ['▲', '●', '✖', '■'].slice(-3, -1); // (2) ['●', '✖']
 // -4   -3   -2    -1
+//       ↑    ↑
 
 /* ------------------------------------------------------------------ */
 

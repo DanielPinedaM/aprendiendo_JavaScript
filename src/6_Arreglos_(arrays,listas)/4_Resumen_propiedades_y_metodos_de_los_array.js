@@ -7,12 +7,17 @@
 
 /* -------------------------------------------------------------- */
 
-/* Propiedades y metodos de los array...
-- Tutorial:
+/* Tutorial - Curso de Arrays de hdeleon.net
 https://youtu.be/LYF4FeJyccc
 
-- Documentacion Oficial:
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#static_methods */
+Documentación Oficial - Propiedades y Métodos de los Array:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#static_methods
+
+JavaScript Info - Métodos de los Array
+https://javascript.info/array-methods
+
+Igor Gonchar - Métodos de los Array Explicados con Figuras
+https://igorgonchar.medium.com/javascript-array-methods-cheatsheet-55016e405d14 */
 
 /* -------------------------------------------------------------- */
 
@@ -48,12 +53,7 @@ convertir a ARRAY y ejecutar una funcion para cada elemento
 2 + 2 = 4
 3 + 3 = 6 */
 Array.from([1, 2, 3], (x) => x + x);
-/* (3) [2, 4, 6]
-0: 2
-1: 4
-2: 6
-length: 3
-[[Prototype]]: Array(0) */
+// (3) [2, 4, 6]
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -63,14 +63,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 crear un nuevo array a partir de ARGUMENTOS */
 Array.of('1', '2', '3', 4, 5);
-/* (5) ['1', '2', '3', 4, 5]
-0: "1"
-1: "2"
-2: "3"
-3: 4
-4: 5
-length: 5
-[[Prototype]]: Array(0) */
+// (5) ['1', '2', '3', 4, 5]
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -140,20 +133,26 @@ https://youtu.be/qaGjS7-qWzg
 .reduce() concatenar (unir)
 cada uno de los elementos
 del array (4) ['▲', '●', '✖', '■']
-en un solo string '▲●✖■' (REDUCIR array) */
+en un solo string '▲●✖■' (REDUCIR array)
+
+.reduce() itera de izquierda a derecha
+(desde el PRIMER 0 elemento hacia el ULTIMO -1 elemento) */
 ['▲', '●', '✖', '■'].reduce((acumulador, elemento) => acumulador + elemento, '');
-// '▲●✖■' -> .reduce() itera de Izquierda a Derecha
+// '▲●✖■'
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .reduceRight() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight#difference_between_reduce_and_reduceright
 
 .reduceRight() hace lo mismo q .reduce(),
-la unica diferencia es el orden de iteracion */
+la unica diferencia es el orden de iteracion
+
+.reduceRight() itera al reves, de derecha a izquierda
+(desde el ULTIMO -1 elemento hacia el PRIMER 0 elemento) */
 ['▲', '●', '✖', '■'].reduceRight((acumulador, elemento) => acumulador + elemento, '');
-// '■✖●▲' -> .reduceRight() itera Derecha a Izquierda
+// '■✖●▲'
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄
@@ -224,7 +223,7 @@ Recibe como parametro dentro del par de parentesis () un VALOR
 
 ULTIMO numero de posición (indice) del ELEMENTO buscado
 
-ULTIMO numero de posicion (indice) del circulo '●'  */
+ULTIMO numero de posicion (indice) del circulo '●' */
   ['■', '●', '■', '●'].lastIndexOf('●'); // 3
 //  0    1    2    3
 //                 ↑
@@ -387,13 +386,19 @@ desde una start hasta otra end posición (indice)
 
 Reemplazar por circulo '●'...
 - Las posiciones 0 y 1 */
-['■', '■', '■', '■'].fill('●', 0, 2); // (4) ['●', '●', '■', '■']
+  ['■', '■', '■', '■'].fill('●', 0, 2); // (4) ['●', '●', '■', '■']
+//  0    1    2    3
+//  ↑    ↑
 
 // - Todos los elementos A PARTIR de la posicion 2
-['■', '■', '■', '■'].fill('●', 2);    // (4) ['■', '■', '●', '●']
+  ['■', '■', '■', '■'].fill('●', 2);    // (4) ['■', '■', '●', '●']
+//  0    1    2    3
+//            ↑    ↑
 
 // - La ULTIMA -1 posicion
-['■', '■', '■', '■'].fill('●', -1); // (4) ['■', '■', '■', '●']
+  ['■', '■', '■', '■'].fill('●', -1); // (4) ['■', '■', '■', '●']
+// -4   -3   -2   -1
+//                 ↑
 
 // undefined significa q el elemento triangulo '▲' NO existe en el array
 ['■', '●', '■', '●'].find((elemento) => elemento === '▲'); // undefined
@@ -407,22 +412,26 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 Extraer una parte de un ARRAY de acuerdo a sus posiciones (indices) */
 
 // array A PARTIR de la segunda posicion 1
-['▲', '●', '✖', '■'].slice(1);      // (3) ['●', '✖', '■']
+  ['▲', '●', '✖', '■'].slice(1);      // (3) ['●', '✖', '■']
 //  0    1    2    3
+//       ↑    ↑    ↑
 
 // array A PARTIR de la PE-nultima posicion -2
   ['▲', '●', '✖', '■'].slice(-2);     // (2) ['✖', '■']
 //  -4   -3   -2   -1
+//            ↑    ↑
 
 /* array DESDE la posicion 0 HASTA 2,
 NO se incluye la posicion 3 */
   ['▲', '●', '✖', '■'].slice(0, 3);   // (3) ['▲', '●', '✖']
 //  0    1    2    3
+//  ↑    ↑    ↑
 
 /* posiciones -2 y -3 del array,
 NO se incluye la posicion -1 */
   ['▲', '●', '✖', '■'].slice(-3, -1); // (2) ['●', '✖']
 // -4   -3   -2    -1
+//       ↑    ↑
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -433,6 +442,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop */
 
 let array = [1, 2, 3, 4, 5];
+//           ↑           ↑
+//    .shift()      .pop()
 
 // Eliminar y devolver el .shift() PRIMER
 const primero = array.shift();
@@ -489,8 +500,8 @@ console.log(circulos);        // (4) ['❤️', '●', '●', '❤️']
 
 https://youtu.be/luXkteqv0I8
 
-Eliminar, Reemplazar o Agregar Elemento de Array
-INICIANDO en una Posición (Índice) en Especifico */
+Eliminar, reemplazar o agregar elemento de array
+INICIANDO en una posición (índice) en especifico */
 
 // Array original (existente) que modificare despues con .splice()
 let figuras = ['▲', '●', '✖', '■'];
@@ -793,12 +804,9 @@ Obtener (acceder) en especifico a un ELEMENTO q se encuentra en una posicion (in
 //  ↑
 
 // -1 ULTIMO elemento
-   ['▲', '●', '✖', '■'].at(-1);    // '■' -> string
+   ['▲', '●', '✖', '■'].at(-1);    // '■'   -> string
    ['▲', '●', '✖', '■'].slice(-1); // ['■'] -> array
 //  -4   -3   -2    -1  -> Indices negativos
-
-// -1 significa q el elemento triangulo '▲' NO existe en el array
-['■', '●', '■', '●'].findIndex((elemento) => elemento === '▲'); // -1
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄
@@ -877,7 +885,7 @@ Iterador de un array que contiene [i, elemento] */
 ['▲', '●', '✖', '■'].entries();
 // Object [Array Iterator] {}
 
-// Recorrer (iterar) array
+// Recorrer (iterar) array usando .entries()
 for (const [i, elemento] of ['▲', '●', '✖', '■'].entries()) {
   console.log(`i=${i} | elemento='${elemento}'`);
 }
@@ -896,7 +904,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values
 
-Iterador de Índices .keys() y Elementos .values() de un Array */
+Iterador de índices .keys()
+y elementos .values() de un array */
 
 // Índices = array.keys()
 const keys = ['▲', '●', '✖', '■'].keys();
