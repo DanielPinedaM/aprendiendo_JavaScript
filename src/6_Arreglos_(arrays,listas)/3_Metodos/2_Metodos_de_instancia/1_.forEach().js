@@ -511,7 +511,12 @@ console.log(arrayAplanado);
 /* Ejemplo 9 - Metodo de array .forEach() en objetoLiteral {}
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#calling_foreach_on_non-array_objects */
 
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 1 */
+
 const objetoLiteral = {
+// propiedad: valor,
   uno: 1,
   dos: 2,
   tres: 3,
@@ -524,6 +529,11 @@ console.log(objetoLiteral);
   tres: 3
 }
 */
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 2 */
+
 
 /* Object.keys() convertir a array [] las propiedades (claves) del objetoLiteral {}
 

@@ -275,6 +275,7 @@ Tutorial de Midudev:
 https://youtu.be/Mz9HSiXSSVU */
 
 const objetoLiteral = {
+// propiedad: valor,
   uno: 1,
   dos: 2,
   tres: 3,

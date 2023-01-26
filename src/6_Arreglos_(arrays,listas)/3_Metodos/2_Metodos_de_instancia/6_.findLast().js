@@ -335,7 +335,7 @@ console.log(objetoLiteral);
 
 /* Object.keys() convertir a array las propiedades (claves) del objetoLiteral {}
    .length Numero de propiedades (claves) del objetoLiteral {}
-   https://stackoverflow.com/questions/4690520/javascript-object-literal-length-undefined */
+   https://www.samanthaming.com/tidbits/56-how-to-get-an-object-length/*/
 const longitud = Object.keys(objetoLiteral).length;
 console.log(longitud);
 // 4
