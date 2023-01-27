@@ -88,7 +88,7 @@ const keys = Object.keys(objetoLiteral);
 console.log(keys);                              // ['uno']
 
 /* en cambio, Object.getOwnPropertyNames()
-convierte TODAS las propiedades enumerables y no enumerables
+convierte las propiedades enumerables y no enumerables
 del objeto literal {} */
 const getOwnPropertyNames = Object.getOwnPropertyNames(objetoLiteral);
 console.log(getOwnPropertyNames);               // (2) ['uno', 'dos']
@@ -110,11 +110,12 @@ La longitud de un objeto literal {} es el numero de propiedades (claves) del obj
 
 https://www.samanthaming.com/tidbits/56-how-to-get-an-object-length */
 
-// Propiedad 'fantasma' q es un ID UNICO:
+// Variable 'fantasma' q es un ID UNICO:
 const fantasma = Symbol('fantasma');
 console.log(fantasma);
 // Symbol(fantasma)
 
+// Crear objeto literal con propiedad (clave) de tipo Symbol()
 const objetoLiteral2 = {
 // propiedad: valor,
   [fantasma]: '👻', // Symbol()
@@ -128,7 +129,7 @@ console.log(objetoLiteral2);
 }
 */
 
-/* Si inteno obtener en un array [] la propiedad Symbol() del objeto literal {},
+/* Si intento obtener en un array [] la propiedad Symbol() del objeto literal {},
 Object.keys() y Object.getOwnPropertyNames() NO funcionan */
 console.log(Object.keys(objetoLiteral2));                // ['tortuga']
 console.log(Object.getOwnPropertyNames(objetoLiteral2)); // ['tortuga']
@@ -151,7 +152,9 @@ en vez de Object.keys()
 
 Recordatorio:
 Ver:
-" Ejemplo 1 - enumerable - ¿Que son las propiedades enumerables (visible) y no enumerables (oculta)? " */
+“ Ejemplo 3 - ¿Que son las propiedades enumerable: true enumerables (visible) y enumerable: false no enumerables (oculta)? ” */
+
+//                                propiedades enumerables + propiedades de tipo Symbol()
 const longitudObjeto = Object.keys(objetoLiteral2).length + Object.getOwnPropertySymbols(objetoLiteral2).length;
 console.log(longitudObjeto);
 // 2
@@ -211,7 +214,8 @@ console.log(letras);
 // (3) ['a', 'b', 'c']
 
 /* Al usar Object.keys() en array, devuelve un nuevo array con los indices
-.map() convertir a numero Number() los elementos del array indices
+
+.map() convertir a numero Number() los elementos (indices) del array
 https://stackoverflow.com/questions/4437916/how-to-convert-all-elements-in-an-array-to-integer-in-javascript */
 const indices = Object.keys(letras).map((elemento) => Number(elemento));
 console.log(indices);
@@ -237,10 +241,14 @@ const objetoLiteral4 = Object.create(
   },
 );
 
-/* Object.keys() y Object.getOwnPropertyNames()
+console.log(objetoLiteral4);
+// Array {}
+
+/* Object.keys() Object.getOwnPropertyNames() y Object.entries()
 imprimen un objeto vacio [] porque en el objetoLiteral4 no defini propiedad: valor, */
 console.log(Object.keys(objetoLiteral4));                // []
 console.log(Object.getOwnPropertyNames(objetoLiteral4)); // []
+console.log(Object.entries(objetoLiteral4));             // []
 
 /* --------------------------------------------------------------- */
 
@@ -256,7 +264,7 @@ Object.keys() convierte los datos a objetos */
 console.log(Object.keys('hola mundo'));                // (10) ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 console.log(Object.getOwnPropertyNames('hola mundo')); // (11) ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'length']
 
-// TypeError: NO se puede convertir a objeto Object.keys(), undefined NI null
+// TypeError: NO se puede convertir a objeto undefined NI null
 console.log(Object.keys());
 console.log(Object.getOwnPropertyNames());
 console.log(Object.keys(undefined));
@@ -264,24 +272,30 @@ console.log(Object.getOwnPropertyNames(undefined));
 console.log(Object.keys(null));
 console.log(Object.getOwnPropertyNames(null));
 
+// NaN No es un Numero
 console.log(Object.keys(NaN));                       // []
 console.log(Object.getOwnPropertyNames(NaN));        // []
 
+// Array vacio []
 console.log(Object.keys([]));                        // []
 console.log(Object.getOwnPropertyNames([]));         // ['length']
 
+// Number() Numero
 console.log(Object.keys(123));                       // []
 console.log(Object.getOwnPropertyNames(123));        // []
 
+// Boolean() Booleano
 console.log(Object.keys(true));                      // []
 console.log(Object.keys(false));                     // []
 
 console.log(Object.getOwnPropertyNames(true));       // []
 console.log(Object.getOwnPropertyNames(false));      // []
 
+// Symbol(), Identificador unico, ID
 console.log(Object.keys(Symbol(1)));                 // []
 console.log(Object.getOwnPropertyNames(Symbol(2)));  // []
 
+// BigInt() Numero grande
 console.log(Object.keys(BigInt(1n)));                // []
 console.log(Object.getOwnPropertyNames(BigInt(1n))); // []
 

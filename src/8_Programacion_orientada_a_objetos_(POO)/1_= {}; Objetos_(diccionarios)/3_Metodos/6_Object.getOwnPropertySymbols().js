@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-multi-spaces */
 /* eslint-disable array-callback-return */
 // @ts-nocheck
@@ -17,7 +18,7 @@ Es el nombre del metodo
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 1 - Recorrer (iterar) Symbol() en un objeto literal {}
+// Ejemplo 1 - Recorrer (iterar) propiedad: valor, de tipo Symbol() en un objeto literal {}
 
 // Crear objeto {} con tipo Symbol()
 const fantasma = Symbol('fantasma');
@@ -49,10 +50,11 @@ Object.getOwnPropertySymbols(objetoLiteral).map((propiedad) => {
 });
 // Symbol(fantasma) ➜ 👻
 
-/* En cambio, Object.keys() y Object.getOwnPropertyNames()
+/* En cambio, Object.keys() Object.getOwnPropertyNames() y Object.entries()
 NO convierten a array los pares de propiedad: valor, q son de tipo Symbol()  */
 console.log(Object.keys(objetoLiteral));                // (3) ['uno', 'dos', 'tres']
 console.log(Object.getOwnPropertyNames(objetoLiteral)); // (3) ['uno', 'dos', 'tres']
+console.log(Object.entries(objetoLiteral));             // (3) [ [ 'uno', 1 ], [ 'dos', 2 ], [ 'tres', 3 ] ]
 
 /* --------------------------------------------------------------- */
 

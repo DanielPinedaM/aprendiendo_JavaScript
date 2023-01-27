@@ -3,6 +3,14 @@
 /* Documentacion Oficial - .propertyIsEnumerable()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable
 
+|------------------------------|-------------------------|
+| La propiedad: valor, esta... | .propertyIsEnumerable() |
+|------------------------------|-------------------------|
+| visible                      | enumerable: true,       |
+|------------------------------|-------------------------|
+| oculta                       | enumerable: false,      |
+|------------------------------|-------------------------|
+
 .propertyIsEnumerable()
 
 Su sintaxis es:
