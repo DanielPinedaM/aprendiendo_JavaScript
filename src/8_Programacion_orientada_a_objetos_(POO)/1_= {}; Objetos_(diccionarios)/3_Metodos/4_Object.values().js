@@ -8,10 +8,6 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Object.values() Convertir a array [] los valores enumerables del objeto {}
 
-Su sintaxis es:
-Object.values(nombreObjeto)
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values#syntax
-
 Alternativas a Object.values():
 
 |--------------------------------|-----------------------------------------------------------|
@@ -27,6 +23,10 @@ Alternativas a Object.values():
 | Object.getOwnPropertySymbols() | Convertir a array [] las propiedades                      |
 |                                | que son de tipo Symbol()                                  |
 |--------------------------------|-----------------------------------------------------------|
+
+Su sintaxis es:
+Object.values(nombreObjeto)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values#syntax
 
 Donde...
 - Object.values()
@@ -55,7 +55,7 @@ console.log(objetoLiteral);
 }
 */
 
-// Object.values() Convertir a array los valores del objetoLiteral {}
+// Object.values() Convertir a array [] los valores del objetoLiteral {}
 const array = Object.values(objetoLiteral);
 console.log(array);
 // (3) [1, 2, 3]
@@ -74,8 +74,8 @@ console.log(objetoLiteral);
 }
 */
 
-/* .map() Devolver un Nuevo Array con el Resultado de Ejecutar una Función
-a Cada Uno de los Elementos de un Array Existente (Mapear Array) */
+/* .map() Devolver un nuevo array con el resultado de ejecutar una función
+a cada uno de los elementos de un array existente (mapear array) */
 
 Object.values(objetoLiteral).map((valor) => {
   console.log(valor);
@@ -93,6 +93,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 // Originalmente el orden de los valores del objeto {} es 'a', 'b', 'c'
 const objetoLiteral2 = {
+// propiedad: valor,
   100: 'a',
   2: 'b',
   7: 'c',
@@ -110,11 +111,11 @@ console.log(objetoLiteral2);
 */
 
 /* Object.values() cambia el orden de los objetos {}
-q tiene propiedades (claves) de tipo numero Number()
+q tienen propiedades (claves) de tipo numero Number()
 
 Object.values() devuelve los valores del objeto {}
 despues de ordenar las propiedades (claves) q son numeros
-de menor a mayor (ascendente)  */
+de menor a mayor (ascendente) */
 const array2 = Object.values(objetoLiteral2);
 console.log(array2);
 // (3) ['b', 'c', 'a']
@@ -122,16 +123,19 @@ console.log(array2);
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 4 - Object.values() en datos primitivos
-Object.values() convierte a objeto los datos q NO son objetos (datos primitivos):
+Object.values() convierte a objeto {} los datos q NO son objetos (datos primitivos):
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values#using_object.values_on_primitives
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion */
 
-/* texto String() es el UNICO tipo de dato primitivo
-q cuando lo uso con Object.values() devuelve un array
-q en cada uno de los elementos del array contiene un caracter del string */
+/* Object.values() se puede usar para convertir de string a array,
+el resto de los datos primitivos devuelve error o un array vacio */
 console.log(Object.values('hola mundo'));
 // (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
+
+// Caracter vacio ''
+console.log(Object.values(''));        // []
 
 // Number() numero
 console.log(Object.values(123));       // []
@@ -143,12 +147,12 @@ console.log(Object.values(BigInt(1))); // []
 console.log(Object.values(true));      // []
 console.log(Object.values(false));     // []
 
-// Symbol() ID
+// Symbol() ID, identificador unico
 console.log(Object.values(Symbol(2))); // []
 
 // null Nulo
-console.log(Object.values(null));      // ERROR: NO se puede convertir de undefined o null a objeto
+console.log(Object.values(null));      // ERROR: NO se puede convertir de undefined o null a objeto {}
 // undefined Indefinido
-console.log(Object.values(undefined)); // ERROR: NO se puede convertir de undefined o null a objeto
+console.log(Object.values(undefined)); // ERROR: NO se puede convertir de undefined o null a objeto {}
 // NaN No es un numero
 console.log(Object.values(NaN));       // []
