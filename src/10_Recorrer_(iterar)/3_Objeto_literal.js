@@ -127,7 +127,7 @@ Object.getOwnPropertyNames(objetoLiteral).map((propiedad) => {
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
 
-Convertir a array los valores del objetoLiteral {} */
+Convertir a array [] los valores del objetoLiteral {} */
 Object.values(objetoLiteral).map((valor) => {
   console.log(valor);
 });

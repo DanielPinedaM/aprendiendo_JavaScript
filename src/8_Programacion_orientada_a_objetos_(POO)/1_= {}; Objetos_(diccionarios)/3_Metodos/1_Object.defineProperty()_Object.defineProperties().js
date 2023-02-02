@@ -7,9 +7,6 @@
 /*
 Diferencias y Similitudes Entre Object.defineProperty() y Object.defineProperties() - Agregar Propiedades de Objeto...
 
-Samantha Ming - ¿Que son las propiedades enumerables y no enumerables?
-https://www.samanthaming.com/tidbits/56-how-to-get-an-object-length
-
 Documentación Oficial...
 - Clasificación de las Propiedades de los Objetos:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties
@@ -19,6 +16,20 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 - Object.defineProperties()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties
+
+                                      |----------------------------------------------------------------------------|-----------------------------------------------------------|
+                                      | Object.defineProperty()                                                    | Object.defineProperties()                                 |
+|-------------------------------------|----------------------------------------------------------------------------|-----------------------------------------------------------|
+| ¿Cuántos pares de propiedad: valor, | 1                                                                          | >= 1                                                      |
+| puedo agregar al objeto literal?    |                                                                            | (1, 2, 3...)                                              |
+|-------------------------------------|----------------------------------------------------------------------------|-----------------------------------------------------------|
+| ¿Qué propiedades permite            |                                                                          value:                                                        |
+| agregar al objeto literal?          |                                                                          writable:                                                     |
+|                                     |                                                                          enumerable:                                                   |
+|                                     |                                                                          configurable:                                                 |
+|-------------------------------------|----------------------------------------------------------------------------|-----------------------------------------------------------|
+| Sintaxis                            | Object.defineProperty(nombreObjeto, nombrePropiedad, descripcionPropiedad) | Object.defineProperties(nombreObjeto, nombresPropiedades) |
+|-------------------------------------|----------------------------------------------------------------------------|-----------------------------------------------------------|
 
 Ambos Object.defineProperty() y Object.defineProperties()
 sirven para agregar nuevas propiedades o modificar las propiedades existentes en un objeto literal
@@ -74,6 +85,30 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties#parameters
 
+                |------------------------------------------------|------------------------------------------------|
+                | true                                           | false                                          |
+|---------------|------------------------------------------------|------------------------------------------------|
+| writable:     | La propiedad: valor, es MUtable                | Valor por defecto                              |
+|               |                                                |                                                |
+|               | SI se puede modificar                          | La propiedad: valor, es INmutable              |
+|               |                                                |                                                |
+|               |                                                | NO se puede modificar                          |
+|---------------|------------------------------------------------|------------------------------------------------|
+| enumerable:   | La propiedad: valor, es visible                | Valor por defecto                              |
+|               | al imprimirla con console.log(nombreObjeto);   |                                                |
+|               |                                                | La propiedad: valor, esta oculta,              |
+|               | Es una propiedad enumerable                    | NO se puede ver con console.log(nombreObjeto); |
+|               |                                                |                                                |
+|               |                                                | Para ver la propiedad usar                     |
+|               |                                                | Object.getOwnPropertyNames(nombreObjeto)       |
+|               |                                                |                                                |
+|               |                                                | Es una propiedad NO enumerable                 |
+|---------------|------------------------------------------------|------------------------------------------------|
+| configurable: | SI permite usar value: writable: y enumerable: | Valor por defecto                              |
+|               |                                                |                                                |
+|               |                                                | NO permite usar value: writable: y enumerable: |
+|---------------|------------------------------------------------|------------------------------------------------|
+
 A continuacion explicare con ejemplos
 cada una de las propiedades que se pueden agregar
 con Object.defineProperty() y Object.defineProperties() */
@@ -95,9 +130,9 @@ console.log(objetoLiteral);
 
 // Pero despues le agrego una propiedad: valor, usando Object.defineProperties()
 Object.defineProperties(objetoLiteral, {
-  uno: {            // Propiedad del objeto
-    enumerable: true, // Permitir ver el objeto por consola console.log()
-    value: 1,         // Valor del objeto
+  uno: {               // Propiedad del objeto
+    enumerable: true,  // Permitir ver el objeto por consola console.log()
+    value: 1,          // Valor del objeto
   },
 });
 
@@ -177,10 +212,12 @@ console.log(inmutable);
 
 /* Ejemplo 3 - ¿Que son las propiedades enumerable: true enumerables (visible) y enumerable: false no enumerables (oculta)?
 
+Samantha Ming:
 https://www.samanthaming.com/tidbits/56-how-to-get-an-object-length/#what-are-enumerables
 
 https://2ality.com/2015/10/enumerability-es6.html
 
+Documentación Oficial:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties
 
 Recordatorio:
@@ -257,8 +294,7 @@ console.log(objetoLiteral2.propertyIsEnumerable('uno'));
 console.log(objetoLiteral2.propertyIsEnumerable('dos'));
 // true
 
-/* Object.keys() y Object.getOwnPropertyNames()
-convierten a array [] las propiedades del objetoLiteral {}
+/* Convertir a array [] las propiedades del objetoLiteral {}
 
 Object.keys() devuelve SOLAMENTE las propiedades enumerables */
 console.log(Object.keys(objetoLiteral2));
@@ -268,6 +304,10 @@ console.log(Object.keys(objetoLiteral2));
 console.log(Object.entries(objetoLiteral2));
 // [ [ 'dos', 2 ] ]
 
+// Object.values() devuelve los VALORES del objeto q tienen propiedades enumerables
+console.log(Object.values(objetoLiteral2));
+// [ 2 ]
+
 /* En cambio, Object.getOwnPropertyNames() devuelve
 las propiedades enumerables y no enumerables */
 console.log(Object.getOwnPropertyNames(objetoLiteral2));
@@ -275,7 +315,7 @@ console.log(Object.getOwnPropertyNames(objetoLiteral2));
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 4 - configurable: - ¿Puedo cambiar el valor de las propiedades value: writable: y enumerable: ? */
+// Ejemplo 4 - configurable: - ¿Puedo cambiar el valor de las propiedades value: writable: y enumerable: ?
 
 const objetoLiteral3 = {};
 console.log(objetoLiteral3);
@@ -374,7 +414,7 @@ console.log(objetoLiteral4);
 /* Ejemplo 6 Basico de set() y get():
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#creating_a_property
 
-Otros Ejemplos mas Avanzados de set() y get() q no los Escribi:
+Otros ejemplos mas avanzados de set() y get() q no los escribi:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#custom_setters_and_getters
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#inheritance_of_properties */
@@ -400,9 +440,13 @@ Object.defineProperty(objetoLiteral5, 'b', {
   configurable: true, // Permitir editar el valor de enumerable:
 });
 
-// Si imprimo el objeto veo las funciones get() y set()
+// Si imprimo el objeto {} veo las funciones get() y set()
 console.log(objetoLiteral5);
-// { b: [Getter/Setter] }
+/*
+{
+  b: [Getter/Setter]
+}
+*/
 
 /* Si recorro (itero) el objeto puedo ver todas las propiedades y valores del objeto {}
 
@@ -415,7 +459,7 @@ Object.keys(objetoLiteral5).map((propiedad) => {
 });
 // 'b ➜ hola mundo'
 
-// Re-asignar el valor de la propiedad objetoLiteral3.b
+// Re-asignar el valor de la propiedad objetoLiteral5.b
 objetoLiteral5.b = 'hola mundo 2';
 
 // Recorrer (iterar) objeto literal {}
@@ -430,7 +474,7 @@ Object.keys(objetoLiteral5).map((propiedad) => {
 /* Ejemplo 7 - Agregar nueva propiedad: valor, al objeto literal {}
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#adding_properties_and_default_values */
 
-// Crear objeto literal vacio
+// Crear objeto literal vacio {}
 let objetoLiteral6 = {};
 console.log(objetoLiteral6);
 // {}
@@ -485,6 +529,8 @@ console.log(objetoLiteral6);
 // Es lo mismo q esto:
 Object.defineProperty(objetoLiteral6, 'uno', {
   value: 1,
+
+  // false es el valor por defecto de writable: configurable: y enumerable:
   writable: false,
   configurable: false,
   enumerable: false,

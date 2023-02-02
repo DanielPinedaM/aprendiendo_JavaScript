@@ -41,9 +41,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 |-------------------------------------|-----------------------------|------------------------------------------|
 
 Alternativas a Object.keys() y Object.getOwnPropertyNames()
-- Object.values()                Convertir a Array [] los Valores del Objeto {}
-- Object.entries()               Convertir a Array Anidado que Contiene [propiedad, valor] del Objeto {}
-- Object.getOwnPropertySymbols() Convertir a Array [] las Propiedades que son de Tipo Symbol()
+- Object.values()                Convertir a array [] los valores enumerables del objeto {}
+- Object.entries()               Convertir a array anidado que contiene [propiedad, valor] enumerables del objeto {}
+- Object.getOwnPropertySymbols() Convertir a array [] las propiedades que son de tipo Symbol()
 
 La sintaxis de Object.keys() es:
 Object.keys(nombreObjeto)

@@ -1,6 +1,7 @@
+/* eslint-disable no-prototype-builtins */
+// @ts-nocheck
 /* eslint-disable array-callback-return */
 /* eslint-disable max-len */
-// @ts-nocheck
 
 /* -------------------------------------------------------------- */
 
@@ -48,8 +49,77 @@ console.log(longitudObjeto);
  █ Object.defineProperty()   █
  █ Object.defineProperties() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#adding_properties_and_default_values
 
-INCOMPLETO */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties#using_object.defineproperties
+
+Agregar las siguientes propiedades al objeto literal:
+* writable:
+¿El objeto literal {} si (MUtable) se puede o no (INmutable) modificar?
+
+* enumerable:
+¿La propiedad: valor, esta oculta o es visible?
+
+* configurable:
+¿Puedo cambiar el valor de las propiedades value: writable: y enumerable: ?
+
+* get
+Funcion q se ejecuta al acceder a una propiedad,
+su valor por defecto es undefined
+
+* set
+Funcion q se ejecuta cuando se asigna un valor a una propiedad,
+su valor por defecto es undefined */
+
+let objPropiedades = {};
+console.log(objPropiedades);
+// {}
+
+/* Esta es la UNICA diferencia q hay entre
+Object.defineProperty() y Object.defineProperties()
+
+Object.defineProperty() permite agregar UNA SOLA propiedad: valor, */
+Object.defineProperty(objPropiedades, 'uno', {
+  value: 1,
+  writable: true,
+  configurable: true,
+  enumerable: true,
+});
+console.log(objPropiedades);
+/*
+{
+  uno: 1
+}
+*/
+
+// Vaciar objPropiedades {}
+objPropiedades = {};
+console.log(objPropiedades);
+// {}
+
+/* En cambio, Object.defineProperties()
+permite agregar una o mas pares de propiedad: valor, */
+Object.defineProperties(objPropiedades, {
+  uno: {
+    value: 1,
+    writable: true,
+    configurable: true,
+    enumerable: true,
+  },
+  dos: {
+    value: 2,
+    writable: true,
+    configurable: true,
+    enumerable: true,
+  },
+});
+console.log(objPropiedades);
+/*
+{
+  uno: 1,
+  dos: 2
+}
+*/
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -65,9 +135,32 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 | visible                      | enumerable: true,       |
 |------------------------------|-------------------------|
 | oculta                       | enumerable: false,      |
-|------------------------------|-------------------------|
+|------------------------------|-------------------------| */
 
-INCOMPLETO */
+const esEnumerable = {};
+console.log(esEnumerable);
+// {}
+
+Object.defineProperties(esEnumerable, {
+  uno: {
+    value: 1,
+    enumerable: false, // uno: 1, esta oculto
+  },
+
+  dos: {
+    value: 2,
+    enumerable: true, // dos: 2, es visible
+  },
+});
+console.log(esEnumerable);
+/*
+{
+  dos: 2
+}
+*/
+
+console.log(esEnumerable.propertyIsEnumerable('uno')); // false
+console.log(esEnumerable.propertyIsEnumerable('dos')); // true
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -75,12 +168,17 @@ INCOMPLETO */
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
 
-Convertir a Array [] las Propiedades (Claves) enumerables del Objeto {}
+Convertir a array [] las propiedades (claves) enumerables del objeto {} */
 
-INCOMPLETO */
-// const enumerable = Object.keys();
-// console.log(enumerable);
-//
+console.log(esEnumerable);
+/*
+{
+  dos: 2
+}
+*/
+
+console.log(Object.keys(esEnumerable));
+// [ 'dos' ]
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -88,12 +186,17 @@ INCOMPLETO */
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames
 
-Convertir a Array [] las Propiedades (Claves) enumerables y NO enumerables del Objeto {}
+Convertir a array [] las propiedades (claves) enumerables y NO enumerables del objeto {} */
 
-INCOMPLETO */
-// const enumerableYnoEnumerable = Object.getOwnPropertyNames();
-// console.log(enumerableYnoEnumerable);
-//
+console.log(esEnumerable);
+/*
+{
+  dos: 2
+}
+*/
+
+console.log(Object.getOwnPropertyNames(esEnumerable));
+// (2) ['uno', 'dos']
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -101,7 +204,7 @@ INCOMPLETO */
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
 
-Convertir a array [] los valores del objeto literal {} */
+Convertir a array [] los VALORES del objeto {} q tienen propiedades enumerables */
 
 console.log(objSymbol);
 /*
@@ -123,7 +226,7 @@ console.log(valores);
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
 
-Convertir a array anidado que contiene [propiedad, valor] del Objeto {} */
+Convertir a array anidado que contiene [propiedad, valor] enumerables del objeto {} */
 
 console.log(objSymbol);
 /*
@@ -145,9 +248,7 @@ console.log(propiedadValor);
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols
 
-Convertir a Array [] las Propiedades que son de Tipo Symbol()
-
-Recorrer (iterar) propiedad: valor, de tipo Symbol() en un objeto literal {} */
+Convertir a array [] las propiedades que son de tipo Symbol() */
 
 console.log(objSymbol);
 /*
@@ -159,6 +260,7 @@ console.log(objSymbol);
 }
 */
 
+// Recorrer (iterar) propiedad: valor, de tipo Symbol() en un objeto literal {}
 Object.getOwnPropertySymbols(objSymbol).map((propiedad) => {
   const valor = objSymbol[propiedad];
   console.log(propiedad, '➜', valor);
