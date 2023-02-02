@@ -11,7 +11,7 @@ Object.getOwnPropertySymbols() Convertir a Array [] las Propiedades del Objeto {
 Alternativas a Object.getOwnPropertySymbols()
 
 |--------------------------------|------------------------------------------------------------|
-| Object.entries                 | Convertir a array anidado que contiene [propiedad, valor]  |
+| Object.entries()               | Convertir a array anidado que contiene [propiedad, valor]  |
 |                                | enumerables del objeto {}                                  |
 |--------------------------------|------------------------------------------------------------|
 | Object.keys()                  | Convertir a array [] las propiedades (claves)              |
@@ -78,7 +78,7 @@ Object.getOwnPropertySymbols(objetoLiteral).map((propiedad) => {
 // Symbol(fantasma) ➜ 👻
 
 /* En cambio, Object.keys() Object.getOwnPropertyNames() y Object.entries()
-NO convierten a array los pares de propiedad: valor, q son de tipo Symbol()  */
+NO convierten a array los pares de propiedad: valor, q son de tipo Symbol() */
 console.log(Object.keys(objetoLiteral));                // (3) ['uno', 'dos', 'tres']
 console.log(Object.getOwnPropertyNames(objetoLiteral)); // (3) ['uno', 'dos', 'tres']
 console.log(Object.entries(objetoLiteral));             // (3) [ [ 'uno', 1 ], [ 'dos', 2 ], [ 'tres', 3 ] ]
@@ -87,7 +87,3 @@ console.log(Object.entries(objetoLiteral));             // (3) [ [ 'uno', 1 ], [
 q NO convierte a array los valores del objeto literal {} q son de tipo Symbol() */
 console.log(Object.values(objetoLiteral));
 // (3) [1, 2, 3]
-
-/* --------------------------------------------------------------- */
-
-/* Ejemplo 2 */

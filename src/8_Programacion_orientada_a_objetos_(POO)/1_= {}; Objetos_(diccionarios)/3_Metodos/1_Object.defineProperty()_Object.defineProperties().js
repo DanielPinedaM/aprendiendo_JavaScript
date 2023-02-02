@@ -220,6 +220,8 @@ https://2ality.com/2015/10/enumerability-es6.html
 Documentación Oficial:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties
 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable#direct_vs._inherited_properties
+
 Recordatorio:
 |------------------------------|-------------------------|
 | La propiedad: valor, esta... | .propertyIsEnumerable() |
