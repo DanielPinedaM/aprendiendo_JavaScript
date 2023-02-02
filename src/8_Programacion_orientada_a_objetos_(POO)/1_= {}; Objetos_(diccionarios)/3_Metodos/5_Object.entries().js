@@ -18,10 +18,10 @@ Alternativas a Object.entries()
 | Object.getOwnPropertyNames()   | Convertir a array [] las propiedades (claves)              |
 |                                | enumerables y no enumerables del objeto {}                 |
 |--------------------------------|------------------------------------------------------------|
-| Object.entries()                | Convertir a Array [] los valores enumerables del objeto {} |
-|--------------------------------|------------------------------------------------------------|
 | Object.getOwnPropertySymbols() | Convertir a array [] las propiedades                       |
 |                                | que son de tipo Symbol()                                   |
+|--------------------------------|------------------------------------------------------------|
+| Object.values()                | Convertir a array [] los valores enumerables del objeto {} |
 |--------------------------------|------------------------------------------------------------|
 
 Su sintaxis es:
@@ -61,7 +61,7 @@ console.log(objetoLiteral);
 */
 
 /* Object.entries()
-Contiene un array anidado con pares de  [propiedad, valor] del objeto literal {} */
+Contiene un array anidado con pares de [propiedad, valor] del objeto literal {} */
 const entries = Object.entries(objetoLiteral);
 console.log(entries);
 // (3) [ [ 'uno', 1 ], [ 'dos', 2 ], [ 'tres', 3 ] ]
@@ -83,7 +83,8 @@ tres ➜ 3
 */
 
 /* Otra forma es usar Object.entries() y for of,
-la diferencia con la forma anterior es que aqui NO hay valor de retorno
+la diferencia es que .map() SI tiene valor de retorno return,
+en cambio for of NO
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries#try_it */
 
 for (const [propiedad, valor] of Object.entries(objetoLiteral)) {
@@ -125,7 +126,6 @@ q tienen propiedades (claves) de tipo numero Number()
 Object.entries() devuelve las [propiedad, valor] del objeto {}
 despues de ordenar las propiedades (claves) q son numeros
 de menor a mayor (ascendente) */
-
 Object.entries(objetoLiteral2).map((entry) => {
   const [propiedad, valor] = entry;
   console.log(`${propiedad} ➜ ${valor}`);
@@ -175,9 +175,9 @@ console.log(Object.entries(false));     // []
 console.log(Object.entries(Symbol(2))); // []
 
 // null Nulo
-// console.log(Object.entries(null));      // ERROR: NO se puede convertir de undefined o null a objeto {}
+console.log(Object.entries(null));      // ERROR: NO se puede convertir de undefined o null a objeto {}
 // undefined Indefinido
-// console.log(Object.entries(undefined)); // ERROR: NO se puede convertir de undefined o null a objeto {}
+console.log(Object.entries(undefined)); // ERROR: NO se puede convertir de undefined o null a objeto {}
 // NaN No es un numero
 console.log(Object.entries(NaN));       // []
 
