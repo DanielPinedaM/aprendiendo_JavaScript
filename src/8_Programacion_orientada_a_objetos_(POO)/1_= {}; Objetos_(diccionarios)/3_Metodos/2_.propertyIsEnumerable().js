@@ -42,14 +42,14 @@ Es el nombre del metodo
 * Nombre de la propiedad del objeto literal {}
 q quiero saber si es o no enumerable
 
-* Puede ser de tipo string ó Symbol() */
+* Puede ser de tipo texto String() ó Symbol() */
 
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 1:
 
 Recordatorio:
-Este Ejemplo 1 lo escribi en otra seccion,ver:
+Este Ejemplo 1 lo escribi en otra seccion, ver:
 " Ejemplo 3 - ¿Que son las propiedades enumerable: true enumerables (visible) y enumerable: false no enumerables (oculta)? " */
 
 /* --------------------------------------------------------------- */
@@ -78,13 +78,13 @@ console.log(objetoLiteral.propertyIsEnumerable('uno'));
 // true
 
 /* .propertyIsEnumerable() devuelve false
-cuando la propiedad NO existe en el objeto literal */
+cuando la propiedad NO existe en el objeto literal {} */
 console.log(objetoLiteral.propertyIsEnumerable('PROPIEDAD INEXISTENTE'));
 // false
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 3 - Metodo de objeto .propertyIsEnumerable() en array []
+/* Ejemplo 3 - Metodo de objeto {} .propertyIsEnumerable() en array []
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable#using_propertyisenumerable
 
@@ -98,6 +98,7 @@ console.log(array);
 
 // Imprimir elemento q esta en la posicion (indice) 0 del array []
 console.log(array[0]);
+// 'es enumerable'
 
 // true porq en el array SI existe la posicion 0 en el array []
 console.log(array.propertyIsEnumerable(0));
@@ -109,16 +110,15 @@ console.log(array.propertyIsEnumerable(1));
 
 // false porq .propertyIsEnumerable() en array funciona con numeros de posicion
 console.log(array.propertyIsEnumerable('es enumerable'));
+// false
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 4 - .propertyIsEnumerable() y en objeto literal con propiedad (clave) de tipo Symbol()
+/* Ejemplo 4 - .propertyIsEnumerable() en objeto literal {} con propiedad (clave) de tipo Symbol()
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable#testing_symbol_properties */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable#testing_symbol_properties
 
-/* Agregar al objeto literal {} dos propiedades de tipo Symbol()
-
-1) una q SI es enumerable (es VISIBLE por consola) */
+Agregar al objeto literal {} dos propiedades de tipo Symbol() */
 const enumerable = Symbol('SI soy enumerable');
 console.log(enumerable);
 // Symbol(SI soy enumerable)
@@ -127,6 +127,7 @@ const noEnumerable = Symbol('NO soy enumerable');
 console.log(noEnumerable);
 // Symbol(NO soy enumerable)
 
+// 1) una q SI es enumerable (es VISIBLE por consola)
 const objetoLiteral2 = {
   [enumerable]: 'SI soy enumerable',
 };
@@ -146,10 +147,12 @@ console.log(objetoLiteral2);
 }
 */
 
-/* ¿ .propertyIsEnumerable() las propiedad: valor, son enumerables?
+/* .propertyIsEnumerable() ¿las propiedad: valor, son enumerables?
 
 true significa q SI es enumerable y q la propiedad es VISIBLE por consola */
-objetoLiteral2.propertyIsEnumerable(enumerable);   // true
+console.log(objetoLiteral2.propertyIsEnumerable(enumerable));
+// true
 
 // false significa q NO es enumerable y q la propiedad esta OCULTA por consola
-objetoLiteral2.propertyIsEnumerable(noEnumerable); // false
+console.log(objetoLiteral2.propertyIsEnumerable(noEnumerable));
+// false

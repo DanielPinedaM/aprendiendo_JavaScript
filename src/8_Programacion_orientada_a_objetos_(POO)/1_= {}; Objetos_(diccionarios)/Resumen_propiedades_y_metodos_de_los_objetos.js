@@ -266,3 +266,78 @@ Object.getOwnPropertySymbols(objSymbol).map((propiedad) => {
   console.log(propiedad, '➜', valor);
 });
 // Symbol(fantasma) ➜ 👻
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Object.assign(destino, ...origenes) █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+
+Concatenar (Unir) Objeto Literal {} */
+
+/* objetoLiteral1 {} (origen, source):
+Son las propiedad: valor, q voy a COPIAR */
+const source = {
+  tres: 3,
+  cuatro: 4,
+};
+console.log(source);
+/*
+{
+  tres: 3,
+  cuatro: 4
+}
+*/
+
+/* objetoLiteral2 {} (destino, target):
+Objeto donde voy a PEGAR las propiedad: valor, */
+const target = {
+  uno: 1,
+  dos: 2,
+};
+console.log(target);
+/*
+{
+  uno: 1,
+  dos: 2
+}
+*/
+
+/* Object.assign() En variable concatenar
+COPIAR propiedad: valor, de objetoLiteral1 {} (origen, source)
+y PEGARLO en objetoLiteral2 {} (destino, target) */
+const concatenar = Object.assign(target, source);
+console.log(concatenar);
+/*
+{
+  uno: 1,
+  dos: 2,
+  tres: 3,
+  cuatro: 4
+}
+*/
+
+// Los objetos concatenar y destino (target) son iguales
+console.log(concatenar === target);
+// true
+
+/* Se ha modificado el objeto destino (target)
+agregandole (concatenar) las propiedad: valor, de objeto origen (source) */
+console.log(target);
+/*
+{
+  uno: 1,
+  dos: 2,
+  tres: 3,
+  cuatro: 4
+}
+*/
+
+// El objeto origen (source) NO se ha modificado
+console.log(source);
+/*
+{
+  tres: 3,
+  cuatro: 4
+}
+*/

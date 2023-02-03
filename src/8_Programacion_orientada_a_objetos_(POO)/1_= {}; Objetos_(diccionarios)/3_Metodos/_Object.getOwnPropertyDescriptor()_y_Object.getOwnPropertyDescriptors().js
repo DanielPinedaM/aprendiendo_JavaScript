@@ -1,9 +1,17 @@
 // @ts-nocheck
 
-/* Documentacion Oficial - .getOwnPropertyDescriptor()
+/* Documentacion Oficial...
+- Object.getOwnPropertyDescriptor()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor
 
-.getOwnPropertyDescriptor()
+- Object.getOwnPropertyDescriptors()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
+
+Obtener las propiedades del objeto literal:
+value:
+writable:
+enumerable:
+configurable:
 
 Su sintaxis es:
 
