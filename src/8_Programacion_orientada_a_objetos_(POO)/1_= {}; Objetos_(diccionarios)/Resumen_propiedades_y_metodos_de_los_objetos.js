@@ -177,7 +177,8 @@ console.log(esEnumerable);
 }
 */
 
-console.log(Object.keys(esEnumerable));
+const keys = Object.keys(esEnumerable);
+console.log(keys);
 // [ 'dos' ]
 
 /*
@@ -195,7 +196,8 @@ console.log(esEnumerable);
 }
 */
 
-console.log(Object.getOwnPropertyNames(esEnumerable));
+const getOwnPropertyNames = Object.getOwnPropertyNames(esEnumerable);
+console.log(getOwnPropertyNames);
 // (2) ['uno', 'dos']
 
 /*
@@ -216,8 +218,8 @@ console.log(objSymbol);
 }
 */
 
-const valores = Object.values(objSymbol);
-console.log(valores);
+const values = Object.values(objSymbol);
+console.log(values);
 // (3) [1, 2, 3]
 
 /*
@@ -273,9 +275,9 @@ Object.getOwnPropertySymbols(objSymbol).map((propiedad) => {
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 
-Concatenar (Unir) Objeto Literal {} */
+Concatenar (unir) Objeto Literal {}
 
-/* objetoLiteral1 {} (origen, source):
+objetoLiteral1 {} (origen, source):
 Son las propiedad: valor, q voy a COPIAR */
 const source = {
   tres: 3,
@@ -341,3 +343,52 @@ console.log(source);
   cuatro: 4
 }
 */
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Object.create(proto, propertiesObject) █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+
+Object.create() Crear un Nuevo Objeto que Hereda las Propiedades y Métodos de un Objeto Existente (Prototipo) */
+
+const prototipo = {
+// propiedad: valor,
+  saludar: () => 'hola mundo',
+};
+
+// Imprimir objeto literal {} prototipo
+console.log(prototipo);
+// { saludar: [Function: saludar] }
+
+// Ejecutar metodo (funcion) saludar() del objeto literal {} prototipo
+console.log(prototipo.saludar('hola mundo'));
+// 'hola mundo'
+
+/* Object.create()
+El objetoHijo hereda todas las propiedades y metodos del objeto prototipo */
+const objetoHijo = Object.create(prototipo);
+
+// Imprimir por consola el objetoHijo
+console.log(objetoHijo);
+// {}
+
+/* Agregar nuevo propiedad: valor, al objetoHijo
+usando sintaxis nombreObjeto.nombreNuevaPropiedad = nuevoValor */
+objetoHijo.uno = 1;
+
+// Acceder al valor de la propiedad uno del objetoHijo
+console.log(objetoHijo.uno);
+// 1
+
+/* El metodo (funcion) saludar() existe en el objetoHijo
+porq se puede ejecutar con la sintaxis nombreObjeto.propiedad  */
+console.log(objetoHijo.saludar());
+// 'hola mundo'
+
+/* A pesar de que el objetoHijo hereda las propiedades
+y metodos del objeto padre prototipo,
+cuando imprimo por consola console.log() el objetoHijo
+NO se puede ver el metodo (funcion) saludar() */
+console.log(objetoHijo);
+// { uno: 1 }

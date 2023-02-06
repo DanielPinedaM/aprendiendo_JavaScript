@@ -4,7 +4,8 @@
 /* eslint-disable max-len */
 // @ts-nocheck
 
-/* Documentacion Oficial - Object.assign()
+/*
+Documentacion Oficial - Object.assign()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 
 Object.assign() Concatenar (unir) objeto literal {}
@@ -54,7 +55,7 @@ Es el nombre del metodo
 
 * Es UN SOLO objeto literal {}
 
-* target Se MODIFICA (muta) despues de ejecutar Object.assign() */
+* target se MODIFICA (muta) despues de ejecutar Object.assign() */
 
 /* --------------------------------------------------------------- */
 
@@ -66,7 +67,7 @@ Puedo usar Object.assign() para convertir de string a array, ver:
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 2 - Copiar un objetoLiteral1 (origen) {} y pegarlo en otro objetoLiteral2 (destino):
+/* Ejemplo 2 - Copiar un objetoLiteral1 (origen) y pegarlo en otro objetoLiteral2 (destino):
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#try_it */
 
 /* objetoLiteral1 {} (origen, source):
@@ -143,7 +144,7 @@ console.log(source);
 // Ejemplo 3 - Objetos origen (source) y destino (target) con la misma propiedad (clave)
 
 /* Los objetos literales {} origen y destino
-tienen el mismo nombre de propiedad (clave) llamado mismaPropiedad,
+tienen el mismo nombre de propiedad (clave) llamado mismaPropiedad:
 lo que cambia es el valor de mismaPropiedad de acuerdo al nombre del objeto */
 const origen = {
 // propiedad: valor,
@@ -171,15 +172,13 @@ console.log(destino);
 }
 */
 
-/* Object.assign()
-COPIAR propiedad: valor, de origen
-y PEGARLO en destino */
+// Object.assign() COPIAR propiedad: valor, de origen y PEGARLO en destino
 Object.assign(destino, origen);
 
 /* Si el objeto origen (source) y destino (target)
 tienen el mismo nombre de propiedad (clave),
 entonces las propiedad: valor del objeto destino
-se sobreescriben con las propiedades de los objetos origen
+se sobrescriben con las propiedades de los objetos origen
 
 El objeto origen tiene mismaPropiedad: 'origen',
 y el destino tiene mismaPropiedad: 'destino',
@@ -279,7 +278,11 @@ destino2 = {};
 console.log(destino2);
 // {}
 
-// Forma 3: JSON.parse(JSON.stringify())
+/* Forma 3: JSON.parse(JSON.stringify())
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify */
 destino2 = JSON.parse(JSON.stringify(origen2));
 console.log(destino2);
 // { uno: 1 }
@@ -436,7 +439,6 @@ Object.getOwnPropertyNames(objetoLiteral).map((propiedad) => {
 
 Del objetoLiteral se copia la propiedad: valor, enumerable q es 1 ➜ SI soy enumerable */
 const concatenar4 = Object.assign({}, objetoLiteral);
-
 console.log(concatenar4);
 // 1 ➜ SI soy enumerable
 
@@ -465,7 +467,7 @@ const noEsUnNumero = NaN;
 /* Object.assign() devuelve un objeto vacio {}
 con todos los tipos de datos primitivos
 EXCEPTO el tipo texto String(),
-que devuelve un objeto con {indice: caracter} */
+que devuelve un objeto con { indice: caracter } */
 let concatenar5 = Object.assign({}, number, bigInt, verdadero, falso, symbol, nulo, indefinido, noEsUnNumero);
 console.log(concatenar5);
 // {}
@@ -509,7 +511,7 @@ console.log(objeto2);
 nombre de propiedad (clave) q es 'mismaPropiedad'
 
 2) objeto es INmutable */
-// Object.assign(objeto, objeto2);
+Object.assign(objeto, objeto2);
 /* Uncaught TypeError: Cannot assign to read only property 'mismaPropiedad' of object '#<Object>'
     at Function.assign (<anonymous>)
     at <anonymous>:12:8 */

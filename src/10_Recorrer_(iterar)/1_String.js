@@ -120,13 +120,14 @@ console.log(array);
 // (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
 
 /*
-Puedo usar el metodo de array .forEach()
+Puedo usar el metodo de array .map()
 porq converti de string a array
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .forEach() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+ ▄▄▄▄▄▄▄▄▄▄
+ █ .map() █
+ ▀▀▀▀▀▀▀▀▀▀
 */
-array.forEach((caracter, i) => {
+array.map((caracter, i) => {
   console.log(`i=${i} | caracter='${caracter}'`);
+
+  // return
 });
