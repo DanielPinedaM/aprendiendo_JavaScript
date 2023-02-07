@@ -392,3 +392,12 @@ cuando imprimo por consola console.log() el objetoHijo
 NO se puede ver el metodo (funcion) saludar() */
 console.log(objetoHijo);
 // { uno: 1 }
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Object.freeze()            █
+ █ Object.preventExtensions() █
+ █ Object.seal()              █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+
+*/

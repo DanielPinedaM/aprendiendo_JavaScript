@@ -54,11 +54,11 @@ setters */
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 1
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create#try_it */
+https://developser.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create#try_it */
 
 const prototipo = {
 // propiedad: valor,
-  saludar: () => 'hola mundo',
+  saludar: () => 'hola mundo', // metodo () funcion del objeto literal
 };
 
 // Imprimir objeto literal {} prototipo
@@ -66,14 +66,14 @@ console.log(prototipo);
 // { saludar: [Function: saludar] }
 
 // Ejecutar metodo (funcion) saludar() del objeto literal {} prototipo
-console.log(prototipo.saludar('hola mundo'));
+console.log(prototipo.saludar());
 // 'hola mundo'
 
 /* Object.create()
 El objetoHijo hereda todas las propiedades y metodos del objeto prototipo */
 const objetoHijo = Object.create(prototipo);
 
-// Imprimir por consola el objetoHijo
+// Imprimir objetoHijo por consola
 console.log(objetoHijo);
 // {}
 
@@ -86,7 +86,7 @@ console.log(objetoHijo.uno);
 // 1
 
 /* El metodo (funcion) saludar() existe en el objetoHijo
-porq se puede ejecutar con la sintaxis nombreObjeto.propiedad  */
+porq se puede ejecutar con la sintaxis nombreObjeto.propiedad */
 console.log(objetoHijo.saludar());
 // 'hola mundo'
 
@@ -99,7 +99,8 @@ console.log(objetoHijo);
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 2 - proto = null
+/* Ejemplo 2 - proto = null
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects */
 
 const protoNull = Object.create(null);
 console.log(protoNull);
@@ -107,7 +108,7 @@ console.log(protoNull);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 3 - propertiesObject */
+// Ejemplo 3 - propertiesObject
 
 const prototipo2 = {
 // propiedad: valor,
@@ -133,7 +134,7 @@ console.log(objetoHijo2);
 console.log(objetoHijo2.uno);
 // 1
 
-// Ejecutar metodo (funcion) saludar()
+// Ejecutar metodo (funcion) saludar() desde el objetoHijo2
 console.log(objetoHijo2.saludar());
 // 'hola mundo'
 
@@ -142,5 +143,5 @@ console.log(objetoHijo2.saludar());
 /* Ejemplo 4:
 Los ejemplos anteriores
 que yo escribi en esta seccion son basicos,
-en la MDN hay mas ejemplos:
+pero en la MDN hay mas ejemplos:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create#examples */
