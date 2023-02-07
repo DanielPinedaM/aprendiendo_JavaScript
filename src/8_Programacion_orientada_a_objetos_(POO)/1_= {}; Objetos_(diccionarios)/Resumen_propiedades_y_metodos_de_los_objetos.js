@@ -123,6 +123,75 @@ console.log(objPropiedades);
 */
 
 /*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Object.getOwnPropertyDescriptor()  █
+ █ Object.getOwnPropertyDescriptors() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+Obtener las siguientes propiedades (descripción) del objeto literal:
+value:
+writable:
+enumerable:
+configurable:
+get
+set */
+
+const objetoLiteral = {
+// propiedad: valor,
+  uno: 1,
+  dos: 2,
+};
+console.log(objetoLiteral);
+/*
+{
+  uno: 1,
+  dos: 2,
+}
+*/
+
+/* Object.getOwnPropertyDescriptor()
+Obtener la descripción de UNA SOLA propiedad en específico del objeto literal
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor */
+let unaPropiedad = Object.getOwnPropertyDescriptor(objetoLiteral, 'uno');
+console.log(unaPropiedad);
+/*
+{
+  value: 1,
+  writable: true,
+  enumerable: true,
+  configurable: true
+}
+*/
+
+unaPropiedad = Object.getOwnPropertyDescriptor(objetoLiteral, 'dos');
+console.log(unaPropiedad);
+/*
+{
+  value: 2,
+  writable: true,
+  enumerable: true,
+  configurable: true
+}
+*/
+
+/* Object.getOwnPropertyDescriptors()
+Obtener TODAS las descripciones de las propiedades del objeto literal */
+const todasLasPropiedades = Object.getOwnPropertyDescriptors(objetoLiteral);
+console.log(todasLasPropiedades);
+/*
+{
+  uno: { value: 1, writable: true, enumerable: true, configurable: true },
+  dos: { value: 2, writable: true, enumerable: true, configurable: true }
+}
+*/
+
+// Acceder a valores de las propiedades en especifico de Object.getOwnPropertyDescriptors()
+console.log(todasLasPropiedades.uno.value);        // 1
+console.log(todasLasPropiedades.uno.writable);     // true
+
+console.log(todasLasPropiedades.dos.value);        // 2
+console.log(todasLasPropiedades.dos.configurable); // true
+
+/*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .propertyIsEnumerable() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀

@@ -18,7 +18,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries#description
 
 Donde...
--
+- Object.fromEntries()
 Es el nombre del metodo
 
 - iterable
@@ -37,13 +37,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 1 - Diferencia Entre Object.entries() y Object.fromEntries()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries#description
 
 Recordatorio:
 Ver:
-" 12.1.5.2.5) Object.entries() Convertir a Array Anidado que Contiene [propiedad, valor] Enumerables del Objeto {} "
+" 12.1.5.2.5) Object.entries() Convertir a Array Anidado que Contiene [propiedad, valor] Enumerables del Objeto Literal {} " */
 
+/* DIFERENCIA 1:
 Object.fromEntries() hace lo opuesto de Object.entries() */
-
 const objetoLiteral = {
 // propiedad: valor,
   uno: 1,
@@ -81,6 +82,65 @@ console.log(fromEntries);
 }
 */
 
+/* DIFERENCIA 2:
+Objeto literal con propiedad: valor, de tipo Symbol() */
+const fantasma = Symbol('fantasma');
+console.log(fantasma);
+// Symbol(fantasma)
+
+const objSymbol = {
+// propiedad: valor,
+  [fantasma]: '👻', // Symbol()
+  uno: 1,
+  dos: 2,
+  tres: 3,
+};
+console.log(objSymbol);
+/*
+{
+  uno: 1,
+  dos: 2,
+  tres: 3,
+  [Symbol(fantasma)]: '👻'
+}
+*/
+
+/* Object.entries() NO incluye las propiedad: valor, de tipo Symbol()
+NO se incluye [Symbol(fantasma)]: '👻' */
+const entries2 = Object.entries(objSymbol);
+console.log(entries2);
+/*
+(3) [
+      [ 'uno', 1 ],
+      [ 'dos', 2 ],
+      [ 'tres', 3 ]
+    ]
+*/
+
+/* En cambio, Object.fromEntries() SI incluye las propiedad: valor, de tipo Symbol()
+SI se incluye [Symbol(fantasma)]: '👻' */
+const arraySymbol = [['uno', 1], ['dos', 2], ['tres', 3], [fantasma, '👻']];
+console.log(arraySymbol);
+/*
+(4) [
+      [ 'uno', 1 ],
+      [ 'dos', 2 ],
+      [ 'tres', 3 ],
+      [ Symbol(fantasma), '👻' ]
+    ]
+*/
+
+const fromEntries2 = Object.fromEntries(arraySymbol);
+console.log(fromEntries2);
+/*
+{
+  uno: 1,
+  dos: 2,
+  tres: 3,
+  [Symbol(fantasma)]: '👻'
+}
+*/
+
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 2 - Convertir de new Map() a Objeto Literal:
@@ -93,13 +153,13 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object */
 
-const entries2 = new Map([
+const entries3 = new Map([
 // propiedad: valor,
   ['uno', 1],
   ['dos', 2],
   ['tres', 3],
 ]);
-console.log(entries2);
+console.log(entries3);
 /*
 Map(3) {
          'uno' => 1,
@@ -108,7 +168,7 @@ Map(3) {
        }
 */
 
-const objetoLiteral2 = Object.fromEntries(entries2);
+const objetoLiteral2 = Object.fromEntries(entries3);
 console.log(objetoLiteral2);
 /*
 {
@@ -123,13 +183,13 @@ console.log(objetoLiteral2);
 /* Ejemplo 3 - Convertir de array anidado [ [] ] a objeto literal {}
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries#converting_an_array_to_an_object */
 
-const entries3 = [
+const entries4 = [
 // propiedad: valor,
   ['uno', 1],
   ['dos', 2],
   ['tres', 3],
 ];
-console.log(entries3);
+console.log(entries4);
 /*
 (3) [
       [ 'uno', 1 ],
@@ -138,8 +198,8 @@ console.log(entries3);
     ]
 */
 
-const objetoLiteral3 = Object.fromEntries(entries3);
-console.log(objetoLiteral3);
+const objetoLiteral4 = Object.fromEntries(entries4);
+console.log(objetoLiteral4);
 /*
 {
   uno: 1,
@@ -154,13 +214,13 @@ console.log(objetoLiteral3);
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries#object_transformations */
 
-const objetoLiteral4 = {
+const objetoLiteral5 = {
 // propiedad: valor,
   uno: 1,  // 1*2 = 2
   dos: 2,  // 2*2 = 4
   tres: 3, // 3*2 = 6
 };
-console.log(objetoLiteral4);
+console.log(objetoLiteral5);
 /*
 {
   uno: 1,
@@ -170,7 +230,7 @@ console.log(objetoLiteral4);
 */
 
 const porDos = Object.fromEntries(
-  Object.entries(objetoLiteral4).map(([propiedad, valor]) => [propiedad, valor * 2]),
+  Object.entries(objetoLiteral5).map(([propiedad, valor]) => [propiedad, valor * 2]),
 );
 console.log(porDos);
 /*
