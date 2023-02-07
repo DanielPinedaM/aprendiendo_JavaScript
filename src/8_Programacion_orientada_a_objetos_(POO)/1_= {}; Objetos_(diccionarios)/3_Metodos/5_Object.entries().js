@@ -4,10 +4,11 @@
 /* eslint-disable array-callback-return */
 // @ts-nocheck
 
-/* Documentacion Oficial - Object.entries()
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
-
+/*
 Object.entries() Convertir a Array Anidado que Contiene [propiedad, valor] Enumerables del Objeto {}
+
+Documentacion Oficial - Object.entries()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
 
 Alternativas a Object.entries()
 

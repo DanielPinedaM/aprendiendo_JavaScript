@@ -5,6 +5,10 @@
 // @ts-nocheck
 
 /*
+Diferencias y Similitudes Entre
+Object.freeze() Object.seal() y Object.preventExtensions()
+Objeto Inmutable (que NO se Puede Modificar)
+
 Jayanth Babu - Diferencia Entre Object.freeze() Object.seal() y Object.preventExtensions()...
 https://javascript.plainenglish.io/object-freeze-vs-object-seal-vs-object-preventextensions-e78ef3a24201
 
@@ -18,9 +22,29 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 - Object.preventExtensions()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions
 
-Diferencias y Similitudes Entre
-Object.freeze() Object.seal() y Object.preventExtensions()
-Objeto Inmutable (que NO se Puede Modificar)
+                                                         |-----------------------------|---------------------------|----------------------------------------|
+                                                         | Object.freeze()             | Object.seal()             | Object.preventExtensions()             |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| ¿Hace que el objeto literal {}                         | ✓                           | ✓                         | ✓                                      |
+| sea inmutable (que NO se pueda modificar)              |                             |                           |                                        |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| ¿Permite MODIFICAR                                     | X                           | ✓                         | ✓                                      |
+| el valor de la propiedad?                              |                             |                           |                                        |
+|                                                        |                             |                           |                                        |
+| nombreObjeto.nombrePropiedadExistente = 'nuevo valor'; |                             |                           |                                        |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| ¿Permite ELIMINAR                                      | X                           | X                         | ✓                                      |
+| propiedad: valor, ?                                    |                             |                           |                                        |
+|                                                        |                             |                           |                                        |
+| delete nombreObjeto.nombrePropiedadExistente;          |                             |                           |                                        |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| ¿Permite AGREGAR                                       | X                           | X                         | X                                      |
+| una nueva propiedad: valor, ?                          |                             |                           |                                        |
+|                                                        |                             |                           |                                        |
+| nombreObjeto.nombreNuevaPropiedad = 'nuevo valor';     |                             |                           |                                        |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| Sintaxis                                               | Object.freeze(nombreObjeto) | Object.seal(nombreObjeto) | Object.preventExtensions(nombreObjeto) |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
 
 Recordatorio:
 Ver:
@@ -68,6 +92,7 @@ console.log(inmutable);
 }
 */
 
+// Congelar objeto literal {}
 Object.freeze(inmutable);
 
 // MODIFICAR valor 1 de la propiedad 'uno'
@@ -167,25 +192,24 @@ console.log(array);
 /* Object.freeze() congela el array,
 hace q el array sea inmutable
 
-Hacer una copia de array en inmutable
+Hacer una copia de array en variable inmutable2
 y agregarle un nuevo elemento 4 */
 const inmutable2 = Object.freeze([...array, 4]);
 console.log(inmutable2);
 // (4) [1, 2, 3, 4]
 
-/* Las 2 siguientes lineas de codigo dan ERROR
-porq el array NO se puede modificar (es INMUTABLE)
-
-TypeError: Cannot add property 4, object is not extensible
-at Array.push (<anonymous>)
-at Object.<anonymous> */
-// console.log(inmutable2.push(5)); // agregar un nuevo numero 5 al ultimo elemento del array
-// console.log(inmutable2.pop());   // eliminar el ultimo elemento del array
+/* Las siguientes lineas de codigo dan ERROR
+porq el array inmutable2 NO se puede modificar (es INMUTABLE) */
+// console.log(inmutable2.unshift(0)); // agregar un nuevo elemento (numero) 0 al PRINCIPIO del array
+// console.log(inmutable2.push(5));    // agregar un nuevo elemento (numero) 5 al FINAL del array
+// console.log(inmutable2.shift());    // eliminar el PRIMER elemento del array
+// console.log(inmutable2.pop());      // eliminar el ULTIMO elemento del array
+// console.log(inmutable2.reverse());  // invertir (voltear) el orden de los elementos del array
 
 console.log(inmutable2);
 // (4) [1, 2, 3, 4]
 
-/* El array llamado inmutable NO se puede modificar,
+/* El array llamado inmutable2 NO se puede modificar,
 la unica forma de modificarlo es crear una copia del array
 y modificar la copia del array */
 const mutable = [...inmutable2, 5];
@@ -261,7 +285,7 @@ Object.freeze(objetoAnidado);
 
 /* Esto lo compruebo porq
 puedo agregar una nueva propiedad: valor, d: 'e'
-dentro del objeto literal anidado  */
+dentro del objeto literal anidado { {} } */
 objetoAnidado.a.d = 'e';
 console.log(objetoAnidado);
 /*
@@ -287,10 +311,10 @@ console.log(objetoAnidado);
 
 // Funcion para objetoAnidado inmutable
 const congelacionProfunda = (object) => {
-  // Retrieve the property names defined on object
+  // Obtener los nombres de las propiedades del objeto {}
   const propNames = Reflect.ownKeys(object);
 
-  // Freeze properties before freezing self
+  // Congelar propiedades antes de auto-congelarse
   for (const name of propNames) {
     const value = object[name];
 

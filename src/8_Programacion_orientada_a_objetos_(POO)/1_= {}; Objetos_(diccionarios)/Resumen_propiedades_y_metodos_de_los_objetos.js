@@ -1,3 +1,4 @@
+/* eslint-disable no-multi-spaces */
 /* eslint-disable no-prototype-builtins */
 // @ts-nocheck
 /* eslint-disable array-callback-return */
@@ -223,13 +224,10 @@ console.log(values);
 // (3) [1, 2, 3]
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ Object.entries() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
-
-Convertir a array anidado que contiene [propiedad, valor] enumerables del objeto {} */
-
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Object.entries()     █
+ █ Object.fromEntries() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 console.log(objSymbol);
 /*
 {
@@ -240,9 +238,29 @@ console.log(objSymbol);
 }
 */
 
-const propiedadValor = Object.entries(objSymbol);
-console.log(propiedadValor);
-// (3) [ [ 'uno', 1 ], [ 'dos', 2 ], [ 'tres', 3 ] ]
+/* Object.entries() Convertir a array anidado que contiene [propiedad, valor] enumerables del objeto literal {}
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries */
+const entries = Object.entries(objSymbol);
+console.log(entries);
+/*
+(3) [
+      [ 'uno', 1 ],
+      [ 'dos', 2 ],
+      [ 'tres', 3 ]
+    ]
+*/
+
+/* Object.fromEntries() Convertir de array anidado que contiene [propiedad, valor] a objeto literal {}
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries */
+const fromEntries = Object.fromEntries(entries);
+console.log(fromEntries);
+/*
+{
+  uno: 1,
+  dos: 2,
+  tres: 3
+}
+*/
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -399,5 +417,112 @@ console.log(objetoHijo);
  █ Object.preventExtensions() █
  █ Object.seal()              █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://javascript.plainenglish.io/object-freeze-vs-object-seal-vs-object-preventextensions-e78ef3a24201
 
+Objeto inmutable (que NO se puede modificar) */
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Object.freeze() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+let inmutable = {
+// propiedad: valor,
+  uno: 1,
+  dos: 2,
+  tres: 3,
+};
+console.log(inmutable);
+/*
+{
+  uno: 1,
+  dos: 2,
+  tres: 3
+}
+*/
+
+Object.freeze(inmutable);
+
+// MODIFICAR valor 1 de la propiedad 'uno'
+inmutable.uno = 'nuevo valor'; // NO hace nada, el valor sigue siendo 1
+
+// ELIMINAR propiedad: valor,
+delete inmutable.dos;          // NO hace nada, la propiedad: valor, dos: 2, sigue existiendo
+
+// AGREGAR una nueva propiedad: valor,
+inmutable.cuatro = 4;          // NO hace nada, NO agrega cuatro: 4, al objeto literal
+
+console.log(inmutable);
+/*
+{
+  uno: 1,
+  dos: 2,
+  tres: 3
+}
+*/
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Object.seal() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+inmutable = {
+  // propiedad: valor,
+  uno: 1,
+  dos: 2,
+  tres: 3,
+};
+console.log(inmutable);
+/*
+{
+  uno: 1,
+  dos: 2,
+  tres: 3
+}
+*/
+
+Object.seal(inmutable);
+
+inmutable.uno = 'nuevo valor'; // el valor se MODIFICA a uno: 'nuevo valor',
+delete inmutable.dos;          // NO hace nada, la propiedad: valor, dos: 2, sigue existiendo
+inmutable.cuatro = 4;          // NO hace nada, NO agrega cuatro: 4, al objeto literal
+
+console.log(inmutable);
+/*
+{
+  uno: 'nuevo valor',
+  dos: 2,
+  tres: 3
+}
+*/
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Object.preventExtensions() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+inmutable = {
+// propiedad: valor,
+  uno: 1,
+  dos: 2,
+  tres: 3,
+};
+console.log(inmutable);
+/*
+{
+  uno: 1,
+  dos: 2,
+  tres: 3
+}
+*/
+
+Object.preventExtensions(inmutable);
+
+inmutable.uno = 'nuevo valor'; // el valor se MODIFICA a uno: 'nuevo valor',
+delete inmutable.dos;          // se ELIMINA dos: 2,
+inmutable.cuatro = 4;          // NO hace nada, NO agrega cuatro: 4, al objeto literal
+
+console.log(inmutable);
+/*
+{
+  uno: 'nuevo valor',
+  tres: 3
+}
 */

@@ -3,10 +3,11 @@
 /* eslint-disable array-callback-return */
 // @ts-nocheck
 
-/* Documentacion Oficial - Object.values()
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
-
+/*
 Object.values() Convertir a array [] los valores enumerables del objeto {}
+
+Documentacion Oficial - Object.values()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
 
 Alternativas a Object.values():
 

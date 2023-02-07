@@ -3,10 +3,11 @@
 /* eslint-disable array-callback-return */
 // @ts-nocheck
 
-/* Documentacion Oficial - Object.getOwnPropertySymbols()
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols
-
+/*
 Object.getOwnPropertySymbols() Convertir a Array [] las Propiedades del Objeto {} que son de Tipo Symbol()
+
+Documentacion Oficial - Object.getOwnPropertySymbols()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols
 
 Alternativas a Object.getOwnPropertySymbols()
 

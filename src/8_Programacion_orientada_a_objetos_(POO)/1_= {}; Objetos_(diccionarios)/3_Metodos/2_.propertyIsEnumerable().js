@@ -4,10 +4,11 @@
 /* eslint-disable array-callback-return */
 // @ts-nocheck
 
-/* Documentacion Oficial - .propertyIsEnumerable()
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable
-
+/*
 .propertyIsEnumerable() ¿La propiedad: valor, si es o no Enumerable?
+
+Documentacion Oficial - .propertyIsEnumerable()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable
 
 La propiedad enumerable: de los objetos literales {}
 la puedo editar con Object.defineProperty() y Object.defineProperties()
