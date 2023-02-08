@@ -19,6 +19,24 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 - Object.getOwnPropertyDescriptors()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
 
+                                      |----------------------------------------------------------------|------------------------------------------------|
+                                      | Object.getOwnPropertyDescriptor()                              | Object.getOwnPropertyDescriptors()             |
+|-------------------------------------|----------------------------------------------------------------|------------------------------------------------|
+| ¿Sirve para obtener las propiedades | ✓                                                              | ✓                                              |
+| (descripción) del objeto literal    |                                                                |                                                |
+| value:                              |                                                                |                                                |
+| writable:                           |                                                                |                                                |
+| enumerable:                         |                                                                |                                                |
+| configurable:                       |                                                                |                                                |
+| get                                 |                                                                |                                                |
+| set ?                               |                                                                |                                                |
+|-------------------------------------|----------------------------------------------------------------|------------------------------------------------|
+| Valor de retorno                    | Obtener la descripción de UNA SOLA                             | Obtener TODAS las descripciones                |
+|                                     | propiedad en específico del objeto literal                     | de las propiedades del objeto literal          |
+|-------------------------------------|----------------------------------------------------------------|------------------------------------------------|
+| Sintaxis                            | Object.getOwnPropertyDescriptor(nombreObjeto, nombrePropiedad) | Object.getOwnPropertyDescriptors(nombreObjeto) |
+|-------------------------------------|----------------------------------------------------------------|------------------------------------------------|
+
 La sintaxis de Object.getOwnPropertyDescriptor() es:
 Object.getOwnPropertyDescriptor(nombreObjeto, nombrePropiedad)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor#syntax
@@ -121,7 +139,7 @@ console.log(objetoLiteral2);
 
 /*
 Recordatorio:
-Las propiedades
+Las propiedades (descripcion)
 value:
 writable:
 enumerable:
@@ -129,9 +147,7 @@ configurable:
 get
 set
 las puedo editar con Object.defineProperty() y Object.defineProperties(), ver:
-" 12.1.5.2.1) Diferencias y Similitudes Entre Object.defineProperty() y Object.defineProperties() - Agregar Propiedades de Objeto... "
-
-Object.defineProperties() Editar propiedades (descripcion) del objeto */
+" 12.1.5.2.1) Diferencias y Similitudes Entre Object.defineProperty() y Object.defineProperties() - Agregar Propiedades de Objeto... " */
 Object.defineProperties(objetoLiteral2, {
   uno: {                // propiedad del objeto
     enumerable: true,   // hacer visible el objeto
@@ -184,8 +200,8 @@ console.log(objetoLiteral3);
 }
 */
 
-/* Copia superficial del objeto:
-https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy  */
+/* Copia superficial del objeto literal:
+https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy */
 const copia = Object.create(
   Object.getPrototypeOf(objetoLiteral3),
   Object.getOwnPropertyDescriptors(objetoLiteral3),

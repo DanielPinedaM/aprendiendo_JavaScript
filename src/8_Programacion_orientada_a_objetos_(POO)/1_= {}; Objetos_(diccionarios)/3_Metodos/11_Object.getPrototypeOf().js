@@ -1,9 +1,14 @@
 // @ts-nocheck
 
-/* Documentacion Oficial - .getPrototypeOf()
+/*
+Documentacion Oficial - Object.getPrototypeOf()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf
 
-.getPrototypeOf()
+Object.getPrototypeOf() prototipo del objeto
+
+Object.getPrototypeOf() devuelve el prototipo
+que es el valor de la propiedad interna [[Prototype]]
+del objeto padre especificado
 
 Su sintaxis es:
 
@@ -31,6 +36,11 @@ console.log(objetoLiteral);
   tres: 3
 }
 */
+
+// Object.getPrototypeOf() acceder al prototipo del objetoLiteral
+const prototipo = Object.getPrototypeOf(objetoLiteral);
+console.log(prototipo);
+// [Object: null prototype] {}
 
 /* --------------------------------------------------------------- */
 
