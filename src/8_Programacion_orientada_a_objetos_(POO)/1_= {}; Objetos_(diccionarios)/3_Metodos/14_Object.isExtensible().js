@@ -1,14 +1,14 @@
 // @ts-nocheck
 
-/* Documentacion Oficial - .is()
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+/* Documentacion Oficial - Object.isExtensible()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible
 
-.is()
+Object.isExtensible()
 
 Su sintaxis es:
 
 Donde...
--
+- Object.isExtensible()
 Es el nombre del metodo
 
 - */
