@@ -106,13 +106,35 @@ console.log(7 <= 7);
 
 /* COMPARACION DE IGUALDAD:
 
+|--------------------------------|-----------------------------------|--------------------|--------------------------|
+| Comparación de Igualdad        | Definición                        | ¿Compara el VALOR? | ¿Compara TIPOS de datos? |
+|--------------------------------|-----------------------------------|--------------------|--------------------------|
+| ==                             | true si los operandos son iguales | ✓                  | X                        |
+| Operador de igualdad           |                                   |                    |                          |
+| (doble igual)                  |                                   |                    |                          |
+|--------------------------------|-----------------------------------|--------------------|--------------------------|
+| ===                            | true si los operandos son iguales | ✓                  | ✓                        |
+| Operador estricto de identidad | en tipo y valor                   |                    |                          |
+| (triple igual)                 |                                   |                    |                          |
+|                                | Excepto si los operandos son      |                    |                          |
+|                                | NaN y Number.NaN,                 |                    |                          |
+|                                | solo en este caso devuelve false  |                    |                          |
+|--------------------------------|-----------------------------------|--------------------|--------------------------|
+| Object.is()                    | true si los operandos son iguales | ✓                  | ✓                        |
+| Método de objeto               | en tipo y valor                   |                    |                          |
+|                                |                                   |                    |                          |
+|                                | Excepto si los operandos son      |                    |                          |
+|                                | 0 (positivo) y -0 (negativo),     |                    |                          |
+|                                | solo en este caso devuelve false  |                    |                          |
+|--------------------------------|-----------------------------------|--------------------|--------------------------|
+
 Segun ESLint Airbnb se debe usar === y NO ==
 En otras palabras:
 === es buena practica y == es mala practica
 https://eslint.org/docs/latest/rules/eqeqeq
 https://airbnb.io/javascript/#comparison--eqeqeq
 
-== Operador de igualdad (doble igual) */
+Ejemplo de == Operador de igualdad (doble igual) */
 
 // 7 es lo mismo q 7
 console.log(7 == 7);
@@ -142,27 +164,7 @@ Diferencia Entre
 y Object.is() Método de Objeto
 https://stackoverflow.com/questions/30543190/object-is-vs
 
-|--------------------------------|-----------------------------------|--------------------|--------------------------|
-| Comparación de Igualdad        | Definición                        | ¿Compara el VALOR? | ¿Compara TIPOS de datos? |
-|--------------------------------|-----------------------------------|--------------------|--------------------------|
-| ==                             | true si los operandos son iguales | ✓                  | X                        |
-| Operador de igualdad           |                                   |                    |                          |
-| (doble igual)                  |                                   |                    |                          |
-|--------------------------------|-----------------------------------|--------------------|--------------------------|
-| ===                            | true si los operandos son iguales | ✓                  | ✓                        |
-| Operador estricto de identidad | en tipo y valor                   |                    |                          |
-| (triple igual)                 |                                   |                    |                          |
-|                                | Excepto si los operandos son      |                    |                          |
-|                                | NaN y Number.NaN,                 |                    |                          |
-|                                | solo en este caso devuelve false  |                    |                          |
-|--------------------------------|-----------------------------------|--------------------|--------------------------|
-| Object.is()                    | true si los operandos son iguales | ✓                  | ✓                        |
-| Método de objeto               | en tipo y valor                   |                    |                          |
-|                                |                                   |                    |                          |
-|                                | Excepto si los operandos son      |                    |                          |
-|                                | 0 (positivo) y -0 (negativo),     |                    |                          |
-|                                | solo en este caso devuelve false  |                    |                          |
-|--------------------------------|-----------------------------------|--------------------|--------------------------|
+Ejemplo - Diferencia Entre === Operador estricto de identidad (triple igual) y Object.is() Metodo de Objeto
 
 7 tipo Number() es exactamente lo mismo q 7 tipo Number() */
 console.log(7 === 7);         // true
