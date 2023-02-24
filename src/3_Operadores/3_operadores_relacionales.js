@@ -25,6 +25,9 @@ https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-us
 https://stackoverflow.com/questions/30543190/object-is-vs
 
 Documentacion Oficial...
+Operadores relacionales
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#relational_operators
+
 > mayor que
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than
 
@@ -38,6 +41,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal
 
 Comparaciones de igualdad
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#equality_operators
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
 
 == Operador de igualdad (doble igual)

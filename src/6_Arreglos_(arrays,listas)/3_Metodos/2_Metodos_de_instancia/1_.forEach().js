@@ -64,6 +64,11 @@ Resumen: Diferencia Entre .forEach() .map() .filter() .reduce() .find()
 |            |                  |                                 |                               |                                                  |                                  | // undefined                                                                       |
 |------------|------------------|---------------------------------|-------------------------------|--------------------------------------------------|----------------------------------|------------------------------------------------------------------------------------|
 
+Midudev - ¿Qué es más rápido for loop ó .forEach()?
+https://midu.dev/foreach-mas-rapido-for/
+
+https://slug.vercel.app/s/for-bench
+
 Documentacion Oficial - .forEach()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
@@ -533,7 +538,6 @@ console.log(objetoLiteral);
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 2 */
-
 
 /* Object.keys() convertir a array [] las propiedades (claves) del objetoLiteral {}
 

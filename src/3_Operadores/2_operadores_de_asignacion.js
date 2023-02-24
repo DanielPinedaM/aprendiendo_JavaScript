@@ -4,7 +4,17 @@
 /* --------------------------------------------------------------- */
 
 /*
-= Operador de asignación (un solo igual)
+Documentacion Oficial...
+Operadores de asignacion
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#assignment_operators
+
+??= Asignación Coalescente Nula (Nullish Coalescing Assignment)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment
+
+Abreviación de Operadores de Asignación
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#assignment_operators
+
+= UN SOLO IGUAL
 Usar para darle (asignar) un valor a una variable
 
 El valor que esta a la derecha (despues de =)
@@ -31,3 +41,6 @@ uno = dos = tres;
 console.log(uno);  // 3
 console.log(dos);  // 3
 console.log(tres); // 3
+
+/* ??= ASIGNACION COALESCENTE NULA
+(NULLISH COALESCING ASSIGMENT) */

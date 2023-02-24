@@ -1,3 +1,6 @@
+/* eslint-disable no-compare-neg-zero */
+/* eslint-disable no-self-compare */
+/* eslint-disable use-isnan */
 /* eslint-disable no-multi-spaces */
 /* eslint-disable no-prototype-builtins */
 // @ts-nocheck
@@ -595,3 +598,36 @@ console.log(inmutable);
   tres: 3
 }
 */
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Object.is() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+
+Stack Overflow - Diferencia Entre === y Object.is()
+https://stackoverflow.com/questions/30543190/object-is-vs
+
+=== hace exactamente lo mismo q Object.is(),
+ambos comparan el valor y tipo de dato.
+Las unicas diferencias son:
+
+1) Para === +0 (positivo) y -0 (negativo) son lo mismo,
+en cambio para Object.is() son diferentes */
+console.log(+0 === -0);         // true
+console.log(Object.is(+0, -0)); // false
+
+/* 2) Para === NaN y NaN son diferentes,
+en cambio para Object.is() son lo mismo  */
+console.log(NaN === NaN);         // false
+console.log(Object.is(NaN, NaN)); // true
+
+/* 3) Igual que ocurre en 2)
+Para === Number.NaN y Number.NaN son diferentes
+en cambio para Object.is() son lo mismo */
+console.log(Number.NaN === Number.NaN);         // false
+console.log(Object.is(Number.NaN, Number.NaN)); // true
+
+/* 4) Para === NaN y Number.NaN son diferentes
+en cambio para Object.is() son iguales */
+console.log(NaN === Number.NaN);         // false
+console.log(Object.is(NaN, Number.NaN)); // true

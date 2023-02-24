@@ -12,6 +12,9 @@ Tutorial de Jon Mircha de operadores aritmeticos:
 https://www.youtube.com/watch?v=_8Z5AeGVIXE&t=47s
 
 Documentacion Oficial...
+Operadores aritmeticos
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#arithmetic_operators
+
 Expresiones y operadores
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
 
