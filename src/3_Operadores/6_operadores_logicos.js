@@ -44,8 +44,6 @@ console.log('9' === 9);                // false
 console.log(('9' === 9) && (9 === 9)); // false
 if (('9' === 9) && (9 === 9)) console.log('este codigo NUNCA se ejecuta');
 
-console.log();
-
 /* --- */
 
 /* || OR
@@ -124,7 +122,7 @@ operandoIzquierdo ?? operandoDerecho
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing#syntax
 
 Ejemplo 1 - explicacion del operador ??
-si operandoIzquierdo es null o undefined se devuelve operando DERECHO
+Si operandoIzquierdo es null o undefined se devuelve operando DERECHO
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing#try_it */
 console.log(null ?? 'hola mundo');                // 'hola mundo'
 console.log(undefined ?? 'hola mundo');           // 'hola mundo'
