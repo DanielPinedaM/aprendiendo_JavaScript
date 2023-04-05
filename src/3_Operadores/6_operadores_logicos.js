@@ -124,6 +124,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Null
 Ejemplo 1 - explicacion del operador ??
 Si operandoIzquierdo es null o undefined se devuelve operando DERECHO
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing#try_it */
+
 console.log(null ?? 'hola mundo');                // 'hola mundo'
 console.log(undefined ?? 'hola mundo');           // 'hola mundo'
 
@@ -200,21 +201,24 @@ console.log(B() ?? C());
 false
 */
 
-/* Ejemplo 5 - Diferencia entre ?? operador coalescente nulo y || OR
+/* Ejemplo 5 - Diferencia entre ?? operador coalescente nulo (buena práctica) y || OR (mala práctica)
 https://youtu.be/UYjZ0MDUkn0
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing#assigning_a_default_value_to_a_variable
 
-los string q NO estan vacios se convierten a true
-el equivalente de 'uno' tipo String() en tipo Boolean() es true */
+Los string q NO estan vacios se convierten a true
+
+el equivalente de 'uno'
+q es un tipo String() NO vacio
+en tipo Boolean() es true */
 console.log(Boolean('uno')); // true
 
 /* || OR convierte TODOS los operandos a booleano Boolean()
-devuelve 'uno' porq es el primer operando q es true de izquierda a derecha */
+|| devuelve 'uno' porq es el primer operando q es true de izquierda a derecha */
 console.log('uno' || 'dos'); // 'uno'
 
 /* Aqui sucede lo mismo:
-Devuelve 10 porq es el primer operando q es true de izquierda a derecha */
+|| Devuelve 10 porq es el primer operando q es true de izquierda a derecha */
 console.log(10 || 2); // 10
 
 // || OR devuelve el operando q es true
@@ -239,9 +243,15 @@ console.log('' || 'dos'); // 'dos'
 console.log(false || false); // false
 
 /* ADVERTENCIA:
+Esta es la explicacion de
+porq || OR es mala practica y ?? es buena practica
+
 Hay un ERROR al usar 0 con || OR:
-Como 0 se convierte a false, entonces se devuelve el 2 q es true
-pero yo no necesito el 2, necesito el 0 */
+Como 0 se convierte a false */
+console.log(Boolean(0)); // false
+
+/* entonces se devuelve el 2 q es true
+pero yo no necesito el 2, necesito el 0  */
 console.log(0 || 2); // 2
 
 /* En cambio cuando uso el ?? operador coalescente nulo
@@ -252,12 +262,14 @@ console.log(0 ?? 2);     // 0
 console.log(NaN ?? 2);   // NaN
 console.log(false ?? 2); // false
 
-// devuelve 2 porq el operandoIzquierdo es null o undefined
+// ?? devuelve 2 porq el operandoIzquierdo es null o undefined
 console.log(null ?? 2);      // 2
 console.log(undefined ?? 2); // 2
 
 /* Ejemplo 6 - Acceder al valor de una propiedad de un objeto literal {} usando el ?? operador coalescente nulo y ?. encadenamiento opcional
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing#relationship_with_the_optional_chaining_operator */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing#relationship_with_the_optional_chaining_operator
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining#combining_with_the_nullish_coalescing_operator */
 
 const objetoLiteral = {
 // propiedad: valor,
@@ -272,11 +284,11 @@ console.log(objetoLiteral);
 }
 */
 
-/* como la propiedad llamada propiedadObjeto
+/* Como la propiedad llamada propiedadObjeto
 SI existe en el objetoLiteral
 entonces se guarda su valor que es 'valor objeto' en la variable valor
 
-toUpperCase() convertir a MAYUSCULA el 'valor objeto'
+.toUpperCase() convertir a MAYUSCULA el 'valor objeto'
 
 objetoLiteral.propiedadObjeto?.toUpperCase() devuelve 'VALOR OBJETO' */
 let valor = objetoLiteral.propiedadObjeto?.toUpperCase() ?? 'NO existe la propiedadInexistente en el objetoLiteral';
@@ -285,7 +297,8 @@ console.log(valor);
 
 /* como la propiedad llamada propiedadInexistente
 NO existe en el objetoLiteral
-entonces se guarda el mensaje "NO existe la propiedadInexistente en el objetoLiteral" en la variable valor
+entonces se guarda el mensaje
+"NO existe la propiedadInexistente en el objetoLiteral" en la variable valor
 
 objetoLiteral.propiedadInexistente?.toUpperCase() devuelve undefined */
 valor = objetoLiteral.propiedadInexistente?.toUpperCase() ?? 'NO existe la propiedadInexistente en el objetoLiteral';
