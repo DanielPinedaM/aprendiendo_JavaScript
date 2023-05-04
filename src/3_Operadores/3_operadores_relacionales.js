@@ -139,7 +139,7 @@ En otras palabras:
 https://eslint.org/docs/latest/rules/eqeqeq
 https://airbnb.io/javascript/#comparison--eqeqeq
 
-Ejemplo de == Operador de igualdad (doble igual) */
+Ejemplo 1 de == Operador de igualdad (doble igual) */
 
 // 7 es lo mismo q 7
 console.log(7 == 7);
@@ -169,7 +169,7 @@ Diferencia Entre
 y Object.is() Método de Objeto
 https://stackoverflow.com/questions/30543190/object-is-vs
 
-Ejemplo - Diferencia Entre === Operador estricto de identidad (triple igual) y Object.is() Metodo de Objeto
+Ejemplo 2 - Diferencia Entre === Operador estricto de identidad (triple igual) y Object.is() Metodo de Objeto
 
 7 tipo Number() es exactamente lo mismo q 7 tipo Number() */
 console.log(7 === 7);         // true
@@ -220,15 +220,21 @@ https://www.geeksforgeeks.org/difference-between-and-operator-in-javascript-2/
 != es mala practica
 y !== es buena practica
 
-|----------------------|--------------------------------------|--------------------|--------------------------|
-| Operador de...       | Definición                           | ¿Compara el VALOR? | ¿Compara TIPOS de datos? |
-|----------------------|--------------------------------------|--------------------|--------------------------|
-| !=                   | true si los valores                  | ✔                  | X                        |
-| desigualdad          | de los operandos son diferentes      |                    |                          |
-|----------------------|--------------------------------------|--------------------|--------------------------|
-| !==                  | true si los valores o tipos de datos | ✔                  | ✔                       |
-| desigualdad estricta | son diferentes                       |                    |                          |
-|----------------------|--------------------------------------|--------------------|--------------------------| */
+|----------------------|---------------------------------------|--------------------|--------------------------|
+| Operador de...       | Definición                            | ¿Compara el VALOR? | ¿Compara TIPOS de datos? |
+|----------------------|---------------------------------------|--------------------|--------------------------|
+| !=                   | true si los valores                   | ✔                  | X                        |
+| desigualdad          | de los operandos son diferentes       |                    |                          |
+|                      |                                       |                    |                          |
+|                      | false si los valores                  |                    |                          |
+|                      | de los operandos son iguales          |                    |                          |
+|----------------------|---------------------------------------|--------------------|--------------------------|
+| !==                  | true si los valores o tipos de datos  | ✔                  | ✔                       |
+| desigualdad estricta | son diferentes                        |                    |                          |
+|                      |                                       |                    |                          |
+|                      | false si los valores o tipos de datos |                    |                          |
+|                      | son iguales                           |                    |                          |
+|----------------------|---------------------------------------|--------------------|--------------------------| */
 
 /* false porque 7 de tipo Number() y 7 de tipo Number(), NO son diferentes.
 Ambos tienen el mismo valor y tipo de dato */

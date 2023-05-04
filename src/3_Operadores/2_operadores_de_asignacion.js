@@ -16,6 +16,24 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Null
 Abreviación de Operadores de Asignación
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#assignment_operators
 
+Esta es un resumen pero en la MDN están todos completos:
+
+                 |-------------|-------------|
+                 | Abreviacion | Significado |
+|----------------|-------------|-------------|
+| Asignacion     | x = y       | x = y       |
+|----------------|-------------|-------------|
+| Adicion        | x += y      | x = x + y   |
+|----------------|-------------|-------------|
+| Sustraccion    | x -= y      | x = x - y   |
+|----------------|-------------|-------------|
+| Multiplicacion | x *= y      | x = x * y   |
+|----------------|-------------|-------------|
+| Division       | x /= y      | x = x / y   |
+|----------------|-------------|-------------|
+| Resto          | x %= y      | x = x % y   |
+|----------------|-------------|-------------|
+
 = UN SOLO IGUAL
 Usar para darle (asignar) un valor a una variable
 
@@ -46,8 +64,13 @@ console.log(tres); // 3
 
 /* -- */
 
-/* ??= ASIGNACION COALESCENTE NULA
-(NULLISH COALESCING ASSIGMENT)
+/*
+??= ASIGNACION COALESCENTE NULA (NULLISH COALESCING ASSIGMENT)
+
+Recordatorio:
+Los operadores ?? y ??= tienen una similitud (NO hacen exactamente lo mismo), ver:
+...src/3_Operadores/6_operadores_logicos.js
+en esta seccion " ?? Operador Coalescente Nulo (Nullish Coalescing Operator) "
 
 Esto x ??= y
 es lo mismo q esto x ?? (x = y);
@@ -57,31 +80,29 @@ Su sintaxis es:
 operandoIzquierdo ??= operandoDerecho
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment#syntax
 
-Ejemplo 1 - explicacion del operador ??=
+Ejemplo 1 - explicacion de ??=
 Si operandoIzquierdo es null o undefined */
 let asignar;
 console.log(asignar);
 // undefined
 
 // Se asigna el valor de operandoDerecho a operandoIzquierdo
-asignar ??= 1;
-console.log(asignar);
-// 1
+asignar ??= 1;        // undefined ??= 1;
+console.log(asignar); // 1
 
+// Dar el valor de null a variable asignar
 asignar = null;
 console.log(asignar);
 // null
 
-asignar ??= 1;
-console.log(asignar);
-// 1
+asignar ??= 1;        // null ??= 1;
+console.log(asignar); // 1
 
 /* cuando operandoIzquierdo NO es null NI undefined
 se conserva el valor original de operandoIzquierdo
 (NO se asigna ninguno valor a operandoIzquierdo) */
-asignar ??= 2;
-console.log(asignar);
-// 1
+asignar ??= 2;        // 1 ??= 2
+console.log(asignar); // 1
 
 /* Ejemplo 2:
 El valor de la variable x siempre es 1
@@ -90,15 +111,17 @@ SOLAMENTE asigna el valor de la variable x si es null ó undefined
 y el valor de x es 1, NO null NI undefined
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment#description */
 let x = 1;
-console.log(x); // 1
+console.log(x);
+// 1
 
-x ??= 2;
+x ??= 2;        // 1 ??= 2
 console.log(x); // 1
 
 /* Ejemplo 3:
-En este ejemplo 3 sucede exactamente lo mismo que en el ejemplo 2 anterior,
+En este Ejemplo 3 sucede exactamente lo mismo que en el Ejemplo 2 anterior,
 la unica diferencia es que aqui estoy usando un objetoLiteral {}
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment#description */
+
 const objetoLiteral = {
   get value() {
     return 1;
@@ -113,11 +136,16 @@ console.log(objetoLiteral.value); // 1
 
 /* el valor de objetoLiteral.value es 1
 antes y despues del ??= operador de asignacion coalesente nula */
-objetoLiteral.value ??= 2;
+objetoLiteral.value ??= 2;        // 1 ??= 2
 
 console.log(objetoLiteral.value); // 1
 
-// Ejemplo 4 - En que momento se detiene la ejecucion del operador ??=
+/* Ejemplo 4 - ??= y Evaluación de Corto-circuito (Short-circuiting Evaluation):
+Corto-circuito es el momento en q se detiene la ejecucion de los operadores ?. y ??=
+
+Recordatorio:
+Ver:
+" Ejemplo 3 - ?. y Evaluación de Corto-circuito (Short-circuiting Evaluation): " */
 let operandoIzquierdo = null;
 console.log(operandoIzquierdo);
 // null
@@ -125,21 +153,19 @@ console.log(operandoIzquierdo);
 /* 1) Como operandoIzquierdo es null
 entonces se le asigna el valor de 'operandoDerecho ejecutado'
 
-2) Se estan evaluando ambos operandos operandoIzquierdo y operandoDerecho */
-operandoIzquierdo ??= 'operandoDerecho ejecutado';
-console.log(operandoIzquierdo);
-// 'operandoDerecho ejecutado'
+2) Se estan evaluando AMBOS operandos operandoIzquierdo y operandoDerecho */
+operandoIzquierdo ??= 'operandoDerecho ejecutado'; // null ??= 'operandoDerecho ejecutado'
+console.log(operandoIzquierdo);                    // 'operandoDerecho ejecutado'
 
 /* 1) NO se evalua el operandoDerecho porque
 operandoIzquierdo NO es null NI undefined
 
 2) SOLAMENTE se evalua operandoIzquierdo */
 operandoIzquierdo = 2;
-operandoIzquierdo ??= 'operandoDerecho ejecutado';
-console.log(operandoIzquierdo);
-// 2
+operandoIzquierdo ??= 'operandoDerecho ejecutado'; // 2 ??= 'operandoDerecho ejecutado'
+console.log(operandoIzquierdo);                    // 2
 
-/* Ejemplo 4 - Operador ??= en objetoLiteral {}
+/* Ejemplo 4 - ??= en objetoLiteral {}
 Puedo usar el operador ??= para asignar valores por defecto a un objetoLiteral {}
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment#using_nullish_coalescing_assignment
@@ -153,11 +179,11 @@ const prueba = (parametro) => {
   return parametro;
 };
 
-// Funcion q retorna un objeto literal {}
+// Funcion q retorna un objetoLiteral {}
 console.log(prueba);
 // [Function: prueba]
 
-/*  modificar el valor de la propiedad uno
+/* modificar el valor de la propiedad uno
 y el valor de propiedad dos se conserva */
 let objetoLiteral2 = prueba({ uno: 999 });
 console.log(objetoLiteral2);
@@ -168,6 +194,7 @@ console.log(objetoLiteral2);
 }
 */
 
+// Restablecer los valores por defecto del objetoLiteral {}
 objetoLiteral2 = prueba({});
 console.log(objetoLiteral2);
 /*
@@ -184,6 +211,17 @@ a null NI undefined
 Como estoy intentando cambiar el valor del objeto a uno: null,
 entonces se conserva su valor por defecto q es uno: 1, */
 objetoLiteral2 = prueba({ uno: null });
+console.log(objetoLiteral2);
+/*
+{
+  uno: 1,
+  dos: 2
+}
+*/
+
+/* Lo mismo sucede si intento cambiar
+el valor del objeto a uno: undefined, */
+objetoLiteral2 = prueba({ uno: undefined });
 console.log(objetoLiteral2);
 /*
 {

@@ -12,7 +12,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spre
 - Iterables
 https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Iterators_and_Generators#iterables
 
-Crea una COPIA ITERABLE de un objeto.
+... Crea una COPIA ITERABLE de un objeto.
 
 La ... sintaxis extendida hace q
 si se modifica la copia obj2,
@@ -99,7 +99,7 @@ const original = [1, 2, 3];
 console.log(original);
 // (3) [1, 2, 3]
 
-// Hacer copia de array original
+// ... Hacer copia de array original
 const copia = [...original];
 console.log(copia);
 // (3) [1, 2, 3]
@@ -108,9 +108,9 @@ console.log(copia);
 Al modificar el array copia NO se modifica array original */
 copia.push(4);
 console.log(original); // (3) [1, 2, 3]
-console.log(copia); // (4) [1, 2, 3, 4]
+console.log(copia);    // (4) [1, 2, 3, 4]
 
-/* IMPORTANTE
+/* IMPORTANTE:
 La ... sintaxis extendida NO hace inmutables los array anidados (multidimensional).
 Una posible solucion es structuredClone()
 https://developer.mozilla.org/en-US/docs/Web/API/structuredClone
@@ -122,16 +122,17 @@ const anidado = [[1], [2], [3]];
 console.log(anidado);
 // (3) [ [ 1 ], [ 2 ], [ 3 ] ]
 
-// crear copia de array anidado
+// ... crear copia de array anidado
 const copia2 = [...anidado];
 console.log(copia2);
 // (3) [ [ 1 ], [ 2 ], [ 3 ] ]
 
-/* .shift() Eliminar  PRIMER Elemento del Array
+/* .shift() Eliminar PRIMER Elemento del Array
+
 Hay un error:
-Cuando modifico el array copia2 tambien se modifica el array original anidado, */
+Cuando modifico el array copia2 tambien se modifica el array original anidado */
 copia2.shift().shift();
-console.log(copia2); // (2) [ [ 2 ], [ 3 ] ]
+console.log(copia2);  // (2) [ [ 2 ], [ 3 ] ]
 console.log(anidado); // (3) [ [], [ 2 ], [ 3 ] ]
 
 /* --------------------------------------------------------------- */
@@ -156,7 +157,7 @@ console.log(concatenar);
 // (6) [1, 2, 3, 4, 5, 6]
 
 /* En la siguiente linea de codigo
-puedo usar la ... sitaxis extendida
+puedo usar la ... sintaxis extendida
 cualquier numero de veces y en cualquier parte */
 concatenar = [0, ...array1, 4, 5, 6];
 console.log(concatenar);
@@ -211,12 +212,15 @@ console.log(concatenar2);
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 5 - Funcion concatenar
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals
 
-/* Los objetos literales object1 y object2
+Los objetos literales object1 y object2
 tienen repetida la propiedad uno */
+
 const object1 = { uno: 'uno object1', dos: 'dos object1' };
 const object2 = { uno: 'uno object2', tres: 'tres object2' };
+//                 ↑
+
 let funcionConcatenar = (...objects) => ({ ...objects });
 
 /* Explicare 2 formas de crear una funcion para concatenar
@@ -277,7 +281,7 @@ console.log(o2); // { uno: 1 }
 /* Creo una copia de los objetos
 con Object.assign(); y la ... sintaxis extendida */
 const assign = Object.assign(o1); // o1
-const spread = { ...o2 }; // o2
+const spread = { ...o2 };         // o2
 
 // Hasta el momento las copias assign y spread son iguales
 console.log(assign); // { uno: 1 }
@@ -304,6 +308,7 @@ console.log(o2); // { uno: 1 }              -> spread
 
 /* 2) Object.assign() desencadena setters en el objeto de destino,
 en cambio en la ... sintaxis extendida el setter NO se ejecuta */
+
 const assign2 = Object.assign(
   {
     set foo(val) {
@@ -314,6 +319,7 @@ const assign2 = Object.assign(
   },
   { foo: 1 },
 );
+
 /* el valor de la propiedad assign2.foo
 sigue siendo el SETTER original */
 console.log(assign2);
@@ -330,6 +336,7 @@ const spread2 = {
   },
   ...{ foo: 1 },
 };
+
 // El valor de la propiedad spread.foo es 1
 console.log(spread2);
 /*
@@ -344,21 +351,23 @@ console.log(spread2);
 
 // funcion flecha q retorna 'hola mundo'
 const funcion = () => 'hola mundo';
+console.log(funcion);
+// [Function: funcion]
 
 // guardar valor de retorno de funcion
 const retorno = funcion();
 console.log(retorno);
 // 'hola mundo'
 
-/* convertir de strig a array
+/* convertir de string a array
 usando ... Sintaxis Extendida (Spread Operator) */
 const spreadOperator = [...retorno];
-console.log(spreadOperator); // (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
+console.log(spreadOperator);        // (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
 console.log(typeof spreadOperator); // 'object'
 
 /* --------------------------------------------------------------- */
 
-/*  Ejemplo 8 - ... Sintaxis Extendida (Spread Operator) en funcion
+/* Ejemplo 8 - ... Sintaxis Extendida (Spread Operator) en funcion
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#try_it
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_function_calls */
@@ -380,7 +389,7 @@ let resultado = sumar(numeros);
 console.log(resultado);
 // '1,2,3undefinedundefined'
 
-/* En cambio, cuando uso la ... sintaxis extendida
+/* En cambio, cuando SI uso la ... sintaxis extendida
 SI se suman los numeros 1+2+3 = 6 */
 resultado = sumar(...numeros);
 console.log(resultado);
@@ -392,8 +401,8 @@ Segun ESLint Airbnb usar .apply() es mala practica
 https://eslint.org/docs/latest/rules/prefer-spread
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply */
-// .apply()
-resultado = sumar.apply(null, numeros);
+
+resultado = sumar.apply(null, numeros); // .apply()
 console.log(resultado);
 // 6
 
@@ -411,7 +420,7 @@ console.log(argumentos);
 // (2) [2, 3]
 
 /* Cualquer argumento puede usar la sintaxis extendida
-y la sintaxis extendida se puede usar varias veces
+y la ... sintaxis extendida se puede usar varias veces
 
 1+2+3+4+5 = 15 */
 const resultado2 = miFuncion(1, ...argumentos, 4, ...[5]);
@@ -436,8 +445,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_prot
 
 La siguiente linea de codigo da ERROR
 porq [...objetoLiteral] NO es iterable */
-const array = [...objetoLiteral];
-console.log(array);
+
+// const array = [...objetoLiteral];
+// console.log(array);
+/* TypeError: objetoLiteral is not iterable
+   at Object.<anonymous> */
 
 /* --------------------------------------------------------------- */
 
@@ -474,10 +486,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spre
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply */
 
 const fecha = [2023, 0, 30]; // 2023/enero/30
-console.log(fecha);
-// (3) [2023, 0, 30]
+console.log(fecha);          // (3) [2023, 0, 30]
 
-/* Al usar ...sintaxis extendida con el constructor new
+/* Al usar ... sintaxis extendida con el constructor new
 el array [2023, 0, 30] imprime la fecha 30 Enero 2023 */
 const constructorDate = new Date(...fecha);
 console.log(constructorDate);

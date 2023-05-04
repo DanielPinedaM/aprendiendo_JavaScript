@@ -36,7 +36,7 @@ https://stackoverflow.com/questions/784929/what-is-the-not-not-operator-in-javas
 TODAS las condiciones tienen q ser true
 para que && AND devuelva true y SI se ejecute el codigo */
 console.log((9 === 9));                                      // true
-if ((9 === 9) && (9 === 9)) console.log('codigo ejecutado'); // 'codigo ejecutado'
+if ((9 === 9) && (8 === 8)) console.log('codigo ejecutado'); // 'codigo ejecutado'
 
 /* cuando hay UNA SOLA o mas condiciones que son false,
 entonces && AND devuelve false y NO se ejecuta el codigo del if() */
@@ -68,7 +68,8 @@ if ((9 === '9') || ('9' === 9)) console.log('este codigo NUNCA se ejecuta');
 /* --- */
 
 /* ! NOT (Negación) es lo opuesto (contrario de)...
-Lo opuesto de true (1) es false  */
+
+Lo opuesto de true (1) es false */
 console.log(!true);  // false
 console.log(!1);     // false
 
@@ -80,7 +81,11 @@ console.log(!0);     // true
 
 /* !! Double NOT Operator (Doble Negación)
 Niega dos veces la expresion
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT#double_not_!!
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT#converting_between_nots */
+
 console.log(!!true);  // true
 console.log(!!false); // false
 
@@ -89,7 +94,7 @@ Ver:
 - " 4.3.1.3.1) Truthy (Verdadero) "
 - " 4.3.1.3.2) Falsy (Falso) "
 
-Se puede usar para convertir a booleano pero esto es MALA PRACTICA
+!! Se puede usar para convertir a booleano pero esto es MALA PRACTICA
 https://youtube.com/shorts/RxxyJk4h9pU?feature=share */
 console.log(!!1);            // true
 console.log(!!0);            // false
@@ -114,7 +119,14 @@ console.log(Boolean(NaN));          // false
 
 /* --- */
 
-/* Tutorial - Midudev - ?? Operador Coalescente Nulo (Nullish Coalescing Operator)
+/* ?? Operador Coalescente Nulo (Nullish Coalescing Operator)
+
+Recordatorio:
+Los operadores ?? y ??= tienen una similitud (NO hacen exactamente lo mismo), ver:
+...src/3_Operadores/2_operadores_de_asignacion.js
+en esta seccion " ??= ASIGNACION COALESCENTE NULA (NULLISH COALESCING ASSIGMENT) "
+
+Tutorial de Midudev:
 https://youtu.be/UYjZ0MDUkn0
 
 Su sintaxis es:
@@ -122,7 +134,7 @@ operandoIzquierdo ?? operandoDerecho
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing#syntax
 
 Ejemplo 1 - explicacion del operador ??
-Si operandoIzquierdo es null o undefined se devuelve operando DERECHO
+Si operandoIzquierdo es null o undefined se devuelve operandoDerecho
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing#try_it */
 
 console.log(null ?? 'hola mundo');                // 'hola mundo'
@@ -148,21 +160,23 @@ console.log(false ?? 'hola mundo');              // false
 
 console.log(NaN ?? 'hola mundo');                // NaN
 
-// Ejemplo 2 - ambos operadores son null o undefined
+// Ejemplo 2 - ambos operandos son null o undefined
 console.log(undefined ?? undefined); // undefined
 console.log(undefined ?? null);      // null
 console.log(null ?? undefined);      // undefined
 
-// Ejemplo 3 - guardar en variable resultado de operador ??
+// Ejemplo 3 - guardar en variable el resultado del operador ??
 const coalescenteNulo = '' ?? 'hola mundo';
 console.log(coalescenteNulo);
 // ''
 
-/* Ejemplo 4
+/* Ejemplo 4:
 Voy a explicar lo siguiente:
 - Funciones y operador ??
+
 - En que momento se detiene la ejecucion del operador ??
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing#short-circuiting */
+
 const A = () => {
   console.log('A funcion ejecutada');
   return undefined;
@@ -206,7 +220,8 @@ https://youtu.be/UYjZ0MDUkn0
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing#assigning_a_default_value_to_a_variable
 
-Los string q NO estan vacios se convierten a true
+Al convertir de String() a Boolean()
+los string q NO estan vacios se convierten a true
 
 el equivalente de 'uno'
 q es un tipo String() NO vacio
@@ -223,23 +238,30 @@ console.log(10 || 2); // 10
 
 // || OR devuelve el operando q es true
 console.log(true || false);  // true
-console.log(false || true);  // true
+//           ↑
 
-// Devuelve 'dos' porq al convertirlo a Boolean() es true
+console.log(false || true);  // true
+//                    ↑
+
+// || Devuelve 'dos' porq al convertirlo a Boolean() es true
 console.log(false || 'dos'); // 'dos'
 
 // Al convertir caracter en blanco '' a Boolean() es false
-console.log(Boolean(''));
+console.log(Boolean('')); // false
 
 /* Hay un caso especial:
-Ambos valores false y '' al convertirlos a Boolean() son false,
-sin embargo devuelve '' porq no hay otra expresión para evaluar */
+Ambos valores false y '' al convertirlos a Boolean() son false */
+console.log(Boolean(false)); // false
+console.log(Boolean(''));    // false
+
+// sin embargo || devuelve '' porq no hay otra expresión para evaluar
 console.log(false || '');    // ''
 
 // || OR devuelve 'dos' porque al convertir 'dos' a Boolean() es true
-console.log('' || 'dos'); // 'dos'
+console.log('' || 'dos'); // false || true
+// 'dos'
 
-// cuando todos los operandos son false entonces devuelve false
+// cuando todos los operandos son false entonces || devuelve false
 console.log(false || false); // false
 
 /* ADVERTENCIA:
@@ -247,12 +269,14 @@ Esta es la explicacion de
 porq || OR es mala practica y ?? es buena practica
 
 Hay un ERROR al usar 0 con || OR:
-Como 0 se convierte a false */
+En Boolean() como 0 se convierte a false */
 console.log(Boolean(0)); // false
+console.log(Boolean(2)); // true
 
-/* entonces se devuelve el 2 q es true
-pero yo no necesito el 2, necesito el 0  */
-console.log(0 || 2); // 2
+/* entonces || devuelve el 2 q es true
+pero yo no necesito el 2, necesito el 0 */
+console.log(0 || 2); // false || true
+// 2
 
 /* En cambio cuando uso el ?? operador coalescente nulo
 se devuelve el operandoIzquierdo

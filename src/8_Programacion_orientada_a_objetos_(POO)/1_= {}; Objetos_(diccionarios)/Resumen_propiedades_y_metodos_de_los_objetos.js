@@ -130,6 +130,11 @@ console.log(objPropiedades);
  █ Object.getOwnPropertyDescriptor()  █
  █ Object.getOwnPropertyDescriptors() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
+
 Obtener las siguientes propiedades (descripción) del objeto literal:
 value:
 writable:
@@ -152,8 +157,7 @@ console.log(objetoLiteral);
 */
 
 /* Object.getOwnPropertyDescriptor()
-Obtener la descripción de UNA SOLA propiedad en específico del objeto literal
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor */
+Obtener la descripción de UNA SOLA propiedad en específico del objeto literal */
 let unaPropiedad = Object.getOwnPropertyDescriptor(objetoLiteral, 'uno');
 console.log(unaPropiedad);
 /*
@@ -535,7 +539,8 @@ console.log(inmutable);
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Object.seal() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/seal */
 inmutable = {
   // propiedad: valor,
   uno: 1,
@@ -569,7 +574,8 @@ console.log(inmutable);
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Object.preventExtensions() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions */
 inmutable = {
 // propiedad: valor,
   uno: 1,
@@ -598,6 +604,88 @@ console.log(inmutable);
   tres: 3
 }
 */
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Object.isFrozen()     █
+ █ Object.isSealed()     █
+ █ Object.isExtensible() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible
+
+¿El Objeto es INmutable o MUtable?
+
+NO te enredes entediendo esto,
+en este cuadro esta resumido TODO:
+
+                                                         |-----------------------------|---------------------------|----------------------------------------|
+                                                         | Object.freeze()             | Object.seal()             | Object.preventExtensions()             |
+                                                         | Object.isFrozen()           | Object.isSealed()         | Object.isExtensible()                  |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| ¿Hace que el objeto literal {}                         | ✓                           | ✓                         | ✓                                      |
+| sea inmutable (que NO se pueda modificar)              |                             |                           |                                        |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| ¿Permite MODIFICAR                                     | X                           | ✓                         | ✓                                      |
+| el valor de la propiedad?                              |                             |                           |                                        |
+|                                                        |                             |                           |                                        |
+| nombreObjeto.nombrePropiedadExistente = 'nuevo valor'; |                             |                           |                                        |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| ¿Permite ELIMINAR                                      | X                           | X                         | ✓                                      |
+| propiedad: valor, ?                                    |                             |                           |                                        |
+|                                                        |                             |                           |                                        |
+| delete nombreObjeto.nombrePropiedadExistente;          |                             |                           |                                        |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| ¿Permite AGREGAR                                       | X                           | X                         | X                                      |
+| una nueva propiedad: valor, ?                          |                             |                           |                                        |
+|                                                        |                             |                           |                                        |
+| nombreObjeto.nombreNuevaPropiedad = 'nuevo valor';     |                             |                           |                                        |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| Sintaxis                                               | Object.freeze(nombreObjeto) | Object.seal(nombreObjeto) | Object.preventExtensions(nombreObjeto) |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+*/
+
+const vacioFreeze = Object.freeze({});
+const datosFreeze = Object.freeze({ uno: 1 });
+
+console.log(Object.isFrozen(vacioFreeze)); // true
+console.log(Object.isFrozen(datosFreeze)); // true
+
+console.log(Object.isSealed(vacioFreeze)); // true
+console.log(Object.isSealed(datosFreeze)); // true
+
+console.log(Object.isExtensible(vacioFreeze)); // false
+console.log(Object.isExtensible(datosFreeze)); // false
+
+/* --- */
+
+const vacioSeal = Object.seal({});
+const datosSeal = Object.seal({ uno: 1 });
+
+console.log(Object.isFrozen(vacioSeal)); // true
+console.log(Object.isFrozen(datosSeal)); // false
+
+console.log(Object.isSealed(vacioSeal)); // true
+console.log(Object.isSealed(datosSeal)); // true
+
+console.log(Object.isExtensible(vacioSeal)); // false
+console.log(Object.isExtensible(datosSeal)); // false
+
+/* --- */
+
+const vacioPreventExtensions = Object.preventExtensions({});
+const datosPreventExtensions = Object.preventExtensions({ uno: 1 });
+
+console.log(Object.isFrozen(vacioPreventExtensions)); // true
+console.log(Object.isFrozen(datosPreventExtensions)); // false
+
+console.log(Object.isSealed(vacioPreventExtensions)); // true
+console.log(Object.isSealed(datosPreventExtensions)); // false
+
+console.log(Object.isExtensible(vacioPreventExtensions)); // false
+console.log(Object.isExtensible(datosPreventExtensions)); // false
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄

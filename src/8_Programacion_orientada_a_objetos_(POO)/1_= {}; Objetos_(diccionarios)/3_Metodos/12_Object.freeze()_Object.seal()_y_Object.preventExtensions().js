@@ -22,8 +22,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 - Object.preventExtensions()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions
 
+- Reflect.preventExtensions()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/preventExtensions
+
                                                          |-----------------------------|---------------------------|----------------------------------------|
                                                          | Object.freeze()             | Object.seal()             | Object.preventExtensions()             |
+                                                         | Object.isFrozen()           | Object.isSealed()         | Object.isExtensible()                  |
 |--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
 | ¿Hace que el objeto literal {}                         | ✓                           | ✓                         | ✓                                      |
 | sea inmutable (que NO se pueda modificar)              |                             |                           |                                        |
@@ -71,7 +75,12 @@ Es el nombre de la variable del objeto literal {} */
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 1 - Diferencia Entre Object.freeze() Object.seal() y Object.preventExtensions()
+/* Ejemplo 1 - Diferencia Entre Object.freeze() Object.seal() y Object.preventExtensions()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen#description
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed#description
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible#description */
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄

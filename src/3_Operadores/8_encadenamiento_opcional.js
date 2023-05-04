@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-undef */
 /* eslint-disable no-shadow */
 /* eslint-disable no-unsafe-optional-chaining */
@@ -79,8 +81,7 @@ https://javascript.info/optional-chaining#summary */
 const person = {
 // propiedad: valor,
   name: 'Daniel',
-  saludar(apellido) {
-    // metodo
+  saludar(apellido) { // metodo
     return `mi nombre es ${this.name} y mi apellido es ${apellido}`;
   },
 };
@@ -93,6 +94,7 @@ console.log(person);
 */
 
 /*
+1)
 obj?.prop
 Solamente ?.
 
@@ -101,6 +103,7 @@ console.log(person?.name);
 // 'Daniel'
 
 /*
+2)
 obj?.[prop]
 corchetes [] y ?.
 
@@ -108,10 +111,12 @@ Con ambos obj?.prop y obj?.[prop] obtengo el mismo resultado
 
 Segun ESLint Airbnb obj?.[prop] es mala practica:
 https://eslint.org/docs/latest/rules/dot-notation */
+
 console.log(person?.['name']);
 // 'Daniel'
 
 /*
+3)
 obj.method?.(args)
 Metodo CON argumentos
 
@@ -121,11 +126,13 @@ console.log(person?.saludar?.('Pineda'));
 // 'mi nombre es Daniel y mi apellido es Pineda'
 
 /*
+4)
 obj.method?.()
 Metodo SIN argumentos
 
 En el argumento apellido se imprime undefined
 porq llame el metodo SIN pasarle el argumento apellido */
+
 console.log(person?.saludar?.());
 // 'mi nombre es Daniel y mi apellido es undefined'
 
@@ -205,6 +212,7 @@ NO deberias usar estas alternativas, deberias usar ?.
 esto solo lo copio para aprender
 
 1) Este if () {} NO imprime nada porq en el objeto NO existe person.location */
+
 if (person2.location) {
   console.log(person2.location.city);
 }
@@ -224,13 +232,20 @@ console.log(propiedadAnidada);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 3 - Evaluación de Corto-circuito (Short-circuiting Evaluation):
+/* Ejemplo 3 - ?. y Evaluación de Corto-circuito (Short-circuiting Evaluation):
+Corto-circuito es el momento en q se detiene la ejecucion de los operadores ?. y ??=
+
+Recordatorio:
+Ver:
+" Ejemplo 4 - ??= y Evaluación de Corto-circuito (Short-circuiting Evaluation): "
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining#short-circuiting
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting
 
 https://javascript.info/optional-chaining#short-circuiting */
 
-// Objeto literal {}
-const obj3 = {
+const obj3 = { // Objeto literal {}
 // propiedad: valor,
   saludar: () => 'hola mundo', // metodo
 };
@@ -250,9 +265,11 @@ console.log(i);
 /*
 ?. detiene la ejecucion del codigo exactamente en el momento
 en que encuentra una propiedad q NO existe.
+
 En este ejemplo SI se ejecuta obj3 porq SI existe,
 despues se DETIENE la ejecucion en obj3.propiedadInexistente?.(i++)
 porq en el objeto obj3 NO existe la propiedad propiedadInexistente y devuelve undefined.
+
 Esto lo demuestro porq i sigue siendo 0 */
 console.log(obj3.propiedadInexistente?.(i++)); // undefined
 console.log(i);                                // 0
@@ -276,17 +293,17 @@ console.log(obj3.a?.b);
 // undefined
 
 /* En cambio, cuando SI uso parentesis se ejecuta el resto de las propiedades.
+
 Devuelve error porq SI se esta ejecutando por completo (obj3?.a).b
 
 Fijate q en esta parte (obj3?.a) estoy usando ?.
 entonces el error NO es por eso,
 el error es por usar la notacion de punto aqui (obj3?.a).b
 por eso es q el error dice "no se puede leer la propiedad b" */
-/*
-console.log(
-  (obj3?.a).b
-);
-*/
+
+// console.log(
+//   (obj3?.a).b
+// );
 /* TypeError: Cannot read properties of undefined (reading 'b')
 https://eslint.org/docs/latest/rules/no-unsafe-optional-chaining */
 
@@ -295,7 +312,7 @@ const temp2 = obj3?.a;
 console.log(temp2);
 // undefined
 
-// (obj3?.a).b
+// (obj3?.a).b;
 // const prop = temp2.b;
 // TypeError: Cannot read properties of undefined (reading 'b')
 
@@ -317,8 +334,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Opti
 const persona = {
 // propiedad: valor,
   nombre: 'Daniel',
-  saludar(apellido) {
-    // metodo
+  saludar(apellido) { // metodo
     return `mi nombre es ${this.nombre} y mi apellido es ${apellido}`;
   },
 };
@@ -342,7 +358,7 @@ el metodo persona.metodoInexistente?.() NO existe  */
 console.log(persona.metodoInexistente?.());
 // undefined
 
-/* ?. da error cuando:
+/* ?. da error cuando  se cumplen TODAS las siguientes condiciones:
 1) SI existe una propiedad en el objeto literal
 2) Esa misma propiedad NO es un metodo (funcion del objeto literal)
 3) Ejecuto esa misma propiedad como si fuera un metodo con obj.method?.(args)
@@ -350,10 +366,11 @@ console.log(persona.metodoInexistente?.());
 En el objeto persona SI existe la propiedad nombre,
 pero cuando lo ejecuto como si fuera un metodo persona?.nombre?.() da error
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError */
-// console.log(persona?.nombre?.())
+
+// console.log(persona?.nombre?.());
 // TypeError: persona?.nombre is not a function
 
-/* ?. acceder al valor de la propiedad nombre del objeto persona */
+// ?. acceder al valor de la propiedad nombre del objeto persona
 console.log(persona?.nombre);
 // 'Daniel'
 
@@ -382,7 +399,7 @@ const undefinedValue = undefined;
 
 /* En caso de q el objeto sea null o undefined
 usar ?. despues del nombre del objeto */
-console.log(nullValue?.propiedadInexistente); // undefined
+console.log(nullValue?.propiedadInexistente);      // undefined
 console.log(undefinedValue?.propiedadInexistente); // undefined
 
 /* --------------------------------------------------------------- */
@@ -398,7 +415,7 @@ Puedo acceder al valor de una propiedad de un objeto literal {}
 usando juntos ?. y notacion de corchetes []
 aunque hacer esto es MALA PRACTICA
 porq permite q en seguridad informatica
-se pueda hacer ataques de inyección de objetos  */
+se pueda hacer ataques de inyección de objetos */
 
 const obj = { uno: 1 };
 console.log(obj);
@@ -410,7 +427,16 @@ console.log(valor);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 9 - ?. para Acceder a un ELEMENTO de un array (mala practica)
+/* Ejemplo 9:
+Para Acceder a un ELEMENTO de un array puedo usar:
+- ?.    (mala practica)
+- .at() (buena practica)
+- []    (buena practica)
+
+Recordatorio:
+Ver:
+" 8.5.3.4) Resumen: Diferencia Entre [] .at() .charAt() - Acceder a una Posición (Índice) de un Carácter (String) / Elemento (Array) en Especifico "
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining#optional_chaining_with_expressions */
 
 function obtenerValorArray(array, i) {
@@ -418,18 +444,19 @@ function obtenerValorArray(array, i) {
 }
 
 const array = [1, 2, 3]; // elementos
-//             0  1  2   // posiciones (indices)
-console.log(array);
-// (3) [1, 2, 3]
+//             0  1  2      posiciones (indices)
+//             ↑
+console.log(array);      // (3) [1, 2, 3]
 
 // El elemento 1 esta en la posicion (indice) 0
-console.log(obtenerValorArray(array, 0));
-// 1
+console.log(obtenerValorArray(array, 0)); // 1 -> ?.    -> MALA PRACTICA
+console.log(array.at(0));                 // 1 -> .at() -> BUENA PRACTICA
 
 /* No importa si uso o no ?.
 en el caso de los array []
 siempre se devuelve undefined
 cuando el numero de posicion (indice) no existe.
+
 Como obtengo el mismo resultado,
 entonces no tiene sentido (es mala practica) usar ?. con arrays */
 console.log(obtenerValorArray(array, 999)); // undefined
@@ -473,13 +500,15 @@ const map = new Map();
 console.log(map);
 // Map(0) {size: 0}
 
-// .set(key, value) Agregar una nueva propiedad: valor, a new Map()
+/* .set(key, value) Agregar una nueva propiedad: valor, a new Map()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set */
 map.set('uno', { dos: 'tres' });
 console.log(map);
 /* Map(1) { 'uno' => { dos: 'tres' } }
                               ↑ */
 
 /* Devuelve 'tres' porq SI existe el valor de la propiedad
+
 Acceder al valor de la propiedad dos
 para el miembro de 'uno' q esta en un new Map() */
 let valor2 = map.get('uno')?.dos;
@@ -510,12 +539,13 @@ Usando ?. puede evitar esta prueba adicional: */
 
 // Callback q imprime mensaje de error
 const parametroError = () => console.log('callback - ocurrio un error');
+console.log(parametroError);
+// [Function: parametroError]
 
 /* cuando NO uso ?. se usa un if()
 para validar q exista el callback */
 const hacerAlgo = (parametroError) => {
-  try {
-    // se ejecuta el catch porq NO esta definida la funcionInexistente();
+  try { // se ejecuta el catch porq NO esta definida la funcionInexistente();
     funcionInexistente();
   } catch (err) {
     // SIN ?.
@@ -527,8 +557,8 @@ const hacerAlgo = (parametroError) => {
 hacerAlgo(parametroError);
 // 'callback - ocurrio un error'
 
-/* en cambio cuando SI uso ?.
-se elimina el if() */
+/* en cambio, cuando SI uso ?.
+NO se escribe el if() */
 const hacerAlgo2 = (parametroError) => {
   try {
     funcionInexistente();
