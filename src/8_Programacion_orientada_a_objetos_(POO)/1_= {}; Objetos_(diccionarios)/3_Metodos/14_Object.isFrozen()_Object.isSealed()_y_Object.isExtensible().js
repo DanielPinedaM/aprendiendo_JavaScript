@@ -16,10 +16,46 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible
 
 Recordatorio:
-NO te compliques leyendo esta seccion actual, si lees estas otras 2 siguientes secciones lo entenderas mejor, ver:
+NO te compliques leyendo esta seccion actual,
+si lees estas otras 2 siguientes secciones lo entenderas mejor, ver:
 - " 4.2.6) Re-asignar, Mutable e Inmutable "
 
 - " 12.1.5.2.12) Diferencias y Similitudes Entre Object.freeze() Object.seal() y Object.preventExtensions() - Objeto Inmutable (que NO se Puede Modificar) "
+
+                        |-----------------------------------|---------------------------------|-----------------------------|---------------------------|----------------------------------------|
+                        | Sintaxis                          | Valor por defecto               | Object.freeze()             | Object.seal()             | Object.preventExtensions()             |
+                        |                                   | {}                              |                             |                           |                                        |
+|-----------------------|-----------------------------------|---------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| Object.isFrozen()     | Object.isFrozen(nombreObjeto)     | Object.isFrozen({})             | Object.isFrozen(            | Object.isFrozen(          | Object.isFrozen(                       |
+|                       |                                   | // false                        |   Object.freeze({})         |   Object.seal({})         |   Object.preventExtensions({})         |
+|                       |                                   |                                 | );                          | );                        | );                                     |
+|                       |                                   |                                 | // true                     | // true                   | // true                                |
+|                       |                                   |                                 |                             |                           |                                        |
+|                       |                                   | Object.isFrozen({ uno: 1 })     | Object.isFrozen(            | Object.isFrozen(          | Object.isFrozen(                       |
+|                       |                                   | // false                        |   Object.freeze({ uno: 1 }) |   Object.seal({ uno: 1 }) |   Object.preventExtensions({ uno: 1 }) |
+|                       |                                   |                                 | );                          | );                        | );                                     |
+|                       |                                   |                                 | // true                     | // false                  | // false                               |
+|-----------------------|-----------------------------------|---------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| Object.isSealed()     | Object.isSealed(nombreObjeto)     | Object.isSealed({})             | Object.isSealed(            | Object.isSealed(          | Object.isSealed(                       |
+|                       |                                   | // false                        |   Object.freeze({})         |    Object.seal({})        |   Object.preventExtensions({})         |
+|                       |                                   |                                 | );                          | );                        | );                                     |
+|                       |                                   |                                 | // true                     | // true                   | // true                                |
+|                       |                                   |                                 |                             |                           |                                        |
+|                       |                                   | Object.isSealed({ uno: 1 })     | Object.isSealed(            | Object.isSealed(          | Object.isSealed(                       |
+|                       |                                   | // false                        |   Object.freeze({ uno: 1 }) |   Object.seal({ uno: 1 }) |   Object.preventExtensions({ uno: 1 }) |
+|                       |                                   |                                 | );                          | );                        | );                                     |
+|                       |                                   |                                 | // true                     | // true                   | // false                               |
+|-----------------------|-----------------------------------|---------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| Object.isExtensible() | Object.isExtensible(nombreObjeto) | Object.isExtensible({})         | Object.isExtensible(        | Object.isExtensible(      | Object.isExtensible(                   |
+|                       |                                   | // true                         |   Object.freeze({})         |    Object.seal({})        |   Object.preventExtensions({})         |
+|                       |                                   |                                 | );                          | );                        | );                                     |
+|                       |                                   |                                 | // false                    | // false                  | // false                               |
+|                       |                                   |                                 |                             |                           |                                        |
+|                       |                                   | Object.isExtensible({ uno: 1 }) | Object.isExtensible(        | Object.isExtensible(      | Object.isExtensible(                   |
+|                       |                                   | // true                         |   Object.freeze({ uno: 1 }) |   Object.seal({ uno: 1 }) |   Object.preventExtensions({ uno: 1 }) |
+|                       |                                   |                                 | );                          | );                        | );                                     |
+|                       |                                   |                                 | // false                    | // false                  | // false                               |
+|-----------------------|-----------------------------------|---------------------------------|-----------------------------|---------------------------|----------------------------------------|
 
 Todos estos metodos de objetos
 Object.isFrozen() Object.isSealed() y Object.isExtensible()
@@ -61,8 +97,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 Un objeto literal {} es MUtable de forma predeterminada
 al crearlo SIN usar los metodos
 Object.freeze() Object.seal() NI Object.preventExtensions() */
+
 const objetoLiteral = {};
-console.log(objetoLiteral); // {}
+console.log(objetoLiteral);
+// {}
 
 /* Object.isFrozen() y Object.isSealed()
 devuelven false porq objetoLiteral es MUtable */
@@ -73,14 +111,14 @@ console.log(Object.isSealed(objetoLiteral)); // false -> "                      
 console.log(Object.isExtensible(objetoLiteral)); // true -> El objetoLiteral {} SI es extensible (MUtable)
 
 // porq SI le puedo agregar nuevas propiedad: valor,
-objetoLiteral.uno = 1; // nombreObjeto.nombreNuevaPropiedad = 'nuevo valor';
+objetoLiteral.uno = 1;      // nombreObjeto.nombreNuevaPropiedad = 'nuevo valor';
 console.log(objetoLiteral); // { uno: 1, }
 
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 2 - Object.freeze() */
 
-/*  Object.freeze() Congelar (freeze) objeto,
+/* Object.freeze() Congelar (freeze) objeto,
 esto NO permite modificar, eliminar NI agregar propiedad: valor, al objeto */
 const freeze = Object.freeze({});
 console.log(freeze); // {}
@@ -88,7 +126,8 @@ console.log(freeze); // {}
 // Object.isFrozen() devuelve true porq NO se puede MODIFICAR el objeto
 console.log(Object.isFrozen(freeze)); // true
 
-/* Object.isSealed() devuelve true porq NO se puede AGREGAR O ELIMINAR propiedad: valor, al objeto objeto  */
+/* Object.isSealed() devuelve true porq
+NO se puede AGREGAR O ELIMINAR propiedad: valor, al objeto objeto  */
 console.log(Object.isSealed(freeze)); // true
 
 /* Object.isExtensible() devuelve false
@@ -100,7 +139,7 @@ console.log(Object.isExtensible(freeze)); // false -> El objetoLiteral {} NO es 
 
 /* porq despues de ejecutar Object.freeze()
 NO puedo agregar nuevas propiedad: valor, al objeto literal */
-freeze.uno = 1; // nombreObjeto.nombreNuevaPropiedad = 'nuevo valor';
+freeze.uno = 1;      // nombreObjeto.nombreNuevaPropiedad = 'nuevo valor';
 console.log(freeze); // {}
 
 /* --------------------------------------------------------------- */
@@ -110,11 +149,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 /* Sellar (seal) objeto,
 Object.seal() NO permite eliminar NI agregar propiedad: valor, al objeto
-y SI permite modificar propiedad: valor, existentes del objeto  */
+y SI permite modificar propiedad: valor, existentes del objeto */
 const seal = Object.seal({});
 console.log(seal); // {}
 
-// Object.isFrozen() devuelve true porq NO se puede MODIFICAR el OBJETO VACIO
+// Object.isFrozen() devuelve true porq NO se puede MODIFICAR el OBJETO VACIO {}
 console.log(Object.isFrozen(seal)); // true
 
 // Object.isSealed() devuelve true porq NO se puede AGREGAR O ELIMINAR propiedad: valor, al objeto objeto
@@ -127,7 +166,7 @@ console.log(Object.isExtensible(seal)); // false -> El objetoLiteral {} NO es ex
 NO puedo agregar nuevas propiedad: valor, al objeto literal
 
 O en otras palabras:
-Un objeto sellado Object.seal();
+Un objeto sellado Object.seal()
 NO es extensible Object.isExtensible() */
 seal.uno = 1;
 console.log(seal); // {}
@@ -187,44 +226,48 @@ console.log(preventExtensions); // {}
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 5 */
+/* Ejemplo 5 - Object.isFrozen() Object.isSealed() y Object.isExtensible()
+en objeto literal vacio {} y con datos { uno: 1 } */
 
+// Object.freeze()
 const vacioFreeze = Object.freeze({});
 const datosFreeze = Object.freeze({ uno: 1 });
 
-console.log(Object.isFrozen(vacioFreeze)); // true
-console.log(Object.isFrozen(datosFreeze)); // true
+console.log(Object.isFrozen(vacioFreeze));     // true
+console.log(Object.isFrozen(datosFreeze));     // true
 
-console.log(Object.isSealed(vacioFreeze)); // true
-console.log(Object.isSealed(datosFreeze)); // true
+console.log(Object.isSealed(vacioFreeze));     // true
+console.log(Object.isSealed(datosFreeze));     // true
 
 console.log(Object.isExtensible(vacioFreeze)); // false
 console.log(Object.isExtensible(datosFreeze)); // false
 
 /* --- */
 
+// Object.seal()
 const vacioSeal = Object.seal({});
 const datosSeal = Object.seal({ uno: 1 });
 
-console.log(Object.isFrozen(vacioSeal)); // true
-console.log(Object.isFrozen(datosSeal)); // false
+console.log(Object.isFrozen(vacioSeal));     // true
+console.log(Object.isFrozen(datosSeal));     // false
 
-console.log(Object.isSealed(vacioSeal)); // true
-console.log(Object.isSealed(datosSeal)); // true
+console.log(Object.isSealed(vacioSeal));     // true
+console.log(Object.isSealed(datosSeal));     // true
 
 console.log(Object.isExtensible(vacioSeal)); // false
 console.log(Object.isExtensible(datosSeal)); // false
 
 /* --- */
 
+// Object.preventExtensions()
 const vacioPreventExtensions = Object.preventExtensions({});
 const datosPreventExtensions = Object.preventExtensions({ uno: 1 });
 
-console.log(Object.isFrozen(vacioPreventExtensions)); // true
-console.log(Object.isFrozen(datosPreventExtensions)); // false
+console.log(Object.isFrozen(vacioPreventExtensions));     // true
+console.log(Object.isFrozen(datosPreventExtensions));     // false
 
-console.log(Object.isSealed(vacioPreventExtensions)); // true
-console.log(Object.isSealed(datosPreventExtensions)); // false
+console.log(Object.isSealed(vacioPreventExtensions));     // true
+console.log(Object.isSealed(datosPreventExtensions));     // false
 
 console.log(Object.isExtensible(vacioPreventExtensions)); // false
 console.log(Object.isExtensible(datosPreventExtensions)); // false
@@ -248,7 +291,7 @@ console.log(Object.isFrozen(noEscribible));     // false
 console.log(Object.isSealed(noEscribible));     // false
 console.log(Object.isExtensible(noEscribible)); // false
 
-/* 2) writable: false, NO puedo MODIFICAR el valor de la propiedad */
+// 2) writable: false, NO puedo MODIFICAR el valor de la propiedad
 Object.defineProperty(noEscribible, 'uno', {
   writable: false, // INmutable
 });
@@ -285,6 +328,7 @@ const noConfigurable = { uno: 1 };
 1) Object.preventExtensions() NO extensible
 2) configurable: false,       NO configurable
 pero la propiedad escribible AHUN NO ESTA congelada
+
 Object.isFrozen() devuelve false */
 Object.preventExtensions(noConfigurable);
 
@@ -301,6 +345,7 @@ console.log(Object.isSealed(noConfigurable));     // true
 console.log(Object.isExtensible(noConfigurable)); // false
 
 /* Al cambiar la propiedad a NO escribible  writable: false, se congela el objeto
+
 Object.isFrozen() devuelve true */
 Object.defineProperty(noConfigurable, 'uno', {
   writable: false,
@@ -327,6 +372,8 @@ const accessor = {
     return 'hola mundo';
   },
 };
+console.log(accessor);
+// { food: [Getter] }
 
 Object.defineProperty(accessor, 'food', {
   configurable: true,
@@ -356,10 +403,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed#non-object_argument
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible#non-object_argument */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible#non-object_argument
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError */
 
 /* ANTES en ES5 daba TypeError
-al usar Object.isExtensible()
+al usar Object.isFrozen() Object.isSealed() y Object.isExtensible()
 con datos primitivos (q NO son objetos) */
 console.log(Object.isFrozen(1));     // TypeError: 1 is not an object -> (ES5 code)
 console.log(Object.isSealed(1));     // TypeError: 1 is not an object -> (ES5 code)

@@ -490,17 +490,45 @@ console.log(objetoHijo);
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Object.freeze()            █
- █ Object.preventExtensions() █
  █ Object.seal()              █
+ █ Object.preventExtensions() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://javascript.plainenglish.io/object-freeze-vs-object-seal-vs-object-preventextensions-e78ef3a24201
 
-Objeto inmutable (que NO se puede modificar) */
+Objeto inmutable
+(que NO se puede modificar)
+
+                                                         |-----------------------------|---------------------------|----------------------------------------|
+                                                         | Object.freeze()             | Object.seal()             | Object.preventExtensions()             |
+                                                         | Object.isFrozen()           | Object.isSealed()         | Object.isExtensible()                  |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| ¿Hace que el objeto literal {}                         | ✓                           | ✓                         | ✓                                      |
+| sea inmutable (que NO se pueda modificar)              |                             |                           |                                        |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| ¿Permite MODIFICAR                                     | X                           | ✓                         | ✓                                      |
+| el valor de la propiedad?                              |                             |                           |                                        |
+|                                                        |                             |                           |                                        |
+| nombreObjeto.nombrePropiedadExistente = 'nuevo valor'; |                             |                           |                                        |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| ¿Permite ELIMINAR                                      | X                           | X                         | ✓                                      |
+| propiedad: valor, ?                                    |                             |                           |                                        |
+|                                                        |                             |                           |                                        |
+| delete nombreObjeto.nombrePropiedadExistente;          |                             |                           |                                        |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| ¿Permite AGREGAR                                       | X                           | X                         | X                                      |
+| una nueva propiedad: valor, ?                          |                             |                           |                                        |
+|                                                        |                             |                           |                                        |
+| nombreObjeto.nombreNuevaPropiedad = 'nuevo valor';     |                             |                           |                                        |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+| Sintaxis                                               | Object.freeze(nombreObjeto) | Object.seal(nombreObjeto) | Object.preventExtensions(nombreObjeto) |
+|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
+*/
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Object.freeze() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze */
 let inmutable = {
 // propiedad: valor,
   uno: 1,
@@ -619,33 +647,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 ¿El Objeto es INmutable o MUtable?
 
 NO te enredes entediendo esto,
-en este cuadro esta resumido TODO:
-
-                                                         |-----------------------------|---------------------------|----------------------------------------|
-                                                         | Object.freeze()             | Object.seal()             | Object.preventExtensions()             |
-                                                         | Object.isFrozen()           | Object.isSealed()         | Object.isExtensible()                  |
-|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
-| ¿Hace que el objeto literal {}                         | ✓                           | ✓                         | ✓                                      |
-| sea inmutable (que NO se pueda modificar)              |                             |                           |                                        |
-|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
-| ¿Permite MODIFICAR                                     | X                           | ✓                         | ✓                                      |
-| el valor de la propiedad?                              |                             |                           |                                        |
-|                                                        |                             |                           |                                        |
-| nombreObjeto.nombrePropiedadExistente = 'nuevo valor'; |                             |                           |                                        |
-|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
-| ¿Permite ELIMINAR                                      | X                           | X                         | ✓                                      |
-| propiedad: valor, ?                                    |                             |                           |                                        |
-|                                                        |                             |                           |                                        |
-| delete nombreObjeto.nombrePropiedadExistente;          |                             |                           |                                        |
-|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
-| ¿Permite AGREGAR                                       | X                           | X                         | X                                      |
-| una nueva propiedad: valor, ?                          |                             |                           |                                        |
-|                                                        |                             |                           |                                        |
-| nombreObjeto.nombreNuevaPropiedad = 'nuevo valor';     |                             |                           |                                        |
-|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
-| Sintaxis                                               | Object.freeze(nombreObjeto) | Object.seal(nombreObjeto) | Object.preventExtensions(nombreObjeto) |
-|--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
-*/
+en el cuadro anterior de
+Object.freeze() Object.preventExtensions() Object.seal()
+esta resumido TODO: */
 
 const vacioFreeze = Object.freeze({});
 const datosFreeze = Object.freeze({ uno: 1 });
@@ -719,3 +723,70 @@ console.log(Object.is(Number.NaN, Number.NaN)); // true
 en cambio para Object.is() son iguales */
 console.log(NaN === Number.NaN);         // false
 console.log(Object.is(NaN, Number.NaN)); // true
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .isPrototypeOf() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+Stack Overflow - Diferencia Entre .isPrototypeOf() y instanceof
+https://stackoverflow.com/questions/2464426/whats-the-difference-between-isprototypeof-and-instanceof-in-javascript
+
+¿El objeto1 si está o no en la Cadena de Prototipos de Otro objeto2? */
+
+const objetoLiteral1 = Object.create(Object.prototype);
+console.log(objetoLiteral1); // {}
+
+const objetoLiteral2 = Object.create(objetoLiteral1); // Crear objetoLiteral2 con el objetoLiteral1 como prototipo
+console.log(objetoLiteral2); // {}
+
+const objetoLiteral3 = Object.create(objetoLiteral2); // Crear un objetoLiteral3 con el objetoLiteral2 como prototipo
+console.log(objetoLiteral3); // {}
+
+// Agregar nuevas propiedad: valor, a los objetos literales {}
+objetoLiteral1.uno = 1;      // nombreObjeto.nuevaPropiedad = nuevoValor
+objetoLiteral2.dos = 2;
+objetoLiteral3.tres = 3;
+
+/* En este ejemplo __proto__ (prototipo)
+son las propiedaes de un objeto1
+q hacen referencia a las propiedades de otro objeto2
+
+Imprimir los objetos literales {} */
+console.log(objetoLiteral1); // { uno: 1 }
+console.log(objetoLiteral2); // { dos: 2, __proto__: { uno: 1 } }
+console.log(objetoLiteral3); // { tres: 3, __proto__: { dos: 2, uno: 1 } }
+
+// Acceder a los valores de las propiedades y metodos de los prototipos
+console.log(objetoLiteral2.uno); // 1
+
+console.log(objetoLiteral3.uno); // 1
+console.log(objetoLiteral3.dos); // 2
+
+// .isPrototypeOf() ¿El objeto1 si está o no en la Cadena de Prototipos de Otro objeto2?
+console.log(objetoLiteral1.isPrototypeOf(objetoLiteral2));   // true
+console.log(objetoLiteral2.isPrototypeOf(objetoLiteral1));   // false
+
+console.log(objetoLiteral2.isPrototypeOf(objetoLiteral3));   // true
+console.log(objetoLiteral3.isPrototypeOf(objetoLiteral2));   // false
+
+console.log(Object.prototype.isPrototypeOf(objetoLiteral1)); // true
+console.log(Object.prototype.isPrototypeOf(objetoLiteral2)); // true
+console.log(Object.prototype.isPrototypeOf(objetoLiteral3)); // true
+
+// .hasOwnProperty() devuelve true en las propiedades del objeto q NO son prototipos
+console.log(objetoLiteral1.hasOwnProperty('uno')); // true
+
+// .hasOwnProperty() devuelve false en las propiedades del objeto q SI son prototipos
+console.log(objetoLiteral2.hasOwnProperty('uno')); // false
+
+console.log(objetoLiteral3.hasOwnProperty('uno')); // false
+console.log(objetoLiteral3.hasOwnProperty('dos')); // false
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .hasOwnProperty() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
+
+¿Si Existe o no la Propiedad en el Objeto?
+*/
