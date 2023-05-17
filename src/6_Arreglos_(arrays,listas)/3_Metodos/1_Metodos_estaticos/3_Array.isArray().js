@@ -1,5 +1,5 @@
 /* eslint-disable symbol-description */
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable max-len */
 /* eslint-disable func-names */
 /* eslint-disable prefer-arrow-callback */

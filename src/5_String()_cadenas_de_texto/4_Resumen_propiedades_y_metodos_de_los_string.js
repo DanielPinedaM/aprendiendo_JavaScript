@@ -1,4 +1,3 @@
-/* eslint-disable no-multi-spaces */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-expressions */
 // @ts-nocheck

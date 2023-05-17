@@ -1,4 +1,3 @@
-/* eslint-disable no-multi-spaces */
 /* eslint-disable no-restricted-properties */
 /* eslint-disable prefer-exponentiation-operator */
 // @ts-nocheck

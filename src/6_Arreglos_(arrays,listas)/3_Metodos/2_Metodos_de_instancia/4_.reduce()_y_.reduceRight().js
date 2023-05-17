@@ -4,7 +4,7 @@
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable array-callback-return */
 /* eslint-disable indent */
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable spaced-comment */
 /* eslint-disable max-len */
 /* eslint-disable no-trailing-spaces */

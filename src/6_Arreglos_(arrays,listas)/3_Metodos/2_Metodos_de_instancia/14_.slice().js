@@ -2,7 +2,7 @@
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable prefer-rest-params */
 /* eslint-disable max-len */
-/* eslint-disable no-multi-spaces */
+
 // @ts-nocheck
 
 /* Documentacion Oficial - .slice() en Array:

@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable no-restricted-syntax */
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable no-self-compare */
 // @ts-nocheck
 

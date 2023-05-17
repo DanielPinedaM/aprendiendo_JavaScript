@@ -1,4 +1,3 @@
-/* eslint-disable no-multi-spaces */
 /* eslint-disable max-len */
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable array-callback-return */

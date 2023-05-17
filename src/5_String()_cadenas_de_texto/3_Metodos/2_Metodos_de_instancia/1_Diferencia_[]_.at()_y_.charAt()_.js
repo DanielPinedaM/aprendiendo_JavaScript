@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable prefer-const */
-/* eslint-disable no-multi-spaces */
+
 // @ts-nocheck
 
 /*

@@ -1,7 +1,7 @@
 /* eslint-disable prefer-template */
 /* eslint-disable no-useless-concat */
 // @ts-nocheck
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable quotes */
 
 /* Convertir Tipos de Datos

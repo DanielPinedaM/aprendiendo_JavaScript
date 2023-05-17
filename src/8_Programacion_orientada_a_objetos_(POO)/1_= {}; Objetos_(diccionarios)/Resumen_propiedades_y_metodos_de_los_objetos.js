@@ -1,7 +1,7 @@
 /* eslint-disable no-compare-neg-zero */
 /* eslint-disable no-self-compare */
 /* eslint-disable use-isnan */
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable no-prototype-builtins */
 // @ts-nocheck
 /* eslint-disable array-callback-return */
@@ -27,7 +27,7 @@ console.log(fantasma);
 // Symbol(fantasma)
 
 const objSymbol = {
-// propiedad: valor,
+  // propiedad: valor,
   [fantasma]: '👻', // Symbol()
   uno: 1,
   dos: 2,
@@ -44,7 +44,7 @@ console.log(objSymbol);
 */
 
 //                     propiedades enumerables       + propiedades de tipo Symbol()
-const longitudObjeto = Object.keys(objSymbol).length + Object.getOwnPropertySymbols(objSymbol).length;
+const longitudObjeto =  Object.keys(objSymbol).length + Object.getOwnPropertySymbols(objSymbol).length;
 console.log(longitudObjeto);
 // 4
 
@@ -144,7 +144,7 @@ get
 set */
 
 const objetoLiteral = {
-// propiedad: valor,
+  // propiedad: valor,
   uno: 1,
   dos: 2,
 };
@@ -192,10 +192,10 @@ console.log(todasLasPropiedades);
 */
 
 // Acceder a valores de las propiedades en especifico de Object.getOwnPropertyDescriptors()
-console.log(todasLasPropiedades.uno.value);        // 1
-console.log(todasLasPropiedades.uno.writable);     // true
+console.log(todasLasPropiedades.uno.value); // 1
+console.log(todasLasPropiedades.uno.writable); // true
 
-console.log(todasLasPropiedades.dos.value);        // 2
+console.log(todasLasPropiedades.dos.value); // 2
 console.log(todasLasPropiedades.dos.configurable); // true
 
 /*
@@ -447,7 +447,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 Object.create() Crear un Nuevo Objeto que Hereda las Propiedades y Métodos de un Objeto Existente (Prototipo) */
 
 const prototipo = {
-// propiedad: valor,
+  // propiedad: valor,
   saludar: () => 'hola mundo',
 };
 
@@ -486,6 +486,158 @@ cuando imprimo por consola console.log() el objetoHijo
 NO se puede ver el metodo (funcion) saludar() */
 console.log(objetoHijo);
 // { uno: 1 }
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Object.getPrototypeOf() █
+ █ Object.setPrototypeOf() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf
+
+El valor del prototipo esta en la propiedad interna [[Prototype]]
+
+Object.setPrototypeOf() ESTABLECER el Valor del Prototipo __proto__ de un objeto1 a otro objeto2. Cuando no se establece es null
+
+Object.getPrototypeOf() OBTENER el Valor del Prototipo __proto__ del Objeto
+
+El siguiente ejemplo explica la diferencia entre
+Object.getPrototypeOf() y Object.setPrototypeOf() */
+
+// Crear obj objeto hijo vacio {}
+const obj = {};
+console.log(obj);
+// {}
+
+/* Crear prototype objeto padre
+
+Acceder a valor de propiedad uno
+del objeto literal llamado prototype
+
+Originalmente prototype SI tiene la propiedad uno */
+const prototype = { uno: 1 };
+console.log(prototype.uno);
+// 1
+
+/* Hasta el momento:
+1) obj NO tiene la propiedad uno */
+console.log(obj.uno);
+// undefined
+
+/* 2) Con Object.getPrototypeOf() puedo ver (acceder) al valor de la propiedad __proto__
+q en ambos objetos obj y prototype es null,
+esto sucede porq no he usado Object.setPrototypeOf() para definir el valor de __proto__
+por esto antes copie "Cuando no se establece es null" */
+console.log(Object.getPrototypeOf(obj));       // [Object: null prototype] {}
+console.log(Object.getPrototypeOf(prototype)); // [Object: null prototype] {}
+
+/* Object.setPrototypeOf() Al obj q esta vacio {}
+definirle el valor de la propiedad prototipo __proto__
+
+Las propiedad: valor, del objeto1 llamado prototype q son { uno: 1 }
+se copian en el valor de la propiedad __proto__ del otro objeto2 llamado obj */
+Object.setPrototypeOf(obj, prototype);
+// { __proto__: { uno: 1 } }
+
+/* Ahora:
+1) Ambos objetos prototype y obj
+tienen las mismas propiedad: valor, */
+console.log(prototype.uno); // 1
+console.log(obj.uno);       // 1
+
+/* 2) Object.getPrototypeOf()
+El prototipo (valor de la propiedad __proto__) de obj
+contiene las mismas propiedad: valor, que prototype
+
+El prototipo de prototype es null porq es el objeto padre */
+console.log(Object.getPrototypeOf(obj));       // { uno: 1 }
+console.log(Object.getPrototypeOf(prototype)); // [Object: null prototype] {}
+
+/* Imprimir propiedad: valor, de los objetos
+
+El objeto hijo obj { __proto__: { uno: 1 } }
+hereda las propiedades y metodos del objeto padre prototype { uno: 1 } */
+console.log(prototype); // { uno: 1 }
+console.log(obj);       // { __proto__: { uno: 1 } }
+
+/* Object.entries() recorrer (iterar) objeto literal {}
+https://youtu.be/Mz9HSiXSSVU
+
+Al iterar el objeto prototype imprime las propiedad: valor,
+con las q lo defini q son { uno: 1 } */
+Object.entries(prototype).map((entry) => {
+  const [propiedad, valor] = entry;
+  console.log(`${propiedad} ➜ ${valor}`);
+});
+// uno ➜ 1
+
+/* En cambio, al iterar obj imprime un array vacio [] porq
+el obj tiene las propiedad: valor, del prototipo __proto__ */
+Object.entries(obj).map((entry) => {
+  const [propiedad, valor] = entry;
+  console.log(`${propiedad} ➜ ${valor}`);
+});
+// []
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .isPrototypeOf() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+Stack Overflow - Diferencia Entre .isPrototypeOf() y instanceof
+https://stackoverflow.com/questions/2464426/whats-the-difference-between-isprototypeof-and-instanceof-in-javascript
+
+¿El objeto1 si está o no en la Cadena de Prototipos de Otro objeto2? */
+
+const objetoLiteral1 = Object.create(Object.prototype);
+console.log(objetoLiteral1); // {}
+
+const objetoLiteral2 = Object.create(objetoLiteral1); // Crear objetoLiteral2 con el objetoLiteral1 como prototipo
+console.log(objetoLiteral2); // {}
+
+const objetoLiteral3 = Object.create(objetoLiteral2); // Crear un objetoLiteral3 con el objetoLiteral2 como prototipo
+console.log(objetoLiteral3); // {}
+
+// Agregar nuevas propiedad: valor, a los objetos literales {}
+objetoLiteral1.uno = 1; // nombreObjeto.nuevaPropiedad = nuevoValor
+objetoLiteral2.dos = 2;
+objetoLiteral3.tres = 3;
+
+/* En este ejemplo __proto__ (prototipo)
+son las propiedaes de un objeto1
+q hacen referencia a las propiedades de otro objeto2
+
+Imprimir los objetos literales {} */
+console.log(objetoLiteral1); // { uno: 1 }
+console.log(objetoLiteral2); // { dos: 2, __proto__: { uno: 1 } }
+console.log(objetoLiteral3); // { tres: 3, __proto__: { dos: 2, uno: 1 } }
+
+// Acceder a los valores de las propiedades y metodos de los prototipos
+console.log(objetoLiteral2.uno); // 1
+
+console.log(objetoLiteral3.uno); // 1
+console.log(objetoLiteral3.dos); // 2
+
+// .isPrototypeOf() ¿El objeto1 si está o no en la Cadena de Prototipos de Otro objeto2?
+console.log(objetoLiteral1.isPrototypeOf(objetoLiteral2)); // true
+console.log(objetoLiteral2.isPrototypeOf(objetoLiteral1)); // false
+
+console.log(objetoLiteral2.isPrototypeOf(objetoLiteral3)); // true
+console.log(objetoLiteral3.isPrototypeOf(objetoLiteral2)); // false
+
+console.log(Object.prototype.isPrototypeOf(objetoLiteral1)); // true
+console.log(Object.prototype.isPrototypeOf(objetoLiteral2)); // true
+console.log(Object.prototype.isPrototypeOf(objetoLiteral3)); // true
+
+// .hasOwnProperty() devuelve true en las propiedades del objeto q NO son prototipos
+console.log(objetoLiteral1.hasOwnProperty('uno')); // true
+
+// .hasOwnProperty() devuelve false en las propiedades del objeto q SI son prototipos
+console.log(objetoLiteral2.hasOwnProperty('uno')); // false
+
+console.log(objetoLiteral3.hasOwnProperty('uno')); // false
+console.log(objetoLiteral3.hasOwnProperty('dos')); // false
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -530,7 +682,7 @@ Objeto inmutable
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze */
 let inmutable = {
-// propiedad: valor,
+  // propiedad: valor,
   uno: 1,
   dos: 2,
   tres: 3,
@@ -550,10 +702,10 @@ Object.freeze(inmutable);
 inmutable.uno = 'nuevo valor'; // NO hace nada, el valor sigue siendo 1
 
 // ELIMINAR propiedad: valor,
-delete inmutable.dos;          // NO hace nada, la propiedad: valor, dos: 2, sigue existiendo
+delete inmutable.dos; // NO hace nada, la propiedad: valor, dos: 2, sigue existiendo
 
 // AGREGAR una nueva propiedad: valor,
-inmutable.cuatro = 4;          // NO hace nada, NO agrega cuatro: 4, al objeto literal
+inmutable.cuatro = 4; // NO hace nada, NO agrega cuatro: 4, al objeto literal
 
 console.log(inmutable);
 /*
@@ -587,8 +739,8 @@ console.log(inmutable);
 Object.seal(inmutable);
 
 inmutable.uno = 'nuevo valor'; // el valor se MODIFICA a uno: 'nuevo valor',
-delete inmutable.dos;          // NO hace nada, la propiedad: valor, dos: 2, sigue existiendo
-inmutable.cuatro = 4;          // NO hace nada, NO agrega cuatro: 4, al objeto literal
+delete inmutable.dos; // NO hace nada, la propiedad: valor, dos: 2, sigue existiendo
+inmutable.cuatro = 4; // NO hace nada, NO agrega cuatro: 4, al objeto literal
 
 console.log(inmutable);
 /*
@@ -605,7 +757,7 @@ console.log(inmutable);
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions */
 inmutable = {
-// propiedad: valor,
+  // propiedad: valor,
   uno: 1,
   dos: 2,
   tres: 3,
@@ -622,8 +774,8 @@ console.log(inmutable);
 Object.preventExtensions(inmutable);
 
 inmutable.uno = 'nuevo valor'; // el valor se MODIFICA a uno: 'nuevo valor',
-delete inmutable.dos;          // se ELIMINA dos: 2,
-inmutable.cuatro = 4;          // NO hace nada, NO agrega cuatro: 4, al objeto literal
+delete inmutable.dos; // se ELIMINA dos: 2,
+inmutable.cuatro = 4; // NO hace nada, NO agrega cuatro: 4, al objeto literal
 
 console.log(inmutable);
 /*
@@ -705,82 +857,24 @@ Las unicas diferencias son:
 
 1) Para === +0 (positivo) y -0 (negativo) son lo mismo,
 en cambio para Object.is() son diferentes */
-console.log(+0 === -0);         // true
+console.log(+0 === -0); // true
 console.log(Object.is(+0, -0)); // false
 
 /* 2) Para === NaN y NaN son diferentes,
 en cambio para Object.is() son lo mismo  */
-console.log(NaN === NaN);         // false
+console.log(NaN === NaN); // false
 console.log(Object.is(NaN, NaN)); // true
 
 /* 3) Igual que ocurre en 2)
 Para === Number.NaN y Number.NaN son diferentes
 en cambio para Object.is() son lo mismo */
-console.log(Number.NaN === Number.NaN);         // false
+console.log(Number.NaN === Number.NaN); // false
 console.log(Object.is(Number.NaN, Number.NaN)); // true
 
 /* 4) Para === NaN y Number.NaN son diferentes
 en cambio para Object.is() son iguales */
-console.log(NaN === Number.NaN);         // false
+console.log(NaN === Number.NaN); // false
 console.log(Object.is(NaN, Number.NaN)); // true
-
-/*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .isPrototypeOf() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Stack Overflow - Diferencia Entre .isPrototypeOf() y instanceof
-https://stackoverflow.com/questions/2464426/whats-the-difference-between-isprototypeof-and-instanceof-in-javascript
-
-¿El objeto1 si está o no en la Cadena de Prototipos de Otro objeto2? */
-
-const objetoLiteral1 = Object.create(Object.prototype);
-console.log(objetoLiteral1); // {}
-
-const objetoLiteral2 = Object.create(objetoLiteral1); // Crear objetoLiteral2 con el objetoLiteral1 como prototipo
-console.log(objetoLiteral2); // {}
-
-const objetoLiteral3 = Object.create(objetoLiteral2); // Crear un objetoLiteral3 con el objetoLiteral2 como prototipo
-console.log(objetoLiteral3); // {}
-
-// Agregar nuevas propiedad: valor, a los objetos literales {}
-objetoLiteral1.uno = 1;      // nombreObjeto.nuevaPropiedad = nuevoValor
-objetoLiteral2.dos = 2;
-objetoLiteral3.tres = 3;
-
-/* En este ejemplo __proto__ (prototipo)
-son las propiedaes de un objeto1
-q hacen referencia a las propiedades de otro objeto2
-
-Imprimir los objetos literales {} */
-console.log(objetoLiteral1); // { uno: 1 }
-console.log(objetoLiteral2); // { dos: 2, __proto__: { uno: 1 } }
-console.log(objetoLiteral3); // { tres: 3, __proto__: { dos: 2, uno: 1 } }
-
-// Acceder a los valores de las propiedades y metodos de los prototipos
-console.log(objetoLiteral2.uno); // 1
-
-console.log(objetoLiteral3.uno); // 1
-console.log(objetoLiteral3.dos); // 2
-
-// .isPrototypeOf() ¿El objeto1 si está o no en la Cadena de Prototipos de Otro objeto2?
-console.log(objetoLiteral1.isPrototypeOf(objetoLiteral2));   // true
-console.log(objetoLiteral2.isPrototypeOf(objetoLiteral1));   // false
-
-console.log(objetoLiteral2.isPrototypeOf(objetoLiteral3));   // true
-console.log(objetoLiteral3.isPrototypeOf(objetoLiteral2));   // false
-
-console.log(Object.prototype.isPrototypeOf(objetoLiteral1)); // true
-console.log(Object.prototype.isPrototypeOf(objetoLiteral2)); // true
-console.log(Object.prototype.isPrototypeOf(objetoLiteral3)); // true
-
-// .hasOwnProperty() devuelve true en las propiedades del objeto q NO son prototipos
-console.log(objetoLiteral1.hasOwnProperty('uno')); // true
-
-// .hasOwnProperty() devuelve false en las propiedades del objeto q SI son prototipos
-console.log(objetoLiteral2.hasOwnProperty('uno')); // false
-
-console.log(objetoLiteral3.hasOwnProperty('uno')); // false
-console.log(objetoLiteral3.hasOwnProperty('dos')); // false
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -789,4 +883,15 @@ console.log(objetoLiteral3.hasOwnProperty('dos')); // false
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
 
 ¿Si Existe o no la Propiedad en el Objeto?
+
+INCOMPLETO
+*/
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .valueOf() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf
+
+INCOMPLETO
 */

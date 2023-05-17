@@ -1,7 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-const-assign */
 // @ts-nocheck
-/* eslint-disable no-multi-spaces */
 
 /* --------------------------------------------------------------- */
 

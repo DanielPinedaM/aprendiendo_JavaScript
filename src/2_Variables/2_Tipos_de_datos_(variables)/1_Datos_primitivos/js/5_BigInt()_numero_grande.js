@@ -1,4 +1,3 @@
-/* eslint-disable no-multi-spaces */
 // @ts-nocheck
 
 /* BigInt() positivo */

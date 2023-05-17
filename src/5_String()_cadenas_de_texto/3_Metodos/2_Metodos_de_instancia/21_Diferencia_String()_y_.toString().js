@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-/* eslint-disable no-multi-spaces */
+
 // @ts-nocheck
 
 /* Convertir a Texto

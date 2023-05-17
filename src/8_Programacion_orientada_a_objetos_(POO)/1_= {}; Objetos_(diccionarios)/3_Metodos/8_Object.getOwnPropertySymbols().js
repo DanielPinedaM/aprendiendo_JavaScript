@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable array-callback-return */
 // @ts-nocheck
 

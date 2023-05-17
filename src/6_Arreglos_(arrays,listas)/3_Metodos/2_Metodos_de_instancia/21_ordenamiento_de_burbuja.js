@@ -1,5 +1,5 @@
 /* eslint-disable no-plusplus */
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable no-param-reassign */
 // @ts-nocheck
 

@@ -1,6 +1,5 @@
 // @ts-nocheck
 /* eslint-disable no-plusplus */
-/* eslint-disable no-multi-spaces */
 
 /* --------------------------------------------------------------- */
 

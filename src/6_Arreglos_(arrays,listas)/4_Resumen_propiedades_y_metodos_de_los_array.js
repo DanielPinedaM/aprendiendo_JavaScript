@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 /* eslint-disable max-len */
 /* eslint-disable no-restricted-syntax */
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable no-unused-expressions */
 // @ts-nocheck
 

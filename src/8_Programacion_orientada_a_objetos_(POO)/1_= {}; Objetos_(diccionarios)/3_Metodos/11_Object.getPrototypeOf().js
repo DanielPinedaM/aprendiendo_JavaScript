@@ -1,17 +1,21 @@
 /* eslint-disable max-len */
 /* eslint-disable no-self-compare */
-/* eslint-disable no-multi-spaces */
+
 // @ts-nocheck
 
 /*
-Object.getPrototypeOf() prototipo del objeto
-
 Documentacion Oficial - Object.getPrototypeOf()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf
 
-Object.getPrototypeOf() devuelve el prototipo
-que es el valor de la propiedad interna [[Prototype]]
-del objeto padre especificado
+Object.getPrototypeOf() OBTENER el Valor del Prototipo __proto__ del Objeto
+
+Recordatorio:
+Ver:
+“ Ejemplo 1 - Diferencia Entre Object.getPrototypeOf() y Object.setPrototypeOf() ”
+
+Object.getPrototypeOf() devuelve el prototipo del objeto padre especificado
+
+El prototipo es el valor de la propiedad interna [[Prototype]]
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf#return_value
 
 Su sintaxis es:

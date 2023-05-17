@@ -1,4 +1,3 @@
-/* eslint-disable no-multi-spaces */
 /* eslint-disable func-names */
 /* eslint-disable prefer-arrow-callback */
 // @ts-nocheck

@@ -1,4 +1,3 @@
-/* eslint-disable no-multi-spaces */
 /* eslint-disable no-tabs */
 /* eslint-disable prefer-const */
 /* eslint-disable guard-for-in */

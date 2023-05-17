@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable indent */
 /* eslint-disable no-unused-expressions */
-/* eslint-disable no-multi-spaces */
+
 // @ts-nocheck
 
 /* Documentacion Oficial - .at()

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable func-names */
-/* eslint-disable no-multi-spaces */
+
 // @ts-nocheck
 
 /* Tutorial - Diferencia Entre .every() y .some()
@@ -205,7 +205,7 @@ console.log(objetoLiteral);
 
 /* Object.keys() convertir a array las propiedades (claves) del objetoLiteral {}
    .length Numero de propiedades (claves) del objetoLiteral {}
-   https://www.samanthaming.com/tidbits/56-how-to-get-an-object-length/*/
+   https://www.samanthaming.com/tidbits/56-how-to-get-an-object-length/ */
 const longitud = Object.keys(objetoLiteral).length;
 console.log(longitud);
 // 3

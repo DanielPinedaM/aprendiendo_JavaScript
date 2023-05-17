@@ -1,4 +1,3 @@
-/* eslint-disable no-multi-spaces */
 /* eslint-disable no-plusplus */
 // @ts-nocheck
 /* eslint-disable operator-assignment */

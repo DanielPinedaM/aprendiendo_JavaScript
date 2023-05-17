@@ -1,5 +1,5 @@
 /* eslint-disable no-sparse-arrays */
-/* eslint-disable no-multi-spaces */
+
 // @ts-nocheck
 
 /* Documentacion Oficial - .includes()

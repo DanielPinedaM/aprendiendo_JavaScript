@@ -3,7 +3,7 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable array-callback-return */
 /* eslint-disable indent */
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable no-plusplus */
 /* eslint-disable max-len */
 /* eslint-disable no-sparse-arrays */

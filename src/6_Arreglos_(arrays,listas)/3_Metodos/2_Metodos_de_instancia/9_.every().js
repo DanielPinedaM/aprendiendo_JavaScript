@@ -2,7 +2,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-shadow */
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */

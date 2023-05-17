@@ -1,4 +1,3 @@
-/* eslint-disable no-multi-spaces */
 /* eslint-disable max-len */
 // @ts-nocheck
 
@@ -20,7 +19,7 @@ NO te compliques leyendo esta seccion actual,
 si lees estas otras 2 siguientes secciones lo entenderas mejor, ver:
 - " 4.2.6) Re-asignar, Mutable e Inmutable "
 
-- " 12.1.5.2.12) Diferencias y Similitudes Entre Object.freeze() Object.seal() y Object.preventExtensions() - Objeto Inmutable (que NO se Puede Modificar) "
+- " 12.1.5.2.13) Diferencias y Similitudes Entre Object.freeze() Object.seal() y Object.preventExtensions() - Objeto Inmutable (que NO se Puede Modificar) "
 
                         |-----------------------------------|---------------------------------|-----------------------------|---------------------------|----------------------------------------|
                         | Sintaxis                          | Valor por defecto               | Object.freeze()             | Object.seal()             | Object.preventExtensions()             |

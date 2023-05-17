@@ -1,5 +1,5 @@
 /* eslint-disable no-sparse-arrays */
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable max-len */
 // @ts-nocheck
 

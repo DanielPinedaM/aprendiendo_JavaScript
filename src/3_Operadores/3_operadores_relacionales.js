@@ -1,7 +1,7 @@
 /* eslint-disable yoda */
 /* eslint-disable max-len */
 /* eslint-disable use-isnan */
-/* eslint-disable no-multi-spaces */
+
 // @ts-nocheck
 /* eslint-disable eqeqeq */
 /* eslint-disable no-self-compare */

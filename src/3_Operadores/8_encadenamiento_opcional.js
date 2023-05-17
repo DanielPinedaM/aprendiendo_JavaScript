@@ -6,7 +6,7 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable no-plusplus */
 /* eslint-disable max-len */
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable dot-notation */
 // @ts-nocheck
 

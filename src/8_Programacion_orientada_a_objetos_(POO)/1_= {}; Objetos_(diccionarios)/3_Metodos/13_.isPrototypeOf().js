@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable no-prototype-builtins */
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable max-len */
 // @ts-nocheck
 
@@ -23,7 +23,7 @@ nombreObjeto1.isPrototypeOf(nombreObjeto2)
 Object.prototype.isPrototypeOf(nombreObjeto)
 
 Donde...
-- .isPrototypeOf
+- .isPrototypeOf()
 Nombre del metodo de objeto
 
 - nombreObjeto1 y nombreObjeto2
@@ -42,11 +42,13 @@ Objeto que quiero saber si es o no un prototipo */
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 1 - ¿Que es Cadena de Prototipos? */
+// Ejemplo 1 - ¿Que es Cadena de Prototipos?
 
-/* Recordatorio:
+/*
+Recordatorio:
 Ver:
-12.1.5.2.10) Object.create() Crear un Nuevo Objeto que Hereda las Propiedades y Métodos de un Objeto Existente (Prototipo) */
+" 12.1.5.2.10.1) Object.create() Crear un Nuevo Objeto que Hereda las Propiedades y Métodos de un Objeto Existente (Prototipo) " */
+
 const objetoLiteral1 = Object.create(Object.prototype);
 console.log(objetoLiteral1); // {}
 
@@ -77,11 +79,11 @@ console.log(objetoLiteral3.uno); // 1
 console.log(objetoLiteral3.dos); // 2
 
 // .isPrototypeOf() ¿El objeto1 si está o no en la Cadena de Prototipos de Otro objeto2?
-console.log(objetoLiteral1.isPrototypeOf(objetoLiteral2)); // true
-console.log(objetoLiteral2.isPrototypeOf(objetoLiteral1)); // false
+console.log(objetoLiteral1.isPrototypeOf(objetoLiteral2));   // true
+console.log(objetoLiteral2.isPrototypeOf(objetoLiteral1));   // false
 
-console.log(objetoLiteral2.isPrototypeOf(objetoLiteral3)); // true
-console.log(objetoLiteral3.isPrototypeOf(objetoLiteral2)); // false
+console.log(objetoLiteral2.isPrototypeOf(objetoLiteral3));   // true
+console.log(objetoLiteral3.isPrototypeOf(objetoLiteral2));   // false
 
 console.log(Object.prototype.isPrototypeOf(objetoLiteral1)); // true
 console.log(Object.prototype.isPrototypeOf(objetoLiteral2)); // true
@@ -144,12 +146,13 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Obje
 
 TODOS los objetos que heredan de Object.prototype
 heredan el método .isPrototypeOf() */
+
 const objNoNull = Object.create({});
 console.log(objNoNull); // {}
 
 console.log(Object.prototype.isPrototypeOf(objNoNull)); // true
 
-/* EXCEPTO los objetos null prototipo */
+// EXCEPTO los objetos null prototipo
 const objNull1 = Object.create(null);
 console.log(objNull1); // [Object: null prototype] {}
 
@@ -199,15 +202,15 @@ console.log(bar); // Bar { __proto__: { constructor: ƒ Bar() } }
 console.log(baz); // Baz { __proto__: { constructor: ƒ Baz() } }
 
 // .isPrototypeOf()
-console.log(Foo.prototype.isPrototypeOf(baz)); // true
-console.log(Foo.prototype.isPrototypeOf(bar)); // true
+console.log(Foo.prototype.isPrototypeOf(baz));    // true
+console.log(Foo.prototype.isPrototypeOf(bar));    // true
 
-console.log(Bar.prototype.isPrototypeOf(baz)); // true
-console.log(Bar.prototype.isPrototypeOf(foo)); // false
+console.log(Bar.prototype.isPrototypeOf(baz));    // true
+console.log(Bar.prototype.isPrototypeOf(foo));    // false
 
-console.log(Baz.prototype.isPrototypeOf(baz)); // true
-console.log(Baz.prototype.isPrototypeOf(bar)); // false
-console.log(Baz.prototype.isPrototypeOf(foo)); // false
+console.log(Baz.prototype.isPrototypeOf(baz));    // true
+console.log(Baz.prototype.isPrototypeOf(bar));    // false
+console.log(Baz.prototype.isPrototypeOf(foo));    // false
 
 console.log(Object.prototype.isPrototypeOf(foo)); // true
 console.log(Object.prototype.isPrototypeOf(bar)); // true
@@ -236,7 +239,7 @@ if (Foo.prototype.isPrototypeOf(baz)) {
 /*
 Sin embargo, la existencia de Foo.prototype en la cadena de prototipos de baz
 no implica que baz haya sido creado usando Foo como su constructor.
-Por ejemplo, baz podría ser asignado directamente con Foo.prototype como su prototipo.
+Ejemplo: baz podría ser asignado directamente con Foo.prototype como su prototipo.
 En este caso, si tu código lee la propiedad privada de clase (private class fields) de Foo desde baz, seguiría fallando:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields */
 
@@ -283,7 +286,7 @@ const baz3 = { __proto__: Foo3.prototype };
 console.log(baz3);
 // Foo3 { __proto__: { constructor: ƒ Foo3() } }
 
-/* No se ejecuta, porque "baz" no es un "Foo" */
+// No se ejecuta, porque "baz" no es un "Foo"
 if (Foo3.isFoo(baz3)) {
   console.log(Foo3.getValue(baz3));
 }
@@ -303,26 +306,35 @@ Si lo q esta dentro del par de parentesis de .isPrototypeOf()
 es un tipo de dato primitivo (NO es un objeto)
 entonces se devuelve false */
 
-{
-  console.log({}.isPrototypeOf(''));
-} // false
+// String()
+console.log({}.isPrototypeOf(''));           // false
 
-console.log({}.isPrototypeOf(1)); // false
+// Number()
+console.log({}.isPrototypeOf(1));            // false
 
-console.log({}.isPrototypeOf(BigInt(99))); // false
+// BigInt()
+console.log({}.isPrototypeOf(BigInt(99)));   // false
 
-console.log({}.isPrototypeOf(true)); // false
-console.log({}.isPrototypeOf(false)); // false
+// Boolean()
+console.log({}.isPrototypeOf(true));         // false
+console.log({}.isPrototypeOf(false));        // false
 
+// Symbol()
 console.log({}.isPrototypeOf(Symbol('ID'))); // false
 
-console.log({}.isPrototypeOf(null)); // false
-console.log({}.isPrototypeOf(undefined)); // false
-console.log({}.isPrototypeOf(NaN)); // false
+// null - undefined
+console.log({}.isPrototypeOf(null));         // false
+console.log({}.isPrototypeOf(undefined));    // false
 
-// Devuelve error si lo q esta escrito ANTES del punto de .isPrototypeOf()
-// console.log(null.isPrototypeOf({}));
+// NaN
+console.log({}.isPrototypeOf(NaN));          // false
+console.log(NaN.isPrototypeOf({}));          // NaN
+
+// Ambos, null y undefined devuelven error si estan escritos ANTES del punto de .isPrototypeOf()
+console.log(null.isPrototypeOf({}));
+//           ↑
 // TypeError: Cannot read properties of null (reading 'isPrototypeOf')
 
-// console.log(undefined.isPrototypeOf({}));
+console.log(undefined.isPrototypeOf({}));
+//             ↑
 // TypeError: Cannot read properties of undefined (reading 'isPrototypeOf')

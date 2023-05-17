@@ -39,7 +39,7 @@ const id = Symbol('id');
 /* eslint-disable guard-for-in */
 /* eslint-disable prefer-const */
 /* eslint-disable no-restricted-syntax */
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable symbol-description */
 // @ts-nocheck
 

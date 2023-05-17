@@ -7,7 +7,7 @@ Un dato booleano boolean es un dato binario, es decir,
 q solamente puede tomar dos valores que son true ó false */
 
 /* eslint-disable quotes */
-/* eslint-disable no-multi-spaces */
+
 
 /* Para crear valores booleanos... */
 

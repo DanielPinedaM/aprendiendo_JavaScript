@@ -5,7 +5,6 @@
 /* eslint-disable max-len */
 /* eslint-disable no-restricted-globals */
 // @ts-nocheck
-/* eslint-disable no-multi-spaces */
 
 /* Tutorial Jon Mircha - Diferencia Entre null Nulo, undefined Indefinido y NaN No es un Numero:
 https://youtu.be/dux1Uv2eLfw

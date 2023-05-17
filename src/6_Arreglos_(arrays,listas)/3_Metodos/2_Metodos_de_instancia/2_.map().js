@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
 /* eslint-disable no-sparse-arrays */
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable max-len */
 // @ts-nocheck
 

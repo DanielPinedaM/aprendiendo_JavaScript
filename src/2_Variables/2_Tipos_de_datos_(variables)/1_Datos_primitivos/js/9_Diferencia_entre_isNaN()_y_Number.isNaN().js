@@ -1,6 +1,5 @@
 // @ts-nocheck
 /* eslint-disable no-restricted-globals */
-/* eslint-disable no-multi-spaces */
 
 /*
 Stack Overflow - Diferencia entre isNaN() y Number.isNaN()

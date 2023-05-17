@@ -1,4 +1,3 @@
-/* eslint-disable no-multi-spaces */
 // @ts-nocheck
 
 /* Stack Overflow - Diferencia Entre .toLowerCase() y .toLocaleLowerCase()

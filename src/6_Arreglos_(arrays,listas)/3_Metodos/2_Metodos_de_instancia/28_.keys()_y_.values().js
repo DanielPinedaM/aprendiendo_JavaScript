@@ -1,5 +1,5 @@
 /* eslint-disable array-callback-return */
-/* eslint-disable no-multi-spaces */
+
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable no-shadow */
 /* eslint-disable no-restricted-syntax */
