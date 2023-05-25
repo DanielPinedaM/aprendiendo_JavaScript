@@ -57,6 +57,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties#using_object.defineproperties
 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/defineProperty
+
 Agregar las siguientes propiedades al objeto literal:
 * writable:
 ¿El objeto literal {} si (MUtable) se puede o no (INmutable) modificar?
@@ -450,8 +452,6 @@ const prototipo = {
   // propiedad: valor,
   saludar: () => 'hola mundo',
 };
-
-// Imprimir objeto literal {} prototipo
 console.log(prototipo);
 // { saludar: [Function: saludar] }
 
@@ -460,12 +460,16 @@ console.log(prototipo.saludar('hola mundo'));
 // 'hola mundo'
 
 /* Object.create()
-El objetoHijo hereda todas las propiedades y metodos del objeto prototipo */
-const objetoHijo = Object.create(prototipo);
+Hacer q objetoHijo herede las propiedades y metodos de prototipo
 
-// Imprimir por consola el objetoHijo
+prototipo tiene la propiedad: valor, { saludar: [Function: saludar] }
+
+En objetoHijo { __proto__: { saludar: [Function: saludar] } }
+se crea una nueva propiedad llamada __proto__
+q tiene como valor { saludar: [Function: saludar] } */
+const objetoHijo = Object.create(prototipo);
 console.log(objetoHijo);
-// {}
+// { __proto__: { saludar: ƒ saludar() } }
 
 /* Agregar nuevo propiedad: valor, al objetoHijo
 usando sintaxis nombreObjeto.nombreNuevaPropiedad = nuevoValor */
@@ -590,13 +594,23 @@ https://stackoverflow.com/questions/2464426/whats-the-difference-between-isproto
 
 ¿El objeto1 si está o no en la Cadena de Prototipos de Otro objeto2? */
 
+// Objeto padre q NO tiene prototipo
 const objetoLiteral1 = Object.create(Object.prototype);
 console.log(objetoLiteral1); // {}
 
-const objetoLiteral2 = Object.create(objetoLiteral1); // Crear objetoLiteral2 con el objetoLiteral1 como prototipo
+/* Prototipo (objetos hijos):
+objetoLiteral2 -> objetoLiteral1
+
+Crear objetoLiteral2 con el objetoLiteral1 como prototipo */
+const objetoLiteral2 = Object.create(objetoLiteral1);
 console.log(objetoLiteral2); // {}
 
-const objetoLiteral3 = Object.create(objetoLiteral2); // Crear un objetoLiteral3 con el objetoLiteral2 como prototipo
+/* Prototipo (objetos hijos):
+objetoLiteral3 -> objetoLiteral2 -> objetoLiteral1
+
+Crear un objetoLiteral3 con el objetoLiteral2 como prototipo
+q es prototipo de objetoLiteral1 */
+const objetoLiteral3 = Object.create(objetoLiteral2);
 console.log(objetoLiteral3); // {}
 
 // Agregar nuevas propiedad: valor, a los objetos literales {}
@@ -604,7 +618,7 @@ objetoLiteral1.uno = 1; // nombreObjeto.nuevaPropiedad = nuevoValor
 objetoLiteral2.dos = 2;
 objetoLiteral3.tres = 3;
 
-/* En este ejemplo __proto__ (prototipo)
+/* __proto__ (prototipo)
 son las propiedaes de un objeto1
 q hacen referencia a las propiedades de otro objeto2
 
@@ -619,7 +633,8 @@ console.log(objetoLiteral2.uno); // 1
 console.log(objetoLiteral3.uno); // 1
 console.log(objetoLiteral3.dos); // 2
 
-// .isPrototypeOf() ¿El objeto1 si está o no en la Cadena de Prototipos de Otro objeto2?
+/* .isPrototypeOf()
+¿El objeto1 si está o no en la Cadena de Prototipos de Otro objeto2? */
 console.log(objetoLiteral1.isPrototypeOf(objetoLiteral2)); // true
 console.log(objetoLiteral2.isPrototypeOf(objetoLiteral1)); // false
 
@@ -630,14 +645,28 @@ console.log(Object.prototype.isPrototypeOf(objetoLiteral1)); // true
 console.log(Object.prototype.isPrototypeOf(objetoLiteral2)); // true
 console.log(Object.prototype.isPrototypeOf(objetoLiteral3)); // true
 
-// .hasOwnProperty() devuelve true en las propiedades del objeto q NO son prototipos
-console.log(objetoLiteral1.hasOwnProperty('uno')); // true
+/*
+Recordatorio:
+Ver:
+" 12.1.5.2.14) Diferencias y Similitudes Entre .hasOwnProperty() (Mala Práctica) y Object.hasOwn() (Buena Práctica) - ¿Si Existe o no la Propiedad Propia (NO Heredada) en el Objeto? "
 
-// .hasOwnProperty() devuelve false en las propiedades del objeto q SI son prototipos
-console.log(objetoLiteral2.hasOwnProperty('uno')); // false
+Object.hasOwn() devuelve true porq en el objetoLiteral1 { uno: 1 }
+se cumplen TODAS las siguientes condiciones:
+1) La propiedad 'uno' SI existe en objetoLiteral1
 
-console.log(objetoLiteral3.hasOwnProperty('uno')); // false
-console.log(objetoLiteral3.hasOwnProperty('dos')); // false
+2) En objetoLiteral1 la propiedad 'uno' NO es un prototipo __proto__ */
+console.log(Object.hasOwn(objetoLiteral1, 'uno')); // true
+
+/* Object.hasOwn() devuelve false
+porq las propiedades 'uno' y 'dos' SI existen en los objetos
+objetoLiteral2 { dos: 2, __proto__: { uno: 1 } }
+y objetoLiteral3 { tres: 3, __proto__: { dos: 2, uno: 1 } }
+PERO son Object.create() prototipos, es decir,
+q estan como valor de la propiedad __proto__ */
+console.log(Object.hasOwn(objetoLiteral2, 'uno')); // false
+
+console.log(Object.hasOwn(objetoLiteral3, 'uno')); // false
+console.log(Object.hasOwn(objetoLiteral3, 'dos')); // false
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -879,13 +908,34 @@ console.log(Object.is(NaN, Number.NaN)); // true
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .hasOwnProperty() █
+ █ Object.hasOwn()   █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
 
-¿Si Existe o no la Propiedad en el Objeto?
+.hasOwnProperty() (mala practica) esta obsoleto
+y ha sido reemplazado por Object.hasOwn() (buena practica),
+para la explicacion de esto, ver:
+https://stackoverflow.com/questions/69561596/object-hasown-vs-object-prototype-hasownproperty
 
-INCOMPLETO
+¿Si Existe o no la Propiedad Propia (NO Heredada) en el Objeto? */
+
+console.log(objetoLiteral);
+/*
+{
+  uno: 1,
+  dos: 2,
+}
 */
+
+/* Ambos .hasOwnProperty() y Object.hasOwn()
+devuelven true porq la propiedad 'uno' SI esta en el objetoLiteral */
+console.log(objetoLiteral.hasOwnProperty('uno')); // true -> MALA PRACTICA
+console.log(Object.hasOwn(objetoLiteral, 'uno')); // true -> BUENA PRACTICA
+
+/* Ambos .hasOwnProperty() y Object.hasOwn()
+devuelven false porq la propiedad
+'propiedadInexistente' NO esta en el objetoLiteral */
+console.log(objetoLiteral.hasOwnProperty('propiedadInexistente')); // false
+console.log(Object.hasOwn(objetoLiteral, 'propiedadInexistente')); // false
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄

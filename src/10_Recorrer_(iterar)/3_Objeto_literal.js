@@ -4,6 +4,8 @@
 /* eslint-disable array-callback-return */
 // @ts-nocheck
 
+/* --------------------------------------------------------------- */
+
 /* Tutorial de Midudev - Recorrer (iterar) objetoLiteral {}
 https://youtu.be/Mz9HSiXSSVU */
 
@@ -67,10 +69,14 @@ INCOMPLETO
  ▄▄▄▄▄▄▄▄▄▄
  █ for of █
  ▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of */
 
-INCOMPLETO
-*/
+const ObjectKeys = Object.keys(objetoLiteral);
+
+for (const propiedad of ObjectKeys) {
+  const valor = objetoLiteral[propiedad];
+  console.log(`${propiedad} ➜ ${valor}`);
+}
 
 /*
  ▄▄▄▄▄▄▄▄▄▄
@@ -79,9 +85,12 @@ INCOMPLETO
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
 
 Esto es MALA PRACTICA:
+https://stackoverflow.com/questions/1963102/what-does-the-jslint-error-body-of-a-for-in-should-be-wrapped-in-an-if-statemen
+
 https://eslint.org/docs/latest/rules/no-restricted-syntax
 
 https://eslint.org/docs/latest/rules/guard-for-in */
+
 for (const propiedad in objetoLiteral) {
   const valor = objetoLiteral[propiedad];
   console.log(`${propiedad} ➜ ${valor}`);
@@ -110,8 +119,9 @@ Object.keys(objetoLiteral).map((propiedad) => { // propiedades enumerables
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Object.getOwnPropertyNames() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames
 
-Object.entries() Convierte a array []
+Object.getOwnPropertyNames() Convierte a array []
 las propiedades enumerables y no enumerables,
 NO devuelve propiedades de tipo Symbol(),
 con la propiedad puedo obtener el valor del objetoLiteral {} */
@@ -139,7 +149,7 @@ Object.values(objetoLiteral).map((valor) => {
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
 
 Convertir el objetoLiteral {} a array [],
-el array contiene pares de [propiedad, valor] */
+el array contiene pares de [propiedad, valor] enumerables */
 Object.entries(objetoLiteral).map((entry) => {
   const [propiedad, valor] = entry;
   console.log(`${propiedad} ➜ ${valor}`);

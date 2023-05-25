@@ -47,15 +47,25 @@ Objeto que quiero saber si es o no un prototipo */
 /*
 Recordatorio:
 Ver:
-" 12.1.5.2.10.1) Object.create() Crear un Nuevo Objeto que Hereda las Propiedades y Métodos de un Objeto Existente (Prototipo) " */
+" 12.1.5.2.10.1) Object.create() Crear un Nuevo Objeto que Hereda las Propiedades y Métodos de un Objeto Existente (Prototipo) "
 
+Objeto padre q NO tiene prototipo */
 const objetoLiteral1 = Object.create(Object.prototype);
 console.log(objetoLiteral1); // {}
 
-const objetoLiteral2 = Object.create(objetoLiteral1); // Crear objetoLiteral2 con el objetoLiteral1 como prototipo
+/* Prototipo (objetos hijos):
+objetoLiteral2 -> objetoLiteral1
+
+Crear objetoLiteral2 con el objetoLiteral1 como prototipo */
+const objetoLiteral2 = Object.create(objetoLiteral1);
 console.log(objetoLiteral2); // {}
 
-const objetoLiteral3 = Object.create(objetoLiteral2); // Crear un objetoLiteral3 con el objetoLiteral2 como prototipo
+/* Prototipo (objetos hijos):
+objetoLiteral3 -> objetoLiteral2 -> objetoLiteral1
+
+Crear un objetoLiteral3 con el objetoLiteral2 como prototipo
+q es prototipo de objetoLiteral1 */
+const objetoLiteral3 = Object.create(objetoLiteral2);
 console.log(objetoLiteral3); // {}
 
 // Agregar nuevas propiedad: valor, a los objetos literales {}
@@ -63,7 +73,7 @@ objetoLiteral1.uno = 1; // nombreObjeto.nuevaPropiedad = nuevoValor
 objetoLiteral2.dos = 2;
 objetoLiteral3.tres = 3;
 
-/* En este ejemplo __proto__ (prototipo)
+/* __proto__ (prototipo)
 son las propiedaes de un objeto1
 q hacen referencia a las propiedades de otro objeto2
 
@@ -78,7 +88,8 @@ console.log(objetoLiteral2.uno); // 1
 console.log(objetoLiteral3.uno); // 1
 console.log(objetoLiteral3.dos); // 2
 
-// .isPrototypeOf() ¿El objeto1 si está o no en la Cadena de Prototipos de Otro objeto2?
+/* .isPrototypeOf()
+¿El objeto1 si está o no en la Cadena de Prototipos de Otro objeto2? */
 console.log(objetoLiteral1.isPrototypeOf(objetoLiteral2));   // true
 console.log(objetoLiteral2.isPrototypeOf(objetoLiteral1));   // false
 
@@ -92,16 +103,25 @@ console.log(Object.prototype.isPrototypeOf(objetoLiteral3)); // true
 /*
 Recordatorio:
 Ver:
-" .hasOwnProperty() ¿Si Existe o no la Propiedad en el Objeto? "
+" 12.1.5.2.14) Diferencias y Similitudes Entre .hasOwnProperty() (Mala Práctica) y Object.hasOwn() (Buena Práctica) - ¿Si Existe o no la Propiedad Propia (NO Heredada) en el Objeto? "
 
-.hasOwnProperty() devuelve true en las propiedades del objeto q NO son prototipos */
-console.log(objetoLiteral1.hasOwnProperty('uno')); // true
+Object.hasOwn() devuelve true porq en el objetoLiteral1 { uno: 1 }
+se cumplen TODAS las siguientes condiciones:
+1) La propiedad 'uno' SI existe en objetoLiteral1
 
-// .hasOwnProperty() devuelve false en las propiedades del objeto q SI son prototipos
-console.log(objetoLiteral2.hasOwnProperty('uno')); // false
+2) En objetoLiteral1 la propiedad 'uno' NO es un prototipo __proto__ */
+console.log(Object.hasOwn(objetoLiteral1, 'uno')); // true
 
-console.log(objetoLiteral3.hasOwnProperty('uno')); // false
-console.log(objetoLiteral3.hasOwnProperty('dos')); // false
+/* Object.hasOwn() devuelve false
+porq las propiedades 'uno' y 'dos' SI existen en los objetos
+objetoLiteral2 { dos: 2, __proto__: { uno: 1 } }
+y objetoLiteral3 { tres: 3, __proto__: { dos: 2, uno: 1 } }
+PERO son Object.create() prototipos, es decir,
+q estan como valor de la propiedad __proto__ */
+console.log(Object.hasOwn(objetoLiteral2, 'uno')); // false
+
+console.log(Object.hasOwn(objetoLiteral3, 'uno')); // false
+console.log(Object.hasOwn(objetoLiteral3, 'dos')); // false
 
 /* --------------------------------------------------------------- */
 

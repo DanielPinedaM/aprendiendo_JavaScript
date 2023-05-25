@@ -58,25 +58,27 @@ setters */
 https://developser.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create#try_it */
 
 const prototipo = {
-// propiedad: valor,
-  saludar: () => 'hola mundo', // metodo () funcion del objeto literal
+  // propiedad: valor,
+  saludar: () => 'hola mundo',
 };
-
-// Imprimir objeto literal {} prototipo
 console.log(prototipo);
 // { saludar: [Function: saludar] }
 
 // Ejecutar metodo (funcion) saludar() del objeto literal {} prototipo
-console.log(prototipo.saludar());
+console.log(prototipo.saludar('hola mundo'));
 // 'hola mundo'
 
 /* Object.create()
-El objetoHijo hereda todas las propiedades y metodos del objeto prototipo */
-const objetoHijo = Object.create(prototipo);
+Hacer q el objetoHijo herede las propiedades y metodos de prototipo
 
-// Imprimir objetoHijo por consola
+prototipo tiene la propiedad: valor, { saludar: [Function: saludar] }
+
+En objetoHijo { __proto__: { saludar: [Function: saludar] } }
+se crea una nueva propiedad llamada __proto__
+q tiene como valor { saludar: [Function: saludar] } */
+const objetoHijo = Object.create(prototipo);
 console.log(objetoHijo);
-// {}
+// { __proto__: { saludar: ƒ saludar() } }
 
 /* Agregar nuevo propiedad: valor, al objetoHijo
 usando sintaxis nombreObjeto.nombreNuevaPropiedad = nuevoValor */
@@ -87,7 +89,7 @@ console.log(objetoHijo.uno);
 // 1
 
 /* El metodo (funcion) saludar() existe en el objetoHijo
-porq se puede ejecutar con la sintaxis nombreObjeto.propiedad */
+porq se puede ejecutar con la sintaxis nombreObjeto.propiedad  */
 console.log(objetoHijo.saludar());
 // 'hola mundo'
 

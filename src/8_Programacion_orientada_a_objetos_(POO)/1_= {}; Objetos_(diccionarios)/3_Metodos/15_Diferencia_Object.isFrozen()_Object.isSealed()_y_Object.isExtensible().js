@@ -2,7 +2,7 @@
 // @ts-nocheck
 
 /*
-12.1.5.2.13) Diferencias y Similitudes Entre Object.isFrozen() Object.isSealed() y Object.isExtensible() - ¿El Objeto es INmutable o MUtable?
+Diferencias y Similitudes Entre Object.isFrozen() Object.isSealed() y Object.isExtensible() - ¿El Objeto es INmutable o MUtable?
 
 Documentacion Oficial...
 - Object.isFrozen()
@@ -13,6 +13,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 - Object.isExtensible()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible
+
+- Reflect.isExtensible()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/isExtensible
 
 Recordatorio:
 NO te compliques leyendo esta seccion actual,

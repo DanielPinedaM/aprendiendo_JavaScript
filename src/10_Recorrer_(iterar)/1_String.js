@@ -4,6 +4,8 @@
 /* eslint-disable array-callback-return */
 // @ts-nocheck
 
+/* --------------------------------------------------------------- */
+
 const string = 'hola mundo';
 console.log(string);
 // 'hola mundo'

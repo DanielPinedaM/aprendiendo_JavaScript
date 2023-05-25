@@ -4,8 +4,12 @@
 // @ts-nocheck
 
 /*
-Documentacion Oficial - Object.getPrototypeOf()
+Documentación Oficial…
+- Object.getPrototypeOf()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf
+
+- Reflect.getPrototypeOf()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/getPrototypeOf
 
 Object.getPrototypeOf() OBTENER el Valor del Prototipo __proto__ del Objeto
 

@@ -309,7 +309,8 @@ string.replaceAll('o', 'REPLACE_ALL'); // 'hREPLACE_ALLla mundREPLACE_ALL'
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .startsWith() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith
+https://youtu.be/LUeCg6btmZU
+
 ¿el string ... EMPIEZA por los caracteres ...? */
 string.startsWith('hola');                  // true
 

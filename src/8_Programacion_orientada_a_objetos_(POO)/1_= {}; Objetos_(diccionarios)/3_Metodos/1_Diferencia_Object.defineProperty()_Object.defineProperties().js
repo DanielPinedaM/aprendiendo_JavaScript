@@ -17,6 +17,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 - Object.defineProperties()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties
 
+- Reflect.defineProperty()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/defineProperty
+
                                       |----------------------------------------------------------------------------|-----------------------------------------------------------|
                                       | Object.defineProperty()                                                    | Object.defineProperties()                                 |
 |-------------------------------------|----------------------------------------------------------------------------|-----------------------------------------------------------|

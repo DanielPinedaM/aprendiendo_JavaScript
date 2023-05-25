@@ -1,6 +1,15 @@
 // @ts-nocheck
 
-/* Documentacion Oficial - .startsWith()
+/*
+.startsWith()
+¿El String ... EMPIEZA por los Caracteres ...?,
+¿ El String ... TERMINA en el Carácter ... .length - 1?,
+¿En el String… A PARTIR de la Posición (Índice)… Están los Caracteres…?
+
+Tutorial
+https://youtu.be/LUeCg6btmZU
+
+Documentacion Oficial - .startsWith()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith
 
 .startsWith() devuelve un booleano true ó false

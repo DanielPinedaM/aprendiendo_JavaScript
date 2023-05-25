@@ -3,6 +3,8 @@
 /* eslint-disable no-restricted-syntax */
 // @ts-nocheck
 
+/* --------------------------------------------------------------- */
+
 /*
 Hay 2 formas diferentes de recorrer (iterar)
 los array de acuerdo a la DIRECCION de iteracion:

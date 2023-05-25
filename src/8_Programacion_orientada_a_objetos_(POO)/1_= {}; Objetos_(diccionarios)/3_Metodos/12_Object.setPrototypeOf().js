@@ -5,20 +5,27 @@
 // @ts-nocheck
 
 /*
-Object.setPrototypeOf() ESTABLECER el Valor del Prototipo de un objeto1 a otro objeto2 o null
+Object.setPrototypeOf() ESTABLECER el Valor del Prototipo __proto__  de un objeto1 a otro objeto2 o null
 
-Documentacion Oficial...
+Documentación Oficial...
 - Object.setPrototypeOf()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf
 
-- Object.prototype.__proto__
+- Object.prototype.__proto__ (obsoleto)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto
+
+- Reflect.getPrototypeOf()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/getPrototypeOf
+
+- Reflect.setPrototypeOf()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/setPrototypeOf
 
 ADVERTENCIA:
 Segun la MDN a la fecha Mayo 2023
 modificar el valor de la propiedad [[Prototype]] de un objeto
 usando el metodo Object.setPrototypeOf()
-es muy lento en todos los navegadores y motores de JS
+es muy lento en todos los navegadores y motores de JS (NodeJS)
+porque no están optimizados para esto
 
 Una alternativa es q
 en vez de modificar el valor de [[Prototype]] con Object.setPrototypeOf()
@@ -105,8 +112,8 @@ El prototipo (valor de la propiedad __proto__) de obj
 contiene las mismas propiedad: valor, que prototype
 
 El prototipo de prototype es null porq es el objeto padre */
-console.log(Object.getPrototypeOf(obj));       // { uno: 1 }
-console.log(Object.getPrototypeOf(prototype)); // [Object: null prototype] {}
+console.log(Object.getPrototypeOf(obj));       // { uno: 1 }                   -> objeto hijo
+console.log(Object.getPrototypeOf(prototype)); // [Object: null prototype] {}  -> "    " padre
 
 /* Imprimir propiedad: valor, de los objetos
 
@@ -148,7 +155,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Window
 https://tc39.es/ecma262/#sec-immutable-prototype-exotic-objects
 
 Object.setPrototypeOf(obj, prototype) da TypeError
-cuando se cumple alguno de los siguientes casos:
+cuando se cumple ALGUNO de los siguientes casos:
 
 1) obj es null ó undefined */
 // Object.setPrototypeOf(undefined, {}) // TypeError: Object.setPrototypeOf called on null or undefined
@@ -157,7 +164,8 @@ cuando se cumple alguno de los siguientes casos:
 // Object.setPrototypeOf(null, {});     // TypeError: Object.setPrototypeOf called on null or undefined
 //                        ↑
 
-// 2) prototype es un dato primitivo (NO es un objeto) DIFERENTE DE null
+/* 2) prototype es un dato primitivo
+(NO es un objeto) y es DIFERENTE DE null */
 
 // String()
 // Object.setPrototypeOf({}, '');         // TypeError: Object.setPrototypeOf called on null or undefined
@@ -175,9 +183,9 @@ cuando se cumple alguno de los siguientes casos:
 // Symbol()
 // Object.setPrototypeOf({}, Symbol(1));  // TypeError: Object.setPrototypeOf called on null or undefined
 
-// undefined - NaN
+// undefined y NaN
 // Object.setPrototypeOf({}, undefined);  // TypeError: Object.setPrototypeOf called on null or undefined
-// Object.setPrototypeOf({}, NaN);
+// Object.setPrototypeOf({}, NaN);        // TypeError: Object prototype may only be an Object or null: NaN
 
 /* null
 
@@ -196,14 +204,14 @@ console.log(Object.setPrototypeOf({}, null)); // [Object: null prototype] {}
 /* 4) obj NO es extensible Object.isExtensible(),
 es decir q a obj NO le puedo agregar nuevas propiedad: valor,
 
+nombreObjeto.nombreNuevaPropiedad = "nuevo valor";
+
 CASO ESPECIAL (EXCEPCION):
 Sin embargo, NO da error si
 el prototipo prototype tiene el
 mismo valor q el prototipo de obj,
 esto ocasiona q se devuelva obj.
-Incluso cuando obj tiene un prototipo inmutable.
-
-nombreObjeto.nombreNuevaPropiedad = "nuevo valor"; */
+Incluso cuando obj tiene un prototipo inmutable. */
 
 const obj2 = Object.preventExtensions({}); // obj NO es extensible
 console.log(obj2);
@@ -224,8 +232,7 @@ console.log(parent2);
 /* 5) obj es un prototipo de objeto exótico inmutable (immutable prototype exotic object)
 como por ejemplo
 - window
-- Object.prototype
-*/
+- Object.prototype */
 // console.log(Object.setPrototypeOf(Object.prototype, {})); // TypeError: Immutable prototype object '#<Object>' cannot have their prototype set
 // console.log(Object.setPrototypeOf(window, {}));           // TypeError: Immutable prototype object '#<Window>' cannot have their prototype set
 
@@ -236,7 +243,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 https://github.com/tc39/ecma262/issues/272 */
 
-/* Object.prototype SI es extensible Object.isExtensible().
+/* Object.prototype SI es extensible Object.isExtensible(),
 es decir, q SI permite agregar nuevas propiedad: valor, */
 Object.isExtensible(Object.prototype);
 // true
@@ -269,22 +276,28 @@ entonces Object.setPrototypeOf() devuelve el dato primitivo de obj */
 
 // String()
 console.log(Object.setPrototypeOf('', {}));         // ''
+//                                ↑
 
 // Number()
 console.log(Object.setPrototypeOf(123, {}));        // 123
+//                                ↑
 
 // BigInt()
 console.log(Object.setPrototypeOf(BigInt(99), {})); // 99n
+//                                   ↑
 
 // Boolean()
 console.log(Object.setPrototypeOf(true, {}));       // true
 console.log(Object.setPrototypeOf(false, {}));      // false
+//                                 ↑
 
 // Symbol()
-console.log(Object.setPrototypeOf(Symbol(1), {}));  // Symbol(1)
+console.log(Object.setPrototypeOf(Symbol('ID'), {}));  // Symbol(ID)
+//                                   ↑
 
 // NaN
 console.log(Object.setPrototypeOf(NaN, {}));        // NaN
+//                                ↑
 
 /* --------------------------------------------------------------- */
 
@@ -313,24 +326,25 @@ para lograr la misma cadena de herencia.
 Hay advertencias a tener en cuenta
 cuando se utiliza create(),
 como recordar volver a agregar la propiedad del Object.prototype.constructor
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor
-*/
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor */
 
 /* Clase class Human
 
 Documentacion Oficial - Clases:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes */
+
 class Human {} // clase
 
 /* Clase class SuperHero que se extiende (hereda de) la clase class Human
 
-Documentacion Oficial...
-- extends
+Documentacion Oficial - extends
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends */
+
 class SuperHero extends Human {} // sub-clase
 
-/* Documentacion Oficial - new
+/* Documentacion Oficial - operador new
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new */
+
 const superMan = new SuperHero();
 console.log(superMan);
 /*
@@ -339,10 +353,11 @@ SuperHero {
 }
 */
 
-/* Sub-clases sin usar class
+/* Funciones para crear sub-clases sin usar class
 
 Documentacion Oficial - this
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this */
+
 function Human2(nombre, nivel) { // clase
   this.nombre = nombre;
   this.nivel = nivel;
@@ -354,6 +369,7 @@ para asignar las propiedades nombre y nivel
 
 Documentacion Oficial - call()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call */
+
 function SuperHero2(nombre, nivel) { // sub-clase
   Human2.call(this, nombre, nivel);
 }
@@ -420,7 +436,7 @@ console.log(Object.getPrototypeOf(superMan2));
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf#pseudoclassical_inheritance_using_object.setprototypeof
 
 En este actual Ejemplo 7 al igual q el anterior Ejemplo 6 tambien
-se hereda la clase Human sin usar extends usando Object.setPrototypeOf().
+se hereda la clase Human sin usar extends usando Object.setPrototypeOf()
 
 Aunque hacer esto es MALA practica
 porq tiene problemas de rendimiento y codigo limpio.
@@ -444,8 +460,8 @@ console.log(
 );
 /*
 Human3 {constructor: ƒ}
-   constructor: class SuperHero3
-   [[Prototype]]: Object
+    constructor: class SuperHero3
+    [[Prototype]]: Object
 */
 
 /* Object.setPrototypeOf()
