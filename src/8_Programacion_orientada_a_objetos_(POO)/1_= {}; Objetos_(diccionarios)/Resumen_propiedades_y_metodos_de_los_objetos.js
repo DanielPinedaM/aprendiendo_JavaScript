@@ -943,5 +943,55 @@ console.log(Object.hasOwn(objetoLiteral, 'propiedadInexistente')); // false
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf
 
-INCOMPLETO
+Convertir de Tipo Objeto a Dato Primitivo
+
+.valueOf() es MALA PRACTICA, debes usar:
+String()
+Number()
+BigInt()
+Boolean()
+Symbol()
+Object()
+segun el tipo de dato q necesites convertir */
+
+const objetoThis = {
+  value: '42',
+  valueOf() {
+    return this.value;
+  },
+};
+console.log(objetoThis);
+/*
+{
+  value: '42',
+  valueOf: [Function: valueOf]
+}
+*/
+
+/* El valor de la propiedad value
+es de tipo String() porq esta entre comillas "" */
+console.log(objetoThis.value);        // '42'
+console.log(typeof objetoThis.value); // 'string'
+
+/* .valueOf() devuelve lo mismo q objetoThis.value
+q es el numero '42' en tipo String() */
+
+console.log(objetoThis.valueOf());                      // '42' -> .valueOf() MALA PRACTICA
+console.log(objetoThis.value === objetoThis.valueOf()); // true
+console.log(typeof objetoThis.valueOf());               // 'string'
+
+// En cambio, Number() convierte a tipo numero 42
+console.log(Number(objetoThis));        // 42 -> Number() BUENA PRACTICA
+console.log(typeof Number(objetoThis)); // 'number'
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Object.toString()       █
+ █ Object.toLocaleString() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toLocaleString
+
+ INCOMPLETO
 */

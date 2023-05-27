@@ -192,7 +192,7 @@ NO buscan propiedades heredadas (prototipo)
 creadas con Object.create(),
 en cambio el operador in SI */
 
-// Objeto padre q contiene sus PROPIAS propiedad: valor,
+// Objeto padre q contiene sus PROPIAS propiedad: valor, (propiedades NO heredadas)
 const prototipo = { uno: 1 };
 console.log(prototipo);
 // { uno: 1 }
@@ -204,7 +204,7 @@ devuelven true porq en el objeto llamado prototipo:
 - { uno: 1 }
 NO use Object.create() para agregar la propiedad 'uno'
 
-'uno' es una propiedad PROPIA de objeto prototipo */
+'uno' es una propiedad PROPIA (NO heredada) de objeto prototipo */
 console.log(prototipo.hasOwnProperty('uno')); // true
 console.log(Object.hasOwn(prototipo, 'uno')); // true
 
@@ -212,6 +212,7 @@ console.log(Object.hasOwn(prototipo, 'uno')); // true
 Hacer q objetoHijo herede las propiedades y metodos de prototipo
 
 prototipo tiene la propiedad: valor, { uno: 1 }
+
 en objetoHijo { __proto__: { uno: 1 } }
 se crea una nueva propiedad llamada __proto__
 q tiene como valor { uno: 1 } */
@@ -255,12 +256,12 @@ console.log(objPrototipoNull);
 ); */
 // TypeError: no se puede convertir el objeto en un valor primitivo
 
-// En cambio, Object.hasOwn() NO
+// En cambio, Object.hasOwn() NO da error
 console.log(Object.hasOwn(objPrototipoNull, null));
 // false
 
 /* Otra alternativa es Object.prototype.hasOwnProperty.call()
-aunq esto es MALA PRACTICA porq hay q escribir mucho codigo () */
+aunq esto es MALA PRACTICA porq hay q escribir mucho codigo */
 console.log(
   Object.prototype.hasOwnProperty.call(objPrototipoNull, null),
 );
@@ -299,7 +300,7 @@ devuelva true porq la propiedad SI existe */
 console.log(objetoLiteral3.hasOwnProperty('bar')); // .hasOwnProperty() MALA PRACTICA
 // false
 
-/* Em cambio, con Object.hasOwn()
+/* En cambio, con Object.hasOwn()
 da el resultado correcto */
 console.log(Object.hasOwn(objetoLiteral3, 'bar')); // Object.hasOwn() BUENA PRACTICA
 // true
@@ -315,9 +316,9 @@ console.log(
 
 /* Ejemplo 5 - Object.hasOwn() y .hasOwnProperty() en array []
 Ambos Object.hasOwn() y .hasOwnProperty()
-Se pueden usar en array
+Se pueden usar en array []
 para saber si existe o no
-el número de índice en el array
+el número de posicion (índice) en el array
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty#description
 
@@ -329,22 +330,22 @@ console.log(array);
 // (3) ['cero', 'uno', 'dos']       -> ELEMENTOS
 
 /* Object.hasOwn() y .hasOwnProperty()
-¿existe el indice en el array?
+¿existe el indice en el array [] ?
 
-Devuelve true porq el indice 0 SI existe en el array */
+Devuelve true porq el indice 0 SI existe en el array [] */
 console.log(array.hasOwnProperty(0)); // true
 console.log(Object.hasOwn(array, 0)); // true
 
-// Devuelve false porq el indice 99 NO existe en el array
+// Devuelve false porq el indice 99 NO existe en el array []
 console.log(array.hasOwnProperty(99)); // false
 console.log(Object.hasOwn(array, 99)); // false
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 6 - .hasOwnProperty() y Object.hasOwn() en objetoLiteral {} y array [] vacio
+// Ejemplo 6 - .hasOwnProperty() y Object.hasOwn() en objetoLiteral {} y array vacios []
 
 /* Ambos Object.hasOwn() y .hasOwnProperty()
-devuelven false al usarlo con objetoLiteral {} y array [] vacio */
+devuelven false al usarlo con objetoLiteral {} y array vacio [] */
 
 // .hasOwnProperty()
 console.log({}.hasOwnProperty());          // false
@@ -377,15 +378,17 @@ sin escribir nada dentro del par de parentesis () */
 
 // Ejemplo 8 - Object.prototype, .hasOwnProperty() y Object.hasOwn()
 
-console.log(Object.prototype);                      // [Object: null prototype] {}
+console.log(Object.prototype);                           // [Object: null prototype] {}
 
 // .hasOwnProperty()
-console.log(Object.prototype.hasOwnProperty(null)); // false
-console.log(Object.prototype.hasOwnProperty());     // false
+console.log(Object.prototype.hasOwnProperty(null));      // false
+console.log(Object.prototype.hasOwnProperty(undefined)); // false
+console.log(Object.prototype.hasOwnProperty());          // false
 
 // Object.hasOwn()
-console.log(Object.hasOwn(Object.prototype, null)); // false
-console.log(Object.hasOwn(Object.prototype));       // false
+console.log(Object.hasOwn(Object.prototype, null));      // false
+console.log(Object.hasOwn(Object.prototype, undefined)); // false
+console.log(Object.hasOwn(Object.prototype));            // false
 
 /* --------------------------------------------------------------- */
 
@@ -419,6 +422,7 @@ Ver:
 Recorrer (iterar) de un objeto
 las propiedad: valor, q son:
 - enumerable: true Enumerables
+
 - NO heredadas (propias): La propiedad NO se creo con Object.create() */
 
 Object.entries(objetoLiteral2).map((entry) => {            // Object.entries() enumerable
