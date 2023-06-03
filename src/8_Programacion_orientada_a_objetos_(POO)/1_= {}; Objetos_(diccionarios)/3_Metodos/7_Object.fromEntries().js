@@ -7,7 +7,6 @@ Object.fromEntries() Convertir de Array Anidado que Contiene [propiedad, valor] 
 Documentacion Oficial - Object.fromEntries()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries
 
-
 Su sintaxis es:
 Object.fromEntries(iterable)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries#syntax
