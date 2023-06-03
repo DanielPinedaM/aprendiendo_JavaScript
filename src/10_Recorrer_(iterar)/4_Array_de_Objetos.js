@@ -73,7 +73,23 @@ const getValue = arrayDeObjetos.map((objetoLiteral) => {
 */
 
 console.log(getValue.flat(Infinity));
-// [ 'tres', 'cuatro', 'cinco', 'seis' ]
+// (4) [ 'tres', 'cuatro', 'cinco', 'seis' ]
+
+const getValue2 = arrayDeObjetos.map((_, indice) => {
+  console.log(arrayDeObjetos[indice].uno);
+  console.log(arrayDeObjetos[indice].dos);
+
+  return [arrayDeObjetos[indice].uno, arrayDeObjetos[indice].dos];
+});
+/*
+'tres'
+'cuatro'
+'cinco'
+'seis'
+*/
+
+console.log(getValue2.flat(Infinity));
+// (4) ['tres', 'cuatro', 'cinco', 'seis']
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
