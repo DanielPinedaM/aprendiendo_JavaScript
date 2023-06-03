@@ -994,7 +994,9 @@ Esto lo escribi en otra seccion, ver:
 - " 8.5.3.22) Diferencia Entre String() y .toString() - Convertir a Texto (String) "
 
 - " 9.4.3.6) Diferencias y Similitudes Entre .join() Intl.ListFormat() .toString() .toLocaleString() - Convertir de Array a String (Texto) "
-*/
+
+Idioma locales BCP 47 admitidos por .toLocaleString()
+https://www.techonthenet.com/js/language_tags.php */
 
 /* Convertir de objeto Date fecha a string
 
@@ -1023,5 +1025,8 @@ String(null) y String(undefined) NO */
 console.log(String(objetoDate));                 // 'Wed Dec 19 2012 22:00:00 GMT-0500 (hora estándar de Colombia)'
 
 console.log(objetoDate.toString());              // 'Wed Dec 19 2012 22:00:00 GMT-0500 (hora estándar de Colombia)'
+
 console.log(objetoDate.toLocaleString());        // '19/12/2012, 10:00:00 p.m.'
 console.log(objetoDate.toLocaleString('es-ES')); // '19/12/2012, 22:00:00'
+console.log(objetoDate.toLocaleString('en-US')); // '12/19/2012, 10:00:00 PM'
+console.log(objetoDate.toLocaleString('de'));    // '19.12.2012, 22:00:00'

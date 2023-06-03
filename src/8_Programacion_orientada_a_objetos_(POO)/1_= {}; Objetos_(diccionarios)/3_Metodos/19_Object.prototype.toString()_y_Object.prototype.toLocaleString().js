@@ -4,8 +4,8 @@
 /*
 Object.prototype.toString() y Object.prototype.toLocaleString()
 ya los explique antes,
-estos metetodos son muy similares
-porque todos convierten a string. Ver:
+estos métodos son muy similares
+porque todos convierten a string, ver:
 
 ResumenJS.docx
 - " 8.5.3.22) Diferencia Entre String() y .toString() - Convertir a Texto (String) "
@@ -29,21 +29,23 @@ https://www.techonthenet.com/js/language_tags.php
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 1:
+/* Ejemplo:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toLocaleString#try_it
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toLocaleString#date_tolocalestring_override
 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+
 Convertir de objeto Date fecha a string */
 
-/*  objetoDate imprime en consola un resultado diferente
+/* objetoDate imprime en consola un resultado diferente
 dependiendo donde se ejecute el codigo de JS: */
 const objetoDate = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
 console.log(objetoDate);
 // Wed Dec 19 2012 22:00:00 GMT-0500 (hora estándar de Colombia) -> Navegador de Chrome
 // 2012-12-20T03:00:00.000Z                                      -> NodeJS
 
-// objetoDate es de tipo objeto
+// objetoDate es de tipo typeof objeto
 console.log(typeof objetoDate);
 // 'object'
 
