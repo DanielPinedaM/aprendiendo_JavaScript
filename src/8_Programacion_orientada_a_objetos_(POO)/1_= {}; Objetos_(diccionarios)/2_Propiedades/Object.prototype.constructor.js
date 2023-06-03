@@ -11,10 +11,10 @@ Documentacion Oficial...
 - Object.prototype.constructor
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor
 
-- Object() constructor
+- Object() Constructor:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/Object
 
-- constructor en clases:
+- Constructor en Clases:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor
 
 Es una propiedad del constructor de la instancia objeto Object()
@@ -44,11 +44,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer
 
 Recordatorio:
-Ver:
+Para entender el siguiente cuadro, ver:
 " 12.1.5.2.1) Diferencias y Similitudes Entre Object.defineProperty() y Object.defineProperties() - Agregar Propiedades de Objeto... "
 
 |---------------------------------------------------------------------------|
-|                               Atributo                                    |
+|         Atributos de la propiedad Object.prototype.constructor            |
 |--------------------------------------------------|------------------------|
 | MUtable                                          | ✓  writable: true,     |
 |--------------------------------------------------|------------------------|
@@ -58,13 +58,13 @@ Ver:
 | las propiedades value: writable: y enumerable: ? |                        |
 |--------------------------------------------------|------------------------|
 
-En este resumen NO estan todos los ejemplos,
-abre el siguiente link de la MDN para ver todos los ejemplos:
+En este resumen NO están todos los ejemplos,
+en la MDN están todos los ejemplos:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor#examples */
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 1
+// Ejemplo 1:
 
 console.log(Object.prototype.constructor);
 // [Function: Object]
@@ -72,10 +72,10 @@ console.log(Object.prototype.constructor);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 2 - Ejemplo basico de Object.prototype.constructor
+/* Ejemplo 2 Basico de Object.prototype.constructor
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor#displaying_the_constructor_of_an_object */
 
-/* crea un constructor Tree
+/* Crea un constructor Tree
 y un objeto de ese tipo theTree */
 function Tree(nombre) {
   this.nombre = nombre;

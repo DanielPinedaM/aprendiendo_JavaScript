@@ -6,8 +6,12 @@
 /*
 Object.create() Crear un Nuevo Objeto que Hereda las Propiedades y Métodos de un Objeto Existente (Prototipo)
 
-Documentacion Oficial - Object.create()
+Documentacion Oficial...
+- Object.create()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+
+- Prototipos de objetos:
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes
 
 Object.create() crea un nuevo objeto literal {} a partir de un objeto literal existente
 

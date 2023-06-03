@@ -15,12 +15,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 /* -------------------------------------------------------------- */
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ longitud .length del objeto █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+ ▄▄▄▄▄▄▄▄▄▄▄
+ █ .length █
+ ▀▀▀▀▀▀▀▀▀▀▀
 https://www.samanthaming.com/tidbits/56-how-to-get-an-object-length/
 
-La longitud de un objeto literal {} es el numero de propiedades (claves) */
+La longitud .length de un objeto literal {} es el numero de propiedades (claves) */
 
 const fantasma = Symbol('fantasma');
 console.log(fantasma);
@@ -146,7 +146,7 @@ get
 set */
 
 const objetoLiteral = {
-  // propiedad: valor,
+// propiedad: valor,
   uno: 1,
   dos: 2,
 };
@@ -194,10 +194,10 @@ console.log(todasLasPropiedades);
 */
 
 // Acceder a valores de las propiedades en especifico de Object.getOwnPropertyDescriptors()
-console.log(todasLasPropiedades.uno.value); // 1
-console.log(todasLasPropiedades.uno.writable); // true
+console.log(todasLasPropiedades.uno.value);        // 1
+console.log(todasLasPropiedades.uno.writable);     // true
 
-console.log(todasLasPropiedades.dos.value); // 2
+console.log(todasLasPropiedades.dos.value);        // 2
 console.log(todasLasPropiedades.dos.configurable); // true
 
 /*
@@ -305,7 +305,8 @@ console.log(values);
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Object.entries()     █
  █ Object.fromEntries() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+Object.entries() y Object.fromEntries() hacen lo opuesto */
 console.log(objSymbol);
 /*
 {
@@ -419,7 +420,7 @@ console.log(concatenar);
 console.log(concatenar === target);
 // true
 
-/* Se ha modificado el objeto destino (target)
+/* Modificar el objeto destino (target)
 agregandole (concatenar) las propiedad: valor, de objeto origen (source) */
 console.log(target);
 /*
@@ -446,10 +447,12 @@ console.log(source);
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
 
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes
+
 Object.create() Crear un Nuevo Objeto que Hereda las Propiedades y Métodos de un Objeto Existente (Prototipo) */
 
 const prototipo = {
-  // propiedad: valor,
+// propiedad: valor,
   saludar: () => 'hola mundo',
 };
 console.log(prototipo);
@@ -467,6 +470,7 @@ prototipo tiene la propiedad: valor, { saludar: [Function: saludar] }
 En objetoHijo { __proto__: { saludar: [Function: saludar] } }
 se crea una nueva propiedad llamada __proto__
 q tiene como valor { saludar: [Function: saludar] } */
+
 const objetoHijo = Object.create(prototipo);
 console.log(objetoHijo);
 // { __proto__: { saludar: ƒ saludar() } }
@@ -484,7 +488,7 @@ porq se puede ejecutar con la sintaxis nombreObjeto.propiedad  */
 console.log(objetoHijo.saludar());
 // 'hola mundo'
 
-/* A pesar de que el objetoHijo hereda las propiedades
+/* A pesar de que objetoHijo hereda las propiedades
 y metodos del objeto padre prototipo,
 cuando imprimo por consola console.log() el objetoHijo
 NO se puede ver el metodo (funcion) saludar() */
@@ -566,7 +570,7 @@ hereda las propiedades y metodos del objeto padre prototype { uno: 1 } */
 console.log(prototype); // { uno: 1 }
 console.log(obj);       // { __proto__: { uno: 1 } }
 
-/* Object.entries() recorrer (iterar) objeto literal {}
+/* Tutorial - Midudev Object.entries() recorrer (iterar) objeto literal {}
 https://youtu.be/Mz9HSiXSSVU
 
 Al iterar el objeto prototype imprime las propiedad: valor,
@@ -596,14 +600,16 @@ https://stackoverflow.com/questions/2464426/whats-the-difference-between-isproto
 
 // Objeto padre q NO tiene prototipo
 const objetoLiteral1 = Object.create(Object.prototype);
-console.log(objetoLiteral1); // {}
+console.log(objetoLiteral1);
+// {}
 
 /* Prototipo (objetos hijos):
 objetoLiteral2 -> objetoLiteral1
 
 Crear objetoLiteral2 con el objetoLiteral1 como prototipo */
 const objetoLiteral2 = Object.create(objetoLiteral1);
-console.log(objetoLiteral2); // {}
+console.log(objetoLiteral2);
+// {}
 
 /* Prototipo (objetos hijos):
 objetoLiteral3 -> objetoLiteral2 -> objetoLiteral1
@@ -635,11 +641,11 @@ console.log(objetoLiteral3.dos); // 2
 
 /* .isPrototypeOf()
 ¿El objeto1 si está o no en la Cadena de Prototipos de Otro objeto2? */
-console.log(objetoLiteral1.isPrototypeOf(objetoLiteral2)); // true
-console.log(objetoLiteral2.isPrototypeOf(objetoLiteral1)); // false
+console.log(objetoLiteral1.isPrototypeOf(objetoLiteral2));   // true
+console.log(objetoLiteral2.isPrototypeOf(objetoLiteral1));   // false
 
-console.log(objetoLiteral2.isPrototypeOf(objetoLiteral3)); // true
-console.log(objetoLiteral3.isPrototypeOf(objetoLiteral2)); // false
+console.log(objetoLiteral2.isPrototypeOf(objetoLiteral3));   // true
+console.log(objetoLiteral3.isPrototypeOf(objetoLiteral2));   // false
 
 console.log(Object.prototype.isPrototypeOf(objetoLiteral1)); // true
 console.log(Object.prototype.isPrototypeOf(objetoLiteral2)); // true
@@ -655,6 +661,7 @@ se cumplen TODAS las siguientes condiciones:
 1) La propiedad 'uno' SI existe en objetoLiteral1
 
 2) En objetoLiteral1 la propiedad 'uno' NO es un prototipo __proto__ */
+
 console.log(Object.hasOwn(objetoLiteral1, 'uno')); // true
 
 /* Object.hasOwn() devuelve false
@@ -709,9 +716,10 @@ Objeto inmutable
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Object.freeze() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze */
+
 let inmutable = {
-  // propiedad: valor,
+// propiedad: valor,
   uno: 1,
   dos: 2,
   tres: 3,
@@ -736,6 +744,7 @@ delete inmutable.dos; // NO hace nada, la propiedad: valor, dos: 2, sigue existi
 // AGREGAR una nueva propiedad: valor,
 inmutable.cuatro = 4; // NO hace nada, NO agrega cuatro: 4, al objeto literal
 
+// El objeto NO se modifico
 console.log(inmutable);
 /*
 {
@@ -750,8 +759,9 @@ console.log(inmutable);
  █ Object.seal() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/seal */
+
 inmutable = {
-  // propiedad: valor,
+// propiedad: valor,
   uno: 1,
   dos: 2,
   tres: 3,
@@ -768,8 +778,8 @@ console.log(inmutable);
 Object.seal(inmutable);
 
 inmutable.uno = 'nuevo valor'; // el valor se MODIFICA a uno: 'nuevo valor',
-delete inmutable.dos; // NO hace nada, la propiedad: valor, dos: 2, sigue existiendo
-inmutable.cuatro = 4; // NO hace nada, NO agrega cuatro: 4, al objeto literal
+delete inmutable.dos;          // NO hace nada, la propiedad: valor, dos: 2, sigue existiendo
+inmutable.cuatro = 4;          // NO hace nada, NO agrega cuatro: 4, al objeto literal
 
 console.log(inmutable);
 /*
@@ -785,8 +795,9 @@ console.log(inmutable);
  █ Object.preventExtensions() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions */
+
 inmutable = {
-  // propiedad: valor,
+// propiedad: valor,
   uno: 1,
   dos: 2,
   tres: 3,
@@ -803,8 +814,8 @@ console.log(inmutable);
 Object.preventExtensions(inmutable);
 
 inmutable.uno = 'nuevo valor'; // el valor se MODIFICA a uno: 'nuevo valor',
-delete inmutable.dos; // se ELIMINA dos: 2,
-inmutable.cuatro = 4; // NO hace nada, NO agrega cuatro: 4, al objeto literal
+delete inmutable.dos;          // se ELIMINA dos: 2,
+inmutable.cuatro = 4;          // NO hace nada, NO agrega cuatro: 4, al objeto literal
 
 console.log(inmutable);
 /*
@@ -830,16 +841,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 NO te enredes entediendo esto,
 en el cuadro anterior de
 Object.freeze() Object.preventExtensions() Object.seal()
-esta resumido TODO: */
+esta resumido TODO */
 
 const vacioFreeze = Object.freeze({});
 const datosFreeze = Object.freeze({ uno: 1 });
 
-console.log(Object.isFrozen(vacioFreeze)); // true
-console.log(Object.isFrozen(datosFreeze)); // true
+console.log(Object.isFrozen(vacioFreeze));     // true
+console.log(Object.isFrozen(datosFreeze));     // true
 
-console.log(Object.isSealed(vacioFreeze)); // true
-console.log(Object.isSealed(datosFreeze)); // true
+console.log(Object.isSealed(vacioFreeze));     // true
+console.log(Object.isSealed(datosFreeze));     // true
 
 console.log(Object.isExtensible(vacioFreeze)); // false
 console.log(Object.isExtensible(datosFreeze)); // false
@@ -849,11 +860,11 @@ console.log(Object.isExtensible(datosFreeze)); // false
 const vacioSeal = Object.seal({});
 const datosSeal = Object.seal({ uno: 1 });
 
-console.log(Object.isFrozen(vacioSeal)); // true
-console.log(Object.isFrozen(datosSeal)); // false
+console.log(Object.isFrozen(vacioSeal));     // true
+console.log(Object.isFrozen(datosSeal));     // false
 
-console.log(Object.isSealed(vacioSeal)); // true
-console.log(Object.isSealed(datosSeal)); // true
+console.log(Object.isSealed(vacioSeal));     // true
+console.log(Object.isSealed(datosSeal));     // true
 
 console.log(Object.isExtensible(vacioSeal)); // false
 console.log(Object.isExtensible(datosSeal)); // false
@@ -863,11 +874,11 @@ console.log(Object.isExtensible(datosSeal)); // false
 const vacioPreventExtensions = Object.preventExtensions({});
 const datosPreventExtensions = Object.preventExtensions({ uno: 1 });
 
-console.log(Object.isFrozen(vacioPreventExtensions)); // true
-console.log(Object.isFrozen(datosPreventExtensions)); // false
+console.log(Object.isFrozen(vacioPreventExtensions));     // true
+console.log(Object.isFrozen(datosPreventExtensions));     // false
 
-console.log(Object.isSealed(vacioPreventExtensions)); // true
-console.log(Object.isSealed(datosPreventExtensions)); // false
+console.log(Object.isSealed(vacioPreventExtensions));     // true
+console.log(Object.isSealed(datosPreventExtensions));     // false
 
 console.log(Object.isExtensible(vacioPreventExtensions)); // false
 console.log(Object.isExtensible(datosPreventExtensions)); // false
@@ -886,23 +897,23 @@ Las unicas diferencias son:
 
 1) Para === +0 (positivo) y -0 (negativo) son lo mismo,
 en cambio para Object.is() son diferentes */
-console.log(+0 === -0); // true
+console.log(+0 === -0);         // true
 console.log(Object.is(+0, -0)); // false
 
 /* 2) Para === NaN y NaN son diferentes,
-en cambio para Object.is() son lo mismo  */
-console.log(NaN === NaN); // false
+en cambio para Object.is() son lo mismo */
+console.log(NaN === NaN);         // false
 console.log(Object.is(NaN, NaN)); // true
 
 /* 3) Igual que ocurre en 2)
-Para === Number.NaN y Number.NaN son diferentes
+para === Number.NaN y Number.NaN son diferentes
 en cambio para Object.is() son lo mismo */
-console.log(Number.NaN === Number.NaN); // false
+console.log(Number.NaN === Number.NaN);         // false
 console.log(Object.is(Number.NaN, Number.NaN)); // true
 
 /* 4) Para === NaN y Number.NaN son diferentes
 en cambio para Object.is() son iguales */
-console.log(NaN === Number.NaN); // false
+console.log(NaN === Number.NaN);         // false
 console.log(Object.is(NaN, Number.NaN)); // true
 
 /*
@@ -996,22 +1007,23 @@ Esto lo escribi en otra seccion, ver:
 - " 9.4.3.6) Diferencias y Similitudes Entre .join() Intl.ListFormat() .toString() .toLocaleString() - Convertir de Array a String (Texto) "
 
 Idioma locales BCP 47 admitidos por .toLocaleString()
-https://www.techonthenet.com/js/language_tags.php */
+https://www.techonthenet.com/js/language_tags.php
 
-/* Convertir de objeto Date fecha a string
+Convertir de objeto Date fecha a string
 
 objetoDate imprime en consola un resultado diferente
 dependiendo donde se ejecute el codigo de JS: */
+
 const objetoDate = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
 console.log(objetoDate);
 // Wed Dec 19 2012 22:00:00 GMT-0500 (hora estándar de Colombia) -> Navegador de Chrome
 // 2012-12-20T03:00:00.000Z                                      -> NodeJS
 
-// objetoDate es de tipo objeto
+// objetoDate es de tipo typeof objeto
 console.log(typeof objetoDate);
 // 'object'
 
-/* Para convertir a String() SIEMPRE,
+/* Para convertir a texto SIEMPRE,
 sin importar el tipo de dato
 es buena practica usar String() porque:
 1) La diferencia en .toString() y .toLocaleString()
@@ -1037,10 +1049,11 @@ console.log(objetoDate.toLocaleString('de'));    // '19.12.2012, 22:00:00'
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor
 
-Object.prototype.constructor Constructor del Objeto */
+Propiedad Object.prototype.constructor constructor del objeto
 
-/* crea un constructor Tree
+crea un constructor Tree
 y un objeto de ese tipo theTree */
+
 function Tree(nombre) {
   this.nombre = nombre;
 }
