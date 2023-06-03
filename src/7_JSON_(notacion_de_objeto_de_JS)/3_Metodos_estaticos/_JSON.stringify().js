@@ -4,7 +4,7 @@
 Documentacion Oficial - JSON.stringify()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
 
-JSON.stringify() Convertir de Objeto Literal a Texto String()
+JSON.stringify() Convertir de Objeto Literal a Texto string
 
 Su sintaxis es:
 
@@ -16,7 +16,7 @@ Es el nombre del metodo
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 1
+// Ejemplo 1 - Convertir de Objeto Literal a Texto string
 
 // Definir un objetoLiteral
 const objetoLiteral = {

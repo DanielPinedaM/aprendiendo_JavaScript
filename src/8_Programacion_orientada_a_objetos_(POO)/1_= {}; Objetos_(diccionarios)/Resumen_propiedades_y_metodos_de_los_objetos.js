@@ -1030,3 +1030,31 @@ console.log(objetoDate.toLocaleString());        // '19/12/2012, 10:00:00 p.m.'
 console.log(objetoDate.toLocaleString('es-ES')); // '19/12/2012, 22:00:00'
 console.log(objetoDate.toLocaleString('en-US')); // '12/19/2012, 10:00:00 PM'
 console.log(objetoDate.toLocaleString('de'));    // '19.12.2012, 22:00:00'
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Object.prototype.constructor █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor
+
+Object.prototype.constructor Constructor del Objeto */
+
+/* crea un constructor Tree
+y un objeto de ese tipo theTree */
+function Tree(nombre) {
+  this.nombre = nombre;
+}
+
+/* Imprimir theTree.constructor
+la propiedad constructor del objeto theTree */
+const theTree = new Tree('hola mundo');
+
+console.log(theTree);
+// Tree { nombre: 'hola mundo' }
+
+console.log(`${theTree.constructor}`);
+/*
+'function Tree(nombre) {
+  this.nombre = nombre;
+}'
+*/
