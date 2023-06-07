@@ -24,7 +24,7 @@ Agrega    nuevo elemento
 
 .splice() modifica el array original (existente)
 
-Su sintaxis es:
+Sintaxis:
 .splice(start, deleteCount, item1, item2, itemN)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#syntax
 

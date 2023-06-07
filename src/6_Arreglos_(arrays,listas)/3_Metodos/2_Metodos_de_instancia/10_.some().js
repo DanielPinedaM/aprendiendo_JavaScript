@@ -20,7 +20,7 @@ en caso de que NINGUN elemento cumpla con la condicion entonces devuelve falso
 
 .some() NO modifica el array original (existente)
 
-Su sintaxis es:
+Sintaxis:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some#syntax */
 
 // Funcion Flecha (arrow function)

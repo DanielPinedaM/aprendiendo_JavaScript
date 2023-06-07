@@ -6,7 +6,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 JSON.stringify() Convertir de Objeto Literal a Texto string
 
-Su sintaxis es:
+Sintaxis:
 
 Donde...
 -

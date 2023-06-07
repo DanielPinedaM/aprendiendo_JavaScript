@@ -128,7 +128,7 @@ en esta seccion " ??= ASIGNACION COALESCENTE NULA (NULLISH COALESCING ASSIGMENT)
 Tutorial de Midudev:
 https://youtu.be/UYjZ0MDUkn0
 
-Su sintaxis es:
+Sintaxis:
 operandoIzquierdo ?? operandoDerecho
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing#syntax
 

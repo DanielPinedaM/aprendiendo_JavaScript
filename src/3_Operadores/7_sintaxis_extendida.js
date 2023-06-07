@@ -25,7 +25,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spre
 - [] array          https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals
 - Funciones         https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_function_calls
 
-Su sintaxis es:
+Sintaxis:
 miFuncion(a, ...iterableObj, b)
 [1, ...iterableObj, '4', 'five', 6]
 { ...obj, key: 'value' }

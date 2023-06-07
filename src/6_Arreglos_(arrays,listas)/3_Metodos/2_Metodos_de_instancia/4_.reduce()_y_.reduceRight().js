@@ -130,7 +130,7 @@ ACUMULAR los elementos de un array para devolver un solo dato iterando de (REDUC
 
 5) El UNICO valor devuelto NO modifica el array original (existente)
 
-Su sintaxis es:
+Sintaxis:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#syntax
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight#syntax */

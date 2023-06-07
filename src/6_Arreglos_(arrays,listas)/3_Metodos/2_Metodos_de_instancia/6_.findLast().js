@@ -52,7 +52,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
   elemento del array
   cumple con la condición de la función?
 
-Su sintaxis es:
+Sintaxis:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast#syntax */
 
 // Función Flecha (Arrow Function):

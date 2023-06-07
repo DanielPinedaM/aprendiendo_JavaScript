@@ -85,7 +85,7 @@ SIEMPRE retorna undefined, ver:
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#description
 
-Su sintaxis es:
+Sintaxis:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#syntax */
 
 // Funcion Flecha (Arrow Function):

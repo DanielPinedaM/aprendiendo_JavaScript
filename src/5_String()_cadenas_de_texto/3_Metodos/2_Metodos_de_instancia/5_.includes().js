@@ -18,7 +18,7 @@ Ejemplo 1:
 .includes() buscar una palabra, frase o letra
 dentro de un texto
 
-Su sintaxis es:
+Sintaxis:
 .includes(searchString, position)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes#syntax
 

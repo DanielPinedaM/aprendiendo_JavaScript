@@ -15,7 +15,7 @@ https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototy
 
 Object.create() crea un nuevo objeto literal {} a partir de un objeto literal existente
 
-Su sintaxis es:
+Sintaxis:
 Object.create(proto, propertiesObject)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create#syntax
 

@@ -38,7 +38,7 @@ esto es un numero entero mayor o igual a cero (0, 1, 2, 3...)
 2) -1 cuando la expresion regular NO coincide con el string
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search#return_value
 
-Su sintaxis es:
+Sintaxis:
 .search(regexp)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search#syntax
 

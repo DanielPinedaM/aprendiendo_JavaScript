@@ -24,7 +24,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 .fill() NO modifica el numero total de elementos del array .length
 
-Su sintaxis es:
+Sintaxis:
 .fill(value, start, end)
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill#syntax

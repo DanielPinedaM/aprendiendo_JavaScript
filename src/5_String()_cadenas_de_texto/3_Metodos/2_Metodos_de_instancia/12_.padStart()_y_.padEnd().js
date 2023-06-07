@@ -18,7 +18,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd#return_value
 
-Su sintaxis es:
+Sintaxis:
 .padStart(targetLength, padString)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart#syntax
 

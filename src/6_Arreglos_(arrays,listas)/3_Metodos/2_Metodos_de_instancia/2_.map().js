@@ -98,7 +98,7 @@ de un array existente (MAPEAR Array)
    El numero de elementos .length del array1 original
    y su copia array2 es IGUAL
 
-Su sintaxis es:
+Sintaxis:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map#syntax */
 
 // Funcion Flecha (Arrow Function):

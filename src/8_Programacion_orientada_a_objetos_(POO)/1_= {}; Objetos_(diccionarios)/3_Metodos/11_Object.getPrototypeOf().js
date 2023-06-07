@@ -22,7 +22,7 @@ Object.getPrototypeOf() devuelve el prototipo del objeto padre especificado
 El prototipo es el valor de la propiedad interna [[Prototype]]
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf#return_value
 
-Su sintaxis es:
+Sintaxis:
 Object.getPrototypeOf(nombreObjeto)
 
 Donde...

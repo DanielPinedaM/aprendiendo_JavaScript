@@ -28,7 +28,7 @@ y los numeros de menor a mayor (1, 2, 3...)
 
 .sort() modifica el orden de los elementos del array original (existente)
 
-Su sintaxis es:
+Sintaxis:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#syntax */
 
 // Sin Funcion:

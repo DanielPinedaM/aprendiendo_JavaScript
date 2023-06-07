@@ -44,7 +44,7 @@ https://developer.mozilla.org/en-US/docs/Glossary/Nullish
 
 Usar ?. cuando sea probable q la propiedad del objeto literal NO exista
 
-Su sintaxis es:
+Sintaxis:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining#syntax
 
 obj?.prop

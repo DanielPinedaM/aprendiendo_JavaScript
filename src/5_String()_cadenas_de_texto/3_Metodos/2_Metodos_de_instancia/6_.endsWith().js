@@ -21,7 +21,7 @@ en la ULTIMA PALABRA de un texto (string).
 Dentro del par de parentesis de .endsWith()
 se escribe lo q quiero buscar en el string
 
-Su sintaxis es:
+Sintaxis:
 endsWith(searchString, endPosition)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith#syntax
 

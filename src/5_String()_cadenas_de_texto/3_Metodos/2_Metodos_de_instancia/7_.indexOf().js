@@ -18,7 +18,7 @@ desde 0 de izquierda a derecha
 0 es la PRIMERA posicion (indice)
 1 "   " SEGUNDA "               "
 
-Su sintaxis es:
+Sintaxis:
 .indexOf(searchString, position)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf#syntax
 

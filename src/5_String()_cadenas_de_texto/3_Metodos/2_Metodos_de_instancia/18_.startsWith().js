@@ -23,7 +23,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 .startsWith() distingue entre MAYUSCULAS y minusculas
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith#description
 
-Su sintaxis es:
+Sintaxis:
 .startsWith(searchString, position)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith#syntax
 

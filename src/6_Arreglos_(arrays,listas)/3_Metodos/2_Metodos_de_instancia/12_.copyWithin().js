@@ -41,7 +41,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
    con el numero de elementos del array .length
    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods
 
-Su sintaxis es:
+Sintaxis:
 .copyWithin(target, start, end)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin#syntax
 

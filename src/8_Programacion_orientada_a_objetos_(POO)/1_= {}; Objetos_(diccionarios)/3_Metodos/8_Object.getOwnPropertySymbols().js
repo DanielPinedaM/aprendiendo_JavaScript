@@ -24,7 +24,7 @@ Alternativas a Object.getOwnPropertySymbols()
 | Object.values()                | Convertir a array [] los valores enumerables del objeto {} |
 |--------------------------------|------------------------------------------------------------|
 
-Su sintaxis es:
+Sintaxis:
 Object.getOwnPropertySymbols(nombreObjeto)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols#syntax
 

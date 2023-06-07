@@ -36,7 +36,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
 
-Su sintaxis es:
+Sintaxis:
 Object.assign(target, ...sources)
 Object.assign(destino, ...origenes)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#syntax

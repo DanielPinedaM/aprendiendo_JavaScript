@@ -14,7 +14,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 .replaceAll() reemplaza TODOS los caracteres q coincidan con el caracter buscado
 
-Su sintaxis es:
+Sintaxis:
 .replace(pattern, replacement)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#syntax
 

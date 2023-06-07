@@ -18,7 +18,7 @@ https://eslint.org/docs/latest/rules/no-nested-ternary
 Documentacion Oficial - Operador Condicional Ternario
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 
-Su sintaxis es:
+Sintaxis:
 condition ? ifTrue : ifFalse
 
 Donde...

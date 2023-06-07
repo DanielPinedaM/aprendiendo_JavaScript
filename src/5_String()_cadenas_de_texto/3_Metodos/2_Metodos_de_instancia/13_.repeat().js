@@ -7,7 +7,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 El string repetido se concatena (une)
 
-Su sintaxis es:
+Sintaxis:
 .repeat(count)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat#syntax
 

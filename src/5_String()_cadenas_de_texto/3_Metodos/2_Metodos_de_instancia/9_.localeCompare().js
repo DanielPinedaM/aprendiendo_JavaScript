@@ -31,7 +31,7 @@ pero lo importante es que los numeros sean negativos ó positivos.
 0 siempre es igual en todos los navegadores
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare#description
 
-Su sintaxis es:
+Sintaxis:
 str.localeCompare(str2, locales, options)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare#parameters
 

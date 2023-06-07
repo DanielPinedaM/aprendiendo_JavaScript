@@ -106,7 +106,7 @@ dependiendo de la CONDICIÓN de una FUNCIÓN (FILTRAR array)
    O la copia array2 puede tener MENOS elementos
    q el array1 original
 
-Su sintaxis es:
+Sintaxis:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter#syntax */
 
 // Funcion Flecha (Arrow Function)

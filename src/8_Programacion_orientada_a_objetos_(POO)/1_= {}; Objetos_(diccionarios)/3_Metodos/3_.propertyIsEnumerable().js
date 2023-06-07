@@ -27,7 +27,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_owners
 
 .propertyIsEnumerable() devuelve un booleano true ó false
 
-Su sintaxis es:
+Sintaxis:
 nombreObjeto.propertyIsEnumerable(nombrePropiedad)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable#syntax
 

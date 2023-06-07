@@ -24,7 +24,7 @@ Alternativas a Object.values():
 |                                | que son de tipo Symbol()                                  |
 |--------------------------------|-----------------------------------------------------------|
 
-Su sintaxis es:
+Sintaxis:
 Object.values(nombreObjeto)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values#syntax
 

@@ -19,7 +19,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 .reverse() modifica el array original (existente)
 
-Su sintaxis es:
+Sintaxis:
 .reverse()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse#syntax
 

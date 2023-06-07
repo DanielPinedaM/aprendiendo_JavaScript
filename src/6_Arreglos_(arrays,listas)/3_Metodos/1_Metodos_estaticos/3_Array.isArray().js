@@ -25,7 +25,7 @@ Array.isArray()
 devuelve false con los arrays tipados
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
-Su sintaxis es:
+Sintaxis:
 Array.isArray(value)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray#syntax
 

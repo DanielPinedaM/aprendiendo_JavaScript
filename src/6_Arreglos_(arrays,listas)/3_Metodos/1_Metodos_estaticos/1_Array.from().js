@@ -40,7 +40,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 - JSON
 - Cualquier tipo de dato que se pueda recorrer (iterar) .length
 
-Su sintaxis es:
+Sintaxis:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#syntax
 
 Funcion flecha (arrow function)

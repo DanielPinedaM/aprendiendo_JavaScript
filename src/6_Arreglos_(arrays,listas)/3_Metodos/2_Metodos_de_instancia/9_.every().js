@@ -25,7 +25,7 @@ cumplen con la condicion de una funcion
 y detiene la iteración en la posicion (indice)
 en donde encuentra el primer elemento que NO cumple con la condición.
 
-Su sintaxis es:
+Sintaxis:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every#syntax
 
 Dentro del par de parentesis ()

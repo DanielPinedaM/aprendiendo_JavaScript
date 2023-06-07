@@ -17,7 +17,7 @@ https://stackoverflow.com/questions/2464426/whats-the-difference-between-isproto
 
 .isPrototypeOf() ¿El objeto1 si está o no en la Cadena de Prototipos de Otro objeto2?
 
-Su sintaxis es:
+Sintaxis:
 nombreObjeto1.isPrototypeOf(nombreObjeto2)
 
 Object.prototype.isPrototypeOf(nombreObjeto)

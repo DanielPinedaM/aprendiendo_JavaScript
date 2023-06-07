@@ -82,7 +82,7 @@ https://www.samanthaming.com/tidbits/83-4-ways-to-convert-string-to-character-ar
 .join() devuelve un string que concatena (une) todos los elementos de un array
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects
 
-Su sintaxis es:
+Sintaxis:
 .join(separator)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join#syntax
 

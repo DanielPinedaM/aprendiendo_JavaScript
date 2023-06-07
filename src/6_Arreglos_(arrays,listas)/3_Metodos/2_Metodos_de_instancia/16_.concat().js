@@ -14,7 +14,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 .concat() crea un nuevo array q NO modifica los array existentes
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods */
 
-// Su sintaxis es:
+// Sintaxis:
 // .concat(value0, value1, /* ... ,*/ valueN)
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat#syntax
 

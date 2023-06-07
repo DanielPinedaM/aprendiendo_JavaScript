@@ -43,7 +43,7 @@ ESTABLECER el Valor del Prototipo de un objeto1 a otro objeto2. Cuando no se est
 
 El valor del prototipo esta en la propiedad interna [[Prototype]]
 
-Su sintaxis es:
+Sintaxis:
 Object.setPrototypeOf(obj, prototype)
 
 Donde...

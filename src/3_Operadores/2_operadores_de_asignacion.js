@@ -75,7 +75,7 @@ Esto x ??= y
 es lo mismo q esto x ?? (x = y);
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#short-circuiting
 
-Su sintaxis es:
+Sintaxis:
 operandoIzquierdo ??= operandoDerecho
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment#syntax
 

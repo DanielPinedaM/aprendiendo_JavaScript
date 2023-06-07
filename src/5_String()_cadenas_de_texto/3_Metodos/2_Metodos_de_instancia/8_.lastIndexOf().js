@@ -18,7 +18,7 @@ desde 0 de izquierda a derecha
 .lastIndexOf() distingue entre MAYUSCULAS y minusculas
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf#case-sensitivity
 
-Su sintaxis es:
+Sintaxis:
 .lastIndexOf(searchString, position)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf#syntax
 

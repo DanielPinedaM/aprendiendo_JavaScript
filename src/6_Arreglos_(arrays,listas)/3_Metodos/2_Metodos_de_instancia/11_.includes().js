@@ -20,7 +20,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality
 
-Su sintaxis es:
+Sintaxis:
 .includes(searchElement, fromIndex)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes#syntax
 
