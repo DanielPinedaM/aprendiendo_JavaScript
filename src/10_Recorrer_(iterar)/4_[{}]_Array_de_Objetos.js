@@ -1,6 +1,9 @@
 // @ts-nocheck
 
 /*
+Un array de objetos [ {} ] es un array []
+q contiene objetos {}
+
 Para recorrer (iterar) un array de objetos [ {} ]
 JUNTO las formas que hay para iterar arrays [] y objetos {}
 
@@ -33,19 +36,19 @@ console.log(arrayDeObjetos);
  ▄▄▄▄▄▄▄▄▄▄
  █ .map() █
  ▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+https://youtu.be/FMubfnVET74
 
 .map() obtener los objetos {}
 q estan dentro del array de objetos [ {} ] */
 
-const getObjects = arrayDeObjetos.map((objetoLiteral) => {
-  console.log(objetoLiteral);
+const getObjects = arrayDeObjetos.map((objetoLiteral, i) => {
+  console.log('i=', i, '➜', objetoLiteral);
 
   return objetoLiteral;
 });
 /*
-{ uno: 'tres', dos: 'cuatro' }
-{ uno: 'cinco', dos: 'seis' }
+'i=' 0 '➜' { uno: 'tres', dos: 'cuatro' }
+'i=' 1 '➜' { uno: 'cinco', dos: 'seis' }
 */
 
 console.log(getObjects);
@@ -97,11 +100,21 @@ console.log(getValue2.flat(Infinity));
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
 
-Object.keys() Iterar array de objetos [ {} ]
-para obtener SOLAMENTE las propiedades
+Convertir a Array [] las Propiedades (Claves) del Objeto {}
+
+Object.keys() obtener SOLAMENTE las propiedades
 cuando el nombre de las propiedades es DESCONOCIDA
 
-Se ELIMINAN los nombres de las propiedades repetidas */
+Se ELIMINAN los nombres de las propiedades repetidas
+
+[0] significa q se obtienen
+las propiedades del objeto
+q esta en la posicion (indice) 0
+del array de objetos, es decir, estas propiedades:
+{
+  uno: 'tres',
+  dos: 'cuatro',
+}, */
 
 const getProperty = Object.keys(arrayDeObjetos[0]);
 console.log(getProperty);
@@ -109,28 +122,28 @@ console.log(getProperty);
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .map()           █
  █ Object.entries() █
+ █ .map()           █
  █ .forEach()       █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
-Iterar array de objetos [ {} ]
+Iterar arrayDeObjetos [ {} ]
 para obtener las propiedad: valor,
 cuando el nombre de las propiedades es DESCONOCIDO
 
 Se itera 2 veces:
 1) .map() obtener los objetos {}
-q estan dentro del array de objetos [ {} ]
-
-2) Object.entries() y .forEach()
-Obtener las propiedad: valor, */
-
+q estan dentro del array de objetos [ {} ]  */
 const getPropertyValue = arrayDeObjetos.map((objeto) => {
+  /* 2) Object.entries() y .forEach()
+     Obtener las propiedad: valor,
+     q son los elementos del array de objetos */
   Object.entries(objeto).forEach((entry) => {
     const [propiedad, valor] = entry;
     console.log(`${propiedad} ➜ ${valor}`);

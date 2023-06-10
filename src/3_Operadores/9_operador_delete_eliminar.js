@@ -3,7 +3,7 @@
 /*
 delete Eliminar propiedad: valor, de Objeto Literal {} y Elemento de Array [] 
 
-Documentacion Oficial - Operador delete eliminar
+Documentacion Oficial - Operador delete Eliminar:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete
 
 El operador delete elimina lo siguiente:
@@ -47,7 +47,7 @@ cuando se cumplen todos estos casos:
 
 2) configurable: false la propiedad del objeto literal NO es configurable
 Ver:
-" configurable: false, y delete "  
+" Ejemplo 7 - configurable: false, y delete "
 
 3) JS esta en modo NO estricto
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete#return_value
@@ -65,7 +65,8 @@ delete da error cuando:
 
 - configurable: false la propiedad del objeto literal NO es configurable 
 
-- la propiedad del objeto literal es propia (NO Object.create() heredada)
+- la propiedad del objeto literal es propia, es decir,
+el objeto NO fue creado con Object.create() 
 
 - Se usa la palabra reservada super en el nombreObjeto 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete#exceptions
@@ -124,7 +125,7 @@ console.log(objetoLiteral);
 console.log(objetoLiteral.uno);
 // 1
 
-// delete Del objetoLiteral eliminar uno: 1,
+// delete del objetoLiteral eliminar uno: 1,
 console.log(delete objetoLiteral.uno);
 // true
 
@@ -157,7 +158,7 @@ console.log(objetoLiteral);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 2 - Eliminar propiedad: valor, de objeto literal anidado */
+// Ejemplo 2 - Eliminar propiedad: valor, de objeto literal anidado
 
 // Objeto q contiene objetos
 const objetoAnidado = {
@@ -192,7 +193,7 @@ console.log(objetoAnidado.impar);
 }
 */
 
-// delete Del objetoAnidado eliminar la propiedad impar y sus valores
+// delete del objetoAnidado eliminar la propiedad impar y sus valores
 console.log(delete objetoAnidado.impar);
 // true
 
@@ -217,7 +218,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/dele
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays
 
-al eliminar con delete elementos del array;
+Al eliminar con delete elementos del array:
 1) La longitud .length del array NO cambia
 
 2) Los elementos eliminados son reemplazados por un elemento disperso [,]
@@ -230,7 +231,7 @@ const array = ["uno", "dos", "tres"];
 console.log(array);
 // (3) ['uno', 'dos', 'tres']     -> ELEMENTO
 
-// Originalmente la longitud es 3
+// Originalmente la longitud .length es 3
 console.log(array.length);
 // 3
 
@@ -239,23 +240,23 @@ Recordatorio:
 Ver:
 " 8.5.3.4) Resumen: Diferencia Entre [] .at() .charAt() - Acceder a una Posición (Índice) de un Carácter (String) / Elemento (Array) en Especifico " 
 
-Acceder al elemento q esta en la posicion (indice) 0*/
+Acceder al elemento q esta en la posicion (indice) 0 */
 console.log(array.at(0)) // 'uno'
 console.log(array[0])    // 'uno'
 
-/*  delete NO elimina ningun elemento del array porq estoy usando .at() */
+/* delete NO elimina ningun elemento 
+del array porq estoy usando .at() */
 console.log(delete array.at(0)) // true -> .at()
 console.log(array);             // (3) ['uno', 'dos', 'tres']
 
 /* para q delete funcione se tiene q usar la notacion de corchetes []
 
-El ele
 El elemento eliminado se reemplaza 
-por un elemento disperso [,] <1 empty item>  */
+por un elemento disperso [,] <1 empty item> */
 console.log(delete array[0]) // true -> notacion de corchetes []
 console.log(array);          // (3) [ <1 empty item>, 'dos', 'tres' ]
 
-/* es por esto q la longitud del array NO cambia,
+/* es por esto q la longitud .length del array NO cambia,
 sigue siendo 3 */
 console.log(array.length);
 // 3
@@ -275,7 +276,7 @@ console.log(eliminarVacio);
 // (2) ['dos', 'tres']
 
 /* despues de .filter() SI cambia la longitud .length
-porq elimine los elementos dispersos [,] <empty item>   */
+porq elimine los elementos dispersos [,] <empty item> */
 console.log(eliminarVacio.length);
 // 2
 
@@ -299,11 +300,8 @@ let variable = "hola mundo";
 eliminación de la variable local en modo estricto
 
 delete devuelve false lo q significa q NO se elimino la variable */
-console.log(delete variable);
-// false
-
-console.log(variable);
-// "hola mundo"
+console.log(delete variable); // false
+console.log(variable);        // "hola mundo"
 
 variable = Math.PI;
 console.log(delete variable); // false
@@ -312,11 +310,11 @@ console.log(variable);        // 3.141592653589793
 function funcion(n) {
   const variable = n;
 
-  // delete NO elimina las varoables locales
+  // delete NO elimina las variables locales
   console.log(delete n) //false
   console.log(n);       // 1
 }
-funcion(1)
+funcion(1) // ejecutar funcion
 
 /* --------------------------------------------------------------- */
 
@@ -337,8 +335,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/dele
 
 /* obj1 objeto original con 
 propiedades propias (NO heredadas) */
-const obj1 = { uno:1, dos: 2 }
-console.log(obj1)
+const obj1 = { 
+  uno: 1, 
+  dos: 2 
+}
+console.log(obj1);
 /*
 { 
   uno: 1,
@@ -346,14 +347,20 @@ console.log(obj1)
 }
 */
 
-/* Object.create()
-obj2 q hereda las propiedades y metodos de obj1
+/* Object.create() obj2 q hereda las propiedades y metodos de obj1
 
 CADENA DE PROTOTIPOS: 
 obj1 -> obj2 */
 const obj2 = Object.create(obj1)
 console.log(obj2)
-// { __proto__: { uno: 1, dos: 2 } }
+/* 
+{ 
+  __proto__: { 
+               uno: 1, 
+               dos: 2 
+             } 
+}
+*/
 
 /* delete NO elimina las propiedades heredadas creadas con Object.create()
 
@@ -418,7 +425,7 @@ Ejemplo:
 A través de la asignación directa de propiedades
 
 Se puede eliminar y las referencias posteriores a ellas 
-como variables globales producirán un error ReferenceError.*/
+como variables globales producirán un error ReferenceError */
 
 globalThis.globalVar = 1;
 console.log(globalVar); 
@@ -429,5 +436,4 @@ también puede usar `delete globalVar` */
 console.log(delete globalThis.globalVar); // true
 console.log(delete globalVar)             // true
 
-console.log(globalVar); 
-// ReferenceError: globalVar no esta definido
+console.log(globalVar);                   // ReferenceError: globalVar no esta definido

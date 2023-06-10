@@ -25,6 +25,8 @@ console.log(objetoLiteral);
 */
 
 /*
+Object.entries() es la MEJOR FORMA de iterar objetoLiteral {}
+
 Con todas las siguientes formas,
 obtengo el mismo resultado:
 
@@ -38,31 +40,6 @@ que SOLAMENTE itera los valores del objetoLiteral {}
 1
 2
 3
-*/
-
-/*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ while () {} █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while
-
-INCOMPLETO
-*/
-
-/*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ do {} while () █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while
-*/
-
-/*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ for () {} █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
-
-INCOMPLETO
 */
 
 /*
@@ -84,7 +61,7 @@ for (const propiedad of ObjectKeys) {
  ▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
 
-Esto es MALA PRACTICA:
+for in para iterar objetoLiteral es MALA PRACTICA:
 https://stackoverflow.com/questions/1963102/what-does-the-jslint-error-body-of-a-for-in-should-be-wrapped-in-an-if-statemen
 
 https://eslint.org/docs/latest/rules/no-restricted-syntax
@@ -110,9 +87,11 @@ Object.keys() Convierte a array []
 .map()        Devolver un Nuevo Array con el Resultado de Ejecutar una Función
               a Cada Uno de los Elementos de un Array Existente (Mapear Array) */
 
-Object.keys(objetoLiteral).map((propiedad) => { // propiedades enumerables
+Object.keys(objetoLiteral).map((propiedad) => {
   const valor = objetoLiteral[propiedad];
   console.log(`${propiedad} ➜ ${valor}`);
+
+  // return
 });
 
 /*
@@ -129,6 +108,8 @@ con la propiedad puedo obtener el valor del objetoLiteral {} */
 Object.getOwnPropertyNames(objetoLiteral).map((propiedad) => {
   const valor = objetoLiteral[propiedad];
   console.log(`${propiedad} ➜ ${valor}`);
+
+  // return
 });
 
 /*
@@ -138,8 +119,11 @@ Object.getOwnPropertyNames(objetoLiteral).map((propiedad) => {
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
 
 Convertir a array [] los valores del objetoLiteral {} */
+
 Object.values(objetoLiteral).map((valor) => {
   console.log(valor);
+
+  // return
 });
 
 /*
@@ -150,7 +134,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Convertir el objetoLiteral {} a array [],
 el array contiene pares de [propiedad, valor] enumerables */
+
 Object.entries(objetoLiteral).map((entry) => {
   const [propiedad, valor] = entry;
   console.log(`${propiedad} ➜ ${valor}`);
+
+  // return
 });
