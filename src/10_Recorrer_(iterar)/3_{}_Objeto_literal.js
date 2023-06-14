@@ -27,8 +27,8 @@ console.log(objetoLiteral);
 /*
 Object.entries() es la MEJOR FORMA de iterar objetoLiteral {}
 
-Con todas las siguientes formas,
-obtengo el mismo resultado:
+TODAS las siguientes formas
+imprimen por consola el mismo resultado:
 
 uno  ➜ 1
 dos  ➜ 2
@@ -87,12 +87,15 @@ Object.keys() Convierte a array []
 .map()        Devolver un Nuevo Array con el Resultado de Ejecutar una Función
               a Cada Uno de los Elementos de un Array Existente (Mapear Array) */
 
-Object.keys(objetoLiteral).map((propiedad) => {
+const getProperty = Object.keys(objetoLiteral).map((propiedad) => {
   const valor = objetoLiteral[propiedad];
   console.log(`${propiedad} ➜ ${valor}`);
 
-  // return
+  return propiedad;
 });
+
+console.log(getProperty);
+// (3) ['uno', 'dos', 'tres']
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -105,12 +108,15 @@ las propiedades enumerables y no enumerables,
 NO devuelve propiedades de tipo Symbol(),
 con la propiedad puedo obtener el valor del objetoLiteral {} */
 
-Object.getOwnPropertyNames(objetoLiteral).map((propiedad) => {
+const getProperty2 = Object.getOwnPropertyNames(objetoLiteral).map((propiedad) => {
   const valor = objetoLiteral[propiedad];
   console.log(`${propiedad} ➜ ${valor}`);
 
-  // return
+  return propiedad;
 });
+
+console.log(getProperty2);
+// (3) ['uno', 'dos', 'tres']
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -120,24 +126,35 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Convertir a array [] los valores del objetoLiteral {} */
 
-Object.values(objetoLiteral).map((valor) => {
-  console.log(valor);
+const getValues = Object.values(objetoLiteral).map((valor, i) => {
+  console.log(`i=${i} ➜ valor=`, valor);
 
-  // return
+  return valor;
 });
+
+console.log(getValues);
+// (3) [1, 2, 3]
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Object.entries() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+
+Recordatorio:
+Ver:
+" Ejemplo 1 - Diferencia Entre Object.entries() y Object.fromEntries() "
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
 
 Convertir el objetoLiteral {} a array [],
 el array contiene pares de [propiedad, valor] enumerables */
 
-Object.entries(objetoLiteral).map((entry) => {
+const entries = Object.entries(objetoLiteral).map((entry) => {
   const [propiedad, valor] = entry;
   console.log(`${propiedad} ➜ ${valor}`);
 
-  // return
+  return [propiedad, valor];
 });
+
+console.log(entries);
+// (3) [ [ 'uno', 1 ], [ 'dos', 2 ], [ 'tres', 3 ] ]

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-shadow */
 // @ts-nocheck
 
@@ -22,14 +23,31 @@ console.log(objetoDeObjetos);
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Object.keys() █
+ █ .map()        █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
 
-Convertir a Array [] las Propiedades (Claves) del Objeto {}
+Object.keys() Convertir a Array [] las Propiedades (Claves) del Objeto {}
 
-Obtener el nombre de las propiedades del objeto padre objetoDeObjetos */
+Object.keys() Obtener el nombre de las propiedades del objeto padre objetoDeObjetos
 
-const getProperty = Object.keys(objetoDeObjetos);
+.map() Devolver un Nuevo Array
+con el Resultado de Ejecutar
+una Función a Cada Uno
+de los Elementos de un Array Existente (Mapear Array)
+
+Object.keys() y .map() iterar las PROPIEDADES del objetoDeObjetos */
+
+const getProperty = Object.keys(objetoDeObjetos).map((elemento, i) => {
+  console.log(`i=${i} ➜ elemento=${elemento}`);
+
+  return elemento;
+});
+/*
+'i=0 ➜ elemento=par'
+'i=1 ➜ elemento=impar'
+*/
+
 console.log(getProperty);
 // (2) ['par', 'impar']
 
@@ -39,13 +57,24 @@ console.log(getProperty);
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
 
-Convertir a Array [] los Valores Enumerables del Objeto {}
+Object.values() Convertir a Array [] los Valores Enumerables del Objeto {}
 
 En un objetoDeObjetos { {} } Object.values()
 devuelve un array de objetos [ {} ]
-q contiene los valores del objetoDeObjetos  */
+q contiene los valores del objetoDeObjetos
 
-const getValues = Object.values(objetoDeObjetos);
+Object.values() y .map() iterar los VALORES del objetoDeObjetos */
+
+const getValues = Object.values(objetoDeObjetos).map((valor, i) => {
+  console.log(`i=${i} ➜ valor=`, valor);
+
+  return valor;
+});
+/*
+'i=0 ➜ valor=' { dos: 2, cuatro: 4 }
+'i=1 ➜ valor=' { uno: 1, tres: 3 }
+*/
+
 console.log(getValues);
 /*
 [
