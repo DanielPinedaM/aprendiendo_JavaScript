@@ -25,35 +25,24 @@ console.log(objetoLiteral);
 */
 
 /*
-Object.entries() es la MEJOR FORMA de iterar objetoLiteral {}
-
-TODAS las siguientes formas
-imprimen por consola el mismo resultado:
-
-uno  ➜ 1
-dos  ➜ 2
-tres ➜ 3
-
-EXCEPTO con Object.values()
-que SOLAMENTE itera los valores del objetoLiteral {}
-
-1
-2
-3
-*/
-
-/*
  ▄▄▄▄▄▄▄▄▄▄
  █ for of █
  ▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of */
 
 const ObjectKeys = Object.keys(objetoLiteral);
+console.log(ObjectKeys);
+// (3) ['uno', 'dos', 'tres']
 
 for (const propiedad of ObjectKeys) {
   const valor = objetoLiteral[propiedad];
   console.log(`${propiedad} ➜ ${valor}`);
 }
+/*
+'uno  ➜ 1'
+'dos  ➜ 2'
+'tres ➜ 3'
+*/
 
 /*
  ▄▄▄▄▄▄▄▄▄▄
@@ -72,12 +61,21 @@ for (const propiedad in objetoLiteral) {
   const valor = objetoLiteral[propiedad];
   console.log(`${propiedad} ➜ ${valor}`);
 }
+/*
+'uno  ➜ 1'
+'dos  ➜ 2'
+'tres ➜ 3'
+*/
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Object.keys() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
+Recordatorio:
+Ver:
+" Ejemplo 1 - Diferencia Entre Object.keys() y Object.getOwnPropertyNames() "
 
 Object.keys() Convierte a array []
               SOLAMENTE las propiedades enumerables,
@@ -93,6 +91,11 @@ const getProperty = Object.keys(objetoLiteral).map((propiedad) => {
 
   return propiedad;
 });
+/*
+'uno  ➜ 1'
+'dos  ➜ 2'
+'tres ➜ 3'
+*/
 
 console.log(getProperty);
 // (3) ['uno', 'dos', 'tres']
@@ -102,6 +105,10 @@ console.log(getProperty);
  █ Object.getOwnPropertyNames() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames
+
+Recordatorio:
+Ver:
+" Ejemplo 1 - Diferencia Entre Object.keys() y Object.getOwnPropertyNames() "
 
 Object.getOwnPropertyNames() Convierte a array []
 las propiedades enumerables y no enumerables,
@@ -114,6 +121,11 @@ const getProperty2 = Object.getOwnPropertyNames(objetoLiteral).map((propiedad) =
 
   return propiedad;
 });
+/*
+'uno  ➜ 1'
+'dos  ➜ 2'
+'tres ➜ 3'
+*/
 
 console.log(getProperty2);
 // (3) ['uno', 'dos', 'tres']
@@ -131,6 +143,11 @@ const getValues = Object.values(objetoLiteral).map((valor, i) => {
 
   return valor;
 });
+/*
+'i=0 ➜ valor=' 1
+'i=1 ➜ valor=' 2
+'i=2 ➜ valor=' 3
+*/
 
 console.log(getValues);
 // (3) [1, 2, 3]
@@ -139,12 +156,13 @@ console.log(getValues);
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Object.entries() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
 
 Recordatorio:
 Ver:
 " Ejemplo 1 - Diferencia Entre Object.entries() y Object.fromEntries() "
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
+Object.entries() es la MEJOR FORMA de iterar objetoLiteral {}
 
 Convertir el objetoLiteral {} a array [],
 el array contiene pares de [propiedad, valor] enumerables */
@@ -155,6 +173,17 @@ const entries = Object.entries(objetoLiteral).map((entry) => {
 
   return [propiedad, valor];
 });
+/*
+'uno  ➜ 1'
+'dos  ➜ 2'
+'tres ➜ 3'
+*/
 
 console.log(entries);
-// (3) [ [ 'uno', 1 ], [ 'dos', 2 ], [ 'tres', 3 ] ]
+/*
+(3) [
+      [ 'uno', 1 ],
+      [ 'dos', 2 ],
+      [ 'tres', 3 ]
+    ]
+*/

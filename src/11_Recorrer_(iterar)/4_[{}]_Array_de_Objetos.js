@@ -2,7 +2,7 @@
 
 /*
 Un array de objetos [ {} ] es un array []
-q contiene objetos {}
+q dentro contiene objetos {}
 
 Para recorrer (iterar) un array de objetos [ {} ]
 JUNTO las formas que hay para iterar arrays [] y objetos {}
@@ -60,7 +60,7 @@ console.log(getObjects);
 */
 
 /* .map() Iterar array de objetos [ {} ]
-SI conozco los nombres de las propiedades  */
+SI conozco los nombres de las propiedades */
 
 const getValue = arrayDeObjetos.map((objetoLiteral) => {
   console.log(objetoLiteral.uno);
@@ -74,7 +74,6 @@ const getValue = arrayDeObjetos.map((objetoLiteral) => {
 'cinco'
 'seis'
 */
-
 console.log(getValue.flat(Infinity));
 // (4) [ 'tres', 'cuatro', 'cinco', 'seis' ]
 
@@ -90,7 +89,6 @@ const getValue2 = arrayDeObjetos.map((_, indice) => {
 'cinco'
 'seis'
 */
-
 console.log(getValue2.flat(Infinity));
 // (4) ['tres', 'cuatro', 'cinco', 'seis']
 
@@ -132,6 +130,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+
+Recordatorio:
+Ver:
+" 9.4.3.1) Resumen: Diferencia Entre .forEach() .map() .filter() .reduce() .find() "
 
 Iterar arrayDeObjetos [ {} ]
 para obtener las propiedad: valor,

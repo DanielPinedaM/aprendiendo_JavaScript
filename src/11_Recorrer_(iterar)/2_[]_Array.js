@@ -65,9 +65,14 @@ los array [] de acuerdo a la DIRECCION de iteracion:
 
 const array = ['▲', '●', '✖', '■'];
 console.log(array);
-// (4) ['▲', '●', '✖', '■']
+// (4) ['▲', '●', '✖', '■']s
+
+// El numero de ELEMENTOS (longitud, .length) del ARRAY es 4
+console.log(array.length);
+// 4
 
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ while () {} █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
@@ -85,6 +90,7 @@ while (i < array.length) {
 }
 
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ do {} while () █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
@@ -92,7 +98,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do.
 
 1) Ejecuta las instrucciones del bucle (ciclo) al menos una vez
 
-2) evalua la condicion
+2) Evalua la condicion
 
 3) Itera el array hasta que termine de cumplirse la condicion */
 
@@ -104,6 +110,7 @@ do {
 } while (i < array.length);
 
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄▄
  █ for i++ █
  ▀▀▀▀▀▀▀▀▀▀▀
@@ -118,6 +125,7 @@ for (let i = 0; i < array.length; i++) {
 }
 
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄
  █ for of █
  ▀▀▀▀▀▀▀▀▀▀
@@ -131,6 +139,7 @@ for (const elemento of array) {
 }
 
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄
  █ for in █
  ▀▀▀▀▀▀▀▀▀▀
@@ -141,6 +150,7 @@ for (const i in array) {
 }
 
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Array.from() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
@@ -157,6 +167,7 @@ console.log(copiaArray);
 // (4) ['▲', '●', '✖', '■']
 
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄▄▄
  █ .every() █
  ▀▀▀▀▀▀▀▀▀▀▀▀
@@ -176,6 +187,7 @@ array.every((elemento, i) => {
 });
 
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄▄
  █ .some() █
  ▀▀▀▀▀▀▀▀▀▀▀
@@ -196,6 +208,7 @@ array.some((elemento, i) => {
 });
 
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .forEach() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
@@ -208,6 +221,7 @@ array.forEach((elemento, i) => {
 });
 
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄
  █ .map() █
  ▀▀▀▀▀▀▀▀▀▀
@@ -228,6 +242,7 @@ console.log(copiaArray2);
 // (4) ['▲', '●', '✖', '■']
 
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .flatMap() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
@@ -248,8 +263,10 @@ const mapearAplanar = array.flatMap((elemento, i) => {
 });
 
 console.log(mapearAplanar);
+// (4) ['▲', '●', '✖', '■']
 
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .filter() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
@@ -271,7 +288,9 @@ const filtrar = array.filter((elemento, i) => {
 
 console.log(filtrar);
 // (4) ['▲', '●', '✖', '■']
+
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .reduce() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
@@ -299,6 +318,7 @@ console.log(reduce);
 // (4) ['▲', '●', '✖', '■']
 
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄▄
  █ .find() █
  ▀▀▀▀▀▀▀▀▀▀▀
@@ -316,6 +336,7 @@ array.find((elemento, i) => {
 });
 
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .findIndex() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
@@ -332,6 +353,7 @@ array.findIndex((elemento, i) => {
 });
 
 /*
+ →
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .indexOf() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
@@ -345,6 +367,7 @@ for (const elemento of array) {
 }
 
 /*
+ ←
  ▄▄▄▄▄▄▄▄▄▄▄
  █ for i-- █
  ▀▀▀▀▀▀▀▀▀▀▀
@@ -359,6 +382,7 @@ for (let i = array.length - 1; i >= 0; i--) {
 }
 
 /*
+ ←
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .reduceRight() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
@@ -376,12 +400,17 @@ derecha a izquierda ←
 .reduceRight() hace lo mismo q .reduce(),
 lo unico q cambia es el orden de iteracion */
 
-array.reduceRight((acumulador, elemento, i) => {
+const reduceRight = array.reduceRight((acumulador, elemento, i) => {
   console.log(`i=${i} ➜ elemento='${elemento}'`);
+
   return array;
 }, 0);
 
+console.log(reduceRight);
+// (4) ['▲', '●', '✖', '■']
+
 /*
+ ←
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .findLast() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
@@ -394,10 +423,11 @@ array.findLast((elemento, i) => {
 });
 
 /*
+ ←
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .lastIndexOf() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexO
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf
 
 ULTIMO Número de Posición (Índice) del Elemento Buscado */
 
@@ -407,6 +437,7 @@ for (let i = array.length - 1; i >= 0; i--) {
 }
 
 /*
+ ←
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .findLastIndex() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
@@ -422,9 +453,11 @@ array.findLastIndex((elemento, i) => {
  ▄▄▄▄▄▄▄▄▄▄▄
  █ .join() █
  ▀▀▀▀▀▀▀▀▀▀▀
-https://youtu.be/59tYAYnt_sg */
+https://youtu.be/59tYAYnt_sg
 
-const string = array.join(''); // .join() Convertir de array [] a string ""
+.join() Convertir de array [] a string "" */
+
+const string = array.join('');
 console.log(string);
 // '▲●✖■'
 
@@ -439,7 +472,7 @@ for (let i = 0; i < string.length; i++) {
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
 
-Iterador de un Array que Contiene [i, elemento]  */
+Iterador de un Array que Contiene [i, elemento] */
 
 const iterador = array.entries();
 console.log(iterador);
@@ -458,7 +491,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values
 
-Iterador de Índices .keys() y Elementos .values() de un Array */
+Iterador de Índices .keys() y Elementos .values() de un Array [] */
 
 // Posiciones (Índices) = array.keys()
 const keys = array.keys();
@@ -470,7 +503,7 @@ const values = array.values();
 console.log(values);
 // Object [Array Iterator] {}
 
-// Recorrer (iterar) array usando .keys() y .values()
+// Recorrer (iterar) array [] usando .keys() y .values()
 for (let i = 0; i < array.length; i++) {
   const indices = keys.next().value;
   const elementos = values.next().value;

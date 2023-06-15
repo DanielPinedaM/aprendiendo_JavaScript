@@ -5,7 +5,7 @@
 /* --------------------------------------------------------------- */
 
 /* Un objetoDeObjetos u objeto anidado { {} }
-es un objeto literal {} q contiene mas objetos */
+es un objeto literal {} q contiene dentro mas objetos */
 
 const objetoDeObjetos = {
 // propiedad: valor,
@@ -26,6 +26,8 @@ console.log(objetoDeObjetos);
  █ .map()        █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
+https://youtu.be/FMubfnVET74
 
 Object.keys() Convertir a Array [] las Propiedades (Claves) del Objeto {}
 
@@ -101,6 +103,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+
+Recordatorio:
+Ver:
+" 9.4.3.1) Resumen: Diferencia Entre .forEach() .map() .filter() .reduce() .find() "
 
 Iterar objetoDeObjetos { {} }
 para obtener las propiedad: valor,

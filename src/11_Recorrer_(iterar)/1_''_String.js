@@ -11,7 +11,7 @@ const string = 'hola mundo';
 console.log(string);
 // 'hola mundo'
 
-// El numero de caracteres (longitud, .length) del string es 10
+// El numero de CARACTERES (longitud, .length) del STRING es 10
 console.log(string.length);
 // 10
 
@@ -96,14 +96,17 @@ for (const i in string) {
 /*
 Recordatorio:
 Ver:
-" 8.5.3.10) Formas de Convertir de String a Array "
+- " 8.5.3.10) Formas de Convertir de String a Array "
 https://www.samanthaming.com/tidbits/83-4-ways-to-convert-string-to-character-array/
+
+- “ 14.2) [] Array ”
 
 Las formas q explique anteriormente
 sirven para iterar tipo string,
 pero si convierto de string "" a array []
 entonces puedo usar
 las formas de iterar array [] que son:
+
 - Array.from()
 - .entries()
 - .keys() y .values()
@@ -122,7 +125,8 @@ las formas de iterar array [] que son:
 - .indexOf()
 - .lastIndexOf() */
 
-const array = string.split(''); // .split() convertir de string a array
+// .split() convertir de string "" a array []
+const array = string.split('');
 console.log(array);
 // (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
 
