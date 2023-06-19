@@ -1,3 +1,6 @@
+/* eslint-disable no-promise-executor-return */
+/* eslint-disable no-await-in-loop */
+/* eslint-disable func-names */
 /* eslint-disable indent */
 /* eslint-disable max-len */
 /* eslint-disable no-restricted-syntax */
@@ -46,14 +49,80 @@ mayor (ultima) POSICION (indice) contando desde 0 */
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
 
+Ambos Array.from() y Array.fromAsync() sirven para
 convertir a ARRAY y ejecutar una funcion para cada elemento
+
+Sus diferencias son:
+1) Array.fromAsync() es ASINCRONO,
+en cambio Array.from() NO.
+Array.from() es SINCRONO.
+
+2) Array.fromAsync() sirve para objetos iterables asincrónicos,
+en cambio Array.from() sirve para objetos iterables síncronos (NO asíncronos)
+
+3) Array.fromAsync() devuelve una promesa Promise
+que cumple con la instancia del array []
+
+4) Cuando Array.fromAsync() se ejecuta con un objeto iterable NO asíncrono,
+primero se espera await a que se agregue cada elemento al array
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
+
+5) En Array.fromAsync(arrayLike, mapFn, thisArg)
+cuando se escribe mapFn se espera internamente su entrada y salida. */
+
+Array.from([1, 2, 3], (x) => x + x);
+/*
+(3) [2, 4, 6]
 
 (x) => x + x
 1 + 1 = 2
 2 + 2 = 4
 3 + 3 = 6 */
-Array.from([1, 2, 3], (x) => x + x);
-// (3) [2, 4, 6]
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Array.fromAsync() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fromAsync */
+
+const iterableAsincrono = (async function* () {
+  for (let i = 0; i < 5; i++) {
+    // Esperar 10 * i milisegundos para q el for continue con la siguiente iteracion
+    await new Promise((resolve) => setTimeout(resolve, 10 * i));
+
+    console.log(i);
+    /*
+    0
+    1
+    2
+    3
+    4
+    */
+
+    yield i;
+  }
+}());
+// Promise { <state>: "pending" }
+
+Array.fromAsync(iterableAsincrono).then((array) => console.log(array));
+// (5) [ 0, 1, 2, 3, 4 ]
+
+console.log(iterableAsincrono);
+// AsyncGenerator {  }
+
+const iterableSincrono = Array.fromAsync([1, 2, 3], (x) => x + x);
+console.log(iterableSincrono); // (3) [ 2, 4, 6 ]
+/*
+Promise { <state>: "pending" }
+        <state>: "fulfilled"
+        <value>: Array(3) [ 2, 4, 6 ]
+        <prototype>: Promise.prototype { … }
+
+(x) => x + x
+1 + 1 = 2
+2 + 2 = 4
+3 + 3 = 6
+*/
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄

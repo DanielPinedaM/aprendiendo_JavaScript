@@ -1,7 +1,13 @@
 /* eslint-disable max-len */
 // @ts-nocheck
 
-/* Documentación Oficial - .length Numero de Elementos en Array
+/*
+Tutorial de Midudev - array.length y Truncar Array
+https://youtu.be/VfO0v5tqB9A
+
+https://twitter.com/midudev/status/1488211282536943627
+
+Documentación Oficial - .length Numero de Elementos en Array
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length
 
 En arrays dependiendo de como escribas la propiedad .length tiene un significado diferente:

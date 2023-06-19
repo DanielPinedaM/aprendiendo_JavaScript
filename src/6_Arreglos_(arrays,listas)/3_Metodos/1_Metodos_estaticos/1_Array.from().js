@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable func-names */
 /* eslint-disable prefer-arrow-callback */
 /* eslint-disable prefer-rest-params */
@@ -6,16 +7,53 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable quotes */
 
-/* Documentacion Oficial...
+/* ------------------------------------------------ */
+
+/*
+Documentacion Oficial...
 - Array.from()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
 
-- TypedArray.from() Array.from en arrays con tipos de datos
+- TypedArray.from() Array.from() en arrays con tipos de datos
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/from
+
+9.4.2.1.1) Diferencias y Similitudes Entre Array.from() y Array.fromAsync()
+
+Similitud:
+Ambos Array.from() y Array.fromAsync() sirven para
+Convertir a Array
+y Ejecutar una Función para Cada Elemento
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fromAsync#description
+
+Diferencias:
+1) Array.fromAsync() es ASINCRONO,
+en cambio Array.from() NO.
+Array.from() es SINCRONO.
+
+2) Array.fromAsync() sirve para objetos iterables asincrónicos,
+en cambio Array.from() sirve para objetos iterables síncronos (NO asíncronos)
+
+3) Array.fromAsync() devuelve una promesa Promise
+que cumple con la instancia del array
+
+4) Cuando Array.fromAsync() se ejecuta con un objeto iterable NO asíncrono,
+primero se espera await a que se agregue cada elemento al array
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
+
+5) En Array.fromAsync(arrayLike, mapFn, thisArg)
+cuando se escribe mapFn se espera internamente su entrada y salida.
+
+Lo anterior significa que
+todo lo q explicare a continuación
+en esta sección 9.4.2.1) Array.from()
+también aplica para
+la siguiente sección 9.4.2.2) Array.fromAsync()
 
 Recordatorio:
 Ver:
-\aprendiendo_JS\src\5_String()_cadenas_de_texto\3_Metodos\2_Metodos_de_instancia
+- “ 9.4.2.2) Array.fromAsync() De Forma Asíncrona, Convertir a Array y Ejecutar una Función para Cada Elemento ”
+
+- “ 9.4.3.1.2) .map() Devolver un Nuevo Array con el Resultado de Ejecutar una Función a Cada Uno de los Elementos de un Array Existente (Mapear Array) ”
 
 Array.from()
 Convertir a Array
@@ -25,11 +63,13 @@ Array.from()
 crea un nuevo array
 haciendo una copia
 y ejecuta una funcion
-para cada uno de los elementos
+para cada uno de los elementos del array
 
 Array.from()
 convierte a array lo siguiente:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#description
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fromAsync#description
 
 - '' string (texto)
 - Objetos iterables, como por ejemplo
@@ -38,19 +78,24 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
   set
 - Array
 - JSON
-- Cualquier tipo de dato que se pueda recorrer (iterar) .length
+- Cualquier tipo de dato que se pueda recorrer (iterar) .length (objeto iterable)
 
 Sintaxis:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#syntax
 
-Funcion flecha (arrow function)
-Array.from(arrayLike, (element, index) => { })
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fromAsync#syntax
 
-Mapear Funcion (Mapping function)
+() => {} Función flecha (arrow function)
+Array.from(arrayLike, (element, index) => { })
+Array.fromAsync(arrayLike, (element, index) => { })
+
+Mapear funcion (Mapping function)
 Array.from(arrayLike, mapFn, thisArg)
+Array.fromAsync(arrayLike, mapFn, thisArg)
 
 Mapear funcion en una sola linea (inline mapping function)
 Array.from(arrayLike, function (element, index) { }, thisArg)
+Array.fromAsync(arrayLike, function (element, index) { }, thisArg)
 
 Donde...
 - arrayLike
@@ -179,6 +224,7 @@ entonces sumar
 3 + 3 = 6
 
 y el array resultante es [2, 4, 6] */
+
 console.log(Array.from([1, 2, 3], (x) => x + x));
 /* (3) [2, 4, 6]
 0: 2
@@ -242,8 +288,10 @@ length: 2
 
 /* ------------------------------------------------ */
 
-/* Ejemplo 7 - convertir objeto Map() a Array:
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#array_from_a_map */
+/* Ejemplo 7 - convertir objeto new Map() a Array:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#array_from_a_map
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fromAsync#array_from_a_sync_iterable */
 
 const map = new Map([
 // [clave, valor]
