@@ -1,10 +1,12 @@
 /* eslint-disable indent */
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable max-len */
-
 // @ts-nocheck
 
-/* Tutorial:
+/* --------------------------------------------------- */
+
+/*
+Tutorial:
 https://youtube.com/shorts/UNIR2RU8mXA?feature=share
 
 Documentacion Oficial - .copyWithin()
@@ -47,7 +49,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 1) .copyWithin()
-   Es el nombre del metodo
+   Nombre del método
 
 2) target
 2.1) target es obligatorio

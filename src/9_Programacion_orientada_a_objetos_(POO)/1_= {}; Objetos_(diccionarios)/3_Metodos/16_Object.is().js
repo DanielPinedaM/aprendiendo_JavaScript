@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 
+/* --------------------------------------------------- */
+
 /*
 Object.is() lo escribi en otra seccion, ver:
 

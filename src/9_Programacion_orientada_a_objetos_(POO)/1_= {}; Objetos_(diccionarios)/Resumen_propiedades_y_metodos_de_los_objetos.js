@@ -1,7 +1,6 @@
 /* eslint-disable no-compare-neg-zero */
 /* eslint-disable no-self-compare */
 /* eslint-disable use-isnan */
-
 /* eslint-disable no-prototype-builtins */
 // @ts-nocheck
 /* eslint-disable array-callback-return */

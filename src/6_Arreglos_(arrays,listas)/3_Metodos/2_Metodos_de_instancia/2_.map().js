@@ -1,9 +1,10 @@
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
 /* eslint-disable no-sparse-arrays */
-
 /* eslint-disable max-len */
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /*
 Recordatorio:
@@ -112,7 +113,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 /* Donde...
 - .map()
-Es el nombre del metodo
+Nombre del método
 
 - callbackFn
 Retorna una copia array2 del array1 original (mapear array)
@@ -193,10 +194,10 @@ const iterar = figuras.map((elemento, i) => {
   return elemento;
 });
 /*
-i = 0 | elemento = '▲'
-i = 1 | elemento = '●'
-i = 2 | elemento = '✖'
-i = 3 | elemento = '■'
+i=0 | elemento = '▲'
+i=1 | elemento = '●'
+i=2 | elemento = '✖'
+i=3 | elemento = '■'
 */
 
 console.log(iterar); // (4) ['▲', '●', '✖', '■']

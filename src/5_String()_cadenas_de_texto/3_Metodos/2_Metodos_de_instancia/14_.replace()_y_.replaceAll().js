@@ -1,6 +1,9 @@
 // @ts-nocheck
 
-/* Documentacion Oficial...
+/* --------------------------------------------------- */
+
+/*
+Documentacion Oficial...
 - .replace() con strings:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
 
@@ -23,7 +26,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .replace() y .replaceAll()
-Es el nombre del metodo
+Nombre del método
 
 - pattern
 Es el caracter BUSCADO en el string que quiero reemplazar,

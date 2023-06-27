@@ -2,11 +2,12 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-shadow */
-
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /* Tutorial - Diferencia Entre .every() y .some()
 https://youtu.be/sVO65BeJjq8
@@ -42,7 +43,7 @@ del metodo .every() va una funcion */
 
 /* Donde...
 - .every()
-Es el nombre del metodo
+Nombre del método
 
 - callbackFn
 * Es una funcion que se ejecuta

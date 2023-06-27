@@ -4,6 +4,8 @@
 /* eslint-disable max-len */
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /*
 Object.setPrototypeOf() ESTABLECER el Valor del Prototipo __proto__  de un objeto1 a otro objeto2 o null
 
@@ -48,7 +50,7 @@ Object.setPrototypeOf(obj, prototype)
 
 Donde...
 - Object.setPrototypeOf()
-Es el nombre del metodo
+Nombre del método
 
 - obj
 Objeto hijo en el q se establece (define) el prototipo

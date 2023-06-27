@@ -1,5 +1,7 @@
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /*
 .startsWith()
 ¿El String ... EMPIEZA por los Caracteres ...?,
@@ -29,7 +31,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .startsWith()
-Es el nombre del metodo
+Nombre del método
 
 - searchString
 Es un string,

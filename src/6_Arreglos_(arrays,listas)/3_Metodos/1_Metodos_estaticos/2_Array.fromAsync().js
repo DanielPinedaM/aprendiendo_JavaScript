@@ -12,6 +12,14 @@
 /*
 Array.fromAsync() De Forma Asíncrona, Convertir a Array y Ejecutar una Función para Cada Elemento
 
+IMPORTANTE:
+A la fecha que escribo esto Junio 2023
+Array.fromAsync() NO es compatible con todos los navegadores,
+pero en un futuro esto cambiará y si será compatible
+
+Can I Use - Array.fromAsync()
+https://caniuse.com/mdn-javascript_builtins_array_fromasync
+
 Recordatorio:
 Ver:
 - " 9.4.2.1.1) Diferencias y Similitudes Entre Array.from() y Array.fromAsync() "
@@ -38,30 +46,33 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-Array.fromAsync() itera de forma similar a for await...of
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of
-
-Array.fromAsync() es lo mismo que (alternativa a Array.fromAsync() ):
+for await...of es una alternativa a Array.fromAsync() porque ambos iteran de forma similar:
 https://stackoverflow.com/questions/58668361/how-can-i-convert-an-async-iterator-to-an-array
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of
 
 const array = [];
 for await (const elemento of asyncElemento) {
   array.push(elemento);
 }
 
+Diferencias y Similitudes Entre Array.fromAsync() y Promise.all()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fromAsync#description
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
+
+Similitud:
 Ambos Array.fromAsync() y Promise.all() convierten
 un iterable de promesas en una promesa de array.
 Las diferencias son:
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fromAsync#description
+Diferencias:
 1) Array.fromAsync() espera CADA UNO DE LOS VALORES producidos por el objeto secuencialmente, en cambio,
 Promise.all() espera TODOS los valores en paralelo.
 
 2) Array.fromAsync() itera el iterable perezosamente (lazy load)
 y NO recupera el siguiente valor hasta q se obtenga el actual, en cambio,
-Promise.all() recupera TODOS los valores por adelantado y los espera a todos.
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all */
+Promise.all() recupera TODOS los valores por adelantado y los espera a todos. */
 
 /* ------------------------------------------------ */
 
@@ -95,13 +106,8 @@ console.log(iterableAsincrono);
 
 /* ------------------------------------------------ */
 
-/* Ejemplo 2 - Ejecutar Array.fromAsync() de forma SINCRONA (NO Asincrona)
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fromAsync#array_from_a_sync_iterable
-
-(x) => x + x
-1 + 1 = 2
-2 + 2 = 4
-3 + 3 = 6 */
+/* Ejemplo 2 - Ejecutar Array.fromAsync() de forma SINCRONA (NO asincrona)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fromAsync#array_from_a_sync_iterable */
 
 const iterableSincrono = Array.fromAsync([1, 2, 3], (x) => x + x);
 console.log(iterableSincrono); // (3) [ 2, 4, 6 ]
@@ -110,6 +116,11 @@ Promise { <state>: "pending" }
         <state>: "fulfilled"
         <value>: Array(3) [ 2, 4, 6 ]
         <prototype>: Promise.prototype { … }
+
+(x) => x + x
+1 + 1 = 2
+2 + 2 = 4
+3 + 3 = 6
 */
 
 /* ------------------------------------------------ */
@@ -186,7 +197,7 @@ son esperadas internamente por Array.fromAsync()
 Ejecutar promesa Promise() despues de setTimeout() 100 milisegundos
 
 El parametro v de la funcion valorRetrasado(v)
-se devuelve (obtiene) despues de 100 milisegundos  */
+se devuelve (obtiene) despues de 100 milisegundos */
 
 function valorRetrasado(v) {
   return new Promise((resolve) => setTimeout(() => resolve(v), 100));
@@ -224,7 +235,7 @@ Array.fromAsync(
 
 /* ------------------------------------------------ */
 
-/* Ejemplo 7 - Array.fromAsync() y Promise.all()
+/* Ejemplo 7 - Diferencia Entre Array.fromAsync() y Promise.all()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fromAsync#comparison_with_promise.all
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all */
@@ -247,7 +258,7 @@ function* hacerAsyncIterable() {
 }
 
 /*
-Funcion (() => { })(); Auto-ejecutable (IIFE) y async asincrona
+Funcion auto-ejecutable (IIFE) y asincrona
 (async () => {
   // …
 })();
@@ -303,14 +314,14 @@ function* funcionGeneradoraConPromesasRechazadas() {
    -> NO se imprime 'llamado final' <-
 */
 
-/* Para imprimir 'llamado final' y cewrrar el iterador,
+/* Para imprimir 'llamado final' y cerrar el iterador,
 se tiene q usar el bucle for...of y dentro un await para cada valor */
 
 (async () => {
   const arr = [];
   try {
-    for (const val of funcionGeneradoraConPromesasRechazadas()) {
-      arr.push(await val);
+    for (const valor of funcionGeneradoraConPromesasRechazadas()) {
+      arr.push(await valor);
     }
   } catch (e) {
     console.log('atrapar', e);

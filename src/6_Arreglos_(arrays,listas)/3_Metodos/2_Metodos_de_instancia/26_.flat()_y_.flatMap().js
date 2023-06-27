@@ -1,11 +1,12 @@
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable max-len */
-
 /* eslint-disable indent */
 // @ts-nocheck
 
-/* Diferencias y Similitudes Entre .flat() y .flatMap()
-   - Aplanar Array Anidado (Flatten Nested Array)
+/* --------------------------------------------------- */
+
+/*
+Diferencias y Similitudes Entre .flat() y .flatMap() - Aplanar Array Anidado (Flatten Nested Array)
 
 Tutorial:
 https://youtu.be/em_Vh7ZGrnw
@@ -87,7 +88,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .flat()
-Es el nombre del metodo
+Nombre del método
 
 - depth
 * Es opcional escribirlo
@@ -114,7 +115,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 /*
 Donde...
 - .flatMap()
-Es el nombre del metodo
+Nombre del método
 
 - callbackFn
 * Funcion que crea un nuevo array2

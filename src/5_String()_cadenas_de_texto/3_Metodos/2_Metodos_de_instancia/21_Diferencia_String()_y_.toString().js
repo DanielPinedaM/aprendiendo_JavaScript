@@ -1,8 +1,10 @@
 /* eslint-disable max-len */
-
 // @ts-nocheck
 
-/* Convertir a Texto
+/* --------------------------------------------------- */
+
+/*
+Convertir a Texto
 
 Stack Overflow - Diferencia Entre String() y .toString()
 https://stackoverflow.com/questions/3945202/whats-the-difference-between-stringvalue-vs-value-tostring

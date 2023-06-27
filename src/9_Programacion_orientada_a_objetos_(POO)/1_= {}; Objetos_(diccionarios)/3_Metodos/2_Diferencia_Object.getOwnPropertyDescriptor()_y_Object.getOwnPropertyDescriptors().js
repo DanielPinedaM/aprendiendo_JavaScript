@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /*
 Diferencias y Similitudes Entre Object.getOwnPropertyDescriptor() y Object.getOwnPropertyDescriptors()
 Descripción del Objeto:
@@ -46,7 +48,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - Object.getOwnPropertyDescriptor() y Object.getOwnPropertyDescriptors()
-Es el nombre del metodo
+Nombre del método
 
 - nombreObjeto
 Nombre de la variable que contiene el objeto literal {}

@@ -5,6 +5,8 @@
 /* eslint-disable no-new-wrappers */
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /* Tutorial Jon Mircha
 = {}; Objetos (Diccionarios)
 https://youtu.be/4xig5UPRC00 */

@@ -1,9 +1,10 @@
 /* eslint-disable symbol-description */
-
 /* eslint-disable max-len */
 /* eslint-disable func-names */
 /* eslint-disable prefer-arrow-callback */
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /* Documentacion Oficial - Array.isArray()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
@@ -31,7 +32,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - Array.isArray()
-Es el nombre del metodo
+Nombre del método
 
 - value
 Es el valor (dato, variable)

@@ -4,6 +4,8 @@
 /* eslint-disable func-names */
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /* Curso de Fazt en YouTube de POO en JS:
 https://www.youtube.com/watch?v=N_t1A39IB_8&t=318s */
 

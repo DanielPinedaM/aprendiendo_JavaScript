@@ -1,6 +1,7 @@
 /* eslint-disable no-sparse-arrays */
-
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /* Documentacion Oficial - .includes()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
@@ -26,7 +27,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .includes()
-Es el nombre del metodo
+Nombre del método
 
 - searchElement
 * Es obligatorio escribirlo

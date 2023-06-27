@@ -4,9 +4,32 @@
 /* eslint-disable indent */
 /* eslint-disable max-len */
 /* eslint-disable no-restricted-syntax */
-
 /* eslint-disable no-unused-expressions */
 // @ts-nocheck
+
+/* -------------------------------------------------------------- */
+
+/*
+Importar libreria .group()
+
+https://github.com/es-shims/Array.prototype.group
+
+https://github.com/tc39/proposal-array-grouping
+
+npm install -D array.prototype.group
+
+En un futuro cuando .group() sea compatible con todos los navegadores
+entonces NO habrá q instalar ninguna libreria para q funcione .group()
+
+Can I Use - .group()
+https://caniuse.com/mdn-javascript_builtins_array_group */
+
+const assert = require('assert');
+const group = require('array.prototype.group');
+
+// when Array#group is present
+const shimmed = group.shim();
+assert.equal(shimmed, Array.prototype.group);
 
 /* -------------------------------------------------------------- */
 
@@ -49,10 +72,11 @@ mayor (ultima) POSICION (indice) contando desde 0 */
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
 
+Similitud:
 Ambos Array.from() y Array.fromAsync() sirven para
 convertir a ARRAY y ejecutar una funcion para cada elemento
 
-Sus diferencias son:
+Diferencias:
 1) Array.fromAsync() es ASINCRONO,
 en cambio Array.from() NO.
 Array.from() es SINCRONO.
@@ -314,7 +338,7 @@ ULTIMO numero de posicion (indice) del circulo '●' */
 //                 ↑
 
 // -1 significa q el elemento triangulo '▲' NO existe en el array
-['■', '●', '■', '●'].findLastIndex((elemento) => elemento === '▲'); // -1
+['■', '●', '■', '●'].findLastIndex((elemento) => elemento === '▲');   // -1
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄
@@ -379,6 +403,61 @@ buscar el circulo '●' A PARTIR de la posicion (indice) -3 hacia adelante (-3, 
 // false porq el circulo '●' NO esta en posiciones -2 NI -1
   ['■', '●', '■', '■'].includes('●', -2); // false
 // -4   -3   -2   -1
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .group()      █
+ █ .groupToMap() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://youtu.be/LnqjvuwA83s
+
+AGRUPAR array [] dependiendo de la condición de la función
+
+AGRUPAR (juntar) los circulos '●'
+y las otras figuras q NO son circulo, es decir, '▲' y '✖')
+
+.group()
+1) Retorna return un objeto literal {}
+   Objeto prototipo null
+   [Object: null prototype]
+
+2) Las CONDICIONES de tipo String()
+   son 'circulo' y 'otraFigura',
+   son los nombres de las propiedades
+
+Tambien pueden ser tipo Symbol() */
+
+['▲', '●', '✖', '●'].group((x) => (x === '●' ? 'circulo' : 'otraFigura'));
+//     ↑         ↑
+/*
+[Object: null prototype] {
+  otraFigura: [ '▲', '✖' ],
+  circulo:    [ '●', '●' ]
+}
+*/
+
+/* En cambio, .groupToMap()
+1) retorna return un objeto Map
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+
+2) Las VARIABLES circulo y otraFigura
+q pueden ser CUALQUIER tipo de dato,
+son los nombres de las propiedades */
+
+const circulo = { circulo: true };
+const otraFigura = { otraFigura: true };
+
+console.log(circulo);    // { circulo: true }
+console.log(otraFigura); // { otraFigura: true }
+
+['▲', '●', '✖', '●'].groupToMap((x) => (x === '●' ? circulo : otraFigura));
+//     ↑         ↑
+/*
+=> Map {
+        { otraFigura: true }: [ '▲', '✖' ],
+        { circulo: true }:    [ '●', '●' ]
+       }
+*/
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄

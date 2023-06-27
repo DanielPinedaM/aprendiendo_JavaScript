@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
-
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable max-len */
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /*
 Recordatorio:
@@ -120,7 +121,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 /* Donde...
 - .filter()
-Es el nombre del metodo
+Nombre del método
 
 - callbackFn
 * Es una funcion que se ejecuta

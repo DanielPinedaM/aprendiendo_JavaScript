@@ -1,8 +1,9 @@
 /* eslint-disable max-len */
 /* eslint-disable no-restricted-syntax */
-
 /* eslint-disable no-self-compare */
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /*
 Diferencias y Similitudes Entre
@@ -68,7 +69,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - Object.freeze() Object.seal() y Object.preventExtensions()
-Es el nombre del metodo
+Nombre del método
 
 - nombreObjeto
 Es el nombre de la variable del objeto literal {} */

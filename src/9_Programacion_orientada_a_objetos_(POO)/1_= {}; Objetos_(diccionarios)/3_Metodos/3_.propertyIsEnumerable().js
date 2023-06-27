@@ -3,6 +3,8 @@
 /* eslint-disable array-callback-return */
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /*
 .propertyIsEnumerable() ¿La propiedad: valor, si es o no Enumerable?
 
@@ -36,7 +38,7 @@ Donde...
 Nombre de la variable que contiene el objeto literal {}
 
 - .propertyIsEnumerable()
-Es el nombre del metodo
+Nombre del método
 
 - nombrePropiedad
 * Nombre de la propiedad del objeto literal {}

@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /*
 Diferencias y Similitudes Entre Object.isFrozen() Object.isSealed() y Object.isExtensible() - ¿El Objeto es INmutable o MUtable?
 
@@ -78,7 +80,7 @@ Donde...
 - Object.isFrozen()
 Object.isSealed()
 Object.isExtensible()
-Es el nombre del metodo
+Nombre del método
 
 - nombreObjeto
 Nombre del objeto

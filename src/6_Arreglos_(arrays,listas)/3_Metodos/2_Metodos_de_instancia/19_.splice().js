@@ -1,9 +1,11 @@
 /* eslint-disable no-sparse-arrays */
-
 /* eslint-disable max-len */
 // @ts-nocheck
 
-/* Tutorial:
+/* --------------------------------------------------- */
+
+/*
+Tutorial:
 https://youtu.be/luXkteqv0I8
 
 Documentacion Oficial - .splice()
@@ -30,7 +32,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .splice()
-Es el nombre del metodo
+Nombre del método
 
 - start
 * Es obligatorio escribirlo

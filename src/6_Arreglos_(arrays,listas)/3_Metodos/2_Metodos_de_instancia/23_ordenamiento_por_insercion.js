@@ -2,7 +2,10 @@
 /* eslint-disable no-plusplus */
 // @ts-nocheck
 
-/* Wikipedia...
+/* --------------------------------------------------- */
+
+/*
+Wikipedia...
 - Algoritmos de Ordenamiento:
 https://en.wikipedia.org/wiki/Sorting_algorithm
 

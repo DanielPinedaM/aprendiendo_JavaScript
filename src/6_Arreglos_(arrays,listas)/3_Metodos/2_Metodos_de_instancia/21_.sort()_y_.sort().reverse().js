@@ -1,9 +1,11 @@
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable max-len */
-
 // @ts-nocheck
 
-/* Wikipedia - Algoritmos de Ordenamiento:
+/* --------------------------------------------------- */
+
+/*
+Wikipedia - Algoritmos de Ordenamiento:
 https://en.wikipedia.org/wiki/Sorting_algorithm
 
 https://en.wikipedia.org/wiki/Category:Sorting_algorithms
@@ -46,7 +48,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 /*
 Donde...
 - .sort()
-Es el nombre del metodo
+Nombre del método
 
 - compareFn
 * Es opcional escribirlo

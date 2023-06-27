@@ -1,5 +1,7 @@
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /* Stack Overflow - Diferencia Entre .toLowerCase() y .toLocaleLowerCase()
 https://stackoverflow.com/questions/34283414/difference-between-tolocalelowercase-and-tolowercase
 

@@ -1,11 +1,12 @@
 /* eslint-disable max-len */
-
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-plusplus */
 /* eslint-disable array-callback-return */
 /* eslint-disable indent */
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /*
 Recordatorio:
@@ -128,7 +129,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 /*
 Donde...
 - .find()
-Es el nombre del metodo
+Nombre del método
 
 - callbackFn
 * Es una funcion que se ejecuta

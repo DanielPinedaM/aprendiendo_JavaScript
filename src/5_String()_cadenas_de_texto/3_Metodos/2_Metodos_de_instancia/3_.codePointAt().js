@@ -1,6 +1,8 @@
 // @ts-nocheck
 /* eslint-disable prefer-const */
 
+/* --------------------------------------------------- */
+
 /* Documentacion Oficial - .codePointAt()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt
 

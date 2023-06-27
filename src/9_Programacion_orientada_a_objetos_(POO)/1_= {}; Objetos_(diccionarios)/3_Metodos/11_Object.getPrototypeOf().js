@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
 /* eslint-disable no-self-compare */
-
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /*
 Documentación Oficial…
@@ -27,7 +28,7 @@ Object.getPrototypeOf(nombreObjeto)
 
 Donde...
 - Object.getPrototypeOf()
-Es el nombre del metodo
+Nombre del método
 
 - nombreObjeto
 * Nombre de la variable que contiene el objeto

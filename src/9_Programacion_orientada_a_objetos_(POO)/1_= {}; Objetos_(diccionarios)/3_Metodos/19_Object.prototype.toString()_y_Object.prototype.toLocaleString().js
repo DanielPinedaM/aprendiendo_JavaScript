@@ -1,6 +1,8 @@
 // @ts-nocheck
 /* eslint-disable max-len */
 
+/* --------------------------------------------------- */
+
 /*
 Object.prototype.toString() y Object.prototype.toLocaleString()
 ya los explique antes,

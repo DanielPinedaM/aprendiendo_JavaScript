@@ -1,6 +1,9 @@
 // @ts-nocheck
 
-/* Documentacion Oficial - .normalize()
+/* --------------------------------------------------- */
+
+/*
+Documentacion Oficial - .normalize()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize
 
 .normalize() devuelve la "Forma de Normalización Unicode" de un string

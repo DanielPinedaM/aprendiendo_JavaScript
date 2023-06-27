@@ -1,5 +1,7 @@
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /* Documentacion Oficial - String.fromCodePoint()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint
 

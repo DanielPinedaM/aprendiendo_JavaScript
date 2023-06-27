@@ -1,9 +1,11 @@
 /* eslint-disable max-len */
-
 /* eslint-disable no-sparse-arrays */
 // @ts-nocheck
 
-/* Documentacion Oficial - .reverse()
+/* --------------------------------------------------- */
+
+/*
+Documentacion Oficial - .reverse()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
 
 .reverse() usa el algoritmo en el lugar
@@ -25,7 +27,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .reverse()
-Es el nombre del metodo */
+Nombre del método */
 
 /* --------------------------------------------------------------- */
 

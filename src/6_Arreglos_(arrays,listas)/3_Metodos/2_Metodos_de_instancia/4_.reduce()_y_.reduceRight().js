@@ -4,11 +4,12 @@
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable array-callback-return */
 /* eslint-disable indent */
-
 /* eslint-disable spaced-comment */
 /* eslint-disable max-len */
 /* eslint-disable no-trailing-spaces */
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /* 
 Recordatorio:
@@ -153,7 +154,7 @@ Donde...
 Es un array
 
 - .reduce() y .reduceRight()
-Es el nombre del metodo
+Nombre del método
 
 - funcionRetrollamada
 * Es una funcion que se ejecuta

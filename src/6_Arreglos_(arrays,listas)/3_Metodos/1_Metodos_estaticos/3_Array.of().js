@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
-
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /* Documentacion Oficial - Array.of()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of
@@ -17,7 +18,7 @@ van los argumentos que pueden ser:
 
 // Donde...
 // - Array.of()
-// Es el nombre del metodo
+// Nombre del método
 
 // - element0, element1, /* … ,*/ elementN
 // Son los argumentos,

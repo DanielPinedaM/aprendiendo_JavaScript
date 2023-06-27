@@ -1,5 +1,31 @@
 // @ts-nocheck
 
+/* -------------------------------------------------------------- */
+
+/*
+Importar libreria .group()
+
+https://github.com/es-shims/Array.prototype.group
+
+https://github.com/tc39/proposal-array-grouping
+
+npm install -D array.prototype.group
+
+En un futuro cuando .group() sea compatible con todos los navegadores
+entonces NO habrá q instalar ninguna libreria para q funcione .group()
+
+Can I Use - .group()
+https://caniuse.com/mdn-javascript_builtins_array_group */
+
+const assert = require('assert');
+const group = require('array.prototype.group');
+
+// when Array#group is present
+const shimmed = group.shim();
+assert.equal(shimmed, Array.prototype.group);
+
+/* -------------------------------------------------------------- */
+
 /*
 Un array de objetos [ {} ] es un array []
 q dentro contiene objetos {}
@@ -13,6 +39,8 @@ pero en este link hay mas formas:
 Techie Delight - Recorrer (Iterar) Array de Objetos [ {} ]
 https://www.techiedelight.com/loop-through-array-of-objects-javascript/
 */
+
+/* -------------------------------------------------------------- */
 
 const arrayDeObjetos = [
   {
@@ -65,6 +93,7 @@ SI conozco los nombres de las propiedades */
 const getValue = arrayDeObjetos.map((objetoLiteral) => {
   console.log(objetoLiteral.uno);
   console.log(objetoLiteral.dos);
+  console.log('---');
 
   return [objetoLiteral.uno, objetoLiteral.dos];
 });
@@ -80,6 +109,7 @@ console.log(getValue.flat(Infinity));
 const getValue2 = arrayDeObjetos.map((_, indice) => {
   console.log(arrayDeObjetos[indice].uno);
   console.log(arrayDeObjetos[indice].dos);
+  console.log('---');
 
   return [arrayDeObjetos[indice].uno, arrayDeObjetos[indice].dos];
 });
@@ -91,6 +121,45 @@ const getValue2 = arrayDeObjetos.map((_, indice) => {
 */
 console.log(getValue2.flat(Infinity));
 // (4) ['tres', 'cuatro', 'cinco', 'seis']
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .group() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀
+https://youtu.be/LnqjvuwA83s
+
+.group() AGRUPAR array [] dependiendo de la condición de la función
+
+.group() Iterar array de objetos [ {} ]
+SI conozco los nombres de las propiedades
+
+Con la desestructuracion { uno, dos }
+puedo acceder a cada uno de los valores de la propiedad del objeto {}
+q esta dentro del array de objetos [ {} ] */
+
+const agrupar = arrayDeObjetos.group(({ uno, dos }, i) => {
+  console.log(`i=${i} → uno → ${uno}`);
+  console.log(`i=${i} → dos → ${dos}`);
+  console.log('---');
+
+  return 'nombrePropiedad';
+});
+/*
+i=0 → uno → tres
+i=0 → dos → cuatro
+---
+i=1 → uno → cinco
+i=1 → dos → seis
+---
+*/
+
+console.log(agrupar.nombrePropiedad);
+/*
+[
+  { uno: 'tres', dos: 'cuatro' },
+  { uno: 'cinco', dos: 'seis' }
+]
+*/
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄

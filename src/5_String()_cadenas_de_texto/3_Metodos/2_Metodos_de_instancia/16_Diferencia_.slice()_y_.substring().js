@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
-
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /*
 Stack Overflow - Diferencia Entre .slice() y .substring()

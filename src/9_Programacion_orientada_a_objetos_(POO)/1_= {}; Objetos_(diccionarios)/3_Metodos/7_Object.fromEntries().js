@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /*
 Object.fromEntries() Convertir de Array Anidado que Contiene [propiedad, valor] a Objeto Literal {}
 
@@ -18,7 +20,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - Object.fromEntries()
-Es el nombre del metodo
+Nombre del método
 
 - iterable
 * Es un objeto iterable

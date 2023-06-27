@@ -1,6 +1,9 @@
 // @ts-nocheck
 
-/* Documentacion Oficial - .localeCompare()
+/* --------------------------------------------------- */
+
+/*
+Documentacion Oficial - .localeCompare()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
 
 .localeCompare() compara entre dos strings para saber

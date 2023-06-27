@@ -1,8 +1,9 @@
 /* eslint-disable max-len */
 /* eslint-disable indent */
 /* eslint-disable no-sparse-arrays */
-
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /*
 ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -88,7 +89,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .join()
-Es el nombre del metodo
+Nombre del método
 
 - separator
 * Es opcional escribirlo

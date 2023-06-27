@@ -1,11 +1,13 @@
 /* eslint-disable array-callback-return */
-
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable no-shadow */
 /* eslint-disable no-restricted-syntax */
 // @ts-nocheck
 
-/* Documentacion Oficial...
+/* --------------------------------------------------- */
+
+/*
+Documentacion Oficial...
 - .keys()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/keys
 
@@ -20,7 +22,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .keys()
-Es el nombre del metodo
+Nombre del método
 
 La sintaxis de .values() es:
 .values()
@@ -28,7 +30,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .values()
-Es el nombre del metodo */
+Nombre del método */
 
 /* --------------------------------------------------------------- */
 

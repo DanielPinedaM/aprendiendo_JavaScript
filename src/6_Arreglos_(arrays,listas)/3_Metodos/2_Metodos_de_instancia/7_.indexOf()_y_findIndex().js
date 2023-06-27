@@ -3,11 +3,12 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable array-callback-return */
 /* eslint-disable indent */
-
 /* eslint-disable no-plusplus */
 /* eslint-disable max-len */
 /* eslint-disable no-sparse-arrays */
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /*
 Diferencias y Similitudes Entre .indexOf() y .findIndex() -
@@ -89,7 +90,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .indexOf()
-Es el nombre del metodo
+Nombre del método
 
 - searchElement
 Es el ELEMENTO que estoy buscando en el array,
@@ -135,7 +136,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 /*
 Donde...
 - .findIndex()
-Es el nombre del metodo
+Nombre del método
 
 - callbackFn
 * Es una funcion que se ejecuta

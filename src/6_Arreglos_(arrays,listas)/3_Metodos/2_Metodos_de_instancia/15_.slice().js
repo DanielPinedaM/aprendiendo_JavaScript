@@ -2,10 +2,12 @@
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable prefer-rest-params */
 /* eslint-disable max-len */
-
 // @ts-nocheck
 
-/* Documentacion Oficial - .slice() en Array:
+/* --------------------------------------------------- */
+
+/*
+Documentacion Oficial - .slice() en Array:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
 
 Recordatorio:
@@ -124,7 +126,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .slice()
-Es el nombre del metodo
+Nombre del método
 
 - start
 Numero de posición (índice)

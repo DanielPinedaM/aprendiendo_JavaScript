@@ -4,6 +4,8 @@
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable max-len */
 
+/* --------------------------------------------------- */
+
 /*
 Diferencias y Similitudes Entre .lastIndexOf() y .findLastIndex() -
 ULTIMO Número de Posición (Índice) del Elemento Buscado
@@ -85,7 +87,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .lastIndexOf()
-Es el nombre del metodo
+Nombre del método
 
 - searchElement
 * Es el ELEMENTO que estoy buscando
@@ -120,7 +122,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 /*
 Donde...
 - .findLastIndex()
-Es el nombre del metodo
+Nombre del método
 
 - callbackFn
 * Es una funcion que se ejecuta

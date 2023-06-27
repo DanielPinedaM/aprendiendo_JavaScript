@@ -4,6 +4,8 @@
 /* eslint-disable no-restricted-syntax */
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /* Samantha Ming - Formas de convertir de string a array:
 https://www.samanthaming.com/tidbits/83-4-ways-to-convert-string-to-character-array/ */
 
@@ -27,7 +29,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .split()
-Es el nombre del metodo
+Nombre del método
 
 - separator
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split#description

@@ -1,8 +1,10 @@
 /* eslint-disable no-param-reassign */
-
 // @ts-nocheck
 
-/* Wikipedia...
+/* --------------------------------------------------- */
+
+/*
+Wikipedia...
 - Algoritmos de Ordenamiento:
 https://en.wikipedia.org/wiki/Sorting_algorithm
 

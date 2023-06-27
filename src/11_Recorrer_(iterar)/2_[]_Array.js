@@ -4,7 +4,21 @@
 /* eslint-disable no-restricted-syntax */
 // @ts-nocheck
 
-/* --------------------------------------------------------------- */
+/* --------------------------------------------------- */
+
+/*  Importar libreria .group()
+
+cuando .group() sea compatible con todos los navegadores,
+el siguiente codigo se puede borrar: */
+
+const assert = require('assert');
+const group = require('array.prototype.group');
+
+// when Array#group is present
+const shimmed = group.shim();
+assert.equal(shimmed, Array.prototype.group);
+
+/* --------------------------------------------------- */
 
 /*
 Recordatorio:
@@ -37,6 +51,7 @@ los array [] de acuerdo a la DIRECCION de iteracion:
    - .find()
    - .findIndex()
    - .indexOf()
+   - .group()
 
    El resultado es:
 
@@ -365,6 +380,49 @@ for (const elemento of array) {
   const i = array.indexOf(elemento); // MALA PRACTICA: obtener indice actual con .indexOf()
   console.log(`i=${i} ➜ elemento='${elemento}'`);
 }
+
+/*
+ →
+ ▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .group() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀
+https://youtu.be/LnqjvuwA83s
+
+AGRUPAR array [] en un objeto literal {}
+dependiendo de la condición de la función
+q esta en el valor de retorno return */
+
+const iterar = array.group((elemento, i) => {
+  console.log(`i=${i} | elemento='${elemento}'`);
+
+  return elemento;
+});
+/*
+i=0 | elemento = '▲'
+i=1 | elemento = '●'
+i=2 | elemento = '✖'
+i=3 | elemento = '■'
+*/
+
+/* return elemento retorna un objeto literal {}
+q contiene en las propiedades y valores el array
+porq NO hay un condicional, solo se devuelve el elemento actual */
+
+console.log(iterar);
+/*
+[Object: null prototype] {
+  '▲': [ '▲' ],
+  '●': [ '●' ],
+  '✖': [ '✖' ],
+  '■': [ '■' ]
+}
+*/
+
+/* Con Object.keys() puedo acceder a
+las propiedades de variable iterar q es el mismo array */
+const ObjectKeys = Object.keys(iterar);
+console.log(ObjectKeys);
+// (4) ['▲', '●', '✖', '■']
 
 /*
  ←

@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
-
 /* eslint-disable array-callback-return */
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /*
 Diferencias y Similitudes Entre Object.keys() y Object.getOwnPropertyNames()
@@ -58,7 +59,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - Object.keys() y Object.getOwnPropertyNames()
-Es el nombre del metodo
+Nombre del método
 
 - nombreObjeto
 Es el nombre de la variable del objeto literal {} */

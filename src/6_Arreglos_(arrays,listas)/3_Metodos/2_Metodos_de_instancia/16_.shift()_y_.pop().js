@@ -1,6 +1,9 @@
 // @ts-nocheck
 
-/* Documentacion Oficial...
+/* --------------------------------------------------- */
+
+/*
+Documentacion Oficial...
 - .shift()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift
 
@@ -21,7 +24,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .shift()
-Es el nombre del metodo
+Nombre del método
 
 La sintaxis de .pop() es:
 .pop()
@@ -29,7 +32,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .pop()
-Es el nombre del metodo */
+Nombre del método */
 
 /* --------------------------------------------------------------- */
 

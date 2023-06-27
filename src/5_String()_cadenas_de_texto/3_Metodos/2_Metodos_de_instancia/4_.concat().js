@@ -2,6 +2,8 @@
 /* eslint-disable prefer-arrow-callback */
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /* Documentacion Oficial - .concat()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat
 

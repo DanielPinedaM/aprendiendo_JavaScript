@@ -1,8 +1,9 @@
 /* eslint-disable array-callback-return */
-
 /* eslint-disable prefer-object-spread */
 /* eslint-disable max-len */
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /*
 Object.assign() Concatenar (unir) objeto literal {}
@@ -43,7 +44,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - Object.assign()
-Es el nombre del metodo
+Nombre del método
 
 - objeto literal {} origen (sources):
 * Son las propiedad: valor, q voy a COPIAR

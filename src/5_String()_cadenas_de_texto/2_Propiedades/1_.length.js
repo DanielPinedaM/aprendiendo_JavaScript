@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /* Documentación Oficial - .length Numero de Caracteres en String
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length
 

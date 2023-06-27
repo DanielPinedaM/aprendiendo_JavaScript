@@ -9,6 +9,6 @@ Sintaxis:
 
 Donde...
 -
-Es el nombre del metodo
+Nombre del método
 
 - */

@@ -1,8 +1,10 @@
 /* eslint-disable max-len */
-
 // @ts-nocheck
 
-/* Documentacion Oficial...
+/* --------------------------------------------------- */
+
+/*
+Documentacion Oficial...
 - .unshift()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
 
@@ -24,7 +26,7 @@ Ambos .unshift() y .push() modifican la longitud .length del array original (exi
 
 // Donde...
 // - .unshift() y .push()
-// Es el nombre del metodo
+// Nombre del método
 
 // - element0, element1, /* ... ,*/ elementN
 // Son los nuevos elementos que se agregan al array,

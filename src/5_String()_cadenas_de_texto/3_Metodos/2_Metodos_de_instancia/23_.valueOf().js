@@ -4,6 +4,8 @@
 /* eslint-disable max-len */
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /*
 .valueOf() Convertir de Tipo Objeto a Dato Primitivo
 

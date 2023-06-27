@@ -7,6 +7,8 @@
 /* Un objetoDeObjetos u objeto anidado { {} }
 es un objeto literal {} q contiene dentro mas objetos */
 
+/* -------------------------------------------------------------- */
+
 const objetoDeObjetos = {
 // propiedad: valor,
   par: { dos: 2, cuatro: 4 },

@@ -5,6 +5,8 @@
 /* eslint-disable max-len */
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /*
 Diferencias y Similitudes Entre
 .hasOwnProperty() (Mala Práctica)
@@ -146,7 +148,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .hasOwnProperty() y Object.hasOwn()
-Es el nombre del metodo
+Nombre del método
 
 - nombreObjeto
 Nombre del objeto en el cual

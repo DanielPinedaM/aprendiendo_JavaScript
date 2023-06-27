@@ -2,7 +2,10 @@
 /* eslint-disable max-len */
 // @ts-nocheck
 
-/* Diferencia Entre .match() y .matchAll()
+/* --------------------------------------------------- */
+
+/*
+Diferencia Entre .match() y .matchAll()
 https://blog.tildeloop.com/posts/javascript-the-difference-between-match-and-matchall
 
 Documentacion Oficial...

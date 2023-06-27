@@ -123,7 +123,8 @@ las formas de iterar array [] que son:
 - .findLastIndex()
 - .findIndex()
 - .indexOf()
-- .lastIndexOf() */
+- .lastIndexOf()
+- .group() */
 
 // .split() convertir de string "" a array []
 const array = string.split('');

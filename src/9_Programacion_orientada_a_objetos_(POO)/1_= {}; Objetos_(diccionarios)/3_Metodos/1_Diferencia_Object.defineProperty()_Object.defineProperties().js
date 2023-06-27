@@ -1,8 +1,9 @@
 /* eslint-disable array-callback-return */
-
 /* eslint-disable max-len */
 /* eslint-disable no-prototype-builtins */
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /*
 Diferencias y Similitudes Entre Object.defineProperty() y Object.defineProperties() - Agregar Propiedades de Objeto...
@@ -50,7 +51,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - Object.defineProperty() y Object.defineProperties()
-Es el nombre del metodo
+Nombre del método
 
 - nombreObjeto
 Es el objeto existente al q se le agrega o modifica la propiedad

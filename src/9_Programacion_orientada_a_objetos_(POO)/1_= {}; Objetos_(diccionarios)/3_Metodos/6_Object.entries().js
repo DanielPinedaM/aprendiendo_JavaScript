@@ -3,6 +3,8 @@
 /* eslint-disable array-callback-return */
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /*
 Object.entries() Convertir a Array Anidado que Contiene [propiedad, valor] Enumerables del Objeto {}
 
@@ -30,7 +32,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - Object.entries()
-Es el nombre del metodo
+Nombre del método
 
 - nombreObjeto
 Nombre de la variable que contiene el objeto literal {} */

@@ -1,9 +1,11 @@
 /* eslint-disable max-len */
 /* eslint-disable no-sparse-arrays */
-
 // @ts-nocheck
 
-/* Documentacion Oficial - .fill()
+/* --------------------------------------------------- */
+
+/*
+Documentacion Oficial - .fill()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
 
 .fill() reemplazar UN VALOR value
@@ -31,7 +33,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .fill()
-Es el nombre del metodo
+Nombre del método
 
 - value
 * Es obligatorio

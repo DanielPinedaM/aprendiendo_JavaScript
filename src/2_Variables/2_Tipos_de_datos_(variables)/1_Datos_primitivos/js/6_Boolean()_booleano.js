@@ -1,18 +1,19 @@
+/* eslint-disable quotes */
 // @ts-nocheck
+
+/* --------------------------------------------------------------- */
 
 /* Tutorial Jon Mircha - Boolean()- true y false - Booleano:
 https://youtu.be/Csu9tRuuX0M
 
 Un dato booleano boolean es un dato binario, es decir,
-q solamente puede tomar dos valores que son true ó false */
+q solamente puede tomar dos valores que son true ó false 
 
-/* eslint-disable quotes */
+Para crear valores booleanos...
 
-
-/* Para crear valores booleanos... */
-
-/* 1) Puedo usar directamente la palabra reservada true ó false
+1) Puedo usar directamente la palabra reservada true ó false
 (forma MAS usada) */
+
 const verdadero = true;
 console.log(verdadero);         /* true */
 console.log(typeof verdadero);  /* boolean */
@@ -22,7 +23,7 @@ if (verdadero) { /* verdadero === true */
 } else { /* verdadero !== true */
   console.log('false');
 }
-/* el valor por defecto del primer if() es true */
+// 'el valor por defecto del primer if() es true'
 
 const falso = false;
 console.log(falso);         /* false */
@@ -33,7 +34,7 @@ if (falso) { /* falso === true */
 } else  { /* falso !== true */
   console.log('el valor por defecto del primer else{} es false');
 }
-/* el valor por defecto del primer else{} es false */
+// 'el valor por defecto del primer else{} es false'
 
 /* 2) Puedo usar el metodo Boolean()
 (forma MENOS usada) */

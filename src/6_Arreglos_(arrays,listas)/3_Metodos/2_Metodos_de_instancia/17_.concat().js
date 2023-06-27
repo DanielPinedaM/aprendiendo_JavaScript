@@ -1,9 +1,11 @@
 /* eslint-disable no-sparse-arrays */
-
 /* eslint-disable no-unused-vars */
 // @ts-nocheck
 
-/* Documentacion Oficial - .concat() en Array:
+/* --------------------------------------------------- */
+
+/*
+Documentacion Oficial - .concat() en Array:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
 
 .concat() sirve para concatenar (unir, juntar, fusionar)...
@@ -20,7 +22,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 // Donde...
 // - .concat()
-// Es el nombre del metodo
+// Nombre del método
 // value0, value1, /* ... ,*/ valueN
 // Son los valores q quiero concatenar,
 // pueden ser arrays ó cualquier otro tipo de dato

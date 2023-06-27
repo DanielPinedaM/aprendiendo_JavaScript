@@ -4,6 +4,8 @@
 // @ts-nocheck
 /* eslint-disable max-len */
 
+/* --------------------------------------------------- */
+
 /*
 Object.prototype.constructor Constructor del Objeto
 

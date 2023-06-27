@@ -2,6 +2,8 @@
 /* eslint-disable array-callback-return */
 // @ts-nocheck
 
+/* --------------------------------------------------- */
+
 /*
 Object.values() Convertir a array [] los valores enumerables del objeto {}
 
@@ -30,7 +32,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - Object.values()
-Es el nombre del metodo
+Nombre del método
 
 - nombreObjeto
 Nombre de la variable que contiene el objeto literal {} */

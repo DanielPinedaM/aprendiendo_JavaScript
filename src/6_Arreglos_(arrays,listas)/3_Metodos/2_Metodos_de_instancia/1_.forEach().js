@@ -1,8 +1,9 @@
 /* eslint-disable max-len */
-
 /* eslint-disable no-plusplus */
 /* eslint-disable no-sparse-arrays */
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /*
 Recordatorio:
@@ -100,7 +101,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 /*
 Donde...
 - .forEach()
-Es el nombre del metodo
+Nombre del método
 
 - callbackFn
 * Es una funcion que se ejecuta una sola vez

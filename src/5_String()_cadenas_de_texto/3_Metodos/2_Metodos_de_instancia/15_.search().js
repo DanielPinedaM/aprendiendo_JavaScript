@@ -1,7 +1,10 @@
 /* eslint-disable max-len */
 // @ts-nocheck
 
-/* Documentacion Oficial - .search() en tipo de dato...
+/* --------------------------------------------------- */
+
+/*
+Documentacion Oficial - .search() en tipo de dato...
 -  string
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
 
@@ -44,7 +47,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde..
 - .search()
-Es el nombre del metodo
+Nombre del método
 
 - regexp
 Dentro del par de parentesis de .search()

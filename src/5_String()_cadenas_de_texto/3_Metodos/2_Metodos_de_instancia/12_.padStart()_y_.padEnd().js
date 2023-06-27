@@ -1,6 +1,9 @@
 // @ts-nocheck
 
-/* Documentacion Oficial...
+/* --------------------------------------------------- */
+
+/*
+Documentacion Oficial...
 - .padStart()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
 
@@ -27,7 +30,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Donde...
 - .padStart() y .padEnd()
-es el nombre del metodo
+Nombre del método
 
 - targetLength
 es el numero de nuevos caracteres q quiero agregar al string

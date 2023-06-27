@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
-
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable array-callback-return */
 /* eslint-disable indent */
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /* Documentacion Oficial - .findLast()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast
@@ -67,7 +68,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 /*
 Donde...
 - .findLast()
-Es el nombre del metodo
+Nombre del método
 
 - callbackFn
 * Es una funcion que se ejecuta

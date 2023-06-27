@@ -1,8 +1,9 @@
 /* eslint-disable max-len */
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable func-names */
-
 // @ts-nocheck
+
+/* --------------------------------------------------- */
 
 /* Tutorial - Diferencia Entre .every() y .some()
 https://youtu.be/sVO65BeJjq8
@@ -34,7 +35,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 /* Donde...
 - .some()
-Es el nombre del metodo
+Nombre del método
 
 - callbackFn
 * Es una funcion que se ejecuta
