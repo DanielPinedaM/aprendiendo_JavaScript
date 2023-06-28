@@ -31,40 +31,59 @@ Nombre del método */
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 1:
+/* Ejemplo 1 - Diferencias y Similitudes Entre .reverse() y .toReversed()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse#reversing_the_elements_in_an_array */
 
-// Originalmente el array es:
-const array = [1, 2, 3];
-console.log(array); // (3) [1, 2, 3]
+// Originalmente el array1 es:
+const array1 = [1, 2, 3];
+console.log(array1);
+// (3) [1, 2, 3]
 
-// Y despues de invertirlo (voltearlo):
-array.reverse();
-console.log(array); // (3) [3, 2, 1]
+/* SIMILITUD:
+Ambos .reverse() y .toReversed() sirven para
+invertir (voltear) el orden de los elementos del array1
+
+DIFERENCIAS:
+.toReversed()
+1) Crea una nueva COPIA en una variable array2 */
+const array2 = array1.toReversed();
+console.log(array2);
+// (3) [3, 2, 1]
+
+/* 2) NO modifica el array1 original,
+los elementos del array1
+siguen en el mismo orden (3) [1, 2, 3] */
+console.log(array1);
+// (3) [1, 2, 3]
+
+// En cambio, .reverse() SI modifica el array1
+array1.reverse();
+console.log(array1);
+// (3) [3, 2, 1]
 
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 2 - .reverse() y sintaxis de propagación:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse#the_reverse_method_returns_the_reference_to_the_same_array */
 
-// array2 original (existente)
-let array2 = [1, 2, 3];
-console.log(array2);  // (3) [1, 2, 3]
+// array3 original (existente)
+let array3 = [1, 2, 3];
+console.log(array3);  // (3) [1, 2, 3]
 
-// La variable reverse crea una copia del array2 invertido (volteado)
-const reverse = array2.reverse();
+// La variable reverse crea una copia del array3 invertido (volteado)
+const reverse = array3.reverse();
 console.log(reverse); // (3) [3, 2, 1]
-console.log(array2);  // (3) [3, 2, 1]
+console.log(array3);  // (3) [3, 2, 1]
 
-/* Si modifico el array2 original,
+/* Si modifico el array3 original,
 tambien se modifica la copia del array original reverse (MUtabilidad)
 
 Cuando reemplazo el elemento del indice 1 por 'nuevo elemento',
-se reemplaza en las variables reverse y array2 */
+se reemplaza en las variables reverse y array3 */
 reverse[0] = 'nuevo elemento';
 
-console.log(reverse); // (3) ['nuevo elemento', 2, 1] -> copia del array2
-console.log(array2);  // (3) ['nuevo elemento', 2, 1] -> array2 original (existente)
+console.log(reverse); // (3) ['nuevo elemento', 2, 1] -> copia del array3
+console.log(array3);  // (3) ['nuevo elemento', 2, 1] -> array3 original (existente)
 
 /* Para crear una copia del array original invertida (volteada)
 y que NO se modifiq el array original
@@ -79,15 +98,15 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spre
 https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy */
 
 // Hacer otra vez q el array tenga los numeros del 1 al 3
-array2 = [1, 2, 3];
-console.log(array2); // (3) [1, 2, 3]
+array3 = [1, 2, 3];
+console.log(array3); // (3) [1, 2, 3]
 
 // Crear copia invertida (volteada) del array
-const copia = [...array2].reverse();
+const copia = [...array3].reverse();
 console.log(copia);  // (3) [3, 2, 1]
 
 // NO se modifica el array original (INmutabilidad)
-console.log(array2); // (3) [1, 2, 3]
+console.log(array3); // (3) [1, 2, 3]
 
 /* --------------------------------------------------------------- */
 

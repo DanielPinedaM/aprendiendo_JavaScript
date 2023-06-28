@@ -137,11 +137,12 @@ if (truthy === true) { // truthy
 /* Se imprime 'ELSE' porq
 al negar ! un valor q es truthy el resultado es false
 (lo opuesto de true es false) */
-console.log('--');
-console.log(!truthy);
-if (!truthy) { // false === true
+
+console.log(!truthy); // false
+
+if (!truthy) {        // false === true
   console.log('IF');
-} else { // false !== true
+} else {              // false !== true
   console.log('ELSE');
 }
 // 'ELSE'

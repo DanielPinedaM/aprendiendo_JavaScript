@@ -20,12 +20,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 - .groupToMap()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/groupToMap
 
-Las diferencias tienen fondo amarillo:
-
 CoreJS - .group() y .groupToMap()
 https://github.com/zloirock/core-js#array-grouping
 
 https://github.com/zloirock/core-js#array-grouping
+
+Las diferencias tienen fondo amarillo:
 
                                              |----------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
                                              | .group()                                                                   | .groupToMap()                                                                        |
@@ -114,7 +114,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 /*
 Donde...
 - .group() y .groupToMap()
-Nombre del método
+Nombre del método de array
 
 - array
 Nombre variable del array que quiero AGRUPAR (categorizar)
@@ -174,8 +174,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 * Es opcional
 
-* Es un valor para usar como this al ejecutar la funcion callbackFn
-*/
+* Es un valor para usar como this al ejecutar la funcion callbackFn */
 
 /* --------------------------------------------------- */
 
@@ -229,7 +228,7 @@ console.log(figuras);
 1) Retorna return un objeto literal {}
 [Object: null prototype]
 
-2) las CONDICIONES string 'circulo' y 'otraFigura' son los nombres de las propiedades */
+2) Las CONDICIONES string 'circulo' y 'otraFigura' son los nombres de las propiedades */
 
 figuras.group((x) => (x === '●' ? 'circulo' : 'otraFigura'));
 /*
@@ -295,7 +294,7 @@ en el q se SEPARE (AGRUPE)
 los numeros par e impar del array1
 
 (condition ? ifTrue : ifFalse) operador condicional ternario
-SI x % 2 === 0 el elemento actual es par,
+SI x % 2 === 0 el elemento actual (numero) es par,
 SINO es impar */
 const objetoLiteralGroup = array1.group((x) => (x % 2 === 0 ? 'par' : 'impar'));
 console.log(objetoLiteralGroup);
@@ -308,10 +307,11 @@ console.log(objetoLiteralGroup);
 
 /*
 Recordatorio:
-Para iterar objetoLiteralGroup, ver:
+Para iterar objetoLiteral, ver:
 " 14.3) {} Objeto Literal "
 
 Acceder a los valores de las propiedades par e impar de objetoLiteralGroup */
+
 console.log(objetoLiteralGroup.par);   // (3) [0, 2, 4]
 console.log(objetoLiteralGroup.impar); // (4) [1, 3, 5, 6.1]
 
@@ -379,7 +379,7 @@ console.log(iterar);
 */
 
 /* Con Object.keys() puedo acceder a
-las propiedades de variable iterar q es el mismo array */
+las propiedades de variable iterar q es el mismo array figuras2 */
 const ObjectKeys = Object.keys(iterar);
 console.log(ObjectKeys);
 // (4) ['▲', '●', '✖', '■']
@@ -415,7 +415,7 @@ SI conozco los nombres de las propiedades
 
 Con la desestructuracion { uno, dos }
 puedo acceder a cada uno de los valores de la propiedad del objeto {}
-q esta dentro del array de objetos [ {} ] */
+q estan dentro del array de objetos [ {} ] */
 
 const agrupar = arrayDeObjetos.group(({ uno, dos }, i) => {
   console.log(`i=${i} → uno → ${uno}`);
@@ -449,6 +449,7 @@ https://youtu.be/LnqjvuwA83s */
 const arrayDeObjetos2 = [
   { nombre: 'Daniel' },    // nombre q contiene 'e'
   { nombre: 'Alejandro' }, // nombre q contiene 'e'
+
   { nombre: 'Luis' },
   { nombre: 'Juan' },
 ];
@@ -465,7 +466,8 @@ console.log(arrayDeObjetos2);
 /* .group() AGRUPAR los nombres
 q en .includes('e') CUALQUIER PARTE contengan la letra 'e'
 
-.toLowerCase() convertir string a minúscula  */
+.toLowerCase() convertir string a minúscula */
+
 let agrupar2 = arrayDeObjetos2.group((usuario) => (usuario.nombre.toLowerCase().includes('e') ? 'CON_e' : 'SIN_e'));
 console.log(agrupar2);
 /*
@@ -483,7 +485,6 @@ console.log(agrupar2);
 
 // Acceder a los nombres CON y SIN letra 'e'
 console.log(agrupar2.CON_e); // [ { nombre: 'Daniel' }, { nombre: 'Alejandro' } ]
-console.log('--');
 console.log(agrupar2.SIN_e); // [ { nombre: 'Luis' }, { nombre: 'Juan' } ]
 
 /* Agrupar los siguientes nombres:
@@ -567,10 +568,8 @@ console.log(inventario);
 [
   { nombre: 'bananas', tipo: 'fruta', cantidad: 0 },
   { nombre: 'cerezas', tipo: 'fruta', cantidad: 3 },
-
   { nombre: 'res', tipo: 'carne', cantidad: 4 },
   { nombre: 'cerdo', tipo: 'carne', cantidad: 5 },
-
   { nombre: 'lechuga', tipo: 'vegetal', cantidad: 6 }
 ]
 */
@@ -603,6 +602,7 @@ console.log(tipoAlimento);
 AGRUPAR los alimentos de acuerdo a su CANTIDAD:
 Si la cantidad es > 5 (6, 7, 8...)
 o cantidad <= 5 (5, 4, 3...) */
+
 const callbackFn = ({ cantidad }) => (cantidad > 5 ? 'cantidad > 5 ?' : 'cantidad <= 5');
 console.log(callbackFn);
 // [Function: callbackFn]
@@ -625,12 +625,12 @@ console.log(agruparCantidad);
 
 /* --------------------------------------------------- */
 
-/*  Ejemplo 8 - .groupToMap() - Array de objetos [ {} ] con un inventario de comidas
+/* Ejemplo 8 - .groupToMap() - Array de objetos [ {} ] con un inventario de comidas
 Es IMPORTANTE leer este ejemplo porq aqui se explica:
 - ¿como modificar el nombre de la propiedad despues de ejecutar .groupToMap()?
 
 - .get() ¿Como acceder a los valores de .groupToMap()?
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/groupToMap#using_grouptomap  */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/groupToMap#using_grouptomap */
 
 /* --------------------------------------------------- */
 
@@ -656,7 +656,6 @@ console.log(arrayDisperso);
 // (3) [ 1, <1 empty item>, 3 ]
 
 // .group()
-console.log();
 console.log(arrayDisperso.group((elemento) => elemento));      // { 1: [1], undefined: [undefined], 3: [3] }
 
 // .groupToMap()
@@ -692,10 +691,12 @@ console.log(objetoLiteral);
 }
 */
 
+// .group()
 const group2 = Array.prototype.group.call(objetoLiteral, (elemento) => elemento % 2);
 console.log(group2);
 // { 0: [2, 4], 1: [3] }
 
+// .groupToMap()
 const groupToMap = Array.prototype.groupToMap.call(objetoLiteral, (elemento) => elemento % 2);
 console.log(groupToMap);
 // => Map { 0 => [2, 4], 1 => [3] }
