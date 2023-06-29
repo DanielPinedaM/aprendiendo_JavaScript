@@ -8,8 +8,31 @@
 Tutorial:
 https://youtu.be/luXkteqv0I8
 
-Documentacion Oficial - .splice()
+Documentación Oficial…
+- .toSpliced()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSpliced
+
+- .splice()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+
+|-----------------------------------------|-----------------------|-----------------------|
+| Metodos de array .to()                  | ¿MODIFICA el array1   | ¿Crea una nueva COPIA |
+|                                         | original (existente)? | array2 del array1?    |
+|-----------------------------------------|-----------------------|-----------------------|
+| .reverse()                              | MUtable               | X                     |
+| .sort()                                 | ✓                     |                       |
+| .splice()                               |                       |                       |
+| nombreArray[numeroIndice]="nuevo valor" |                       |                       |
+|-----------------------------------------|-----------------------|-----------------------|
+| .toReversed()                           | INmutable             | ✓                     |
+| .toSorted()                             | X                     |                       |
+| .toSpliced()                            |                       |                       |
+| .with()                                 |                       |                       |
+|-----------------------------------------|-----------------------|-----------------------|
+
+|
+|
+|
 
 .splice() usa el algoritmo en el lugar
 
@@ -55,7 +78,11 @@ Nombre del método
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 1 - Explicacion completa de .splice()
+// Ejemplo 1 - Diferencias y Similitudes Entre .toSpliced()  y .splice()
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 2 - Explicacion completa de .splice()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#try_it */
 
 // Array original (existente) que modificare despues con .splice()
@@ -304,7 +331,7 @@ console.log(figuras);                            // (6) ['▲', '●', '✖', '�
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 2 - item1, item2, itemN en un array
+// Ejemplo 3 - item1, item2, itemN en un array
 
 let figuras2 = ['▲', '●', '✖', '■'];
 //               0    1    2    3
@@ -339,7 +366,7 @@ console.log(figuras2);                      // (6) ['▲', 'a', 'b', '●', '✖
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 3 - Array Disperso (Sparse Array) [,] y Método .splice()
+/* Ejemplo 4 - Array Disperso (Sparse Array) [,] y Método .splice()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#using_splice_on_sparse_arrays */

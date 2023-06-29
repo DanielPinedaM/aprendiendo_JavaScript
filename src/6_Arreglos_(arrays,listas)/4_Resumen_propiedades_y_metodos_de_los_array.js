@@ -460,191 +460,75 @@ console.log(otraFigura); // { otraFigura: true }
 */
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .copyWithin() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://youtube.com/shorts/UNIR2RU8mXA?feature=share
+Tutorial de Midudev de Métodos de Array .toReversed() .toSorted() .toSpliced() .with()
+https://youtu.be/TJKAGh9jzx4
 
-Copiar array y pegarlo dentro del mismo array
+https://midu.dev/to-reversed-to-spliced-to-sorted-with/
 
-Copiar posicion (indice) 2,
-NO se incluye la posicion 3
-y pegar ['✖'] en posicion 0 */
-  ['▲', '●', '✖', '■'].copyWithin(0, 2, 3); // (4) ['✖', '●', '✖', '■']
-//  0    1    2    3
-
-/* Copiar A PARTIR de la posicion 2 ['✖', '■']
-y pegarlo en posicion 0 */
-  ['▲', '●', '✖', '■'].copyWithin(0, 2);    // (4) ['✖', '■', '✖', '■']
-//  0    1    2    3
-
-/* COPIAR los 2 primeros elementos ['▲', '●']
-PEGARLOS en la posicion 1
-ELIMINAR elemento de la ULTIMA posicion ['■'] */
-  ['▲', '●', '✖', '■'].copyWithin(1);       // (4) ['▲', '▲', '●', '✖']
-//  0    1    2    3
-
-/* COPIAR los 2 primeros elementos ['▲', '●']
-PEGARLOS en la posicion 2
-ELIMINAR elementos ['✖', '■'] */
-  ['▲', '●', '✖', '■'].copyWithin(2); // (4) ['▲', '●', '▲', '●']
-//  0    1    2    3
-
-/* COPIAR posicion (indice) -2
-NO se incluye la posicion -1
-PEGAR ['✖'] en posicion -3
-REEMPLAZAR ['●'] por ['✖']
-ELIMINAR elemento ['■'] de la ultima posicion */
-  ['▲', '●', '✖', '■'].copyWithin(-3, -2, -1); // (4) ['▲', '✖', '✖', '■']
-// -4   -3   -2    -1
-
-/* Copiar A PARTIR de la posicion -2 ['✖', '■']
-y pegarlo en posicion -3 */
-  ['▲', '●', '✖', '■'].copyWithin(-3, -2); // (4) ['▲', '✖', '■', '■']
-// -4   -3   -2    -1
-
-/* COPIAR el primer elemento ['▲']
-PEGARLO en la ultima posicion -1
-REEMPLAZAR ['■'] por ['▲'] */
-  ['▲', '●', '✖', '■'].copyWithin(-1); // (4) ['▲', '●', '✖', '▲']
-// -4   -3   -2    -1
-
-/* COPIAR los 2 primeros elementos ['▲', '●']
-PEGARLOS en la PE-nultima posicion -2
-REEMPLAZAR ['✖', '■'] por ['▲', '●'] */
-  ['▲', '●', '✖', '■'].copyWithin(-2); // (4) ['▲', '●', '▲', '●']
-// -4   -3   -2    -1
-
-/* COPIAR los 2 primeros elementos ['▲', '●']
-PEGARLOS en la ANTE-penultima posicion -3
-REEMPLAZAR ['●', '✖'] por ['▲', '●']
-ELIMINAR el ultimo elemento ['■'] */
-  ['▲', '●', '✖', '■'].copyWithin(-3); // (4) ['▲', '▲', '●', '✖']
-// -4   -3   -2    -1
+|-----------------------------------------|-----------------------|-----------------------|
+| Metodos de array .to()                  | ¿MODIFICA el array1   | ¿Crea una nueva COPIA |
+|                                         | original (existente)? | array2 del array1?    |
+|-----------------------------------------|-----------------------|-----------------------|
+| .reverse()                              | MUtable               | X                     |
+| .sort()                                 | ✓                     |                       |
+| .splice()                               |                       |                       |
+| nombreArray[numeroIndice]="nuevo valor" |                       |                       |
+|-----------------------------------------|-----------------------|-----------------------|
+| .toReversed()                           | INmutable             | ✓                     |
+| .toSorted()                             | X                     |                       |
+| .toSpliced()                            |                       |                       |
+| .with()                                 |                       |                       |
+|-----------------------------------------|-----------------------|-----------------------|
+*/
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .fill(value, start, end) █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Diferencias y Similitudes Entre .toReversed() y .reverse() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://youtu.be/TJKAGh9jzx4
 
-Reemplazar UN VALOR value
-en los elementos de un array
-desde una start hasta otra end posición (indice)
+Invertir (voltear) el orden de los elementos del array
 
-Reemplazar por circulo '●'...
-- Las posiciones 0 y 1 */
-  ['■', '■', '■', '■'].fill('●', 0, 2); // (4) ['●', '●', '■', '■']
-//  0    1    2    3
-//  ↑    ↑
+.reverse():
+MODIFICAR el array original (existente) (MUtabilidad) */
+let array2 = [1, 2, 3];
+console.log(array2); // (3) [1, 2, 3]
 
-// - Todos los elementos A PARTIR de la posicion 2
-  ['■', '■', '■', '■'].fill('●', 2);    // (4) ['■', '■', '●', '●']
-//  0    1    2    3
-//            ↑    ↑
+array2.reverse();
+console.log(array2); // (3) [3, 2, 1] -> SI se modifica el array original
 
-// - La ULTIMA -1 posicion
-  ['■', '■', '■', '■'].fill('●', -1); // (4) ['■', '■', '■', '●']
-// -4   -3   -2   -1
-//                 ↑
+// Hacer otra vez q array2 tenga numeros del 1 al 3
+array2 = [1, 2, 3];
+console.log(array2); // (3) [1, 2, 3]
 
-// undefined significa q el elemento triangulo '▲' NO existe en el array
-['■', '●', '■', '●'].find((elemento) => elemento === '▲'); // undefined
+/* Sintaxis de propagación:
+Crear una COPIA invertida (volteada) del array */
+const copia = [...array2].reverse();
+console.log(copia);  // (3) [3, 2, 1]
 
-/*
- ▄▄▄▄▄▄▄▄▄▄▄▄
- █ .slice() █
- ▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
-
-Extraer una parte de un ARRAY de acuerdo a sus posiciones (indices) */
-
-// array A PARTIR de la segunda posicion 1
-  ['▲', '●', '✖', '■'].slice(1);      // (3) ['●', '✖', '■']
-//  0    1    2    3
-//       ↑    ↑    ↑
-
-// array A PARTIR de la PE-nultima posicion -2
-  ['▲', '●', '✖', '■'].slice(-2);     // (2) ['✖', '■']
-//  -4   -3   -2   -1
-//            ↑    ↑
-
-/* array DESDE la posicion 0 HASTA 2,
-NO se incluye la posicion 3 */
-  ['▲', '●', '✖', '■'].slice(0, 3);   // (3) ['▲', '●', '✖']
-//  0    1    2    3
-//  ↑    ↑    ↑
-
-/* posiciones -2 y -3 del array,
-NO se incluye la posicion -1 */
-  ['▲', '●', '✖', '■'].slice(-3, -1); // (2) ['●', '✖']
-// -4   -3   -2    -1
-//       ↑    ↑
+// NO se modifica el array original (INmutabilidad)
+console.log(array2); // (3) [1, 2, 3]
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .shift() y .pop() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Diferencias y Similitudes Entre .toSorted() y .sort() + ¿Que es .sort().reverse() ? █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://youtu.be/YIZWGn13RCE */
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop */
+// .sort() Ordenar de menor a mayor (ascendente)
+[2, 4, 3, 5, 1].sort((a, b) => a - b);                                           // (5) [1, 2, 3, 4, 5]
+['b', 'd', 'c', 'e', 'a'].sort((a, b) => a.localeCompare(b, 'es-ES'));           // (5) ['a', 'b', 'c', 'd', 'e']
 
-let array = [1, 2, 3, 4, 5];
-//           ↑           ↑
-//    .shift()      .pop()
-
-// Eliminar y devolver el .shift() PRIMER
-const primero = array.shift();
-console.log(primero); // 1
-console.log(array);   // (4) [2, 3, 4, 5]
-
-// y .pop() ULTIMO elemento del array
-array = [1, 2, 3, 4, 5];
-
-const ultimo = array.pop();
-console.log(ultimo);  // 5
-console.log(array);   // (4) [1, 2, 3, 4]
+// .sort().reverse() de mayor a menor (descendente) array con números y letras
+[2, 4, 3, 5, 1].sort((a, b) => a - b).reverse();                                 // (5) [5, 4, 3, 2, 1]
+['a', 'b', 'c', 'd', 'e'].sort((a, b) => a.localeCompare(b, 'es-ES')).reverse(); // (5) ['e', 'd', 'c', 'b', 'a']
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .concat() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
-
-Concatenar (unir) array
-
-Lo q esta dentro del parentesis de .concat()
-puede ser cualquier tipo de dato */
-['▲'].concat(['●', '✖'], ['■'], 'hola mundo', 1, true, false);
-// (8) ['▲', '●', '✖', '■', 'hola mundo', 1, true, false]
-
-/*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .unshift() y .push() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push */
-
-const circulos = ['●', '●'];
-console.log(circulos);        // (2) ['●', '●']
-console.log(circulos.length); // 2
-
-// Agregar nuevo elemento al .unshift() PRINCIPIO
-const unshift = circulos.unshift('❤️');
-console.log(unshift);         // 3
-console.log(circulos);        // (3) ['❤️', '●', '●']
-
-/*  y .push() FINAL del array
-y devolver la nueva longitud .length del array */
-const push = circulos.push('❤️');
-console.log(push);            // 4
-console.log(circulos);        // (4) ['❤️', '●', '●', '❤️']
-
-/*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .splice(start, deleteCount, item1, item2, itemN) █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Diferencias y similitudes entre                     █
+ █ .toSpliced(start, deleteCount, item1, item2, itemN) █
+ █ .splice(start, deleteCount, item1, item2, itemN)    █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 
 https://youtu.be/luXkteqv0I8
 
@@ -896,46 +780,197 @@ console.log(figuras.splice(4, 999, '❤️', '❤️')); // []
 console.log(figuras);                            // (6) ['▲', '●', '✖', '■', '❤️', '❤️']
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .reverse() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Diferencias y Similitudes Entre                               █
+ █ .with() y                                                     █
+ █ Notación de Corchetes nombreArray[numeroIndice]="nuevo valor" █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://www.youtube.com/watch?v=TJKAGh9jzx4&t=1223s
 
-Invertir (voltear) el orden de los elementos del array
-
-.reverse():
-MODIFICAR el array original (existente) (MUtabilidad) */
-let array2 = [1, 2, 3];
-console.log(array2); // (3) [1, 2, 3]
-
-array2.reverse();
-console.log(array2); // (3) [3, 2, 1] -> SI se modifica el array original
-
-// Hacer otra vez q array2 tenga numeros del 1 al 3
-array2 = [1, 2, 3];
-console.log(array2); // (3) [1, 2, 3]
-
-/* Sintaxis de propagación:
-Crear una COPIA invertida (volteada) del array */
-const copia = [...array2].reverse();
-console.log(copia);  // (3) [3, 2, 1]
-
-// NO se modifica el array original (INmutabilidad)
-console.log(array2); // (3) [1, 2, 3]
+INCOMPLETO
+*/
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .sort() y .sort().reverse() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://youtu.be/YIZWGn13RCE */
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .copyWithin() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://youtube.com/shorts/UNIR2RU8mXA?feature=share
 
-// .sort() Ordenar de menor a mayor (ascendente)
-[2, 4, 3, 5, 1].sort((a, b) => a - b);                                           // (5) [1, 2, 3, 4, 5]
-['b', 'd', 'c', 'e', 'a'].sort((a, b) => a.localeCompare(b, 'es-ES'));           // (5) ['a', 'b', 'c', 'd', 'e']
+Copiar array y pegarlo dentro del mismo array
 
-// .sort().reverse() de mayor a menor (descendente) array con números y letras
-[2, 4, 3, 5, 1].sort((a, b) => a - b).reverse();                                 // (5) [5, 4, 3, 2, 1]
-['a', 'b', 'c', 'd', 'e'].sort((a, b) => a.localeCompare(b, 'es-ES')).reverse(); // (5) ['e', 'd', 'c', 'b', 'a']
+Copiar posicion (indice) 2,
+NO se incluye la posicion 3
+y pegar ['✖'] en posicion 0 */
+  ['▲', '●', '✖', '■'].copyWithin(0, 2, 3); // (4) ['✖', '●', '✖', '■']
+//  0    1    2    3
+
+/* Copiar A PARTIR de la posicion 2 ['✖', '■']
+y pegarlo en posicion 0 */
+  ['▲', '●', '✖', '■'].copyWithin(0, 2);    // (4) ['✖', '■', '✖', '■']
+//  0    1    2    3
+
+/* COPIAR los 2 primeros elementos ['▲', '●']
+PEGARLOS en la posicion 1
+ELIMINAR elemento de la ULTIMA posicion ['■'] */
+  ['▲', '●', '✖', '■'].copyWithin(1);       // (4) ['▲', '▲', '●', '✖']
+//  0    1    2    3
+
+/* COPIAR los 2 primeros elementos ['▲', '●']
+PEGARLOS en la posicion 2
+ELIMINAR elementos ['✖', '■'] */
+  ['▲', '●', '✖', '■'].copyWithin(2); // (4) ['▲', '●', '▲', '●']
+//  0    1    2    3
+
+/* COPIAR posicion (indice) -2
+NO se incluye la posicion -1
+PEGAR ['✖'] en posicion -3
+REEMPLAZAR ['●'] por ['✖']
+ELIMINAR elemento ['■'] de la ultima posicion */
+  ['▲', '●', '✖', '■'].copyWithin(-3, -2, -1); // (4) ['▲', '✖', '✖', '■']
+// -4   -3   -2    -1
+
+/* Copiar A PARTIR de la posicion -2 ['✖', '■']
+y pegarlo en posicion -3 */
+  ['▲', '●', '✖', '■'].copyWithin(-3, -2); // (4) ['▲', '✖', '■', '■']
+// -4   -3   -2    -1
+
+/* COPIAR el primer elemento ['▲']
+PEGARLO en la ultima posicion -1
+REEMPLAZAR ['■'] por ['▲'] */
+  ['▲', '●', '✖', '■'].copyWithin(-1); // (4) ['▲', '●', '✖', '▲']
+// -4   -3   -2    -1
+
+/* COPIAR los 2 primeros elementos ['▲', '●']
+PEGARLOS en la PE-nultima posicion -2
+REEMPLAZAR ['✖', '■'] por ['▲', '●'] */
+  ['▲', '●', '✖', '■'].copyWithin(-2); // (4) ['▲', '●', '▲', '●']
+// -4   -3   -2    -1
+
+/* COPIAR los 2 primeros elementos ['▲', '●']
+PEGARLOS en la ANTE-penultima posicion -3
+REEMPLAZAR ['●', '✖'] por ['▲', '●']
+ELIMINAR el ultimo elemento ['■'] */
+  ['▲', '●', '✖', '■'].copyWithin(-3); // (4) ['▲', '▲', '●', '✖']
+// -4   -3   -2    -1
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .fill(value, start, end) █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
+
+Reemplazar UN VALOR value
+en los elementos de un array
+desde una start hasta otra end posición (indice)
+
+Reemplazar por circulo '●'...
+- Las posiciones 0 y 1 */
+  ['■', '■', '■', '■'].fill('●', 0, 2); // (4) ['●', '●', '■', '■']
+//  0    1    2    3
+//  ↑    ↑
+
+// - Todos los elementos A PARTIR de la posicion 2
+  ['■', '■', '■', '■'].fill('●', 2);    // (4) ['■', '■', '●', '●']
+//  0    1    2    3
+//            ↑    ↑
+
+// - La ULTIMA -1 posicion
+  ['■', '■', '■', '■'].fill('●', -1); // (4) ['■', '■', '■', '●']
+// -4   -3   -2   -1
+//                 ↑
+
+// undefined significa q el elemento triangulo '▲' NO existe en el array
+['■', '●', '■', '●'].find((elemento) => elemento === '▲'); // undefined
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .slice() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+Extraer una parte de un ARRAY de acuerdo a sus posiciones (indices) */
+
+// array A PARTIR de la segunda posicion 1
+  ['▲', '●', '✖', '■'].slice(1);      // (3) ['●', '✖', '■']
+//  0    1    2    3
+//       ↑    ↑    ↑
+
+// array A PARTIR de la PE-nultima posicion -2
+  ['▲', '●', '✖', '■'].slice(-2);     // (2) ['✖', '■']
+//  -4   -3   -2   -1
+//            ↑    ↑
+
+/* array DESDE la posicion 0 HASTA 2,
+NO se incluye la posicion 3 */
+  ['▲', '●', '✖', '■'].slice(0, 3);   // (3) ['▲', '●', '✖']
+//  0    1    2    3
+//  ↑    ↑    ↑
+
+/* posiciones -2 y -3 del array,
+NO se incluye la posicion -1 */
+  ['▲', '●', '✖', '■'].slice(-3, -1); // (2) ['●', '✖']
+// -4   -3   -2    -1
+//       ↑    ↑
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .shift() y .pop() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop */
+
+let array = [1, 2, 3, 4, 5];
+//           ↑           ↑
+//    .shift()      .pop()
+
+// Eliminar y devolver el .shift() PRIMER
+const primero = array.shift();
+console.log(primero); // 1
+console.log(array);   // (4) [2, 3, 4, 5]
+
+// y .pop() ULTIMO elemento del array
+array = [1, 2, 3, 4, 5];
+
+const ultimo = array.pop();
+console.log(ultimo);  // 5
+console.log(array);   // (4) [1, 2, 3, 4]
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .concat() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
+
+Concatenar (unir) array
+
+Lo q esta dentro del parentesis de .concat()
+puede ser cualquier tipo de dato */
+['▲'].concat(['●', '✖'], ['■'], 'hola mundo', 1, true, false);
+// (8) ['▲', '●', '✖', '■', 'hola mundo', 1, true, false]
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .unshift() y .push() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push */
+
+const circulos = ['●', '●'];
+console.log(circulos);        // (2) ['●', '●']
+console.log(circulos.length); // 2
+
+// Agregar nuevo elemento al .unshift() PRINCIPIO
+const unshift = circulos.unshift('❤️');
+console.log(unshift);         // 3
+console.log(circulos);        // (3) ['❤️', '●', '●']
+
+/*  y .push() FINAL del array
+y devolver la nueva longitud .length del array */
+const push = circulos.push('❤️');
+console.log(push);            // 4
+console.log(circulos);        // (4) ['❤️', '●', '●', '❤️']
 
 /*
  ▄▄▄▄▄▄▄▄▄

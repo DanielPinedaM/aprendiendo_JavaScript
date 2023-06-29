@@ -5,16 +5,49 @@
 /* --------------------------------------------------- */
 
 /*
+Tutorial - Métodos de Array .toReversed() .toSorted() .toSpliced() .with() ...
+- Midudev
+https://youtu.be/YIZWGn13RCE
+
+https://youtu.be/TJKAGh9jzx4
+
+https://midu.dev/to-reversed-to-spliced-to-sorted-with/
+
+- Fernando Herrera:
+https://youtu.be/Di9B9BiZRBs
+
+https://youtu.be/CI_FH2N88iE
+
 Wikipedia - Algoritmos de Ordenamiento:
 https://en.wikipedia.org/wiki/Sorting_algorithm
 
 https://en.wikipedia.org/wiki/Category:Sorting_algorithms
 
-Tutorial:
-https://youtu.be/YIZWGn13RCE
+Documentación Oficial…
+- .toSorted()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted
 
-Documentacion Oficial - .sort()
+- .sort()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+
+|-----------------------------------------|-----------------------|-----------------------|
+| Metodos de array .to()                  | ¿MODIFICA el array1   | ¿Crea una nueva COPIA |
+|                                         | original (existente)? | array2 del array1?    |
+|-----------------------------------------|-----------------------|-----------------------|
+| .reverse()                              | MUtable               | X                     |
+| .sort()                                 | ✓                     |                       |
+| .splice()                               |                       |                       |
+| nombreArray[numeroIndice]="nuevo valor" |                       |                       |
+|-----------------------------------------|-----------------------|-----------------------|
+| .toReversed()                           | INmutable             | ✓                     |
+| .toSorted()                             | X                     |                       |
+| .toSpliced()                            |                       |                       |
+| .with()                                 |                       |                       |
+|-----------------------------------------|-----------------------|-----------------------|
+
+|
+|
+|
 
 .sort() usa el algoritmo en el lugar
 
@@ -80,7 +113,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 1:
+// Ejemplo 1 - Diferencias y Similitudes Entre .toSorted() y .sort()
 
 // .sort() Ordenar de menor a mayor (ascendente)
 [2, 4, 3, 5, 1].sort((a, b) => a - b);                                           // (5) [1, 2, 3, 4, 5]

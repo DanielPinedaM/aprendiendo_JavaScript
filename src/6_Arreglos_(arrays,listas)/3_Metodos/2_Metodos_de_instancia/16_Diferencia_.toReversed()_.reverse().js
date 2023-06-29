@@ -5,8 +5,42 @@
 /* --------------------------------------------------- */
 
 /*
-Documentacion Oficial - .reverse()
+Tutorial - Métodos de Array .toReversed() .toSorted() .toSpliced() .with() ...
+- Midudev
+https://youtu.be/TJKAGh9jzx4
+
+https://midu.dev/to-reversed-to-spliced-to-sorted-with/
+
+- Fernando Herrera:
+https://youtu.be/Di9B9BiZRBs
+
+https://youtu.be/CI_FH2N88iE
+
+Documentación Oficial…
+- .toReversed()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toReversed
+
+- .reverse()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
+
+|-----------------------------------------|-----------------------|-----------------------|
+| Metodos de array .to()                  | ¿MODIFICA el array1   | ¿Crea una nueva COPIA |
+|                                         | original (existente)? | array2 del array1?    |
+|-----------------------------------------|-----------------------|-----------------------|
+| .reverse()                              | MUtable               | X                     |
+| .sort()                                 | ✓                     |                       |
+| .splice()                               |                       |                       |
+| nombreArray[numeroIndice]="nuevo valor" |                       |                       |
+|-----------------------------------------|-----------------------|-----------------------|
+| .toReversed()                           | INmutable             | ✓                     |
+| .toSorted()                             | X                     |                       |
+| .toSpliced()                            |                       |                       |
+| .with()                                 |                       |                       |
+|-----------------------------------------|-----------------------|-----------------------|
+
+|
+|
+|
 
 .reverse() usa el algoritmo en el lugar
 
