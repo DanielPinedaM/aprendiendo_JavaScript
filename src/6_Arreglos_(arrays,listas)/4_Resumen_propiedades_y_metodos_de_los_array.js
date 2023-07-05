@@ -466,7 +466,7 @@ https://youtu.be/TJKAGh9jzx4
 https://midu.dev/to-reversed-to-spliced-to-sorted-with/
 
 |-----------------------------------------|-----------------------|-----------------------|
-| Metodos de array .to()                  | ¿MODIFICA el array1   | ¿Crea una nueva COPIA |
+| Métodos de Array .to                    | ¿MODIFICA el array1   | ¿Crea una nueva COPIA |
 |                                         | original (existente)? | array2 del array1?    |
 |-----------------------------------------|-----------------------|-----------------------|
 | .reverse()                              | MUtable               | X                     |
@@ -485,29 +485,28 @@ https://midu.dev/to-reversed-to-spliced-to-sorted-with/
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Diferencias y Similitudes Entre .toReversed() y .reverse() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://youtu.be/TJKAGh9jzx4
+https://youtu.be/TJKAGh9jzx4 */
 
-Invertir (voltear) el orden de los elementos del array
+// array1 original (existente)
+const array1 = [1, 2, 3];
+console.log(array1);
+// (3) [1, 2, 3]
 
-.reverse():
-MODIFICAR el array original (existente) (MUtabilidad) */
-let array2 = [1, 2, 3];
-console.log(array2); // (3) [1, 2, 3]
+/* .toReversed() y .reverse()
+invertir (voltear) el orden de los elementos del array1
 
-array2.reverse();
-console.log(array2); // (3) [3, 2, 1] -> SI se modifica el array original
+.toReversed() NO modifica el array1 */
+const array2 = array1.toReversed();
+console.log(array2);
+// (3) [3, 2, 1]
 
-// Hacer otra vez q array2 tenga numeros del 1 al 3
-array2 = [1, 2, 3];
-console.log(array2); // (3) [1, 2, 3]
+console.log(array1);
+// (3) [1, 2, 3]
 
-/* Sintaxis de propagación:
-Crear una COPIA invertida (volteada) del array */
-const copia = [...array2].reverse();
-console.log(copia);  // (3) [3, 2, 1]
-
-// NO se modifica el array original (INmutabilidad)
-console.log(array2); // (3) [1, 2, 3]
+// En cambio, .reverse() SI modifica el array1
+array1.reverse();
+console.log(array1);
+// (3) [3, 2, 1]
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄

@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable no-extend-native */
 /* eslint-disable max-len */
 /* eslint-disable no-sparse-arrays */
 // @ts-nocheck
@@ -23,6 +25,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 - .reverse()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
 
+Wikipedia - Algoritmo en el lugar (In-place algorithm)
+https://en.wikipedia.org/wiki/In-place_algorithm
+
 |-----------------------------------------|-----------------------|-----------------------|
 | Metodos de array .to()                  | ¿MODIFICA el array1   | ¿Crea una nueva COPIA |
 |                                         | original (existente)? | array2 del array1?    |
@@ -38,34 +43,76 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 | .with()                                 |                       |                       |
 |-----------------------------------------|-----------------------|-----------------------|
 
-|
-|
-|
-
-.reverse() usa el algoritmo en el lugar
-
 Wikipedia - Algoritmo en el lugar (In-place algorithm)
 https://en.wikipedia.org/wiki/In-place_algorithm
 
-.reverse() Invertir (Voltear) el Orden de los Elementos del Array
-
-El primer elemento del array se convierte en el ultimo
-y el ultimo elemento se convierte en el primero
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse#return_value
-
-.reverse() modifica el array original (existente)
+                                       |--------------------------------------|---------------------------------------------|
+                                       | .toReversed()                        | .reverse()                                  |
+|--------------------------------------|--------------------------------------|---------------------------------------------|
+| ¿Sirve para invertir (voltear)       | ✓                                    | ✓                                           |
+| el orden de los elementos del array? |                                      |                                             |
+|--------------------------------------|--------------------------------------|---------------------------------------------|
+| El primer elemento del array         | ✓                                    | ✓                                           |
+| se convierte en el último            |                                      |                                             |
+| y el último elemento                 |                                      |                                             |
+| se convierte en el primero           |                                      |                                             |
+|--------------------------------------|--------------------------------------|---------------------------------------------|
+| ¿MODIFICA el array1                  | INmutable                            | MUtable                                     |
+| original (existente)?                | X                                    | ✓                                           |
+|--------------------------------------|--------------------------------------|---------------------------------------------|
+| ¿Crea una nueva COPIA                | ✓                                    | X                                           |
+| array2 del array1?                   |                                      |                                             |
+|--------------------------------------|--------------------------------------|---------------------------------------------|
+| Cada una de las ranuras vacías       | undefined                            | <1 empty item>                              |
+| de los array dispersos [,]           |                                      |                                             |
+| son reemplazadas por…                | [1, , 3].toReversed()                | [1, , 3].reverse()                          |
+|                                      | // (3) [ 3, undefined, 1 ]           | // (3) [ 3, <1 empty item>, 1 ]             |
+|--------------------------------------|--------------------------------------|---------------------------------------------|
+| ¿Usa el algoritmo en el lugar?       | ✓                                    | ✓                                           |
+|--------------------------------------|--------------------------------------|---------------------------------------------|
+| Ejemplo                              | array1 original (existente)          | En cambio, .reverse() SI modifica el array1 |
+|                                      | const array1 = [1, 2, 3];            | array1.reverse();                           |
+|                                      | console.log(array1);                 | console.log(array1);                        |
+|                                      | // (3) [1, 2, 3]                     | // (3) [3, 2, 1]                            |
+|                                      |                                      |                                             |
+|                                      | .toReversed() y .reverse()           |                                             |
+|                                      | invertir (voltear)                   |                                             |
+|                                      | el orden de los elementos del array1 |                                             |
+|                                      |                                      |                                             |
+|                                      | .toReversed() NO modifica el array1  |                                             |
+|                                      | const array2 = array1.toReversed();  |                                             |
+|                                      | console.log(array2);                 |                                             |
+|                                      | // (3) [3, 2, 1]                     |                                             |
+|                                      |                                      |                                             |
+|                                      | console.log(array1);                 |                                             |
+|                                      | // (3) [1, 2, 3]                     |                                             |
+|                                      |                                      |                                             |
+|--------------------------------------|--------------------------------------|---------------------------------------------|
+| Sintaxis                             | array.toReversed()                   | array.reverse()                             |
+|--------------------------------------|--------------------------------------|---------------------------------------------|
 
 Sintaxis:
-.reverse()
+array.reverse()
+array.toReversed()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse#syntax
 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toReversed#syntax
+
 Donde...
-- .reverse()
-Nombre del método */
+- .reverse() y .toReversed()
+Es el nombre del metodo
+
+- array
+* Nombre de la variable q contiene el array []
+
+* Es el array que quiero invertir (voltear) */
 
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 1 - Diferencias y Similitudes Entre .reverse() y .toReversed()
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toReversed#reversing_the_elements_in_an_array
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse#reversing_the_elements_in_an_array */
 
 // Originalmente el array1 es:
@@ -97,7 +144,20 @@ console.log(array1);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 2 - .reverse() y sintaxis de propagación:
+/* Ejemplo 2 - Crear Función (Metodo, Polyfill) de .toReversed()
+https://youtu.be/TJKAGh9jzx4 */
+
+Array.prototype.toReversed = function () {
+  return this.slice().reverse();
+};
+
+const numeros = [1, 2, 3];
+console.log(numeros.toReversed()); // (3) [ 3, 2, 1 ]
+console.log(numeros);              // (3) [ 1, 2, 3 ]
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 3 - .reverse() y ... sintaxis de propagación (MALA PRACTICA)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse#the_reverse_method_returns_the_reference_to_the_same_array */
 
 // array3 original (existente)
@@ -114,14 +174,18 @@ tambien se modifica la copia del array original reverse (MUtabilidad)
 
 Cuando reemplazo el elemento del indice 1 por 'nuevo elemento',
 se reemplaza en las variables reverse y array3 */
+
 reverse[0] = 'nuevo elemento';
 
 console.log(reverse); // (3) ['nuevo elemento', 2, 1] -> copia del array3
 console.log(array3);  // (3) ['nuevo elemento', 2, 1] -> array3 original (existente)
 
 /* Para crear una copia del array original invertida (volteada)
-y que NO se modifiq el array original
-puedo usar .reduceRight() ó la sintaxis de propagación (INmutabilidad)
+y que NO se modifiq el array original (INmutabilidad)
+puedo usar cualquiera de estas opciones:
+- .toReversed()
+- .reduceRight()
+- ... sintaxis de propagación
 
 Recordatorio:
 Ver:
@@ -135,7 +199,12 @@ https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy */
 array3 = [1, 2, 3];
 console.log(array3); // (3) [1, 2, 3]
 
-// Crear copia invertida (volteada) del array
+/* Hacer esto es MALA PRACTICA
+porque es lento en arrays con muchos elementos,
+lo correcto es usar .toReversed()
+
+... Crear copia invertida (volteada) del array */
+
 const copia = [...array3].reverse();
 console.log(copia);  // (3) [3, 2, 1]
 
@@ -144,12 +213,73 @@ console.log(array3); // (3) [1, 2, 3]
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 3 - Array Disperso (Sparse Array) [,] y Método .reverse()
+/* Ejemplo 4 - Array Disperso (Sparse Array) [,] en Métodos .toReversed() y .reverse()
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toReversed#using_toreversed_on_sparse_arrays
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse#using_reverse_on_sparse_arrays
 
-.reverse() conserva las ranuras vacias de los array dispersos [,] */
-console.log([1, , 3].reverse()); // (3) [ 3, <1 empty item>, 1 ]
-console.log([,].reverse());      // [ <1 empty item> ]
+Imprimir array disperso [,] SIN usar metodos de array: */
+
+console.log([,]); // [ <1 empty item> ]
+
+/* .reverse() reemplaza por <1 empty item>
+cada una las ranuras vacias de los array dispersos [,] */
+
+console.log([1, , 3].reverse());    // (3) [ 3, <1 empty item>, 1 ]
+console.log([,].reverse());         // [ <1 empty item> ]
+
+// En cambio, .toReversed() por undefined
+console.log([1, , 3].toReversed()); // (3) [ 3, undefined, 1 ]
+console.log([,].toReversed());      // [ undefined ]
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 5 - Metodos de Array [] .toReversed() y .reverse() en objeto literal {}
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toReversed#calling_toreversed_on_non-array_objects
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse#calling_reverse_on_non-array_objects
+
+Ambos métodos .toReversed() y .reverse()
+leen la propiedad length de this
+y luego accede a cada propiedad con un numero entero */
+
+const objetoLiteral = {
+// propiedad: valor,
+  length: 3,
+  hola: 'mundo',
+  2: 4,
+  3: 33, // propiedad: valor, ignorado por .reverse() porq la longitud length es 3
+};
+console.log(objetoLiteral);
+/*
+{
+  2: 4,
+  3: 33,
+  length: 3,
+  hola: 'mundo'
+}
+*/
+
+/* .toReversed() Los indices "0" y "1" no estan presentes,
+por lo q se convierten en undefined */
+const toReversed = Array.prototype.toReversed.call(objetoLiteral);
+console.log(toReversed);
+// (3) [4, undefined, undefined]
+
+/* .reverse() El índice 2 se elimina porque no había ningún índice 0 presente originalmente
+
+El índice 3 no cambia porq la longitud length es 3 */
+Array.prototype.reverse.call(objetoLiteral);
+console.log(objetoLiteral);
+/*
+{
+  0: 4,
+  3: 33,
+  length: 3,
+  hola: 'mundo'
+}
+*/
