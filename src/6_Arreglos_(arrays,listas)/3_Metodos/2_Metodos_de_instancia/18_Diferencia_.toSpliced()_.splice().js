@@ -15,6 +15,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 - .splice()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 
+Wikipedia - Algoritmo en el lugar (In-place algorithm)
+https://en.wikipedia.org/wiki/In-place_algorithm
+
 |-----------------------------------------|-----------------------|-----------------------|
 | Metodos de array .to()                  | ¿MODIFICA el array1   | ¿Crea una nueva COPIA |
 |                                         | original (existente)? | array2 del array1?    |
@@ -30,32 +33,62 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 | .with()                                 |                       |                       |
 |-----------------------------------------|-----------------------|-----------------------|
 
-|
-|
-|
+Las diferencias están de amarillo:
 
-.splice() usa el algoritmo en el lugar
-
-Wikipedia - Algoritmo en el lugar (In-place algorithm)
-https://en.wikipedia.org/wiki/In-place_algorithm
-
-.splice() Eliminar, Reemplazar o Agregar Elemento de Array
-INICIANDO en una Posición (Índice) en Especifico
-
-.splice() hace lo siguiente:
-Elimina   elemento existente
-Reemplaza elemento existente
-Agrega    nuevo elemento
-
-.splice() modifica el array original (existente)
+                                                    |-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+                                                    | .toSpliced()                                                                                                | .splice()                                                                               |
+|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| ¿Elimina   elemento existente                     | ✓                                                                                                           | ✓                                                                                       |
+| Reemplaza  elemento existente                     |                                                                                                             |                                                                                         |
+| Agrega     nuevo elemento                         |                                                                                                             |                                                                                         |
+| INICIANDO en una posición (índice) en específico? |                                                                                                             |                                                                                         |
+|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| ¿MODIFICA los elementos                           | INmutable                                                                                                   | MUtable                                                                                 |
+| del array1 original (existente)?                  | X                                                                                                           | ✓                                                                                       |
+|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| ¿Crea una nueva COPIA array2 del array1?          | ✓                                                                                                           | X                                                                                       |
+|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| Valor de retorno                                  | Un NUEVO array2 con                                                                                         | Uno o más elementos                                                                     |
+|                                                   | los elementos modificados                                                                                   | que fueron modificados en el array1                                                     |
+|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| ¿Usa el algoritmo en el lugar?                    | ✓                                                                                                           | ✓                                                                                       |
+|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| Ejemplo                                           | const array1 = ['▲', '●', '✖', '■'];                                                                        | En cambio, .splice() SI modifica el array1                                              |
+|                                                   | //             -4    -3   -2   -1  -> Posiciones (indices) NEGATIVOS                                        | console.log(array1.splice(-2, 1)); // ['✖'] -> .splice() devuelve el elemento eliminado |
+|                                                   | //                         ↑                                                                                | console.log(array1);               // (3) ['▲', '●', '■']                               |
+|                                                   |                                                                                                             |                                                                                         |
+|                                                   | console.log(array1);                                                                                        |                                                                                         |
+|                                                   | // (4) ['▲', '●', '✖', '■']                                                                                 |                                                                                         |
+|                                                   |                                                                                                             |                                                                                         |
+|                                                   | .toSpliced() y .splice()                                                                                    |                                                                                         |
+|                                                   | Eliminar UN SOLO elemento q esta en un indice en especifico                                                 |                                                                                         |
+|                                                   |                                                                                                             |                                                                                         |
+|                                                   | Del array (4) ['▲', '●', '✖', '■']                                                                          |                                                                                         |
+|                                                   | eliminar ['✖'] que esta en el indice -2                                                                     |                                                                                         |
+|                                                   |                                                                                                             |                                                                                         |
+|                                                   | .toSpliced() (INmutable) NO modifica el array1 original (existente)                                         |                                                                                         |
+|                                                   | const array2 = array1.toSpliced(-2, 1); // -> .toSpliced() devuelve una COPIA con los elementos modificados |                                                                                         |
+|                                                   | console.log(array2);                    // (3) ['▲', '●', '■']                                              |                                                                                         |
+|                                                   |                                                                                                             |                                                                                         |
+|                                                   | console.log(array1);                    // (4) ['▲', '●', '✖', '■']                                         |                                                                                         |
+|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
 
 Sintaxis:
-.splice(start, deleteCount, item1, item2, itemN)
+array.splice(start, deleteCount, item1, item2, itemN)
+array.toSpliced(start, deleteCount, item1, item2, itemN)
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#syntax
 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSpliced#syntax
+
 Donde...
-- .splice()
-Nombre del método
+- .splice() y .toSpliced()
+Es el nombre del metodo
+
+- array
+* Nombre de la variable q contiene el array []
+
+* Es el array en el que quiero eliminar, reemplazar o agregar 1 o más elementos
 
 - start
 * Es obligatorio escribirlo
@@ -78,11 +111,40 @@ Nombre del método
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 1 - Diferencias y Similitudes Entre .toSpliced()  y .splice()
+// Ejemplo 1 - Diferencia Entre .toSpliced() y .splice()
+
+const array1 = ['▲', '●', '✖', '■'];
+//             -4    -3   -2   -1  -> Posiciones (indices) NEGATIVOS
+//                         ↑
+
+console.log(array1);
+// (4) ['▲', '●', '✖', '■']
+
+/* .toSpliced() y .splice()
+Eliminar UN SOLO elemento q esta en un indice en especifico
+
+Del array (4) ['▲', '●', '✖', '■']
+eliminar ['✖'] que esta en el indice -2
+
+.toSpliced()
+1) Crea una nueva COPIA en una variable array2 */
+const array2 = array1.toSpliced(-2, 1); // -> .toSpliced() devuelve una COPIA con los elementos modificados
+console.log(array2);                    // (3) ['▲', '●', '■']
+
+/* 2) NO modifica el array1 original,
+en el array1 aun NO se ha eliminado la ['✖'] */
+console.log(array1);                  // (4) ['▲', '●', '✖', '■']
+
+// En cambio, .splice() SI modifica el array1
+console.log(array1.splice(-2, 1)); // ['✖'] -> .splice() devuelve el elemento eliminado
+console.log(array1);               // (3) ['▲', '●', '■']
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 2 - Explicacion completa de .splice()
+/* Ejemplo 2 - Explicacion COMPLETA de .toSpliced() y .splice()
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSpliced#deleting_adding_and_replacing_elements
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#try_it */
 
 // Array original (existente) que modificare despues con .splice()
@@ -105,6 +167,7 @@ se eliminan elementos de indices 2 y 3
 Cuando del array (4) ['▲', '●', '✖', '■'] elimino (2) ['✖', '■']
 quedan los elementos (2) ['▲', '●']
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_all_elements_starting_from_index_2 */
+
 console.log(figuras.splice(2)); // (2) ['✖', '■']
 console.log(figuras);           // (2) ['▲', '●']
 
@@ -126,6 +189,7 @@ se eliminan elementos de indices -2 y -1
 
 Cuando del array (4) ['▲', '●', '✖', '■'] elimino (2) ['✖', '■']
 quedan los elementos (2) ['▲', '●'] */
+
 console.log(figuras.splice(-2)); // (2) ['✖', '■']
 console.log(figuras);            // (2) ['▲', '●']
 
@@ -138,6 +202,7 @@ console.log(figuras);
 Del array (4) ['▲', '●', '✖', '■']
 eliminar ['✖'] que esta en el indice -2
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_1_element_from_index_-2 */
+
 console.log(figuras.splice(-2, 1)); // ['✖']
 console.log(figuras);               // (3) ['▲', '●', '■']
 
@@ -155,6 +220,7 @@ se eliminan los elementos de los indices 1, 2 y 3
 Cuando del array (4) ['▲', '●', '✖', '■']
 elimino (3) ['●', '✖', '■']
 queda el elemento ['▲'] */
+
 console.log(figuras.splice(1, Infinity)); // (3) ['●', '✖', '■']
 console.log(figuras);                     // ['▲']
 
@@ -178,6 +244,7 @@ Cuando del array (4) ['▲', '●', '✖', '■']
 elimino el elemento circulo ['●'] q esta en el indice 1
 quedan los elementos (3) ['▲', '✖', '■']
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_1_element_at_index_3 */
+
 console.log(figuras.splice(1, 1)); // ['●']
 console.log(figuras);              // (3) ['▲', '✖', '■']
 
@@ -193,6 +260,7 @@ Cuando del array (4) ['▲', '●', '✖', '■']
 elimino (2) ['●', '✖']
 quedan los elementos (2) ['▲', '■']
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_2_elements_starting_from_index_2 */
+
 console.log(figuras.splice(1, 2)); // (2) ['●', '✖']
 console.log(figuras);              // (2) ['▲', '■']
 
@@ -208,6 +276,7 @@ Cuando al array (4) ['▲', '●', '✖', '■']
 le agrego un elemento corazon '❤️' en el indice 1,
 el array con el nuevo elemento agregado es (5) ['▲', '❤️', '●', '✖', '■']
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_0_zero_elements_before_index_2_and_insert_drum */
+
 console.log(figuras.splice(1, 0, '❤️')); // []
 console.log(figuras);                    // (5) ['▲', '❤️', '●', '✖', '■']
 
@@ -222,6 +291,7 @@ Cuando al array (4) ['▲', '●', '✖', '■']
 le agrego dos corazones '❤️', '❤️' en los indices 1 y 2,
 el array con los nuevos elementos agregados es (5) ['▲', '❤️', '❤️' '●', '✖', '■']
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_0_zero_elements_before_index_2_and_insert_drum_and_guitar */
+
 console.log(figuras.splice(1, 0, '❤️', '❤️')); // []
 console.log(figuras);                          // (5) ['▲', '❤️', '❤️' '●', '✖', '■']
 
@@ -236,6 +306,7 @@ por otro(s) nuevo(s) elemento(s)
 Reemplazar el elemento circulo ['●'] q esta en el indice 1
 por UN elemento corazon '❤️'
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_1_element_at_index_2_and_insert_trumpet */
+
 console.log(figuras.splice(1, 1, '❤️')); // ['●']
 console.log(figuras);                    // (4) ['▲', '❤️', '✖', '■']
 
@@ -258,6 +329,7 @@ Reemplazar DOS elementos A PARTIR del indice 1
 Reemplazar los dos elementos (2) ['●', '✖']
 por dos corazones '❤️', '❤️'
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_2_elements_from_index_0_and_insert_parrot_anemone_and_blue */
+
 console.log(figuras.splice(1, 2, '❤️', '❤️')); // (2) ['●', '✖']
 console.log(figuras);                          // (4) ['▲', '❤️', '❤️', '■']
 
@@ -298,6 +370,7 @@ start es MAYOR O IGUAL Q
 el numero de elementos del array .length
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#return_value */
+
 console.log(figuras.splice());     // []
 console.log(figuras);              // (4) ['▲', '●', '✖', '■']
 
@@ -366,7 +439,10 @@ console.log(figuras2);                      // (6) ['▲', 'a', 'b', '●', '✖
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 4 - Array Disperso (Sparse Array) [,] y Método .splice()
+/* Ejemplo 4 - Array Disperso (Sparse Array) [,] en Métodos .toSpliced() y .splice()
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSpliced#using_tospliced_on_sparse_arrays
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#using_splice_on_sparse_arrays */
@@ -376,10 +452,66 @@ const arrayDisperso = [1, , 3];
 //                     0 1  2
 //                       ↑
 
+// Imprimir array disperso [,] SIN usar metodos de array:
+
 console.log(arrayDisperso);              // (3) [ 1, <1 empty item>, 3 ]
 
-/* .splice() puede eliminar las ranuras vacias de los array dispersos [,]
+/* Ambos .toSpliced() y .splice()
+pueden eliminar las ranuras vacias de los array dispersos [,]
 
 Eliminar la ranura vacia [,] q esta en el indice 1 */
+
+// .toSpliced()
+console.log(arrayDisperso.toSpliced(1, 1)); // (2) [1, 3]      -> array despues de eliminar ranura vacia [,]
+
+// .splice()
 console.log(arrayDisperso.splice(1, 1)); // [ <1 empty item> ] -> elemento eliminado
 console.log(arrayDisperso);              // (2) [1, 3]         -> array despues de eliminar ranura vacia [,]
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 5 - Metodos de Array [] .toSpliced() y .splice() en objeto literal {}
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSpliced#calling_tospliced_on_non-array_objects
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#calling_splice_on_non-array_objects
+
+Ambos métodos .toSpliced() y .splice()
+leen la propiedad length de this
+y luego accede a cada propiedad con un numero entero */
+
+const objetoLiteral = {
+  length: 3,
+  hola: 'mundo',
+  0: 5,
+  2: 4,
+};
+console.log(objetoLiteral);
+/*
+{
+  '0': 5,
+  '2': 4,
+  length: 3,
+  hola: 'mundo'
+}
+*/
+
+// .toSpliced()
+const toSpliced = Array.prototype.toSpliced.call(objetoLiteral, 0, 1, 2, 3);
+console.log(toSpliced);
+// (4) [2, 3, undefined, 4]
+
+// .splice()
+console.log(Array.prototype.splice.call(objetoLiteral, 0, 1, 2, 3));
+// [ 5 ]
+
+console.log(objetoLiteral);
+/*
+{
+  '0': 2,
+  '1': 3,
+  '3': 4,
+  length: 4,
+  hola: 'mundo'
+}
+*/

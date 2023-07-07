@@ -495,7 +495,7 @@ console.log(array1);
 /* .toReversed() y .reverse()
 invertir (voltear) el orden de los elementos del array1
 
-.toReversed() NO modifica el array1 */
+.toReversed() (INmutable) NO modifica el array1 */
 const array2 = array1.toReversed();
 console.log(array2);
 // (3) [3, 2, 1]
@@ -503,7 +503,7 @@ console.log(array2);
 console.log(array1);
 // (3) [1, 2, 3]
 
-// En cambio, .reverse() SI modifica el array1
+// En cambio, .reverse() (MUtable) SI modifica el array1
 array1.reverse();
 console.log(array1);
 // (3) [3, 2, 1]
@@ -531,8 +531,16 @@ https://youtu.be/YIZWGn13RCE */
 
 https://youtu.be/luXkteqv0I8
 
-Eliminar, reemplazar o agregar elemento de array
-INICIANDO en una posición (índice) en especifico */
+SIMILITUD:
+Ambos .toSpliced() y .splice()
+Eliminan   elemento existente
+Reemplazan elemento existente
+Agregan    nuevo elemento
+INICIANDO en una posición (índice) en específico
+
+DIFERENCIA:
+.toSpliced() (INmutable) NO modifica el array1 original (existente),
+en cambio .splice() (MUtable) SI */
 
 // Array original (existente) que modificare despues con .splice()
 let figuras = ['▲', '●', '✖', '■'];

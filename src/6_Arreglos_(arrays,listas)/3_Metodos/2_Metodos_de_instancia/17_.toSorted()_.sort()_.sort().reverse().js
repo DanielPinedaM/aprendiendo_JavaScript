@@ -30,6 +30,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 - .sort()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 
+Wikipedia - Algoritmo en el lugar (In-place algorithm)
+https://en.wikipedia.org/wiki/In-place_algorithm
+
 |-----------------------------------------|-----------------------|-----------------------|
 | Metodos de array .to()                  | ¿MODIFICA el array1   | ¿Crea una nueva COPIA |
 |                                         | original (existente)? | array2 del array1?    |
@@ -51,17 +54,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 .sort() usa el algoritmo en el lugar
 
-Wikipedia - Algoritmo en el lugar (In-place algorithm)
-https://en.wikipedia.org/wiki/In-place_algorithm
-
 .sort() Ordenar de menor a mayor (ascendente)
 y .sort().reverse() de mayor a menor (descendente)
 array con números y letras
 
 .sort() Ordena las letras en orden alfabetico (a, b, c...)
 y los numeros de menor a mayor (1, 2, 3...)
-
-.sort() modifica el orden de los elementos del array original (existente)
 
 Sintaxis:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#syntax */
