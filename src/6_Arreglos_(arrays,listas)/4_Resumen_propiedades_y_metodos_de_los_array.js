@@ -488,7 +488,7 @@ https://midu.dev/to-reversed-to-spliced-to-sorted-with/
 https://youtu.be/TJKAGh9jzx4 */
 
 // array1 original (existente)
-const array1 = [1, 2, 3];
+let array1 = [1, 2, 3];
 console.log(array1);
 // (3) [1, 2, 3]
 
@@ -496,7 +496,7 @@ console.log(array1);
 invertir (voltear) el orden de los elementos del array1
 
 .toReversed() (INmutable) NO modifica el array1 */
-const array2 = array1.toReversed();
+let array2 = array1.toReversed();
 console.log(array2);
 // (3) [3, 2, 1]
 
@@ -562,6 +562,7 @@ se eliminan elementos de indices 2 y 3
 Cuando del array (4) ['▲', '●', '✖', '■'] elimino (2) ['✖', '■']
 quedan los elementos (2) ['▲', '●']
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#remove_all_elements_starting_from_index_2 */
+
 console.log(figuras.splice(2)); // (2) ['✖', '■']
 console.log(figuras);           // (2) ['▲', '●']
 
@@ -794,8 +795,37 @@ console.log(figuras);                            // (6) ['▲', '●', '✖', '�
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://www.youtube.com/watch?v=TJKAGh9jzx4&t=1223s
 
-INCOMPLETO
-*/
+SIMILITUD:
+Ambos .with() y Notación de Corchetes sirven para
+Reemplazar un Elemento que Está en una Posición (Índice) en Específico */
+
+array1 = ['▲', '●', '✖', '■'];
+//         0    1    2    3 -> POSICION (INDICE)
+//                   ↑
+
+/* .with() y Notación de Corchetes
+Reemplazar el elemento '✖'
+q esta en el indice 2 por un corazon '❤️'
+
+DIFERENCIA:
+.with() (INmutable) NO modifica el array1 */
+array2 = array1.with(2, '❤️');
+console.log(array2);
+// (4) [ '▲', '●', '❤️', '■' ]
+//        0    1    2    3 -> POSICION (INDICE)
+//                  ↑
+
+console.log(array1);
+// (4) [ '▲', '●', '✖', '■' ]
+//        0    1    2    3 -> POSICION (INDICE)
+//                  ↑
+
+// En cambio, la notacion de corchetes (MUtable) SI se modifica el array1
+array1[2] = '❤️'; // nombreArray[indice]="nuevo elemento"
+console.log(array1);
+// (4) [ '▲', '●', '❤️', '■' ]
+//         0    1    2    3 -> POSICION (INDICE)
+//                   ↑
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
