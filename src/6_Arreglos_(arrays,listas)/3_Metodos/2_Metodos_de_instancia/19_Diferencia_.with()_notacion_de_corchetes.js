@@ -97,7 +97,7 @@ Numero de posicion (indice) en donde se reemplaza el elemento (valor)
 
 /* -------------------------------------------------------------- */
 
-/* Ejemplo 1 - Diferencia Entre .with() y Notacion de Corchetes []
+/* Ejemplo 1 - Diferencia Entre .with() y Notacion de Corchetes
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/with#creating_a_new_array_with_a_single_element_changed
 
 El array1 original (existente) tiene los elementos (4) [ '▲', '●', '✖', '■' ]
@@ -124,7 +124,7 @@ console.log(array1);
 
 /* en cambio, la notacion de corchetes
 nombreArray[indice]="nuevo elemento" (MUtable)
-SI se modifica el array1 original (existente) (es MUtable)
+SI se modifica el array1 original (existente)
 
 Antes en array1 en el indice 2 estaba el elemento equis '✖',
 pero ahora se ha reemplazado por un corazon '❤️' */
@@ -165,7 +165,6 @@ console.log(figuras);
 
 /* .slice() Reemplazar el elemento '✖'
 q esta en el indice 2 por un corazon '❤️' */
-
 const indice = 2;
 console.log(indice);
 // 2
@@ -178,12 +177,12 @@ const reemplazarElemento = [
 
 console.log(reemplazarElemento);
 // (4) [ '▲', '●', '❤️', '■' ]
-//         0    1    2    3 -> POSICION (INDICE)
+//        0    1    2    3 -> POSICION (INDICE)
 //                   ↑
 
 /* Ambos .slice() y .with()
 NO modifican el array1 original (existente),
-porque sigue teniendo los mismos elementos */
+porque el array figuras sigue teniendo los mismos elementos */
 console.log(figuras);
 // (4) [ '▲', '●', '✖', '■' ]
 //        0    1    2    3 -> POSICION (INDICE)
@@ -218,7 +217,8 @@ console.log(reemplazarElemento2);
 /* -------------------------------------------------------------- */
 
 /* Ejemplo 4
-.with() Reemplazar un elemento que está en una posición (índice) en específico
+.with() Reemplazar un elemento
+que está en una posición (índice) en específico
 POR CUALQUIER TIPO DE DATO */
 
 console.log(figuras);
@@ -232,32 +232,41 @@ figuras.with(2, 'hola mundo'); // (4) [ '▲', '●', 'hola mundo', '■' ]
 
 // Number() Numero
 figuras.with(2, 123);          // (4) [ '▲', '●', 123, '■' ]
+//                                                 ↑
 
 // BigInt() Numero grande
 figuras.with(2, BigInt(999));  // (4) [ '▲', '●', 999n, '■' ]
+//                                                  ↑
 
 // Boolean() Booleano
 // true Verdadero
 figuras.with(2, true);         // (4) [ '▲', '●', true, '■' ]
+//                                                  ↑
 
 // false Falso
 figuras.with(2, false);        // (4) [ '▲', '●', false, '■' ]
+//                                                  ↑
 
 // Symbol() ID, simbolo
 figuras.with(2, Symbol('ID')); // (4) [ '▲', '●', Symbol(ID), '■' ]
+//                                                     ↑
 
 // null
 figuras.with(2, null);         // (4) [ '▲', '●', null, '■' ]
+//                                                 ↑
 
 // undefined Indefinido
 figuras.with(2, undefined);    // (4) [ '▲', '●', undefined, '■' ]
+//                                                     ↑
 
 // NaN No es un Numero
-figuras.with(2, NaN);
+figuras.with(2, NaN);          // (4) [ '▲', '●', NaN, '■' ]
+//                                                 ↑
 
 // {} Objeto literal
-figuras.with(2, { uno: 1, dos: 2 }); // (4) ['▲', '●', {  uno: 1, dos: 2 }, '■']
+figuras.with(2, { uno: 1, dos: 2 }); // (4) ['▲', '●', { uno: 1, dos: 2 }, '■']
 figuras.with(2, {});                 // (4) [ '▲', '●', {}, '■' ]
+//                                                      ↑
 
 // { {} } Objeto de Objetos (Objeto Anidado)
 figuras.with(2, { uno: { dos: { tres: 'cuatro' } } });
@@ -279,12 +288,15 @@ figuras.with(2, { uno: { dos: { tres: 'cuatro' } } });
 // [] Array
 figuras.with(2, [1, 2, 3]);          // (4) [ '▲', '●', [ 1, 2, 3 ], '■' ]
 figuras.with(2, []);                 // (4) [ '▲', '●', [], '■' ]
+//                                                      ↑
 
 // [ [] ] Array anidado (array de arrays)
 figuras.with(2, [[]]);               // (4) [ '▲', '●', [ [] ], '■' ]
+//                                                        ↑
 
 // [ {} ] Array de objetos
 figuras.with(2, [{}]);               // [ '▲', '●', [ {} ], '■' ]
+//                                                    ↑
 
 /* -------------------------------------------------------------- */
 
@@ -296,11 +308,12 @@ console.log(figuras);
 //        ↑
 
 /* En este ejemplo se reemplaza '▲' por undefined porq
-.with() SIN escribir nada dentro del par de parentesis()
-reemplaza por undefined el elemento q esta en el indice 0, */
+.with() SIN escribir nada dentro del par de parentesis ()
+reemplaza por undefined el elemento q esta en el indice 0 */
 
 console.log(figuras.with());
 // (4) [undefined, '●', '✖', '■']
+//         ↑
 
 /* -------------------------------------------------------------- */
 
@@ -330,6 +343,7 @@ console.log(copia);
 
 console.log(figuras);
 // (4) [ '▲', '●', '✖', '■' ]
+//                  ↑
 
 /* -------------------------------------------------------------- */
 
@@ -352,7 +366,7 @@ console.log(figuras.length - 1);
 // 3
 
 /*
-arrayObjeto.with(numeroIndice, value)
+arrayObjeto.with(numeroIndice, valor)
 1) numeroIndice > array.length-1
 
 SI numeroIndice es MAYOR Q
@@ -471,7 +485,7 @@ Finalmente, el valor de la matriz en index se establece en value */
 
 const objetoLiteral2 = {
   length: 3,
-  unrelated: 'foo',
+  hola: 'mundo',
   0: 5,
   2: 4,
   3: 3, // ignorado por .with() porq la longitud length es 3
@@ -480,3 +494,14 @@ const objetoLiteral2 = {
 const copia3 = Array.prototype.with.call(objetoLiteral2, 0, 1);
 console.log(copia3);
 // [ 1, undefined, 4 ]
+
+console.log(objetoLiteral2);
+/*
+{
+  '0': 5,
+  '2': 4,
+  '3': 3,
+  length: 3,
+  hola: 'mundo'
+}
+*/
