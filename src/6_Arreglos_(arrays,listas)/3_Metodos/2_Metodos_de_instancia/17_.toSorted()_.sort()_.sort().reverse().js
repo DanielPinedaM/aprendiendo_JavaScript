@@ -52,15 +52,6 @@ https://en.wikipedia.org/wiki/In-place_algorithm
 |
 |
 
-.sort() usa el algoritmo en el lugar
-
-.sort() Ordenar de menor a mayor (ascendente)
-y .sort().reverse() de mayor a menor (descendente)
-array con números y letras
-
-.sort() Ordena las letras en orden alfabetico (a, b, c...)
-y los numeros de menor a mayor (1, 2, 3...)
-
 Sintaxis:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#syntax */
 
@@ -111,68 +102,103 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 1 - Diferencias y Similitudes Entre .toSorted() y .sort()
+// Ejemplo 1 - Diferencias y Similitudes Entre .toSorted() y .sort() + .sort().reverse() y .toSorted().toReversed()
 
-// .sort() Ordenar de menor a mayor (ascendente)
-[2, 4, 3, 5, 1].sort((a, b) => a - b);                                           // (5) [1, 2, 3, 4, 5]
-['b', 'd', 'c', 'e', 'a'].sort((a, b) => a.localeCompare(b, 'es-ES'));           // (5) ['a', 'b', 'c', 'd', 'e']
+// array1 original (existente)
+const numeros = [2, 4, 3, 1];
+const letras = ['b', 'd', 'c', 'a'];
 
-// .sort().reverse() de mayor a menor (descendente) array con números y letras
-[2, 4, 3, 5, 1].sort((a, b) => a - b).reverse();                                 // (5) [5, 4, 3, 2, 1]
-['a', 'b', 'c', 'd', 'e'].sort((a, b) => a.localeCompare(b, 'es-ES')).reverse(); // (5) ['e', 'd', 'c', 'b', 'a']
+/* .toSorted() y .sort()
+Ordenar de menor a mayor (ASCENDENTE)
+
+.toSorted() NO modifica el array1 */
+let copia = numeros.toSorted((a, b) => a - b);
+console.log(copia);   // (4) [ 1, 2, 3, 4 ]
+console.log(numeros); // (4) [2, 4, 3, 1]
+
+copia = letras.toSorted((a, b) => a.localeCompare(b, 'es-ES'));
+console.log(copia);   // (4) [ 'a', 'b', 'c', 'd' ]
+console.log(letras);  // (4) ['b', 'd', 'c', 'a']
+
+// En cambio, .sort() SI modifica el array1
+numeros.sort((a, b) => a - b);
+console.log(numeros); // (4) [ 1, 2, 3, 4 ]
+
+letras.sort((a, b) => a.localeCompare(b, 'es-ES'));
+console.log(letras);  // (4) [ 'a', 'b', 'c', 'd' ]
+
+/* .toSorted().toReversed() y .sort().reverse()
+Ordenar de mayor a menor (DESCENDENTE)
+
+.toSorted().toReversed() NO modifica el array1  */
+copia = numeros.toSorted((a, b) => a - b).toReversed();
+console.log(copia);   // (4) [ 4, 3, 2, 1 ]
+
+// En cambio, .sort().reverse() SI modifica el array1
+numeros.sort((a, b) => a - b).reverse();
+console.log(numeros); // (4) [ 4, 3, 2, 1 ]
+
+letras.sort((a, b) => a.localeCompare(b, 'es-ES')).reverse();
+console.log(letras);  // (4) [ 'd', 'c', 'b', 'a' ]
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 2 - .sort((a, b) => a - b) para array con números:
+/* Ejemplo 2 - ((a, b) => a - b)) para array con números:
 https://forum.freecodecamp.org/t/arr-sort-a-b-a-b-explanation/167677
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#creating_displaying_and_sorting_an_array
 
+ERROR:
 Los numeros Number() se convierten a texto String()
-cuando NO escribo nada dentro del par de parentesis de .sort(),
+cuando NO escribo nada dentro del par de parentesis de .toSorted() y .sort(),
 esto ocasiona un error.
 
 La siguiente linea de codigo tiene un error:
 NO esta ordenando los numeros */
-console.log([9, '80000', 1].sort());                // (3) [1, '80000', 9]
+console.log([9, '80000', 1].sort());                    // (3) [1, '80000', 9] -> .sort()
+console.log([9, '80000', 1].toSorted());                // (3) [1, '80000', 9] -> .toSorted()
 
-/* Solucion:
-.sort((a, b) => a - b)) ordena numeros de menor a mayor (ascendente),
+/* SOLUCIÓN:
+((a, b) => a - b)) ordena numeros de menor a mayor (ascendente),
 NO funciona con texto String() */
-console.log([9, '80000', 1].sort((a, b) => a - b)); // (3) [1, 9, '80000']
+console.log([9, '80000', 1].sort((a, b) => a - b));     // (3) [1, 9, '80000'] -> .sort()
+console.log([9, '80000', 1].toSorted((a, b) => a - b)); // (3) [1, 9, '80000'] -> .toSorted()
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 3 - .sort((a, b) => a.localeCompare(b, 'es-ES')) para array con letras:
+/* Ejemplo 3 - ((a, b) => a.localeCompare(b, 'es-ES')) para array con letras:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#sorting_non-ascii_characters
 
 Usar este codigo para ordenar arrays
-que contienen letras con tildes,
+que contienen idiomas diferentes al ingles, es decir:
+
+1) Vocales con tildes,
 lo cual es lo mismo q
 caracteres q NO son ASCII
-o idiomas diferentes al ingles: */
 
-console.log(['ú', 'ó', 'í', 'é', 'á'].sort((a, b) => a.localeCompare(b, 'es-ES')));
-// (5) ['á', 'é', 'í', 'ó', 'ú']
+2) Array q contiene letra ñ */
+
+console.log(['ñ', 'ú', 'ó', 'í', 'é', 'á'].sort((a, b) => a.localeCompare(b, 'es-ES')));     // (6) ['á', 'é', 'í', 'ñ', 'ó', 'ú'] -> .sort()
+console.log(['ñ', 'ú', 'ó', 'í', 'é', 'á'].toSorted((a, b) => a.localeCompare(b, 'es-ES'))); // (6) ['á', 'é', 'í', 'ñ', 'ó', 'ú'] -> .toSorted()
 
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 4 - Desordenar array:
-En otras palabras:
-Cambiar las posiciones de los elementos del array aleatoriamente usando .sort() y Math.random()
-
 https://youtu.be/YIZWGn13RCE
 
 https://twitter.com/midudev/status/1488211287159025667/photo/1
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
-const numeros = [2, 4, 6, 8];
-console.log(numeros);
+En otras palabras:
+Cambiar las posiciones de los elementos del array aleatoriamente usando .toSorted() y Math.random() */
+
+const numeros2 = [2, 4, 6, 8];
+console.log(numeros2);
 // (4) [2, 4, 6, 8]
 
-numeros.sort(() => Math.random() - 0.5);
-console.log(numeros);
+const pseudoaleatorio = numeros2.toSorted(() => Math.random() - 0.5);
+console.log(pseudoaleatorio);
 /* (4) [8, 6, 4, 2]
    (4) [2, 4, 6, 8]
    (4) [2, 8, 4, 6] */
@@ -200,16 +226,20 @@ https://twitter.com/midudev/status/1488211291802152965/photo/1
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor */
 
-const letras = ['a', 'b', 'c'];
+const letras2 = ['a', 'b', 'c'];
 //               0    1    2
 
-console.log(letras);
+console.log(letras2);
 // (3) ['a', 'b', 'c']
 
-// Esto NO es 100% aleatorio porq a veces el indice NO cambia
-const indicePseudoaleatorio = Math.floor( // Math.floor() aproximar al MENOR numero entero
-/* Multiplicar:
-   (Numero pseudo-aleatorio y decimal entre 0 y 1) * (numero de elementos del array) */
+/* Esto NO es 100% aleatorio porq a veces el indice NO cambia
+
+Math.floor() aproximar al MENOR numero entero
+
+Multiplicar:
+(Numero pseudo-aleatorio y decimal entre 0 y 1) * (numero de elementos del array) */
+
+const indicePseudoaleatorio = Math.floor(
   Math.random() * letras.length,
 );
 console.log(indicePseudoaleatorio);
@@ -227,12 +257,16 @@ console.log(elemento);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 6 - .sort() y undefined
+/* Ejemplo 6 - .toSorted(), .sort() y undefined
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#description
 
-Los elementos q son undefined se situan de ultimo despues de ordenar el array con .sort() */
-console.log([3, undefined, 1].sort((a, b) => a - b)); // (3) [1, 3, undefined]
-console.log(['c', undefined, 'a'].sort());            // (3) ['a', 'c', undefined]
+Los elementos q son undefined se situan de ultimo despues de ordenar el array */
+
+console.log([3, undefined, 1].sort((a, b) => a - b));                               // (3) [1, 3, undefined] -> .sort()
+console.log([3, undefined, 1].toSorted((a, b) => a - b));                           // (3) [1, 3, undefined] -> .toSorted()
+
+console.log(['c', undefined, 'a'].sort((a, b) => a.localeCompare(b, 'es-ES')));     // (3) ['a', 'c', undefined] -> .sort()
+console.log(['c', undefined, 'a'].toSorted((a, b) => a.localeCompare(b, 'es-ES'))); // (3) ['a', 'c', undefined] -> .toSorted()
 
 /* --------------------------------------------------------------- */
 
@@ -263,8 +297,8 @@ comparando el valor de uno de sus objetos
 
 Ordenar personas por su EDAD
 de menor a mayor (ascendente) (1, 2, 3) */
-personas.sort((a, b) => a.edad - b.edad);
-console.log(personas);
+let ordenar = personas.toSorted((a, b) => a.edad - b.edad);
+console.log(ordenar);
 /*
 [
   { nombre: 'c', edad: 1 },
@@ -286,8 +320,8 @@ según el orden que se encuentran las letras en el abecedario:
 
 https://stackoverflow.com/questions/6712034/sort-array-by-firstname-alphabetically-in-javascript */
 
-personas.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es-ES'));
-console.log(personas);
+ordenar = personas.toSorted((a, b) => a.nombre.localeCompare(b.nombre, 'es-ES'));
+console.log(ordenar);
 /*
 [
   { nombre: 'a', edad: 2 },
@@ -298,13 +332,20 @@ console.log(personas);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 8 - .sort() y sintaxis de propagación:
+/* Ejemplo 8 - .sort() y ... sintaxis de propagación (MALA PRACTICA)
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#sort_returns_the_reference_to_the_same_array
 
-https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy */
+https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy
 
-// Array original (existente) con numeros en desorden
+Puedo usar juntos .sort() y la ... sintaxis de propagación para ordenar un array
+SIN modificar el array1 original (INmutabilidad),
+pero hacer esto es MALA PRACTICA,
+lo correcto es usar .toSorted()
+porque escribo menos codigo (codigo limpio)
+y se ejecuta mas rapido en arrays con muchos elementos */
+
+// array1 original (existente) con numeros en desorden
 let array = [2, 1, 3];
 console.log(array);            // (3) [2, 1, 3]
 
@@ -335,23 +376,33 @@ console.log(array);            // (3) [2, 1, 3]
 
 /* Usar la sintaxis de propagación
 para crear copia con numeros ordenados de menor a mayor (ascendente) */
-const copia = [...array].sort((a, b) => a - b);
-console.log(copia);           // (3) [1, 2, 3]
+const copia2 = [...array].sort((a, b) => a - b);
+console.log(copia2);           // (3) [1, 2, 3]
 
 // NO se modifica el array original (INmutabilidad)
 console.log(array);            // (3) [2, 1, 3]
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 9 - Array Disperso (Sparse Array) [,] y Método .sort()
+/* Ejemplo 9 - Método .sort() y .toSorted() en Array Disperso [,] (Sparse Array)
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted#using_tosorted_on_sparse_arrays
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#using_sort_on_sparse_arrays
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#description
 
-.sort() conserva las ranuras vacias de los arrays dispersos [,] */
+Imprimir ranura vacia de array Disperso [,]
+SIN usar metodos de array */
+
+console.log([,]);                            // [ <1 empty item> ]
+
+/* .sort() conserva las ranuras vacias de los arrays dispersos [,]  */
 console.log([,].sort());                     // [ <1 empty item> ]
+console.log([,].toSorted());
+
 console.log([1, , 3].sort((a, b) => a - b)); // (3) [1, 3, vacío]
 console.log(['a', , 'c'].sort());            // (3) ['a', 'c', vacío]
 

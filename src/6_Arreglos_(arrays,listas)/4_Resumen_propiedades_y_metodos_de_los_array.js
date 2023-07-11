@@ -509,18 +509,48 @@ console.log(array1);
 // (3) [3, 2, 1]
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ Diferencias y Similitudes Entre .toSorted() y .sort() + ¿Que es .sort().reverse() ? █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Diferencias y Similitudes Entre                                      █
+ █ .toSorted() y .sort() + .sort().reverse() y .toSorted().toReversed() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://youtu.be/YIZWGn13RCE */
 
-// .sort() Ordenar de menor a mayor (ascendente)
-[2, 4, 3, 5, 1].sort((a, b) => a - b);                                           // (5) [1, 2, 3, 4, 5]
-['b', 'd', 'c', 'e', 'a'].sort((a, b) => a.localeCompare(b, 'es-ES'));           // (5) ['a', 'b', 'c', 'd', 'e']
+// array1 original (existente)
+const numeros = [2, 4, 3, 1];
+const letras = ['b', 'd', 'c', 'a'];
 
-// .sort().reverse() de mayor a menor (descendente) array con números y letras
-[2, 4, 3, 5, 1].sort((a, b) => a - b).reverse();                                 // (5) [5, 4, 3, 2, 1]
-['a', 'b', 'c', 'd', 'e'].sort((a, b) => a.localeCompare(b, 'es-ES')).reverse(); // (5) ['e', 'd', 'c', 'b', 'a']
+/* .toSorted() y .sort()
+Ordenar de menor a mayor (ASCENDENTE)
+
+.toSorted() NO modifica el array1 */
+let copia = numeros.toSorted((a, b) => a - b);
+console.log(copia);   // (4) [ 1, 2, 3, 4 ] -> orden ascendente
+console.log(numeros); // (4) [2, 4, 3, 1]   -> array desordenado
+
+copia = letras.toSorted((a, b) => a.localeCompare(b, 'es-ES'));
+console.log(copia);   // (4) [ 'a', 'b', 'c', 'd' ] -> orden ascendente
+console.log(letras);  // (4) ['b', 'd', 'c', 'a']   -> array desordenado
+
+// En cambio, .sort() SI modifica el array1
+numeros.sort((a, b) => a - b);
+console.log(numeros); // (4) [ 1, 2, 3, 4 ] -> orden ascendente
+
+letras.sort((a, b) => a.localeCompare(b, 'es-ES'));
+console.log(letras);  // (4) [ 'a', 'b', 'c', 'd' ] -> orden ascendente
+
+/* .toSorted().toReversed() y .sort().reverse()
+Ordenar de mayor a menor (DESCENDENTE)
+
+.toSorted().toReversed() NO modifica el array1 */
+copia = numeros.toSorted((a, b) => a - b).toReversed();
+console.log(copia);   // (4) [ 4, 3, 2, 1 ] -> orden descendente
+
+// En cambio, .sort().reverse() SI modifica el array1
+numeros.sort((a, b) => a - b).reverse();
+console.log(numeros); // (4) [ 4, 3, 2, 1 ] -> orden descendente
+
+letras.sort((a, b) => a.localeCompare(b, 'es-ES')).reverse();
+console.log(letras);  // (4) [ 'd', 'c', 'b', 'a' ] -> orden descendente
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
