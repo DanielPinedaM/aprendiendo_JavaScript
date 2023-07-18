@@ -229,7 +229,7 @@ array.some((elemento, i) => {
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://midu.dev/foreach-mas-rapido-for/
 
-Recorrer (Iterar) Array y Ejecutar una Función para Cada Elemento */
+Recorrer (Iterar) Array y ejecutar una función para cada elemento */
 
 array.forEach((elemento, i) => {
   console.log(`i=${i} ➜ elemento='${elemento}'`);
