@@ -31,13 +31,12 @@ console.log(arrayBidimensional);
  ▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 
-for itera 2 veces para obtener las filas ↔ y columnas ↕
-*/
+for itera 2 veces para obtener las filas ↔ y columnas ↕ */
 
-for (let i = 0; i < arrayBidimensional.length; i++) {
+for (let i = 0; i < arrayBidimensional.length; i++) { // fila ↔
   const fila = arrayBidimensional[i];
 
-  for (let j = 0; j < fila.length; j++) {
+  for (let j = 0; j < fila.length; j++) {             // columna  ↕
     console.log(`indice [${i}][${j}] = ${fila[j]}`);
   }
 }
@@ -63,8 +62,8 @@ Recorrer (Iterar) Array y ejecutar una función para cada elemento
 
 .forEach() itera 2 veces para obtener las filas ↔ y columnas ↕ */
 
-arrayBidimensional.forEach((fila, i) => {
-  fila.forEach((columna, j) => {
+arrayBidimensional.forEach((fila, i) => { // fila ↔
+  fila.forEach((columna, j) => {          // columna  ↕
     console.log(`indice [${i}][${j}] = ${columna}`);
   });
 });
@@ -84,13 +83,15 @@ indice [2][2] = 9
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .flat(Infinity).map() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://youtu.be/em_Vh7ZGrnw
+
+https://youtu.be/FMubfnVET74
 
 .flat(Infinity) Aplana array con cualquier numero de dimensiones (array de N dimensiones)
 
-.map() itera el array y devuelve el array unidimensional []
+.map() itera el array y al juntarlo con .flat(Infinity) devuelve el array unidimensional []
 
-.flat(Infinity).map() itera una sola vez
-*/
+.flat(Infinity).map() itera una sola vez */
 
 const aplanarMapear = arrayBidimensional.flat(Infinity).map((elemento, i) => {
   console.log(`i=${i} ➜ elemento='${elemento}'`);
