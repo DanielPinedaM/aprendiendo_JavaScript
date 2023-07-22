@@ -1,9 +1,15 @@
+/* eslint-disable no-multiple-empty-lines */
 /* eslint-disable max-len */
 // @ts-nocheck
 
 /* --------------------------------------------------------------- */
 
 /*
+if () {} else {} Si SiNo
+
+Convertir de Operador Condicional Ternario a if () {} else {}
+https://converter.website-dev.eu/
+
 Documentacion Oficial...
 - if () {} else {} Si SiNo
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
@@ -11,7 +17,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if.
 - Bloque de codigo {}
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block
 
-Sirve para tomar desiciones dependiendo de si se cumple o no una condicion
+Sirve para tomar decisiones dependiendo de si se cumple o no una condición
 
 if() {} Cuando SI se cumple la condicion ejecutar ESTE bloque de codigo,
 else {} SINO se cumple la condicion entonces ejecutar este OTRO bloque codigo
@@ -35,6 +41,7 @@ if (condition) {
   statement1
 }
 
+
 DOS BLOQUES DE CODIGO:
 if (condition) {
   statement1
@@ -42,6 +49,7 @@ if (condition) {
   else {
     statement2
   }
+
 
 if else ANIDADO:
 if (condition1) {
@@ -57,6 +65,7 @@ if (condition1) {
         else {
           statementN
         }
+
 
 if (condition1) {
   statement1
@@ -244,9 +253,12 @@ if (falsy) { // false === true
 /* Se imprime 'IF' porq
 al negar ! un valor q es falsy el resultado es true
 (lo opuesto de false es true) */
-if (!falsy) { // true === true
+
+console.log(!falsy); // true
+
+if (!falsy) {        // true === true
   console.log('IF');
-} else {      // true !== true
+} else {             // true !== true
   console.log('ELSE');
 }
 // 'IF'
@@ -254,7 +266,13 @@ if (!falsy) { // true === true
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 3 - if () {} else {} - ¿Mayor o Menor de Edad?:
-https://youtu.be/9h5hyh_wDjo */
+https://youtu.be/9h5hyh_wDjo
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator#a_simple_example
+
+Recordatorio:
+Hay una forma mas abreviada de solucionar esto, ver:
+" Ejemplo 2 - operador condicional ternario - ¿Mayor o Menor de Edad?: " */
 
 const edad = 18;
 console.log(edad);   // 18
@@ -276,6 +294,7 @@ if (edad > 17) { //             -> 18, 19, 20 ...
 } else {          // edad <= 17 -> 17, 16, 15 ...
   console.log(`${nombre} es MENOR de edad`);
 }
+// 'Daniel es MAYOR de edad'
 
 // 2) Y ESTO OTRO <= menor o igual que 17 ...
 if (edad <= 17) { //           -> 17, 16, 15 ...
@@ -339,6 +358,7 @@ if (hora > -1 && hora < 6) {          // 0, 1, 2, 3, 4, 5
 } else {                              // ... -3 -2 -1, 25, 26, 27 ...
   console.log('hora incorrecta, tiene q ser un # entero desde 0 hasta 24');
 }
+// 'Dejame dormir 💤'
 
 /* --------------------------------------------------------------- */
 
@@ -350,12 +370,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/Emp
 
 https://en.wikipedia.org/wiki/Dangling_else
 
-Cuando el codigo del if else
-se puede escribir en un solo renglon
-entonces puedo escrirlo SIN laves {}
-como a continuacion: */
+El código statementN del if else
+se puede escribir en un solo renglón
+SIN llaves {} como a continuación: */
 
-const positivoNegativo = (numero) => {
+const negativoCeroPositivo = (numero) => {
   let resultado;
 
   // sentencia vacia
@@ -366,6 +385,6 @@ const positivoNegativo = (numero) => {
   return resultado;
 };
 
-console.log(positivoNegativo(-1)); // 'numero NEGATIVO'
-console.log(positivoNegativo(0));  // 'numero CERO'
-console.log(positivoNegativo(1));  // 'numero POSITIVO'
+console.log(negativoCeroPositivo(-1)); // 'numero NEGATIVO'
+console.log(negativoCeroPositivo(0));  // 'numero CERO'
+console.log(negativoCeroPositivo(1));  // 'numero POSITIVO'
