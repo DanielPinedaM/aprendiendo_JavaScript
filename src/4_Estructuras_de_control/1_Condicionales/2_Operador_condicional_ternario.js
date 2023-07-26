@@ -49,7 +49,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Cond
 
 Donde...
 - condition
-Condicional que se evalua para saber ¿que bloque de codigo statementN se ejecuta?
+Condicional que se evalua para saber ¿que bloque de codigo se ejecuta?
 
 - ifTrue
 Codigo que se ejecuta cuando el condicional es truthy (verdadero)
@@ -94,7 +94,7 @@ Recordatorio:
 Ver:
 " Ejemplo 3 - if () {} else {} - ¿Mayor o Menor de Edad?: "
 
-SI la edad es MAYOR O IGUAL Q 18 entonces es MAYOR de edad
+SI la edad es MAYOR O IGUAL Q 18 entonces es MAYOR de edad,
 SINO es MENOR Q 18 entonces es MENOR de edad
 
 El operador condicional ternario
@@ -127,8 +127,9 @@ console.log(esCero);
 /* Ejemplo 4
 https://www.youtube.com/watch?v=YFES8Nm6uF4&t=79s
 
-Ejecutar funcion en un operador condicional ternario,
-cuando sean las 7am se ejecuta la funcion saludar() */
+Ejecutar funcion en un operador condicional ternario
+
+Cuando sean las 7am se ejecuta la funcion saludar() */
 
 const saludar = () => 'buenos dias';
 console.log(saludar());
@@ -163,7 +164,7 @@ porq es código espagueti,
 lo correcto es usarlo SIN anidar,
 si necesito anidar entonces usar if () {} else {} */
 
-// MALA PRACTICA
+// MALA PRACTICA:
 const tiempo = (segundos) => {
   return (
     segundos <= 60    ? 'segundos' :
@@ -176,7 +177,7 @@ const tiempo = (segundos) => {
 console.log(tiempo(30));
 // "segundos"
 
-// BUENA PRACTICA
+// BUENA PRACTICA:
 const tiempo2 = (segundos2) => {
   if (segundos2 <= 60) {
     return 'segundos';
@@ -194,18 +195,18 @@ console.log(tiempo2(86000));
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 6 - Validar si existe o no la propiedad de un objeto literal
+/* Ejemplo 6 - Validar si existe o no la propiedad de un objeto literal {}
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator#handling_null_values */
 
 const validarObjetoLiteral = (persona) => {
   const nombre = persona?.nombre
-                 ? persona.nombre  // SI existe la propiedad person.nombre
+                 ? persona.nombre // SI existe la propiedad person.nombre
                  : 'otro nombre'; // NO "                               "
 
   return nombre;
 };
 
-// Devuelve 'Daniel' q es la propiedad persona.nombre
+// Devuelve 'Daniel' q es el valor de la propiedad persona.nombre
 console.log(validarObjetoLiteral({ nombre: 'Daniel' }));
 // 'Daniel'
 

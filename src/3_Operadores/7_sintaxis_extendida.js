@@ -109,7 +109,7 @@ copia.push(4);
 console.log(original); // (3) [1, 2, 3]
 console.log(copia);    // (4) [1, 2, 3, 4]
 
-/* IMPORTANTE:
+/* IMPORTANTE: ⚠️
 La ... sintaxis extendida NO hace inmutables los array anidados (multidimensional).
 Una posible solucion es structuredClone()
 https://developer.mozilla.org/en-US/docs/Web/API/structuredClone

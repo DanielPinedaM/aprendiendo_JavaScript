@@ -363,7 +363,7 @@ Ver:
 Usar estos metodos en datos primitivos NO tiene sentido,
 si quiero q un dato primitivo sea inmutable entonces defino la variable con const
 
-Saber esto no es importante pero lo escribire para aprender:
+Saber esto no es IMPORTANTE ⚠️ pero lo escribire para aprender:
 La version de JS q usa NodeJS y todos los navegadores modernos es >= ES 6 (2015)
 
 >= ES 6 (2015)

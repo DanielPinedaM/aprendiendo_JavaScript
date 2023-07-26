@@ -31,7 +31,7 @@ https://stackoverflow.com/questions/69561596/object-hasown-vs-object-prototype-h
 ESLint - no-prototype-builtins
 https://eslint.org/docs/latest/rules/no-prototype-builtins
 
-IMPORTANTE:
+IMPORTANTE: ⚠️
 No te compliques estudiando todo esto,
 SIEMPRE que necesites saber
 si existe o no una propiedad en un objeto {}

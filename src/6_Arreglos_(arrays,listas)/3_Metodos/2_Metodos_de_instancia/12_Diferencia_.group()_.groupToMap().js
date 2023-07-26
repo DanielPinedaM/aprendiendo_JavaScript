@@ -179,7 +179,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 /* --------------------------------------------------- */
 
 /*
-IMPORTANTE:
+IMPORTANTE: ⚠️
 A la fecha que escribo esto Junio 2023 .group() y .groupToMap()
 NO son compatibles con todos los navegadores,
 pero en un futuro esto cambiará y si serán compatibles
@@ -626,7 +626,7 @@ console.log(agruparCantidad);
 /* --------------------------------------------------- */
 
 /* Ejemplo 8 - .groupToMap() - Array de objetos [ {} ] con un inventario de comidas
-Es IMPORTANTE leer este ejemplo porq aqui se explica:
+Es IMPORTANTE ⚠️ leer este ejemplo porq aqui se explica:
 - ¿como modificar el nombre de la propiedad despues de ejecutar .groupToMap()?
 
 - .get() ¿Como acceder a los valores de .groupToMap()?

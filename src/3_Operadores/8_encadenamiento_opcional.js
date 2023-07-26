@@ -193,7 +193,7 @@ at Object.<anonymous>
 /* En cambio, el ?. encadenamiento opcional
 devuelve undefined y NO da error (buena practica)
 
-IMPORTANTE:
+IMPORTANTE: ⚠️
 Cuando voy acceder al valor de un objeto anidado
 usar la notacion de punto para las propiedades q SI existen
 y el ?. encadenamiento opcional para las q NO existen.

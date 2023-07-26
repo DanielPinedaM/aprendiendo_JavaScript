@@ -15,10 +15,10 @@
 █ CONVERTIR DE ARRAY A STRING (TEXTO) █
 ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 
-IMPORTANTE:
+IMPORTANTE: ⚠️
 No te enredes estudiando este tema,
 siempre que necesites convertir de array a string usa Intl.ListFormat(),
-lo mas importante de esta sección es que veas el tutorial de Midudev:
+lo mas IMPORTANTE ⚠️ de esta sección es que veas el tutorial de Midudev:
 
 Tutorial de Midudev - Intl.ListFormat()
 https://youtu.be/59tYAYnt_sg

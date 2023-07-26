@@ -12,7 +12,7 @@
 /*
 Array.fromAsync() De Forma Asíncrona, Convertir a Array y Ejecutar una Función para Cada Elemento
 
-IMPORTANTE:
+IMPORTANTE: ⚠️
 A la fecha que escribo esto Junio 2023
 Array.fromAsync() NO es compatible con todos los navegadores,
 pero en un futuro esto cambiará y si será compatible

@@ -29,7 +29,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 Algunos navegadores pueden devolver -2 ó 2
 (o cualquier otro numero que sea positivo o negativo),
 no necesariamente -1 ó 1,
-pero lo importante es que los numeros sean negativos ó positivos.
+pero lo IMPORTANTE ⚠️ es que los numeros sean negativos ó positivos.
 0 no tiene este problema,
 0 siempre es igual en todos los navegadores
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare#description

@@ -120,7 +120,7 @@ console.log(objectCreate2 === objetoVacio);  // false
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 3 - Object.getPrototypeOf() en tipo de dato primitivo (q NO es objeto)
-Saber esto no es importante pero lo escribire para aprender:
+Saber esto no es IMPORTANTE ⚠️ pero lo escribire para aprender:
 La version de JS q usa NodeJS y todos los navegadores modernos es >= ES 6 (2015)
 
 >= ES 6 (2015)
