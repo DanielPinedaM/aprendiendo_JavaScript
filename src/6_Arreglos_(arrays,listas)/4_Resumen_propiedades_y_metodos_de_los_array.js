@@ -214,6 +214,7 @@ pero despues de ejecutar .filter()
 se crea un nuevo array2
 q solamente copia los cuadrados '■' del array1
 y ELIMINA las otras figuras q NO son cuadrados */
+
 ['■', '■', '■', '●'].filter((elemento) => elemento === '■');
 // (3) ['■', '■', '■']
 

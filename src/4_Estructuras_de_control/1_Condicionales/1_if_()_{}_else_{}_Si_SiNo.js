@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 /* eslint-disable no-multiple-empty-lines */
 /* eslint-disable max-len */
 // @ts-nocheck
@@ -114,67 +115,84 @@ Ver:
 /* Ejemplo 1 - Validar Cuando una Variable es null, undefined, NaN, "" Carácter Vacío, " " Espacio en Blanco, 0, false
 
 Este Ejemplo 1 esta en Stack Overflow pero lo modifiq para mejorarlo:
-https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in */
+https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in
+
+https://stackoverflow.com/questions/35476948/remove-empty-or-whitespace-strings-from-array-javascript */
 
 const validar = (variable) => {
-  if (variable && (String(variable).trim() !== '')) { // truthy
-    console.log(`
-    La variable NO es NINGUNO de los siguientes tipos de datos:
-    - null
-    - undefined
-    - NaN
-    - '' Carácter Vacío
-    - ' ' Espacio en Blanco
-    - 0
-    - false
-    `);
+  // truthy
+  if (Array.isArray(variable)) {                           // en JS los array [] son truthy
+    return true;
+  } else if (variable && String(variable).trim() !== '') { // validar truthy en JS y espacio en blanco " "
+    return true;
   } else { // falsy
-    console.log(`
-    La variable SI es ALGUNO de los siguientes tipos de datos:
-    - null
-    - undefined
-    - NaN
-    - '' Carácter Vacío
-    - ' ' Espacio en Blanco
-    - 0
-    - false
-    `);
+    return false;
   }
 };
 
-/* Se ejecuta el if () {} porq la variable es truthy
-"La variable NO es NINGUNO de los siguientes tipos de datos:
+/* La funcion validar() devuelve true porq la variable es TRUTHY
+
+La variable NO es NINGUNO de los siguientes tipos de datos:
 - null
 - undefined
 - NaN
 - '' Carácter Vacío
 - ' ' Espacio en Blanco
 - 0
-- false" */
-validar('hola mundo');
-validar(1);
-validar(true);
+- false */
+validar('hola mundo'); // el string NO esta vacio
+validar(1);            // 1 es true en booleano
+validar('1');          // el string NO esta vacio
+validar(true);         // booleano verdadero
+validar('true');       // el string NO esta vacio
+validar('0');          // el string NO esta vacio
+validar('false');      // el string NO esta vacio
+validar(Infinity);     // al convertir Infinity a booleano es true
+validar(999);          // al convetir a booleano cualquier # diferente de 0 es true
+validar({});           // al convertir de objeto literal {} a booleano es true
+validar([]);           // al convertir de array [] a booleano es true
 
-/* Se ejecuta el else {} porq la variable es falsy
+/* La funcion validar() devuelve false porq la variable es FALSY
 
 validar(undefined); y validar(); son lo mismo
+porque ambos significan que la variable no esta definida
 
-" La variable SI es ALGUNO de los siguientes tipos de datos:
+La variable SI es ALGUNO de los siguientes tipos de datos:
 - null
 - undefined
 - NaN
 - '' Carácter Vacío
 - ' ' Espacio en Blanco
 - 0
-- false " */
-validar(null);
-validar(undefined);
-validar();
-validar(NaN);
-validar('');
-validar(' ');
-validar(0);
-validar(false);
+- false */
+validar(null);      // una variable q si esta definida pero con un valor null es falsy
+validar(undefined); // una variable NO definida es falsy
+validar();          // una variable NO definida es falsy
+validar(NaN);       // al convertir NaN (no es un numero) a booleano es falsy
+validar('');        // por defecto en JS "" es falsy, para esto uso la condicion variable
+validar(' ');       // para esto uso condicion String(variable).trim() !== ''
+validar(0);         // 0 es false en booleano
+validar(false);     // booleano falso
+
+/* Esta es otra forma de validar,
+pero tiene el problema de q NO valida " " espacio en blanco
+porque imprime 'falsy' cuando la variable es un espacio en blanco */
+
+let variable2 = 'hola mundo';
+if (variable2) {
+  console.log('truthy');
+} else {
+  console.log('falsy');
+}
+// 'truthy'
+
+variable2 = '';
+if (variable2) {
+  console.log('truthy');
+} else {
+  console.log('falsy');
+}
+// 'falsy'
 
 /* --------------------------------------------------------------- */
 

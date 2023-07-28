@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-sparse-arrays */
 /* eslint-disable max-len */
@@ -407,7 +408,59 @@ console.log(esPrimo(2)); // true  -> 2 SI es primo
 
 /* ---------------------------------------------------------------- */
 
-/* Ejemplo 8 - .filter() en objetoLiteral {}
+/* Ejemplo 8 - array.filter(Boolean) para Eliminar Elementos de un Array que son null, undefined, NaN, "" Carácter Vacío, 0, false
+
+Este codigo lo copie de Stack Overflow pero lo modifique para mejorarlo:
+https://stackoverflow.com/questions/30016773/javascript-filter-true-booleans
+
+https://stackoverflow.com/questions/35476948/remove-empty-or-whitespace-strings-from-array-javascript
+
+Recordatorio:
+Ver:
+" Ejemplo 1 - Validar Cuando una Variable es null, undefined, NaN, "" Carácter Vacío, " " Espacio en Blanco, 0, false "
+
+array con elementos truthy y falsy
+
+Los elementos q son falsy tienen un comentario con una flecha hacia arriba ↑,
+y los truthy NO tienen flecha */
+
+const array = [null, undefined, NaN, '', ' ', 'hola mundo', 1, '1', true, 'true', 0, '0', false, 'false', Infinity, 999, {}, []];
+//              ↑        ↑       ↑   ↑                                            ↑         ↑
+
+/* array.filter(Boolean) ELIMINAR los elementos del array que son FALSY (falso)
+y CONSERVAR los valores que son TRUTHY (verdadero) */
+
+let truthy = array.filter(Boolean);
+
+/* array.filter(Boolean) tiene el PROBLEMA
+de q NO elimina los espacios en blanco " " */
+console.log(truthy);
+// (12) [ ' ', 'hola mundo', 1, '1', true, 'true', '0', 'false', Infinity, 999, {}, [] ]
+
+// SOLUCION para eliminar los elementos falsy Y espacio en blanco " "
+const validar = (variable) => {
+  // truthy
+  if (Array.isArray(variable)) {                           // en JS los array [] son truthy
+    return true;
+  } else if (variable && String(variable).trim() !== '') { // validar truthy en JS y espacio en blanco " "
+    return true;
+  } else { // falsy
+    return false;
+  }
+};
+
+truthy = array.filter((elemento) => validar(elemento));
+console.log(truthy);
+// (11) [ 'hola mundo', 1, '1', true, 'true', '0', 'false', Infinity, 999, {}, [] ]
+
+// .filter() NO modifica el array1 original (existente)
+console.log(array);
+// (18) [ null, undefined, NaN, '', ' ', 'hola mundo', 1, '1', true, 'true', 0, '0', false, 'false', Infinity, 999, {}, [] ]
+//         ↑        ↑       ↑   ↑                                            ↑         ↑
+
+/* ---------------------------------------------------------------- */
+
+/* Ejemplo 9 - .filter() en objetoLiteral {}
 El método .filter() lee la propiedad .length de this
 y luego accede a cada índice entero
 
