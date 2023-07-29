@@ -1,6 +1,7 @@
 /* eslint-disable arrow-body-style */
-/* eslint-disable no-fallthrough */
 /* eslint-disable max-len */
+/* eslint-disable no-case-declarations */
+/* eslint-disable no-fallthrough */
 // @ts-nocheck
 
 /* --------------------------------------------------------------- */
@@ -54,11 +55,12 @@ Indica donde empieza y termina el switch switche
 * De forma predeterminada es expression === valueN,
 pero tambien puede ser cualquier otra condicional >, <, in, etc
 
+Recordatorio:
 Ver:
 " Ejemplo 8 - ¿Qué es switch(true) {}? "
 
 - expression
-Es la VARIABLE expression para evaluar si es igual a valueN,
+Por defecto, es la VARIABLE expression para evaluar si es igual a valueN,
 es decir expression === valueN
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality
 
@@ -66,13 +68,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Stri
 Indica q en ese mismo renglon se va a copiar el POSIBLE valor valueN de la variable expression
 
 - statements
-Codigo a ejecutar SI se cumple la condicion expression === valueN
-de que la variable expression tiene el mismo valor de valueN
+Codigo a ejecutar SI se cumple el condicional
 
 - break;
-Cuando SI se copia break;
-y se encuentra el PRIMER valor valueN
-q es IGUAL a la variable expression === valueN entonces:
+Cuando SI se copia break; y se encuentra el PRIMER valor valueN q cumple con el condicional:
 1) Se ejecuta el codigo statement
 
 2) NO se siguen evaluando las otras condiciones case
@@ -84,8 +83,9 @@ en cambio, cuando NO se copia break;
 1) se evaluan TODOS los condicionales case
 
 2) Se ejecutan TODOS los codigos statements
-   SIN importar si la variable es igual o no al valor valueN
+   SIN importar si se cumple o no la condicion
 
+Recordatorio:
 Ver:
 " Ejemplo 3 - ¿Qué pasa cuando en un switch NO copio break;? "
 
@@ -125,11 +125,11 @@ Imprimir el dia de la semana dependiendo del numero de dia
 |-----------|--------|
 
 Como dia === 0 y estoy copiando break; entonces
-la ejecucion del codigo se detiene exactamente en:
+la ejecucion del swtich se detiene exactamente en:
 
-  case 0:                   // dia === 0
-    console.log('Domingo'); // codigo a ejecutar SI se cumple la condicion
-    break;
+case 0:                   // dia === 0
+  console.log('Domingo'); // codigo a ejecutar SI se cumple la condicion
+  break;
 
 y NO se siguen evaluando los otros case */
 
@@ -189,7 +189,7 @@ para saber el valor de la variable
 switch imprime 'variable es DIFERENTE DE 1'
 porque '1' tipo texto String() es DIFERENTE DE 1 tipo numero Number() */
 
-console.log('1' === 1);  // false
+console.log('1' === 1);  // false -> '1' y 1 son tipos de datos diferentes
 console.log(typeof '1'); // 'string'
 console.log(typeof 1);   // 'number'
 
@@ -260,7 +260,7 @@ Este Ejemplo 4 es un caso donde es correcto NO copiar break; (fallthrough)
 Dependiendo del numero digitado se imprime una frase diferente:
 
 |--------------------------------|----------------------------------------------|
-| Valor de variable numero4      | frase: Valor de variable imprimir            |
+| Valor de variable numero4      | Frase: Valor de variable imprimir            |
 |--------------------------------|----------------------------------------------|
 | DIFERENTE DE 0, 1, 2, 3, 4 y 5 | 'numero4 tiene q ser un numero de 0 hasta 5' |
 |--------------------------------|----------------------------------------------|
@@ -285,7 +285,7 @@ console.log(numero4);
 Cada vez q se ejecuto un case se agregara una nueva palabra */
 let imprimir = '';
 console.log(imprimir);
-// imprimir
+// ''
 
 switch (numero4) {
   case 0:
@@ -306,7 +306,6 @@ switch (numero4) {
   default:
     imprimir = 'numero4 tiene q ser un numero de 0 hasta 5';
 }
-
 console.log(imprimir);
 // 'What Is Your Name?'
 
@@ -334,8 +333,8 @@ switch (numero) {
     break;
 
   case 2:
-    const imprimir = 'dos';
-    console.log(imprimir); // 'dos'
+    const imprimir2 = 'dos';
+    console.log(imprimir2); // 'dos'
     break;
 
   case 3:
@@ -373,14 +372,14 @@ switch (numero) {
   es decir, las variables const imprimir = 'dos'; y const imprimir = 'tres'; son DIFERENTES
   a pesar de q tienen el mismo nombre imprimir */
   case 2: {
-    const imprimir = 'dos';
-    console.log(imprimir); // 'dos'
+    const imprimir3 = 'dos';
+    console.log(imprimir3); // 'dos'
     break;
   }
 
   case 3: {
-    const imprimir = 'tres';
-    console.log(imprimir);
+    const imprimir3 = 'tres';
+    console.log(imprimir3);
     break;
   }
 
@@ -422,6 +421,8 @@ default:
 
 // La variable numero2 ES DIFERENTE DE 1, 2 y 3
 const numero2 = 99;
+console.log(numero2);
+// 99
 
 switch (numero2) {
   case 1:
@@ -452,9 +453,11 @@ y se esta imprimiendo TODO A PARTIR de default:
 /* Ejemplo 7:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch#taking_advantage_of_fall-through
 
-Imprimir por consola si la variable numero3 es IGUAL ó DIFERENTE a alguno de los numeros 1, 2, 3 ó 4,
+Imprimir por consola si la variable numero3
+es IGUAL ó DIFERENTE a alguno de los numeros 1, 2, 3 ó 4,
 esto funciona igual que un OR ||
 
+Recordatorio:
 El siguiente codigo se puede refactorizar asi, ver:
 " 6.1.5) Refactorizar if () {} else {} y switch Usando Objeto Literal {} " */
 
@@ -564,16 +567,17 @@ const numero6 = 0;
 console.log(numero6);
 // 0
 
-const funcion = () => {
+const funcion = () =>  {
   // copiar aqui codigo de la funcion y retornar un valor
 
   return 0;
 };
+
 funcion();
 // 0
 
 /* Imprime 'numero CERO' porq el valor de retorno de la funcion()
-es el mismo q el de la variable numero6 */
+y la variable numero6 son los mismos */
 switch (true) {
   case numero6 === funcion(): // ¿la variable numero6 es === igual a la funcion() ?
     console.log('numero CERO');

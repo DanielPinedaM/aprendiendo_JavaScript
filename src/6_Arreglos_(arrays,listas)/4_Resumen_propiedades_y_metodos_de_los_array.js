@@ -213,10 +213,28 @@ y un circulo ['■', '■', '■', '●']
 pero despues de ejecutar .filter()
 se crea un nuevo array2
 q solamente copia los cuadrados '■' del array1
-y ELIMINA las otras figuras q NO son cuadrados */
+y ELIMINA las otras figuras q NO son cuadrados 
+
+1) */
 
 ['■', '■', '■', '●'].filter((elemento) => elemento === '■');
 // (3) ['■', '■', '■']
+
+/* 2) Los elementos q son falsy tienen un comentario con una flecha hacia arriba ↑,
+y los truthy NO tienen flecha */
+
+const array = [null, undefined, NaN, '', ' ', 'hola mundo', 1, '1', true, 'true', 0, '0', false, 'false', Infinity, 999, {}, []];
+//              ↑        ↑       ↑   ↑                                            ↑         ↑
+
+/* array.filter(Boolean) ELIMINAR los elementos del array que son FALSY (falso)
+y CONSERVAR los valores que son TRUTHY (verdadero) */
+
+let truthy = array.filter(Boolean);
+
+/* array.filter(Boolean) tiene el PROBLEMA
+de q NO elimina los espacios en blanco " " */
+console.log(truthy);
+// (12) [ ' ', 'hola mundo', 1, '1', true, 'true', '0', 'false', Infinity, 999, {}, [] ]
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄
