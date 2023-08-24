@@ -40,12 +40,14 @@ F₁ = 1
 21+13 = 34
 34+21 = 55
 55+34 = 89
-89+55 = 144 */
+89+55 = 144
+... */
 
 /* --------------------------------------------------------------- */
 
 /* Fibonacci SIN recursividad
 Complejidad algoritmica: Big O -> n
+Este codigo se ejecuta mas rapido
 https://youtube.com/shorts/_ej3jv8sZTU?feature=share */
 
 const fibonacci = (numero) => {
@@ -69,7 +71,8 @@ fibonacci(1000); // 4.346655768693743e+208
 /* --------------------------------------------------------------- */
 
 /* Fibonacci CON recursividad
-Complejidad algoritmica: Big O -> 2^n */
+Complejidad algoritmica: Big O -> 2^n
+Este codigo es muy lento */
 
 const fibonacci2 = (numero2) => {
   if (numero2 < 2) return numero2;

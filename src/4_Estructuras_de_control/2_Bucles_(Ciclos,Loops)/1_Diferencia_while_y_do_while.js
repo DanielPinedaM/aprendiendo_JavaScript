@@ -1,3 +1,8 @@
+// @ts-nocheck
+/* eslint-disable no-plusplus */
+
+/* --------------------------------------------------------------- */
+
 /*
 Tutorial Jon Mircha:
 https://youtu.be/AapgtR0Rwk0
@@ -28,4 +33,34 @@ do while
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 1 */
+// Ejemplo 1 - Diferencia entre while y do while
+
+let contador = 0;
+
+while (contador < 10) {
+  console.log(contador);
+  contador++;
+}
+/*
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+*/
+
+console.log(contador);
+// 10
+
+do {
+  console.log(contador);
+  contador++;
+} while (contador < 10); // 10 < 10
+/*
+10
+*/
