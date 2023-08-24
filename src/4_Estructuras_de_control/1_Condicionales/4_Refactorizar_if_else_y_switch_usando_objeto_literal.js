@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // @ts-nocheck
 
 /* --------------------------------------------------------------- */
@@ -5,7 +6,7 @@
 /*
 Refactorizar if () {} else {} y switch Usando Objeto Literal {}
 
-Tutorial - Refactorizar if () {} else {} y switch ...
+Tutorial...
 - Antonio Sarosi:
 https://www.youtube.com/watch?v=5QRRCerA22E&t=905s
 
@@ -17,8 +18,14 @@ https://youtu.be/UrcxotUmThU
 
 /* --------------------------------------------------------------- */
 
-/* 1) Object.freeze() sirve para q NO se pueda modificar
-los valores buscados (blue, red, green) */
+/*
+Recordatorio:
+Ver:
+" 13.1.5.2.11) Diferencias y Similitudes Entre Object.freeze() Object.seal() y Object.preventExtensions() - Objeto Inmutable (que NO se Puede Modificar) "
+
+1) Object.freeze() sirve para q NO se pueda modificar
+los codigos hexadecimales de colores */
+
 const getColor = (color) => {
   const defaultValue = '#fff';
 
@@ -108,6 +115,24 @@ const getColor2 = (color2) => {
 
 getColor2('blue');
 /*
-"azul"
+'azul'
 '#0000ff'
+*/
+
+getColor2('red');
+/*
+'rojo'
+'#FF0000'
+*/
+
+getColor2('green');
+/*
+'verde'
+'#008000'
+*/
+
+getColor2('hola mundo');
+/*
+'blanco'
+'#fff'
 */
