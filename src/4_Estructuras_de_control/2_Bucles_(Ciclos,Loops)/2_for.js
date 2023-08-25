@@ -22,7 +22,8 @@ for (inicializacion de variable; condicion; incremento o decremento) {
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 1 - Incremento i++
+/* Ejemplo 1 - Incremento i++
+Imprimir números del 0 al 9 (ascendente, de menor a mayor) */
 
 for (let i = 0; i < 10; i++) {
   console.log(i);
@@ -42,7 +43,8 @@ for (let i = 0; i < 10; i++) {
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 2 - Decremento i--
+/* Ejemplo 2 - Decremento i--
+Imprimir numeros del 9 al 0 (descendente, de mayor a menor) */
 
 for (let i = 9; i >= 0; i--) {
   console.log(i);

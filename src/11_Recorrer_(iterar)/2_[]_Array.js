@@ -80,7 +80,7 @@ los array [] de acuerdo a la DIRECCION de iteracion:
 
 const array = ['▲', '●', '✖', '■'];
 console.log(array);
-// (4) ['▲', '●', '✖', '■']s
+// (4) ['▲', '●', '✖', '■']
 
 // El numero de ELEMENTOS (longitud, .length) del ARRAY es 4
 console.log(array.length);
