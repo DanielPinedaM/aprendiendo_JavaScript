@@ -33,7 +33,7 @@ do while
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 1 - Diferencia entre while y do while
+// Ejemplo:
 
 let contador = 0;
 
