@@ -20,23 +20,23 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 - for of
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
 
-                                  |-----------------------------|------------------------------|
-                                  | for in                      | for of                       |
-|---------------------------------|-----------------------------|------------------------------|
-| Sirve para recorrer (iterar)... | {} Objeto literal           | Iterable:                    |
-|                                 |                             | - "" String                  |
-|                                 |                             | - [] Array                   |
-|                                 |                             | - Map                        |
-|                                 |                             | - Set                        |
-|                                 |                             | - Segments                   |
-|                                 |                             | - arguments                  |
-|                                 |                             | - NodeList                   |
-|                                 |                             | - ReadableStream             |
-|---------------------------------|-----------------------------|------------------------------|
-| Sintaxis                        | for (propiedad in objeto) { | for (variable of iterable) { |
-|                                 |   // statement              |    // statement              |
-|                                 | }                           | }                            |
-|---------------------------------|-----------------------------|------------------------------|
+                                  |-----------------------------|-----------------------------------------------|
+                                  | for in                      | for of                                        |
+|---------------------------------|-----------------------------|-----------------------------------------------|
+| Sirve para recorrer (iterar)... | Propiedades enumerables     | Iterable:                                     |
+|                                 | de un {} objeto literal     | - "" String                                   |
+|                                 |                             | - [] Array                                    |
+|                                 |                             | - Map                                         |
+|                                 |                             | - Set                                         |
+|                                 |                             | - Segments                                    |
+|                                 |                             | - arguments Parámetros de una función         |
+|                                 |                             | - NodeList Elementos (etiquetas) HTML del DOM |
+|                                 |                             | - ReadableStream                              |
+|---------------------------------|-----------------------------|-----------------------------------------------|
+| Sintaxis                        | for (propiedad in objeto) { | for (variable of iterable) {                  |
+|                                 |   // statement              |    // statement                               |
+|                                 | }                           | }                                             |
+|---------------------------------|-----------------------------|-----------------------------------------------|
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of#syntax
 
@@ -60,8 +60,7 @@ Se tiene que definir con const o let
 * Es el nombre del iterable
 
 - statement
-Bloque de código {} que se ejecuta en cada iteración
-*/
+Bloque de código {} que se ejecuta en cada iteración */
 
 /* --------------------------------------------------------------- */
 
@@ -235,7 +234,7 @@ Del resumen de CSS 3 ver:
 " 6.1.2.3) Elemento Hijo Directo selector1 > selector2 "
 
 6) NodeList
-Iterar el DOM
+Iterar elemetos (etiquetas) HTML de DOM
 
 Agregar clase leer a los parrafos que son hijos directos de <article>
 
@@ -318,10 +317,17 @@ Ver:
 " Ejemplo 3 - ¿Que son las propiedades enumerable: true enumerables (visible) y enumerable: false no enumerables (oculta)? " */
 
 const objetoLiteral = {
+// propiedad: valor,
   uno: 1,
 };
+console.log(objetoLiteral);
+/*
+{
+  uno: 1,
+}
+*/
 
-// agregar propiedad NO enumerable
+// Agregar propiedad NO enumerable (oculta)
 Object.defineProperty(objetoLiteral, 'dos', {
   value: 2,
   // valor por defecto
@@ -400,7 +406,7 @@ console.log(objetoLiteral2);
 }
 */
 
-// for in NO imprime tres: 3, porq se agrego durante la iteracion
+// for in NO imprime tres: 3 porq se agrego durante la iteracion
 for (const propiedad in objetoLiteral2) {
   const valor = objetoLiteral2[propiedad];
   console.log(`${propiedad} → ${valor}`);
@@ -483,9 +489,9 @@ console.log(obj3);
 }
 */
 
-/* delete Eliminar propiedad: valor ANTES de q se itere
-  NO se imprime la propiedad: valor c: 3 eliminada
-  true significa q SI se elimino c: 3 */
+/* delete obj3.c; Eliminar propiedad: valor ANTES de q se itere
+NO se imprime la propiedad: valor c: 3 eliminada
+true significa q SI se elimino c: 3 */
 for (const propiedad in obj3) {
   const valor = obj3[propiedad];
   console.log(`${propiedad} → ${valor}`);
@@ -503,7 +509,7 @@ obj3 = { a: 1, b: 2, c: 3 };
 console.log(obj3);
 // { a: 1, b: 2, c: 3 }
 
-/* Eliminar propiedad: valor DESPUES de q se itere
+/* delete obj3.a; Eliminar propiedad: valor DESPUES de q se itere
 SI se imprime a → 1 a pesar de q se elimino
 true significa q SI se elimino a: 1 */
 for (const propiedad in obj3) {
@@ -534,7 +540,8 @@ console.log(proto);
 
 // obj4 al q le voy agregar prototipo __proto__
 const obj4 = { __proto__: proto, a: 1, b: 2 };
-console.log(obj4); // { a: 1, b: 2 }
+console.log(obj4);
+// { a: 1, b: 2 }
 
 /* for in NO imprime __proto__: { c: 3 }
 porque se modifico durante la iteracion */
@@ -588,7 +595,8 @@ b → 2
 c → 3
 */
 
-/* enumerable: false significa q la propiedad: valor, c: 3 esta oculta por lo q NO se puede ver cuando se imprime */
+/* enumerable: false significa q la propiedad: valor, c: 3
+esta oculta por lo q NO se puede ver cuando se imprime */
 console.log(obj5);
 // { a: 1, b: 2 }
 
@@ -616,7 +624,7 @@ const summarUno = [];
 console.log(summarUno);
 // []
 
-/* Re-asignar lavariable dentro de la iteracion
+/* Re-asignar la variable dentro de la iteracion
 NO afecta el elemento del array */
 for (let elemento of numeros) {
   elemento += 1;
@@ -713,6 +721,8 @@ function* source() {
 }
 
 const generator = source();
+console.log(generator);
+// Object [Generator] {}
 
 for (const value of generator) {
   console.log(value);
@@ -724,8 +734,7 @@ for (const value of generator) {
 }
 // 1
 
-/* for of NO imprime nada porque
-generator esta agotado */
+// for of NO imprime nada porque generator esta agotado
 for (const value of generator) {
   console.log(value);
 }
