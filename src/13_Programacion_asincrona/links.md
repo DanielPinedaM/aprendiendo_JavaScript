@@ -1,5 +1,7 @@
 ## Cursos de programación asincrona en JS:
 
+* Antonio Sarosi - Por qué JS "necesita" async-await y otros lenguajes no? [https://youtu.be/C_eFawNnmC4](https://youtu.be/C_eFawNnmC4)
+
 * Fazt - Async Await, Promesas y Callbacks [https://youtu.be/Q3HtXuDEy5s](https://youtu.be/Q3HtXuDEy5s)
 
 * Jon Mircha:

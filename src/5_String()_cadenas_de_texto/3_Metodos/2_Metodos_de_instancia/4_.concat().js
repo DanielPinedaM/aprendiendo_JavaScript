@@ -20,10 +20,10 @@ const mundo = 'mundo';
 
 // str1.concat(str2, str3, /* ..., */ strN)
 console.log(hola.concat(' ', mundo));
-// hola mundo
+// 'hola mundo'
 
 console.log(mundo.concat(' ', hola));
-// mundo hola
+// 'mundo hola'
 
 /* ------------------ */
 /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat#using_concat */
@@ -43,6 +43,7 @@ console.log(typeof ''.concat(...array));
 // string
 
 /* ------------------ */
+
 /* TODO lo q este dentro del par de parentesis de .concat()
 se convierte a tipo string
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat#description */

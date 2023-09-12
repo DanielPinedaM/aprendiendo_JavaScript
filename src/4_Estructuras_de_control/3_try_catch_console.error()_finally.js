@@ -68,7 +68,7 @@ mientras se ejecuta la petición (loader)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch#description
 
 Sintaxis:
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch#syntax
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch#syntax */
 
 try {
   // codigo q puede tener errores
@@ -78,7 +78,6 @@ try {
 } finally {
   // ejecutar siempre al final del try catch
 }
-*/
 
 /* --------------------------------------------------------------- */
 
@@ -99,7 +98,7 @@ https://youtu.be/SPVL8uAezaw
 
 try {} se ejecuta completo sin errores
 
-el catch {} no se ejecuta porq no hay errores
+catch no se ejecuta porq no hay errores
 
 finally siempre se ejecuta */
 
@@ -233,7 +232,7 @@ finally: ejecutar siempre al final del try catch
 /* Ejemplo 6 Avanzado - throw new Error() Mensaje de error personalizado
 https://youtu.be/OhE-mEt37iA */
 
-// ❌ MALA PRACTICA
+// ❌ MALA PRACTICA:
 const validarUsuario = ({ name, age, email } = {}) => {
   if (!name) throw new Error('name is required');
   if (!age) throw new Error('age is required');
@@ -245,14 +244,15 @@ try {
 } catch (err) {
   // err es una instancia de tipo Error
   console.error(err instanceof Error); // true
-  console.error(err); // ❌ Error: name is required
+  console.error(err);                  // ❌ Error: name is required
 }
 
 /* --- */
 
-/* ✅ BUENA PRACTICA
+/* ✅ BUENA PRACTICA:
 Esto oculta el error q contiene la conexion a la base de datos
-q es informacion sencible q nunca se debe mostrar por consola */
+q es informacion sensible q nunca se debe mostrar por consola */
+
 const createErrorFactory = function (name) {
   // La clase BusinessError extiene a la clase Error
   return class BusinessError extends Error {
@@ -307,10 +307,10 @@ try {
   console.error(e);
 
   if (e instanceof ConnectionError) {
-    // Re-intentar conexion a la base de datos después de unos segundos
+    // Re-intentar conexion a la base de datos después 1000 milisegundos = 1 segundo
     setTimeout(() => {
       validateUser2(obj);
-    });
+    }, 1000);
   }
 
   if (e instanceof ValidationError) {
@@ -420,7 +420,7 @@ try {
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 10 - Saber si un string se puede o no convertir a JSON 
+// Ejemplo 10 - Saber si un string se puede o no convertir a JSON
 
 const esUnJSON = (string) => {
   try {
@@ -561,7 +561,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try
 El ULTIMO finally {} con un return SIEMPRE es el 
 valor es el valor de retorno de todo el try-catch-finally 
 SIN IMPORTAR los return de los otros try-catch
-NI las excepciones lanzadas dentro del bloque catch  */
+NI las excepciones lanzadas dentro del bloque catch */
 
 const hacerAlgo2 = () => {
   try {
