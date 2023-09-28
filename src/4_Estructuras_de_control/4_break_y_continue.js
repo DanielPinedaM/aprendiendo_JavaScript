@@ -35,9 +35,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/con
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break#description
 
-break; y continue; controlan el flujo de ejecucion de ejecucion de los bucles
+break; y continue; controlan el flujo de ejecucion de los bucles
 
-break; y continue NO se puede usar en metodos de array .forEach, .map(), etc.,
+break; y continue; NO se puede usar en metodos de array .forEach, .map(), etc.,
 solamente se puede usar en estructuras de control
 while, do while, for, for in, for of
 
@@ -67,8 +67,7 @@ Donde...
 
 * Es opcional escribirlo, con esta excepcion:
 Si break; no está anidado dentro de un bucle o switch, 
-entonces se tiene q escribir el identificador de etiqueta.
-*/
+entonces se tiene q escribir el identificador de etiqueta. */
 
 /* --------------------------------------------------------------- */
 
@@ -84,13 +83,14 @@ console.log(letras);
 // (5) ['A', 'B', 'C', 'D', 'E']
 
 /*
+   Imprimir cuarta iteracion
+
    i=0  primero
    i=1  segundo
    i=2  tercero
 -> i=3  cuarto <-
    i=4  quinto */
 
-// Imprimir cuarta iteracion
 console.log(`i=${3} | elemento=${letras.at(3)}`);
 // 'i=3 | elemento=D'
 
@@ -214,7 +214,7 @@ Recordatorio:
 Ver:
 " Ejemplo 1 - Diferencia Entre for in y for of "
 
-continue; da el mismo resultado en:
+continue; da el mismo resultado en todos los bucles:
 - while 
 - do...while
 
@@ -427,8 +427,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/con
 ❌ ERROR:
 continue; NO se puede usar en una funcion q esta dentro de un bucle */
 
-for (let i = 0; i < 10; i++) {
-  (() => {
+for (let i = 0; i < 10; i++) { // bucle
+  (() => {                     // IIFE: funcion auto-ejecutable
     // SyntaxError: Illegal continue statement: no surrounding iteration statement
     continue;
   })();
@@ -440,7 +440,7 @@ for (let i = 0; i < 10; i++) {
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue#unsyntactic_continue_statements 
 
 ❌ ERROR:
-Al hacer referencia a una etiqueta, la declaración etiquetada debe contener la continuedeclaración. */
+Al hacer referencia a una etiqueta, la declaración etiquetada debe contener la continue; declaración. */
 
 label: for (let i = 0; i < 4; i++) {
   console.log(i);
@@ -453,7 +453,7 @@ label: for (let i = 0; i < 4; i++) {
 }
 
 for (let i = 0; i < 10; i++) {
-// continue label;
+//continue label;
   continue label; // SyntaxError: Undefined label 'label'
 }
 

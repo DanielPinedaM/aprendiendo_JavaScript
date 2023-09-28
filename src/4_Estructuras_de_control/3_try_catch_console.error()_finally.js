@@ -370,7 +370,7 @@ fetch(url, options)
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 8 - Diferencia entre catch y throw new TypeError()
+/* Ejemplo 8 - Diferencia entre catch y throw new TypeError() + Desestructuración en catch
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch#catch_binding
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError

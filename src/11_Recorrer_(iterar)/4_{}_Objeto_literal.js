@@ -168,7 +168,7 @@ Convertir el objetoLiteral {} a array [],
 el array contiene pares de [propiedad, valor] enumerables */
 
 const entries = Object.entries(objetoLiteral).map((entry) => {
-  const [propiedad, valor] = entry;
+  const [propiedad, valor] = entry; // desestructuración: const [a, b] = array;
   console.log(`${propiedad} ➜ ${valor}`);
 
   return [propiedad, valor];
