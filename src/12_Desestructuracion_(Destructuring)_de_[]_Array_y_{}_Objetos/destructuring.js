@@ -25,9 +25,9 @@ https://airbnb.io/javascript/#destructuring
 https://javascript.info/destructuring-assignment
 
 Permite q cada una de las variables acceda a cada uno de:
-- Los valores de un objeto literal {}
+- Los valores de un {} objeto literal
 
-- Elementos del array []
+- Elementos del [] array
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#description
 
 Sintaxis:
@@ -90,11 +90,12 @@ console.log(objetoLiteral);
 */
 
 /* Desestructuracion:
-Asociar variables a y d a valores del objetoLiteral */
+Asociar variables a y d 
+a valores del {} objetoLiteral */
 const {
   a,
   b: { c: d },
-} = objetoLiteral; // const { a, b } = obj;
+} = objetoLiteral; // Sintaxis: const { a, b } = obj;
 
 console.log(a); // 1
 console.log(d); // 2
@@ -140,7 +141,7 @@ console.log(indiceCero); // undefined
 let indiceUno = numeros[1];
 console.log(indiceUno); // undefined
 
-// ({ a: a1, b: b1 } = obj);
+// Sintaxis: ({ a: a1, b: b1 } = obj);
 (
   { 
     a: indiceCero, 
@@ -151,8 +152,7 @@ console.log(indiceUno); // undefined
 console.log(numeros);
 // (2) [ 1, 2 ]
 
-/* Object.values()
-Asi tambien puedo obtener el mismo resultado */
+// Con Object.values() obtengo el mismo resultado
 const values = Object.values(objetoLiteral2)
 console.log(values);
 // (2) [ 1, 2 ]
@@ -180,7 +180,7 @@ const letras = ['a', 'b', 'c'];
 console.log(letras);
 // (3) ['a', 'b', 'c']
 
-// SIN desestructuración:
+// SIN desestructuración (mala practica):
 let cero = letras[0],
     uno = letras[1],
     dos = letras[2];
@@ -194,9 +194,9 @@ console.log(letras[1]); // 'b'
 console.log(dos);       // 'c'
 console.log(letras[2]); // 'c'
 
-/* Desestructuración:
-Asignar a cada INDICE del array [] un nombre de variable */
-const [zero, one, two] = letras; // const [a, b] = array;
+/* Desestructuración (buena practica):
+Asignar a cada ELEMENTO del array [] un nombre de variable */
+const [zero, one, two] = letras; // Sintaxis: const [a, b] = array;
 //      0     1    2   -> POSICIONES (INDICES)
 
 console.log(zero); // 'a'
@@ -206,7 +206,7 @@ console.log(two);  // 'c'
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 4 - Desestructuración de {} Objeto Literal:
-Guardar en cada variable, cada una de las PROPIEDADES del OBJETO LITERAL []
+Guardar en cada variable, cada uno de los VALORES de las propiedades del {} OBJETO LITERAL
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring */
 
 const persona = {
@@ -229,7 +229,7 @@ Asignar a cada VALOR del objeto literal {} un nombre de variable
 
 El orden de las variables puede ser diferente al de las propiedades */
 
-let {                              // const { a, b } = obj;
+let {                              // Sintaxis: const { a, b } = obj;
   apellido,
   miNombre,
   propiedadInexistente,            // Esta propiedad NO existe en el objeto literal {} persona
@@ -240,7 +240,7 @@ console.log(miNombre);             // 'Daniel'
 console.log(apellido);             // 'Pineda'
 console.log(edad);                 // 99
 
-/* imprime undefined porq la propiedad llamada propiedadInexistente
+/* Imprime undefined porq la propiedad llamada propiedadInexistente
 NO existe en el objeto literal {} persona
 
 Para q la desestructuracion funcione en los objetos literales {}
@@ -276,12 +276,12 @@ console.log(evento);        // 'conf'
 console.log(conector);      // 'se'
 console.log(ultimaPalabra); // 'acerca'
 
-/* El array palabras tiene 3 indices,
+/* El [] array palabras tiene 3 indices,
 un indice inexistente 5: noExiste, imprime undefined
 
 Para q la desestructuracion funcione
 los nombres (numeros) de las propiedades
-tienen q ser los mismos q los indices del array */
+tienen q ser los mismos q los indices del [] array */
 console.log(noExiste);      // undefined
 
 /* --------------------------------------------------------------- */
@@ -302,7 +302,7 @@ console.log(obj);
 }
 */
 
-const {                 // const { a: a1, b: b1 } = obj;
+const {                 // Sintaxis: const { a: a1, b: b1 } = obj;
   direccion,
   telefono: phone,      // re-nombrar propiedad telefono por phone
 } = obj;
@@ -333,7 +333,7 @@ console.log(objetoLiteral3);
 */
 
 const entries = Object.entries(objetoLiteral3).map((entry) => {
-  const [propiedad, valor] = entry; // const [a, b] = array;
+  const [propiedad, valor] = entry; // Sintaxis: const [a, b] = array;
   console.log(`${propiedad} ➜ ${valor}`);
 
   return [propiedad, valor];
@@ -359,17 +359,12 @@ console.log(entries);
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#try_it */
 
 let a, b, rest;
-[a, b] = [10, 20]; // const [a, b] = array;
-// [ 10, 20 ]
-
-console.log(a);
-// 10
-
-console.log(b);
-// 20
+[a, b] = [10, 20]; // Sintaxis: const [a, b] = array;
+console.log(a);    // 10
+console.log(b);    // 20
 
 // a es 10, b es 20 y ...rest son los otros numeros restantes [30, 40, 50]
-[a, b, ...rest] = [10, 20, 30, 40, 50]; // const [a, b, ...rest] = array;
+[a, b, ...rest] = [10, 20, 30, 40, 50]; // Sintaxis: const [a, b, ...rest] = array;
 // (5) [ 10, 20, 30, 40, 50 ]
 
 console.log(rest);
@@ -384,7 +379,7 @@ x   segundo "                  "
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#description */
 
 const x = [1, 2, 3, 4, 5];
-const [y, z] = x; // const [a, b] = array;
+const [y, z] = x; // Sintaxis: const [a, b] = array;
 
 console.log(x);   // (5) [1, 2, 3, 4, 5]
 console.log(y);   // 1
@@ -396,10 +391,10 @@ console.log(z);   // 2
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#description */
 
 const objeto = { c: 1, d: 2 };
+console.log(objeto);     // { c: 1, d: 2 }
 
 // ESTO (buena practica):
-const { c, d } = objeto; // const { a, b } = obj;
-console.log(objeto);     // { a: 1, b: 2 }
+const { c, d } = objeto; // Sintaxis: const { a, b } = obj;
 console.log(c);          // 1
 console.log(d);          // 2
 
@@ -436,7 +431,7 @@ console.log(A);
 
 A = 'hola mundo';
 console.log(A);
-// ❌ Uncaught TypeError: Assignment to constant variable.
+// ❌ Uncaught TypeError: Assignment to constant variable
 
 // D es re-asignable (MUtable) porque lo defini con let
 let {
@@ -508,18 +503,15 @@ console.log(otros2); // [2, 3]
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 14:
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#rest_property 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#rest_property
 
 La forma correcta es:
 const [a, b, ...c] = [1, 2, 3];
 
 ERROR: la propiedad ...rest tiene q escribirse de ultimo y no debe tener una coma al final */
 
-const [a, ...b, c] = [1, 2, 3];
-// ❌ Uncaught SyntaxError: Rest element must be last element
-
-const [a, ...b,] = [1, 2, 3];
-// ❌ Uncaught SyntaxError: Rest element must be last element
+const [a, ...b, c] = [1, 2, 3]; // ❌ Uncaught SyntaxError: Rest element must be last element
+const [a, ...b,] = [1, 2, 3];   // ❌ Uncaught SyntaxError: Rest element must be last element
 
 /* --------------------------------------------------------------- */
 
@@ -563,9 +555,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Dest
 
 https://en.wikipedia.org/wiki/XOR_swap_algorithm
 
-Con la desestructuracion puedo intercambiar el valor de 2 variables y elementos de un [] array
-Otras alternativas a esto SIN desestructuracion
-son usar una variable temporal o el algoritmo de intercambio XOR */
+Con la desestructuracion puedo 
+intercambiar el valor de 2 variables 
+y elementos de un [] array. Otras alternativas 
+a esto SIN desestructuracion son 
+usar una variable temporal o el algoritmo de intercambio XOR */
 
 let a = 1;
 let b = 3;
@@ -593,8 +587,8 @@ console.log(arr); // (3) [1, 3, 2]
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 18:
-Puedo desestructurar los elementos de un array
-devueltos (return) por una funcion
+Desestructurar los elementos de un array
+devueltos return por una funcion
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#array_destructuring */
 
 const funcion = () => [1, 2]
@@ -616,7 +610,7 @@ const funcion2 = () => [1, 2]
 const array2 = funcion2()
 console.log(array2); // (2) [1, 2]
 
-// Sparse Arrays: Ignorar valor devuelto b
+// [,] Array disperso (Sparse Arrays) : Ignorar valor devuelto b
 const [a, , b] = funcion2();
 console.log(a); // 1
 console.log(b); // undefined
@@ -650,7 +644,7 @@ console.log(c); // 3
 console.log(d); // 4
 
 /* Estos patrones de enlace pueden incluso [[]] anidarse, 
-siempre que cada propiedad de descanso sea la última de la lista. */
+siempre que cada propiedad de descanso sea la última de la lista */
 
 const [a, b, ...[c, d, ...[e, f]]] = [1, 2, 3, 4, 5, 6];
 console.log(a); // 1
@@ -730,8 +724,13 @@ const [a, b] = new Map([
   [1, 2],
   [3, 4],
 ]);
-console.log(a); // (2) [1, 2]
-console.log(b); // (2) [3, 4]
+console.log(a);    // (2) [1, 2]
+console.log(a[0]); // 1
+console.log(a[1]); // 2
+
+console.log(b);    // (2) [3, 4]
+console.log(b[0]); // 3
+console.log(b[1]); // 4
 
 // Los elementos NO iterables NO se pueden desestructurar
 const obj = { 0: "a", 1: "b", length: 2 };
@@ -756,7 +755,6 @@ const obj = {
     }
   },
 };
-
 console.log(obj);
 /*
 {
@@ -764,14 +762,13 @@ console.log(obj);
 }
 */
 
-/* A pesar de q el array es  [0, 1, 2, 3]
+/* A pesar de q el array es [0, 1, 2, 3]
 solamente se obtienen los 2 primeros elementos a=0 y b=1 */
 const [a, b] = obj; 
 console.log(a); // 0
 console.log(b); // 1
 
-// Para acceder a el "resto" de los elementos uso ...rest
-
+// Para acceder al "resto" de los elementos uso ...rest
 const obj = {
   *[Symbol.iterator]() {
     for (const v of [0, 1, 2, 3]) {
@@ -794,9 +791,9 @@ console.log(obj);
 }
 */
 
-const [a, b, ...rest] = obj; // Logs 0 1 2 3
-console.log(a); // 0
-console.log(b); // 1
+const [a, b, ...rest] = obj;
+console.log(a);     // 0
+console.log(b);     // 1
 console.log(rest); // (2) [2, 3] 
 
 /* --------------------------------------------------------------- */
@@ -809,7 +806,7 @@ para acceder a cada uno de los valores del objeto literal (parametros) en variab
 dentro del par de llaves {} de la funcion (scope, alcance)
 
 La desestructuracion permite:
-1) q la variable  tenga un nombre igual o diferente 
+1) Q la variable  tenga un nombre igual o diferente 
 al de la propiedad del {} objeto literal
 
 2) Asignar valores por defecto a los valores del {} objeto literal */
@@ -879,7 +876,8 @@ También podrías haber escrito la función sin ese valor predeterminado.
 Sin embargo, si omite ese valor predeterminado, 
 la función buscará que se proporcione al menos un argumento cuando se invoque, 
 mientras que en su forma actual, puede llamar drawChart()
-sin proporcionar ningún parámetro. De lo contrario, deberá proporcionar al menos un {} objeto literal vacio */
+sin proporcionar ningún parámetro. De lo contrario,
+deberá proporcionar al menos un {} objeto literal vacio */
 
 function drawChart({
   size = "big",
@@ -892,7 +890,7 @@ function drawChart({
 }
 
 /* Cambiar valores de coords y radius,
-se conserva el valor size = "big", */
+se conserva el valor por defecto size = "big", */
 drawChart({
   coords: { x: 18, y: 30 },
   radius: 30,
@@ -951,7 +949,7 @@ console.log(arrayDeObjetos);
 ]
 */
 
-/*  [,] Array Disperso (Sparse Array) 
+/* [,] Array Disperso (Sparse Array)
 Acceder al valor de la tercera propiedad nombre del [{}] arrayDeObjetos */
 const [, , { nombre }] = arrayDeObjetos;
 console.log(nombre); 
@@ -1004,7 +1002,6 @@ for (const {
 } of people) {
   console.log(`Name: ${n}, Father: ${f}`);
 }
-
 // "Name: Mike Smith, Father: Harry Smith"
 // "Name: Tom Jones, Father: Richard Jones"
 
@@ -1016,7 +1013,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Dest
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names
 
 Puedo desestructurar los object literals [key] 
-q se refiere a las propiedades del objeto literal */
+q se refiere a las propiedades del {} objeto literal */
 
 const key = "z";
 console.log(key);
@@ -1089,7 +1086,7 @@ La cadena __proto__ prototipo se busca cuando se desestructura el {} objeto.
 
 Al desestructurar un {} objeto, 
 si no se accede a una propiedad en sí misma, 
-continuará buscando a lo largo de la cadena del __proto__ prototipo. */
+continuará buscando a lo largo de la cadena del __proto__ prototipo */
 
 const obj = {
   foo: "123",
@@ -1109,5 +1106,5 @@ console.log(obj.__proto__);
 // { prototipo: '456' }
 
 const { foo, prototipo } = obj;
-console.log(foo);      // "123"
-console.log(prototipo); // "456"
+console.log(foo);       // '123'
+console.log(prototipo); // '456'
