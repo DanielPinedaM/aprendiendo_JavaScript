@@ -3,30 +3,6 @@
 /* -------------------------------------------------------------- */
 
 /*
-Importar libreria .group()
-
-https://github.com/es-shims/Array.prototype.group
-
-https://github.com/tc39/proposal-array-grouping
-
-npm install -D array.prototype.group
-
-En un futuro cuando .group() sea compatible con todos los navegadores
-entonces NO habrá q instalar ninguna libreria para q funcione .group()
-
-Can I Use - .group()
-https://caniuse.com/mdn-javascript_builtins_array_group */
-
-const assert = require('assert');
-const group = require('array.prototype.group');
-
-// when Array#group is present
-const shimmed = group.shim();
-assert.equal(shimmed, Array.prototype.group);
-
-/* -------------------------------------------------------------- */
-
-/*
 Un array de objetos [ {} ] es un array []
 q dentro contiene objetos {}
 
@@ -123,27 +99,28 @@ console.log(getValue2.flat(Infinity));
 // (4) ['tres', 'cuatro', 'cinco', 'seis']
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄
- █ .group() █
- ▀▀▀▀▀▀▀▀▀▀▀▀
-https://youtu.be/LnqjvuwA83s
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Object.groupBy() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://youtu.be/pduSpSe-V-o?si=6fUVOM8rW8TDT5XR
 
-.group() AGRUPAR array [] dependiendo de la condición de la función
+Object.groupBy() AGRUPAR array [] dependiendo de la condición de la función
 
-.group() Iterar array de objetos [ {} ]
+Object.groupBy()Iterar array de objetos [ {} ]
 SI conozco los nombres de las propiedades
 
 Con la desestructuracion { uno, dos }
 puedo acceder a cada uno de los valores de la propiedad del objeto {}
 q esta dentro del array de objetos [ {} ] */
 
-const agrupar = arrayDeObjetos.group(({ uno, dos }, i) => {
+const agrupar = Object.groupBy(arrayDeObjetos, ({ uno, dos }, i) => {
   console.log(`i=${i} → uno → ${uno}`);
   console.log(`i=${i} → dos → ${dos}`);
   console.log('---');
 
   return 'nombrePropiedad';
 });
+
 /*
 i=0 → uno → tres
 i=0 → dos → cuatro

@@ -6,20 +6,6 @@
 
 /* --------------------------------------------------- */
 
-/*  Importar libreria .group()
-
-cuando .group() sea compatible con todos los navegadores,
-el siguiente codigo se puede borrar: */
-
-const assert = require('assert');
-const group = require('array.prototype.group');
-
-// when Array#group is present
-const shimmed = group.shim();
-assert.equal(shimmed, Array.prototype.group);
-
-/* --------------------------------------------------- */
-
 /*
 Recordatorio:
 Ver:
@@ -51,7 +37,8 @@ los array [] de acuerdo a la DIRECCION de iteracion:
    - .find()
    - .findIndex()
    - .indexOf()
-   - .group()
+   - Object.groupBy()
+   - Map.groupBy()
 
    El resultado es:
 
@@ -383,20 +370,23 @@ for (const elemento of array) {
 
 /*
  →
- ▄▄▄▄▄▄▄▄▄▄▄▄
- █ .group() █
- ▀▀▀▀▀▀▀▀▀▀▀▀
-https://youtu.be/LnqjvuwA83s
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Object.groupBy() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://youtu.be/pduSpSe-V-o?si=Qa-YzxFT_PH0X0NY
 
 AGRUPAR array [] en un objeto literal {}
 dependiendo de la condición de la función
 q esta en el valor de retorno return */
 
-const iterar = array.group((elemento, i) => {
+const iterar = Object.groupBy(array, (elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
 
+  /* Object.groupBy() AGRUPA en un objeto literal DEPENDIENDO
+  del valor de retorno return de la funcion */
   return elemento;
 });
+
 /*
 i=0 | elemento = '▲'
 i=1 | elemento = '●'
@@ -404,13 +394,13 @@ i=2 | elemento = '✖'
 i=3 | elemento = '■'
 */
 
-/* return elemento retorna un objeto literal {}
+/* Object.groupBy() return elemento retorna un objeto literal {}
 q contiene en las propiedades y valores el array
 porq NO hay un condicional, solo se devuelve el elemento actual */
 
 console.log(iterar);
 /*
-[Object: null prototype] {
+{
   '▲': [ '▲' ],
   '●': [ '●' ],
   '✖': [ '✖' ],
@@ -423,6 +413,40 @@ las propiedades de variable iterar q es el mismo array */
 const ObjectKeys = Object.keys(iterar);
 console.log(ObjectKeys);
 // (4) ['▲', '●', '✖', '■']
+
+/*
+ →
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Map.groupBy() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://youtu.be/pduSpSe-V-o?si=Qa-YzxFT_PH0X0NY
+
+AGRUPAR array [] en un objeto literal {}
+dependiendo de la condición de la función
+q esta en el valor de retorno return  */
+const iterar2 = Map.groupBy(array, (elemento, i) => {
+  console.log(`i=${i} | elemento='${elemento}'`);
+
+  return elemento;
+});
+/*
+i=0 | elemento = '▲'
+i=1 | elemento = '●'
+i=2 | elemento = '✖'
+i=3 | elemento = '■'
+*/
+
+/* Map.groupBy() retorna un objeto Map
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map */
+console.log(iterar2);
+/*
+=> Map {
+         '▲': [ '▲' ],
+         '●': [ '●' ],
+         '✖': [ '✖' ],
+         '■': [ '■' ]
+       }
+*/
 
 /*
  ←
