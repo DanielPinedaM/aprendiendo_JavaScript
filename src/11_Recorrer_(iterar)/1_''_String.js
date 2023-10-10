@@ -124,7 +124,7 @@ las formas de iterar array [] que son:
 - .findIndex()
 - .indexOf()
 - .lastIndexOf()
-- .group() */
+- Object.groupBy() */
 
 // .split() convertir de string "" a array []
 const array = string.split('');

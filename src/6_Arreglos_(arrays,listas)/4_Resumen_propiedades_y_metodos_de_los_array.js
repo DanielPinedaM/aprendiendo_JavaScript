@@ -430,7 +430,7 @@ console.log(groupBy);
 }
 */
 
-/*  nombreObjetoLiteral.nombrePropiedad
+/* nombreObjetoLiteral.nombrePropiedad
 Acceder a los valores del objeto literal {} */
 console.log(groupBy.circulo);    // (2) ['●', '●']
 console.log(groupBy.otraFigura); // (2) ['▲', '✖']
@@ -458,7 +458,9 @@ const MapGroupBy = Map.groupBy(['▲', '●', '✖', '●'], (figura) => (figura
        }
 */
 
-// .get() Acceder a los valores del objeto Map
+/* .get() Acceder a los valores del objeto Map
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get */
+
 console.log(MapGroupBy.get(circulo));    // (2) ['●', '●']
 console.log(MapGroupBy.get(otraFigura)); // (2) ['▲', '✖']
 

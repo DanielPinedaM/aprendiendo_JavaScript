@@ -90,9 +90,9 @@ Las diferencias tienen fondo amarillo:
 | los círculos '●' y las otras figuras                        | es decir, son los nombres de las propiedades                                                                   | son los nombres de las propiedades                                                   |
 | q NO son circulo, es decir, '▲' y '✖'                       | Tambien pueden ser tipo Symbol()                                                                               |                                                                                      |
 |                                                             |                                                                                                                | const circulo = { circulo: true };                                                   |
-|                                                             | Object.groupBy(['▲', '●', '✖', '●'], (x) => (x === '●' ? 'circulo' : 'otraFigura'))                            | console.log(circulo);    // { circulo: true }                                        |
+|                                                             | Object.groupBy(['▲', '●', '✖', '●'], (x) => (x === '●' ? 'circulo' : 'otraFigura'))                            | const otraFigura = { otraFigura: true };                                             |
 |                                                             | //                    ↑         ↑                                                                              |                                                                                      |
-|                                                             |                                                                                                                | const otraFigura = { otraFigura: true };                                             |
+|                                                             |                                                                                                                | console.log(circulo);    // { circulo: true }                                        |
 |                                                             | // {                                                                                                           | console.log(otraFigura); // { otraFigura: true }                                     |
 |                                                             | //   circulo:    ['●', '●'],                                                                                   |                                                                                      |
 |                                                             | //   otraFigura: ['▲', '✖']                                                                                    | Map.groupBy(['▲', '●', '✖', '●'], (x) => (x === '●' ? circulo : otraFigura));       |
@@ -103,7 +103,7 @@ Las diferencias tienen fondo amarillo:
 |                                                             |                                                                                                                | //          { circulo: true }:    [ '●', '●' ]                                       |
 |                                                             |                                                                                                                | //        }                                                                          |
 |-------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| Sintaxis                                                    |                                                                                                  Funcion Flecha (Arrow Function)                                                                      |
+| Sintaxis                                                    |                                                                                                  Función Flecha (Arrow Function)                                                                      |
 |                                                             |----------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
 |                                                             | Object.groupBy(array, (element, index) => { })                                                                 | Map.groupBy(array, (element, index) => { })                                          |
 |-------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
@@ -236,7 +236,8 @@ console.log(MapGroupBy);
        }
 */
 
-// .get() Acceder a los valores del objeto Map
+/* .get() Acceder a los valores del objeto Map
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get */
 console.log(MapGroupBy.get(circulo));    // (2) ['●', '●']
 console.log(MapGroupBy.get(otraFigura)); // (2) ['▲', '✖']
 
@@ -247,7 +248,7 @@ console.log(MapGroupBy.get(otraFigura)); // (2) ['▲', '✖']
 
 El array [] figuras sigue teniendo
 exactamente los mismos elementos despues de
-ejecutar Object.groupBy() y Map.groupBy(): */
+ejecutar Object.groupBy() y Map.groupBy() */
 
 console.log(figuras);
 // (4) ['▲', '●', '✖', '●']
@@ -257,7 +258,9 @@ console.log(figuras);
 /* Ejemplo 2 mas Extenso de Diferencia Entre Object.groupBy() y Map.groupBy()
 https://youtu.be/LnqjvuwA83s
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/groupBy#using_map.groupby */
 
 // array1 con numeros par e impar
 const array1 = [0, 1, 2, 3, 4, 5, 6.1];
@@ -268,7 +271,6 @@ console.log(array1);
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Object.groupBy() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-
 Object.groupBy() Crear un objeto literal {}
 en el q se SEPARE (AGRUPE)
 los numeros par e impar del array1
@@ -287,7 +289,7 @@ console.log(objetoLiteralGroup);
 
 /*
 Recordatorio:
-Para iterar objetoLiteral, ver:
+Para iterar {} objetoLiteral, ver:
 " 14.3) {} Objeto Literal "
 
 Acceder a los valores de las propiedades par e impar de objetoLiteralGroup */
@@ -312,12 +314,13 @@ const objetoMap = Map.groupBy(array1, (x) => (x % 2 === 0 ? par : impar));
 console.log(objetoMap);
 /*
 => Map {
-         { par: true }:   [0, 2, 4]
+         { par: true }:   [0, 2, 4],
          { impar: true }: [1, 3, 5, 6.1]
        }
 */
 
-// .get() Acceder a los valores del objeto Map
+/* .get() Acceder a los valores del objeto Map
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get */
 console.log(objetoMap.get(par));   // (2) ['●', '●']
 console.log(objetoMap.get(impar)); // (2) ['▲', '✖']
 
@@ -326,6 +329,38 @@ porque despues de ejecutarlos
 se conservan los mismos elementos del array1 */
 console.log(array1);
 // (7) [0, 1, 2, 3, 4, 5, 6.1]
+
+/* Despues de ejecutar Map.groupBy()
+SI permite modificar los nombres de las propiedades (claves),
+en cambio Object.groupBy() NO
+
+La propiedad (clave) se modifica en
+const par = { par: true }; y en el objetoMap */
+
+par.par = 'nuevo valor'; // la propiedad originalmente es: const par = { par: true };
+console.log(par);
+// { par: 'nuevo valor' }
+
+console.log(objetoMap); // la p
+/*
+=> Map {
+         { par: 'nuevo valor' }: [0, 2, 4],
+         { impar: true }:        [1, 3, 5, 6.1]
+       }
+*/
+
+// Acceder a propiedad (clave) par del objeto Map
+console.log(objetoMap.get(par));
+// (3) [0, 2, 4]
+
+/* En el objeto Map NO se puede utilizar otro objeto que tenga el mismo nombre y propiedades
+
+Si antes ya habia definido const par = { par: true };
+entonces NO puedo volver a usar par como nombre de propiedad const par2 = { par: true };
+
+En otras palabras: Los nombres de las propiedades (claves) son UNICOS */
+const par2 = { par: true };
+console.log(objetoMap.get(par2)); // undefined
 
 /* --------------------------------------------------- */
 
@@ -533,7 +568,7 @@ https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/group#description
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/groupToMap#description
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/groupBy#description
 
 Ambos Object.groupBy() y Map.groupBy()
 NO sirven para array anidado [ [] ] (copia profunda, deep copies) */
@@ -548,7 +583,7 @@ console.log(arrayAnidado);
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 En ambos, Object.groupBy() y Map.groupBy()
 el resultado es INCORRECTO,
-los numeros se estan agrupando mal  */
+los numeros se estan agrupando mal */
 const objetoLiteralGroup2 = Object.groupBy(arrayAnidado, (x) => (x % 2 === 0 ? 'par' : 'impar'));
 console.log(objetoLiteralGroup2);
 /*
@@ -573,13 +608,13 @@ El resultado correcto es:
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Map.groupBy() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
-const par2 = { par: true };
-const impar2 = { impar: true };
+const par3 = { par: true };
+const impar3 = { impar: true };
 
-console.log(par2);   // { par: true }
-console.log(impar2); // { impar: true }
+console.log(par3);   // { par: true }
+console.log(impar3); // { impar: true }
 
-const objetoMap2 = Map.groupBy(arrayAnidado, (x) => (x % 2 === 0 ? par2 : impar2));
+const objetoMap2 = Map.groupBy(arrayAnidado, (x) => (x % 2 === 0 ? par3 : impar3));
 console.log(objetoMap2);
 /*
 => Map {
@@ -709,6 +744,7 @@ console.log(tipoAlimento2);
 }
 */
 
+// Acceder a los valores de las propiedades con los tipos de alimentos
 console.log(tipoAlimento2.fruta);
 /*
 [
@@ -752,7 +788,7 @@ console.log(agruparCantidad);
 }
 */
 
-// Agrupar por agotado, poca o demasiada cantidad
+// Object.groupBy() Agrupar por agotado, poca o demasiada cantidad
 const agruparCantidad2 = Object.groupBy(inventarios, ({ cantidad }) => {
   if (cantidad === 0) return 'agotado';
   if (cantidad >= 1 && cantidad <= 3) return 'poca cantidad';
@@ -771,7 +807,7 @@ console.log(agruparCantidad2);
 }
 */
 
-// Object.groupBy() AGRUPAR alimentos por su letra inicial
+// Object.groupBy() Agrupar alimentos por su letra inicial
 const inicial = Object.groupBy(inventarios, ({ nombre }) => nombre[0]);
 console.log(inicial);
 /*
@@ -789,10 +825,6 @@ console.log(inicial);
 /* --------------------------------------------------- */
 
 /* Ejemplo 8 - Array Disperso (Sparse Array) [,] en Métodos Object.groupBy() y Map.groupBy()
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/group#using_group_on_sparse_arrays
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/groupToMap#using_grouptomap_on_sparse_arrays
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays
 

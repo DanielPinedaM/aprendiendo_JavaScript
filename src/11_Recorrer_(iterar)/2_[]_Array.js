@@ -386,7 +386,6 @@ const iterar = Object.groupBy(array, (elemento, i) => {
   del valor de retorno return de la funcion */
   return elemento;
 });
-
 /*
 i=0 | elemento = '▲'
 i=1 | elemento = '●'
@@ -394,8 +393,9 @@ i=2 | elemento = '✖'
 i=3 | elemento = '■'
 */
 
-/* Object.groupBy() return elemento retorna un objeto literal {}
-q contiene en las propiedades y valores el array
+/* Object.groupBy()
+return elemento retorna un objeto literal {}
+q contiene en las propiedades y valores el array []
 porq NO hay un condicional, solo se devuelve el elemento actual */
 
 console.log(iterar);
@@ -423,7 +423,7 @@ https://youtu.be/pduSpSe-V-o?si=Qa-YzxFT_PH0X0NY
 
 AGRUPAR array [] en un objeto literal {}
 dependiendo de la condición de la función
-q esta en el valor de retorno return  */
+q esta en el valor de retorno return */
 const iterar2 = Map.groupBy(array, (elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
 

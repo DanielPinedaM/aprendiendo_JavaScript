@@ -120,7 +120,6 @@ const agrupar = Object.groupBy(arrayDeObjetos, ({ uno, dos }, i) => {
 
   return 'nombrePropiedad';
 });
-
 /*
 i=0 → uno → tres
 i=0 → dos → cuatro
