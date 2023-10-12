@@ -1,3 +1,5 @@
+/* eslint-disable one-var */
+/* eslint-disable indent */
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable dot-notation */
 /* eslint-disable object-shorthand */
@@ -7,9 +9,15 @@
 
 /* --------------------------------------------------- */
 
-/* Tutorial Jon Mircha
-= {}; Objetos (Diccionarios)
-https://youtu.be/4xig5UPRC00 */
+/*
+{} Objetos (Diccionarios)
+
+Tutorial - Jon Mircha:
+https://youtu.be/4xig5UPRC00
+
+https://youtu.be/XhJaPRfJaz0?si=3unHl-JvTaRwkRXA */
+
+/* --------------------------------------------------- */
 
 const objetoLiteral = {
   nombre: 'Daniel',
@@ -222,3 +230,77 @@ console.log(objetoLiteral2.hasOwnProperty('nombre'));
 // en el objetoLiteral NO existe la propiedadInexistente -> false
 console.log(objetoLiteral2.hasOwnProperty('propiedadInexistente'));
 // false
+
+/* --------------------------------------------------- */
+
+const nombre = 'Kenai',
+      edad = 7;
+
+console.log(nombre); // 'Kenai'
+console.log(edad);   // 7
+
+// ESTO...
+const perro = {
+  nombre,
+  edad,
+  raza: 'Callejero',
+  ladrar: function () {
+    console.log('guauu guaauuu 1!!');
+  },
+};
+
+// Imprimir objeto literal {}
+console.log(perro);
+/*
+{
+  nombre: 'Kenai',
+  edad: 7,
+  raza: "Callejero",
+  ladrar: ƒ ladrar()
+}
+*/
+
+// Ejecutar metodo (funcion) ladrar() q esta dentro del objeto literal {}
+console.log(perro.ladrar);
+/*
+ƒ () {
+        console.log("guauu guaauuu 1!!");
+     }
+*/
+
+// ES LO MISMO Q ESTO:
+const dog = {
+  nombre: nombre,
+  edad: edad,
+  raza: 'Callejero',
+  ladrar: () => {
+    console.log('guauu guaauuu 2!!');
+  },
+  ladrar2() {
+    console.log('guauu guaauuu 3!!');
+  },
+};
+console.log(dog);
+/*
+{
+  nombre: 'Kenai',
+  edad: 7,
+  raza: 'Callejero',
+  ladrar: ƒ ladrar(),
+  ladrar2: ƒ ladrar2()
+}
+*/
+
+console.log(dog.ladrar);
+/*
+() => {
+        console.log("guauu guaauuu 2!!");
+      }
+*/
+
+console.log(dog.ladrar2);
+/*
+ladrar2 () {
+             console.log("guauu guaauuu 3!!");
+           }
+*/
