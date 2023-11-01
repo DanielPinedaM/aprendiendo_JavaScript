@@ -48,7 +48,7 @@ https://en.wikipedia.org/wiki/In-place_algorithm
 | .with()                                 |                       |                       |
 |-----------------------------------------|-----------------------|-----------------------|
 
-Las diferencias están de amarillo:
+Las DIFERENCIAS están de amarillo:
 
                                                 |---------------------------------------------------------|------------------------------------------------|
                                                 | .toSorted()                                             | .sort()                                        |

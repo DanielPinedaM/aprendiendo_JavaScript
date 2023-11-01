@@ -225,8 +225,14 @@ en un solo string '▲●✖■' (REDUCIR array)
 
 .reduce() itera de izquierda a derecha
 (desde el PRIMER 0 elemento hacia el ULTIMO -1 elemento) */
+
+// Concatenar elementos de un array
 ['▲', '●', '✖', '■'].reduce((acumulador, elemento) => acumulador + elemento, '');
 // '▲●✖■'
+
+// Sumar elementos de un array
+[1, 2, 3].reduce((acumulador, elemento) => acumulador + elemento) // 1+2+3 = 6
+// 6
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄

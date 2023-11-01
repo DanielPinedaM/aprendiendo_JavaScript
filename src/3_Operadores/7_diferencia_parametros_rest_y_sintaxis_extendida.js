@@ -1,47 +1,179 @@
+/* eslint-disable max-len */
 // @ts-nocheck
-
-/*
-Tutorial:
-https://youtu.be/-Jt_86kUKuk
-
-Documentación Oficial
-- ... Sintaxis Extendida (Spread Operator)
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
-
-- Iterables
-https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Iterators_and_Generators#iterables
-
-... Crea una COPIA ITERABLE de un objeto.
-
-La ... sintaxis extendida hace q
-si se modifica la copia obj2,
-NO se modifica el objeto original obj1 (inmutabilidad),
-esto lo explico mejor en el Ejemplo 1
-
-Se puede usar con:
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#description
-- '' string
-- {} objeto literal https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals
-- [] array          https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals
-- Funciones         https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_function_calls
-
-Sintaxis:
-miFuncion(a, ...iterableObj, b)
-[1, ...iterableObj, '4', 'five', 6]
-{ ...obj, key: 'value' }
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#syntax
-
-Donde
-... Es la sintaxis extendida (spread operator)
-
-...iterableObj y ...obj objeto iterable
-
-miFuncion
-Es el nombre de una funcion */
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 1 - ... Sintaxis Extendida (Spread Operator) e Inmutabilidad (OBJETO LITERAL)
+/*
+... Diferencias y Similitudes Entre Parametros Rest (Rest Parameters) y Sintaxis Extendida (Operador Spread, Spread Operator)
+
+Tutorial...
+- Midudev:
+https://youtube.com/shorts/aOH4b3JViYA?si=ET_j4TVA59MLwCtT
+
+- Jon Mircha:
+https://youtu.be/yGJdRAXHCPM?si=5Hp2D-jHDWhjAVVT
+
+- freeCodeCamp Español:
+https://youtube.com/shorts/Rk7dCahmTCU?si=nsgYFzpcc3pMOA1I
+
+- Nicolas Schurmann:
+https://youtu.be/-Jt_86kUKuk
+
+Documentación Oficial...
+- Sintaxis Extendida (Operador Spread, Spread Operator):
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
+- Iterables:
+https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Iterators_and_Generators#iterables
+
+- Parametros Rest (Rest Parameters):
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
+
+- JavaScript Info - Diferencia Entre Parametros Rest y Sintaxis Extendida:
+https://javascript.info/rest-parameters-spread
+
+                                             |----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+                                             | Parametros Rest                                                                                    | Sintaxis Extendida                                                                                                  |
+                                             | (Rest Parameters)                                                                                  | (Operador Spread, Spread Operator)                                                                                  |
+|--------------------------------------------|----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| ¿Que es?                                   | Es el resto ...rest de los elementos del array []                                                  | Crea una COPIA ITERABLE de un objeto                                                                                |
+|                                            |                                                                                                    |                                                                                                                     |
+|                                            |                                                                                                    | Cuando se modifica la copia obj2,                                                                                   |
+|                                            |                                                                                                    | NO se modifica el objeto original obj1 (inmutabilidad)                                                              |
+|------------------------|-------------------|----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| ¿Se puede usar con...? | '' string         |                                                                                                    | ✓                                                                                                                   |
+|------------------------|-------------------|----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+|                        | {} objeto literal |                                                                                                    | ✓                                                                                                                   |
+|                        |                   |                                                                                                    | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals |
+|------------------------|-------------------|----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+|                        | [] array          | ✓                                                                                                  | ✓                                                                                                                   |
+|                        |                   |                                                                                                    | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals  |
+|------------------------|-------------------|----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+|                        | Funciones         | ✓                                                                                                  | ✓                                                                                                                   |
+|                        |                   |                                                                                                    | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_function_calls  |
+|------------------------|-------------------|----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| Sintaxis                                   | function miFuncion(a, b, ...theArgs) {                                                             | miFuncion(a, ...iterableObj, b)                                                                                     |
+|                                            | // ...                                                                                             | [1, ...iterableObj, '4', 'five', 6]                                                                                 |
+|                                            | }                                                                                                  | { ...obj, key: 'value' }                                                                                            |
+|                                            |                                                                                                    |                                                                                                                     |
+|                                            | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters#syntax | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#syntax                    |
+|--------------------------------------------|----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+
+Sintaxis:
+
+- Sintaxis Extendida:
+miFuncion(a, ...iterableObj, b)
+[1, ...iterableObj, '4', 'five', 6]
+{ ...obj, key: 'value' }
+
+- Parametros Rest:
+function miFuncion(a, b, ...theArgs) {
+  // …
+}
+
+Donde...
+- ... Es la sintaxis extendida o parametros rest
+
+- ...iterableObj y ...obj objeto iterable
+
+- miFuncion
+Nombre de una funcion
+
+- ...theArgs */
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 1 - ... Diferencia 1 Entre Parametros Rest (Rest Parameters) y Sintaxis Extendida (Operador Spread, Spread Operator)
+Tienen la misma sintaxis
+pero ...rest es el RESTO, en cambio spread es ESPARCIR
+https://youtube.com/shorts/aOH4b3JViYA?si=1lmGQ0iP4QTwp1Jd */
+
+const numeros = [1, 2, 3, 4, 5];
+console.log(numeros);
+// (5) [1, 2, 3, 4, 5]
+
+/* Para "EXTRAER datos" (ANTES del igual), 
+usar ..rest para tener el "resto"
+de elementos extraídos 
+cuando buscas datos específicos de una colección (desestructuracion).
+
+uno y dos son los numeros (elementos) 1 y 2
+
+...rest es el resto (los otros) numeros del array [] 3, 4, 5 */
+const [uno, dos, ...rest] = numeros; // Desestructuracion
+console.log(uno);  // 1
+console.log(dos);  // 2
+console.log(rest); // (3) [3, 4, 5]
+
+/* Recordatorio:
+Ver:
+" 9.4.3.3.10) Agregar Nuevo Elemento al .unshift() PRINCIPIO y .push() FINAL del Array y Devolver la Nueva Longitud .length del Array "
+
+Para "AÑADIR nuevos datos" (DESPUES del igual), 
+y deseas añadir elementos a un {} objeto o [] array, 
+en lugar de hacer array.push(1) array.push(2) usar spread operator
+
+Sintaxis Extendida crear COPIA del array [] numeros y concatenarlo con array [] masNumeros
+
+-1, 0 son del array masNumeros
+y 1, 2, 3, 4, 5 son del array numeros */
+const masNumeros = [-1, 0, ...numeros];
+console.log(masNumeros); // (7) [-1, 0, 1, 2, 3, 4, 5]
+console.log(numeros);    // (5) [1, 2, 3, 4, 5]
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 2 - ... Diferencia 2 Entre Parametros Rest (Rest Parameters) y Sintaxis Extendida (Operador Spread, Spread Operator)
+https://youtube.com/shorts/Rk7dCahmTCU?si=eRYQ9rw1kf1ZqB2M 
+
+Recordatorio:
+Ver:
+" 12.2) Resumen: Partes (Sintaxis) de una Función "
+
+con rest una funcion puede tener CUALQUIER numero de argumentos args */
+
+const miFuncion = (...args) => args;
+
+const rest2 = miFuncion(1, 2, 3); // argumentos 1, 2, 3
+console.log(rest2);
+// (3) [1, 2, 3]
+
+/* En cambio, spread asgina un numero en ESPECIFICO de argumentos.
+
+A los parametros (a, b, c) asignarle los argumentos [4, 5, 6],
+son 3 parametros y argumentos */
+const array = [4, 5, 6];
+console.log(array);
+// (3) [4, 5, 6]
+
+const miFuncion2 = (a, b, c) => { // (a, b, c) parametros
+  console.log(a); // 4
+  console.log(b); // 5 
+  console.log(c); // 6
+}
+
+console.log(...array);
+// 4 5 6
+
+miFuncion2(...array);             // ...array argumentos
+/*
+4
+5
+6
+*/
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 3 - ... Diferencia 3 Entre Parametros Rest (Rest Parameters) y Sintaxis Extendida (Operador Spread, Spread Operator)
+https://youtu.be/yGJdRAXHCPM?si=dtgFrE1FXsLS2stm
+
+rest sumar N numeros */
+
+
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo X - ... Sintaxis Extendida (Spread Operator) e Inmutabilidad (OBJETO LITERAL)
 https://youtu.be/-Jt_86kUKuk */
 
 const obj1 = { nombre: 'obj1' };
@@ -74,6 +206,8 @@ console.log(obj3);
 
 // En cambio, cuando NO uso la ... sintaxis extendida (spread operator)
 obj2 = obj1;
+console.log(obj1); // { nombre: 'obj1' }
+console.log(obj2); // { nombre: 'obj1' }
 
 // y modifico el obj2
 obj2.nombre = 'nuevo nombre 2';
@@ -90,7 +224,7 @@ console.log(obj3);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 2 - ... Sintaxis Extendida (Spread Operator) e Inmutabilidad (ARRAY)
+/* Ejemplo X - ... Sintaxis Extendida (Spread Operator) e Inmutabilidad (ARRAY)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals */
 
 // Array original
@@ -107,7 +241,7 @@ console.log(copia);
 Al modificar el array copia NO se modifica array original */
 copia.push(4);
 console.log(original); // (3) [1, 2, 3]
-console.log(copia);    // (4) [1, 2, 3, 4]
+console.log(copia); // (4) [1, 2, 3, 4]
 
 /* IMPORTANTE: ⚠️
 La ... sintaxis extendida NO hace inmutables los array anidados (multidimensional).
@@ -131,12 +265,12 @@ console.log(copia2);
 Hay un error:
 Cuando modifico el array copia2 tambien se modifica el array original anidado */
 copia2.shift().shift();
-console.log(copia2);  // (2) [ [ 2 ], [ 3 ] ]
+console.log(copia2); // (2) [ [ 2 ], [ 3 ] ]
 console.log(anidado); // (3) [ [], [ 2 ], [ 3 ] ]
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 3 - Concatenar (unir) ARRAY usando la ... sintaxis extendida (spread operator)
+/* Ejemplo X - Concatenar (unir) ARRAY usando la ... sintaxis extendida (spread operator)
 La ... sintaxis extendida es una alternativa a:
 - .concat()
 - .unshift()
@@ -164,7 +298,7 @@ console.log(concatenar);
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 4 - Concatenar (unir) OBJETO LITERAL usando la ... sintaxis extendida (spread operator)
+// Ejemplo X - Concatenar (unir) OBJETO LITERAL usando la ... sintaxis extendida (spread operator)
 
 const objeto1 = {
   uno: 1,
@@ -210,7 +344,7 @@ console.log(concatenar2);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 5 - Funcion concatenar
+/* Ejemplo X - Crear funcion concatenar con ... sintaxis extendida (spread operator)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals
 
 Los objetos literales object1 y object2
@@ -256,7 +390,7 @@ console.log(ejecutarFuncion);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 6 - Diferencia Entre ... Sintaxis Extendida y Object.assign()
+/* Ejemplo X - Diferencia Entre ... Sintaxis Extendida y Object.assign()
 - Stack Overflow:
 https://stackoverflow.com/questions/32925460/object-spread-vs-object-assign
 
@@ -280,7 +414,7 @@ console.log(o2); // { uno: 1 }
 /* Creo una copia de los objetos
 con Object.assign(); y la ... sintaxis extendida */
 const assign = Object.assign(o1); // o1
-const spread = { ...o2 };         // o2
+const spread = { ...o2 }; // o2
 
 // Hasta el momento las copias assign y spread son iguales
 console.log(assign); // { uno: 1 }
@@ -346,7 +480,7 @@ console.log(spread2);
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 7 - ... Sintaxis Extendida (Spread Operator) en funcion
+// Ejemplo X - ... Sintaxis Extendida (Spread Operator) en funcion
 
 // funcion flecha q retorna 'hola mundo'
 const funcion = () => 'hola mundo';
@@ -361,12 +495,12 @@ console.log(retorno);
 /* convertir de string a array
 usando ... Sintaxis Extendida (Spread Operator) */
 const spreadOperator = [...retorno];
-console.log(spreadOperator);        // (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
+console.log(spreadOperator); // (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
 console.log(typeof spreadOperator); // 'object'
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 8 - ... Sintaxis Extendida (Spread Operator) en funcion
+/* Ejemplo X - ... Sintaxis Extendida (Spread Operator) en funcion
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#try_it
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_function_calls */
@@ -407,7 +541,7 @@ console.log(resultado);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 9 - ... Sintaxis Extendida (Spread Operator) en funcion
+/* Ejemplo X - ... Sintaxis Extendida (Spread Operator) en funcion
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_function_calls */
 
 const miFuncion = (a, b, c, d, e) => a + b + c + d + e;
@@ -428,7 +562,7 @@ console.log(resultado2);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 10:
+/* Ejemplo X - La ... sintaxis extendida (spread operator) SOLAMENTE funciona en iterables
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#description */
 
 const objetoLiteral = { uno: 1 };
@@ -452,9 +586,7 @@ porq [...objetoLiteral] NO es iterable */
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 11:
-Puedo usar la ... sintaxis extendida para convertir de array [] a objeto literal {}
-
+/* Ejemplo X - Usando ... sintaxis extendida (spread operator) convertir de array [] a objeto literal {}
 Las propiedades son numeros 0, 1, 2...
 y los valores del objeto {} son los elementos del array []
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#description
@@ -477,7 +609,7 @@ console.log(objetoLiteral2);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 12:
+/* Ejemplo X - apply() y ... sintaxis extendida (spread operator)
 Con apply() NO se puede usar directamente juntos un array y el constructor new,
 en cambio con la ... sintaxis extendida SI se puede
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_function_calls
