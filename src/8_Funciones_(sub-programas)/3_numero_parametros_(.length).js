@@ -27,13 +27,29 @@ dependiendo de con que tipo de dato se use:
 
 // Funcion anonima SIN parametros
 console.log('# de parametros: ', function () {}.length);
-// # de parametros:  0
+// '# de parametros: ' 0
 
 /* ---------------------------------------------- */
 
 // Funcion anonima con 3 parametros q son (a, b, c)
 console.log('# de parametros: ', function (a, b, c) {}.length);
-// # de parametros:  0
+// '# de parametros: ' 3
+
+/* ---------------------------------------------- */
+
+/*
+Recordatorio:
+Ver:
+" 5.7.1) ... Diferencias y Similitudes Entre Parametros Rest (Rest Parameters) y Sintaxis Extendida (Operador Spread, Spread Operator) "
+
+.length NO tiene en cuenta el parametro ...rest
+para contar el numero de parametros
+
+a, b, c, ...rest son 4 parametros pero se imprime 3
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters#description */
+
+console.log('# de parametros: ', function (a, b, c, ...rest) {}.length);
+// '# de parametros: ' 3
 
 /* ---------------------------------------------- */
 
