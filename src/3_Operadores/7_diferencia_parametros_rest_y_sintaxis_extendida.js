@@ -36,19 +36,19 @@ https://javascript.info/rest-parameters-spread
                                              | Parametros Rest                                                                                                    | Sintaxis Extendida                                                                                                  |
                                              | (Rest Parameters)                                                                                                  | (Operador Spread, Spread Operator)                                                                                  |
 |--------------------------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| ¿Que es?                                   | Es el RESTO ...rest de los elementos del array []                                                                  | ESPARCE un objeto, crea una COPIA ITERABLE de un objeto                                                                                |
+| ¿Que es?                                   | Es el RESTO ...rest de los elementos del array []                                                                  | ESPARCE un objeto, crea una COPIA ITERABLE de un objeto                                                             |
 |                                            |                                                                                                                    |                                                                                                                     |
 |                                            |                                                                                                                    | Cuando se modifica la copia obj2,                                                                                   |
 |                                            |                                                                                                                    | NO se modifica el objeto original obj1 (inmutabilidad)                                                              |
 |------------------------|-------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | ¿Se puede usar con...? | '' string         | X                                                                                                                  | ✓                                                                                                                   |
-|------------------------|-------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+|                        |-------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 |                        | {} objeto literal | ✓                                                                                                                  | ✓                                                                                                                   |
 |                        |                   | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#rest_property | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals |
-|------------------------|-------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+|                        |-------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 |                        | [] array          | ✓                                                                                                                  | ✓                                                                                                                   |
 |                        |                   | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#rest_property | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals  |
-|------------------------|-------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+|                        |-------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 |                        | Funciones         | ✓                                                                                                                  | ✓                                                                                                                   |
 |                        |                   |                                                                                                                    | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_function_calls  |
 |                        |                   |                                                                                                                    | https://en.wikipedia.org/wiki/Variadic_function                                                                     |
@@ -112,11 +112,13 @@ cuando buscas datos específicos de una colección (desestructuracion).
 
 uno y dos son los numeros (elementos) 1 y 2
 
-...rest es el resto (los otros) numeros del array [] 3, 4, 5 */
+...rest es el resto (los otros) numeros del [] array 3, 4, 5 */
 const [uno, dos, ...rest] = numeros; // Desestructuracion
-console.log(uno);  // 1
-console.log(dos);  // 2
-console.log(rest); // (3) [3, 4, 5]
+console.log(uno);     // 1
+console.log(dos);     // 2
+
+console.log(rest);    // (3) [3, 4, 5]
+console.log(...rest); // 3 4 5
 
 /*
 ▄▄▄▄▄▄▄▄▄▄
@@ -131,7 +133,7 @@ Para "AÑADIR nuevos datos" (DESPUES del igual),
 y deseas añadir elementos a un {} objeto o [] array,
 en lugar de hacer array.push(1) array.push(2) usar spread operator
 
-Sintaxis Extendida crear COPIA del array [] numeros y concatenarlo con array [] masNumeros
+Sintaxis Extendida: crear COPIA del array [] numeros y concatenarlo con array [] masNumeros
 
 -1, 0 son del array masNumeros
 y 1, 2, 3, 4, 5 son del array numeros */
@@ -196,14 +198,14 @@ miFuncion2(...array);             // ...array argumentos
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 3 - usando spread concatenar (unir) ARRAY
+/* Ejemplo 3 - usando spread concatenar (unir) ARRAY []
 La ... sintaxis extendida es una alternativa a:
 - .concat()
 - .unshift()
 - .push()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals
 
-https://youtu.be/yGJdRAXHCPM?si=pxSW7F9Rwzvl69fv  */
+https://youtu.be/yGJdRAXHCPM?si=pxSW7F9Rwzvl69fv */
 
 const array1 = [1, 2, 3];
 console.log(array1);
@@ -257,7 +259,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest
 a=1 y b=2 son los dos primeros argumentos,
 ...rest3 es el "resto" de los otros argumentos faltantes [3, 4, 5] */
 
-const miFuncion4 = (a, b, ...rest3) => {
+const miFuncion4 = (a, b, ...rest3) => { // (a, b, ...rest3) parametros
   console.log(a);       // 1
   console.log(b);       // 2
 
@@ -265,7 +267,7 @@ const miFuncion4 = (a, b, ...rest3) => {
   console.log(...rest3); // 3 4 5
 };
 
-miFuncion4(1, 2, 3, 4, 5);
+miFuncion4(1, 2, 3, 4, 5); // (1, 2, 3, 4, 5) argumentos
 
 /* a=1 y b=2 son los dos primeros argumentos,
 el ultimo argumento q es UNO SOLO es un array de un indice (1) [3] */
@@ -281,7 +283,8 @@ const miFuncion5 = (a, b, ...rest3) => {
 miFuncion5(1, 2, 3);
 
 /* a=1 y b=2 son los dos primeros argumentos,
-el ultimo argumento ...rest es un array vacio [] porque NO hay un tercer argumento */
+el ultimo argumento ...rest es un array vacio [] 
+porque NO hay un tercer argumento */
 
 const miFuncion6 = (a, b, ...rest3) => {
   console.log(a);       // 1
@@ -309,10 +312,10 @@ const miFuncion7 = (a, b, ...rest3) => {
 
 miFuncion7(1);
 
-/* Al llamar funcion SIN argumentos:
+/* Al llamar una funcion SIN argumentos:
 1) los dos primeros argumentos a y b son undefined porque no se les asigna nungun valor
 
-2) ...rest es un array vacio porque NO hay mas de dos argumentos,
+2) ...rest es un array vacio [] porque NO hay mas de dos argumentos,
 no existe el "resto" de los argumentos */
 
 const miFuncion8 = (a, b, ...rest3) => {
@@ -336,7 +339,7 @@ ERROR:
 const funcion1 = (...rest1, ...rest2) => { }
 // ❌ Uncaught SyntaxError: Rest parameter must be last formal parameter
 
-// 2) ...rest tiene q ser el ULTIMO parametro 
+// 2) ...rest tiene q ser el ULTIMO parametro
 const funcion2 = (...rest, arg2, arg3) => { }
 // ❌ Uncaught SyntaxError: Rest parameter must be last formal parameter
 
@@ -367,7 +370,7 @@ sumar(1, 2, 3, 4); // 1+2+3+4 = 10
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 8 - spread en funcion
+/* Ejemplo 8 - spread en funcion:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#try_it
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_function_calls */
@@ -378,7 +381,7 @@ console.log(sumar2);
 // [Function: sumar2]
 
 /* quiero sumar los 3 numeros de este array,
-este array numeros contiene los argumentos de la funcion sumar */
+este array numeros2 contiene los argumentos de la funcion sumar */
 const numeros2 = [1, 2, 3];
 console.log(numeros2);
 // (3) [1, 2, 3]
@@ -390,8 +393,8 @@ console.log(resultado3);
 // '1,2,3undefinedundefined'
 
 /* En cambio, cuando SI uso la ... sintaxis extendida
-SI se suman los numeros 1+2+3 = 6 */
-resultado3 = sumar2(...numeros2);
+SI se suman los numeros */
+resultado3 = sumar2(...numeros2); // 1+2+3 = 6
 console.log(resultado3);
 // 6
 
@@ -416,14 +419,15 @@ console.log(miFuncion3);
 // [Function: miFuncion3]
 
 const argumentos = [2, 3];
-console.log(argumentos);
-// (2) [2, 3]
+console.log(argumentos);    // (2) [2, 3]
+console.log(...argumentos); // 2 3
 
-/* Cualquer argumento puede usar la sintaxis extendida
-y la ... sintaxis extendida se puede usar varias veces
+/* Cualquier argumento puede usar la sintaxis extendida
+y la ... sintaxis extendida se puede usar varias veces */
+console.log(...[5]); // 5
+console.log([5]);    // (1) [5]
 
-1+2+3+4+5 = 15 */
-const resultado2 = miFuncion3(1, ...argumentos, 4, ...[5]);
+const resultado2 = miFuncion3(1, ...argumentos, 4, ...[5]); // 1+2+3+4+5 = 15
 console.log(resultado2);
 // 15
 
@@ -493,35 +497,35 @@ const copia = [...original];
 console.log(copia);
 // (3) [1, 2, 3]
 
-/* .push() Agregar nuevo elemento al FINAL del Array
+/* .push() Agregar nuevo elemento al FINAL del array
 Al modificar el array copia NO se modifica array original */
 copia.push(4);
 console.log(original); // (3) [1, 2, 3]
-console.log(copia); // (4) [1, 2, 3, 4]
+console.log(copia);    // (4) [1, 2, 3, 4]
 
 /* IMPORTANTE: ⚠️
 La ... sintaxis extendida NO hace inmutables los array anidados (multidimensional).
-Una posible solucion es structuredClone()
+structuredClone() es una solucion a esto
 https://developer.mozilla.org/en-US/docs/Web/API/structuredClone
 
 https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#supported_types
 
-Crear array anidado (multidimensional) */
+Crear array anidado (multidimensional) [ [] ] */
 const anidado = [[1], [2], [3]];
 console.log(anidado);
 // (3) [ [ 1 ], [ 2 ], [ 3 ] ]
 
-// ... crear copia de array anidado
+// ... crear copia de array anidado [ [] ]
 const copia2 = [...anidado];
 console.log(copia2);
 // (3) [ [ 1 ], [ 2 ], [ 3 ] ]
 
 /* .shift() Eliminar PRIMER Elemento del Array
 
-Hay un error:
+ERROR:
 Cuando modifico el array copia2 tambien se modifica el array original anidado */
 copia2.shift().shift();
-console.log(copia2); // (2) [ [ 2 ], [ 3 ] ]
+console.log(copia2);  // (2) [ [ 2 ], [ 3 ] ]
 console.log(anidado); // (3) [ [], [ 2 ], [ 3 ] ]
 
 /* --------------------------------------------------------------- */
@@ -640,9 +644,9 @@ console.log(o1); // { uno: 1 }
 console.log(o2); // { uno: 1 }
 
 /* Creo una copia de los objetos
-con Object.assign(); y la ... sintaxis extendida */
+con Object.assign() y la ... sintaxis extendida */
 const assign = Object.assign(o1); // o1
-const spread = { ...o2 }; // o2
+const spread = { ...o2 };         // o2
 
 // Hasta el momento las copias assign y spread son iguales
 console.log(assign); // { uno: 1 }
@@ -744,8 +748,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_prot
 La siguiente linea de codigo da ERROR
 porq [...objetoLiteral] NO es iterable */
 
-// const array = [...objetoLiteral];
-// console.log(array);
+const array = [...objetoLiteral];
+console.log(array);
 /* TypeError: objetoLiteral is not iterable
    at Object.<anonymous> */
 
@@ -764,7 +768,7 @@ https://www.samanthaming.com/tidbits/83-4-ways-to-convert-string-to-character-ar
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#rest_property
 
 a es el primero valor del {} objeto literal
-y ...rest3 es el "resto", la otra parte faltante del {} objeto literal { b: 2, c: 3 }  */
+y ...rest3 es el "resto", la otra parte faltante del {} objeto literal { b: 2, c: 3 } */
 
 const { a, ...rest3 } = { a: 1, b: 2, c: 3 };
 console.log(a);     // 1
@@ -846,7 +850,7 @@ console.log(miFuncion1.length);
 
 /* --- */
 
-/* 2) cuando escribo 1 o mas parametros a, b, c 
+/* 2) Cuando escribo 1 o mas parametros a, b, c 
 y despues ...rest (a, b, c, ...rest)
 rest.length imprime 0 DENTRO de la funcion */
 
@@ -1078,5 +1082,5 @@ Esta es la forma correcta */
 const ordenar2 = (array) => array.toSorted((a, b) => a - b);
 console.log(
   ordenar2([2, 1, 3, 4])
-);
+  );
 // (4) [ 1, 2, 3, 4 ]
