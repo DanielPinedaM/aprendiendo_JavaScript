@@ -38,18 +38,53 @@ console.log('# de parametros: ', function (a, b, c) {}.length);
 /* ---------------------------------------------- */
 
 /*
-Recordatorio:
-Ver:
-" 5.7.1) ... Diferencias y Similitudes Entre Parametros Rest (Rest Parameters) y Sintaxis Extendida (Operador Spread, Spread Operator) "
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters#argument_length
 
-.length NO tiene en cuenta el parametro ...rest
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments/length
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters#description
+
+1) Cuando en la funcion se escribe UN SOLO parametro (...rest)
+para q rest.length funcione se tiene q escribir DENTRO de la funcion */
+
+function miFuncion1(...rest) { // "UN SOLO parametro (...rest)"
+  console.log(rest.length);    // "DENTRO de la funcion"
+}
+
+// Imprimir el numero de argumentos de la funcion
+miFuncion1();              // 0
+miFuncion1('A');           // 1
+miFuncion1('A', 'B');      // 2
+miFuncion1('A', 'B', 'C'); // 3
+
+/* cuando hay UN SOLO parametro (...rest)
+nombreFuncion.length imprime 0 */
+console.log(miFuncion1.length);
+// 0
+
+/* --- */
+
+/* 2) cuando escribo 1 o mas parametros a, b, c
+y despues ...rest (a, b, c, ...rest)
+rest.length imprime 0 DENTRO de la funcion */
+
+function miFuncion2(a, b, c, ...rest) { // "parametros"
+  console.log(rest.length);             // "DENTRO de la funcion"
+}
+
+miFuncion2();              // 0
+miFuncion2('A', 'B', 'C'); // 0
+
+/*
+cuando escribo 1 o mas parametros a, b, c
+y despues ...rest (a, b, c, ...rest)
+nombreFuncion.length NO tiene en cuenta el parametro ...rest
 para contar el numero de parametros
 
-a, b, c, ...rest son 4 parametros pero se imprime 3
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters#description */
+(a, b, c, ...rest) son 4 parametros pero se imprime 3 */
 
-console.log('# de parametros: ', function (a, b, c, ...rest) {}.length);
-// '# de parametros: ' 3
+console.log(miFuncion2.length);
+// 3
 
 /* ---------------------------------------------- */
 

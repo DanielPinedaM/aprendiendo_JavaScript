@@ -822,18 +822,51 @@ console.log(constructorDate);
 /* Ejemplo 21 - ...rest y .length
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters#argument_length
 
-Recordatorio:
-Ver:
-" 7.4) Parámetros en Función "
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments/length
 
-.length NO tiene en cuenta el parametro ...rest
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters#description 
+
+1) Cuando en la funcion se escribe UN SOLO parametro (...rest)
+para q rest.length funcione se tiene q escribir DENTRO de la funcion */
+
+function miFuncion1(...rest) { // parametro ...rest
+  console.log(rest.length);    // DENTRO de la funcion
+}
+
+// Imprimir el numero de argumentos de la funcion
+miFuncion1();              // 0
+miFuncion1("A");           // 1
+miFuncion1("A", "B");      // 2
+miFuncion1("A", "B", "C"); // 3
+
+/* cuando hay UN SOLO parametro ...rest 
+nombreFuncion.length imprime 0 */
+console.log(miFuncion1.length); 
+// 0
+
+/* --- */
+
+/* 2) cuando escribo 1 o mas parametros a, b, c 
+y despues ...rest (a, b, c, ...rest)
+rest.length imprime 0 DENTRO de la funcion */
+
+function miFuncion2(a, b, c, ...rest) { // parametros
+  console.log(rest.length);             // DENTRO de la funcion
+}
+
+miFuncion2();              // 0
+miFuncion2("A", "B", "C"); // 0
+
+/*
+cuando escribo 1 o mas parametros a, b, c 
+y despues ...rest (a, b, c, ...rest)
+nombreFuncion.length NO tiene en cuenta el parametro ...rest
 para contar el numero de parametros
 
-a, b, c, ...rest son 4 parametros pero se imprime 3
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters#description */
+a, b, c, ...rest son 4 parametros pero se imprime 3 */
 
-console.log('# de parametros: ', function (a, b, c, ...rest) {}.length);
-// '# de parametros: ' 3
+console.log(miFuncion2.length);
+// 3
 
 /* --------------------------------------------------------------- */
 
@@ -906,9 +939,17 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters#from_arguments_to_an_array
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+Recordatorio:
+Ver:
+" 9.4.2.1) Array.from() Convertir a Array y Ejecutar una Función .map() para Cada Elemento "
+
 El objeto arguments NO es un array,
 por lo que arguments NO se pueden usar con los metodos de array []
-como .map() .sort() .filter(), etc.
+como .map() .toSorted() .filter(), etc.
 
 Para q arguments se pueda usar con metodos de array []
 hay q convertirlo a array [] con Array.from() */
@@ -988,3 +1029,54 @@ function ejemploRest(a, b, ...rest) {
 }
 
 ejemploRest(1, 2, 3, 4, 5);
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 25 - Multiplicar el primer numero 2 del array [] por cada uno de los siguientes elementos 4, 6, 8 del array []
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters#using_rest_parameters_in_combination_with_ordinary_parameters */
+
+const multiplicar = (a, ...rest) => {
+  console.log(a);       // 2
+  console.log(...rest); // 4 6 8
+  console.log(rest);    // (3) [ 4, 6, 8 ]
+  
+  const resultado = rest.map((elemento) => {
+    console.log(`${a}*${elemento} = ${a * elemento}`);
+    /*
+   '2*4 = 8'
+   '2*6 = 12'
+   '2*8 = 16'
+    */
+    
+    return a * elemento
+  } )
+
+  console.log(resultado);
+  // (3) [ 8, 12, 16 ]
+  
+  return resultado;
+}
+
+const array = multiplicar(2, 4, 6, 8);
+console.log(array);
+// (3) [ 8, 12, 16 ]
+
+/* --------------------------------------------------------------- */
+
+// Ejemplo 26 - Ordenar array de numeros de menor a mayor (ascendente)
+
+/* usando ...rest
+Para este ejemplo en especifico NO es necesario usar ...rest */
+const ordenar = (...rest) => rest.toSorted((a, b) => a - b)
+console.log(
+  ordenar(2, 1, 3, 4)
+);
+// (4) [ 1, 2, 3, 4 ]
+
+/* SIN ...rest
+Esta es la forma correcta */
+const ordenar2 = (array) => array.toSorted((a, b) => a - b);
+console.log(
+  ordenar2([2, 1, 3, 4])
+);
+// (4) [ 1, 2, 3, 4 ]
