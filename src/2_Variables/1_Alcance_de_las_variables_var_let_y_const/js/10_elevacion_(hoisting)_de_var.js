@@ -1,7 +1,17 @@
+/* eslint-disable max-len */
+/* eslint-disable no-var */
+/* eslint-disable func-names */
+// @ts-nocheck
+/* eslint-disable vars-on-top */
+
+/* --------------------------------------------------------------- */
+
 /*
 Tutorial La Cocina del Codigo - Elevación (Hoisting)
 https://youtu.be/uI6o97A4IrI
 */
+
+/* --------------------------------------------------------------- */
 
 /* Ejemplo 1 - Elevación de var SIN Par de Llaves {...} */
 
@@ -81,7 +91,7 @@ var numeros2 = function () { /* expresión de funcion */
 };
 
 numeros2();
-/* 
+/*
 elemento array = 1
 numero uno
 
@@ -93,29 +103,29 @@ numero diferente de 1
 */
 
 /* ---------------------------------- */
-/* 
-Las variables var 
-que se elevan devuelven un valor de undefined. 
-Entonces, incluso si declara e inicializa 
-después de usar o hacer referencia a esta variable, 
+/*
+Las variables var
+que se elevan devuelven un valor de undefined.
+Entonces, incluso si declara e inicializa
+después de usar o hacer referencia a esta variable,
 aún devuelve undefined
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variable_hoisting
 
 Ejemplo 3 - var Devuelve undefined
-El siguiente código 
-si ejecuta en la consola de JS del navegador, 
+El siguiente código
+si ejecuta en la consola de JS del navegador,
 los errores que ves son de ESLint.
 
-En el if () {} estoy preguntando 
-¿la variable x ha sido definida? 
-y después la defino, 
+En el if () {} estoy preguntando
+¿la variable x ha sido definida?
+y después la defino,
 el resultado NO es un error,
-el resultado es que 
+el resultado es que
 x no ha sido definida x = undefinded
 
-Esto sucede debido a que 
-var “flota” (elevación / hoisting), 
-primero estoy haciendo uso de la variable x en el if () {} 
+Esto sucede debido a que
+var “flota” (elevación / hoisting),
+primero estoy haciendo uso de la variable x en el if () {}
 y después la estoy definido
 */
 
