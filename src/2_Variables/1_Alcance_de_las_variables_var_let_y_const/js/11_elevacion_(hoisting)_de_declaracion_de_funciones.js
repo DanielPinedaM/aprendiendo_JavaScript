@@ -51,11 +51,11 @@ declaracionDeFuncion2(); /* y DESPUES LLAMO la funcion */
 
 /* Ejemplo 5 - La EXPRESION de Función NO Tiene Elevación: */
 
-expresionDeFuncion(); /* llamar funcion */
+expresionDeFuncion();                  /* llamar funcion */
+
 var expresionDeFuncion = function () { /* definir EXPRESION de funcion */
   console.log('hola mundo 3');
 };
-
 /*
 ERROR - No se puede llamar una EXPRESION de funcion antes de definirla
 
