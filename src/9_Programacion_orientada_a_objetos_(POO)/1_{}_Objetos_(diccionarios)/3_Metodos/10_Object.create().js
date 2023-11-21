@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 /* eslint-disable max-len */
 /* eslint-disable array-callback-return */
 // @ts-nocheck
@@ -5,6 +6,8 @@
 /* --------------------------------------------------- */
 
 /*
+Métodos de Prototipo de Objeto
+
 Object.create() Crear un Nuevo Objeto que Hereda las Propiedades y Métodos de un Objeto Existente (Prototipo)
 
 Documentacion Oficial...
