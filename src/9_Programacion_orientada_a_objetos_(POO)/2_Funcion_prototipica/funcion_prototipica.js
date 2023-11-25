@@ -3,12 +3,27 @@
 
 /* --------------------------------------------------- */
 
+/*
+Función Prototípica
+
+Tutorial - Jon Mircha:
+https://youtu.be/nS5FmAx4u_0
+
+Documentación Oficial...
+- Función Prototípica:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype
+
+- new
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new */
+
+/* --------------------------------------------------- */
+
 /* Ejemplo:
 En JS las clases de compilan a una función prototípica,
 como a continuacion: */
 
 const animal = {
-  // propiedad: valor,
+// propiedad: valor,
   nombre: 'Snoopy',
   saludar() {
     return 'hola mundo';
@@ -27,7 +42,8 @@ console.log(animal.saludar()); // 'hola mundo'
 
 /* Definir los metodos DENTRO de la funcion es MALA PRACTICA ⚠️
 porq hace q el metodo sea el mismo para todos los objetos */
-function Animal2(nombre, genero) { // Funcion constructora:
+
+function Animal2(nombre, genero) { // Funcion constructora
   // Atributos
   this.nombre = nombre;
   this.genero = genero;
@@ -45,6 +61,7 @@ function Animal2(nombre, genero) { // Funcion constructora:
 
 /* crear una nueva instancia (objeto) del tipo especificado,
    crear un nuevo objeto */
+
 const snoopy = new Animal2('Snoopy', 'macho');
 console.log(snoopy);
 /*
@@ -75,20 +92,22 @@ Animal2 {
 console.log(lolaBunny.saludar()); // 'hola mundo'
 console.log(lolaBunny.comer());   // 'estoy comiendo'
 
-/* UENA PRACTICA:
+/* BUENA PRACTICA:
    Funcion constructora donde asignamos
-   los metodos al prototipo y NO la funcion como tal  */
+   los metodos al prototipo y NO la funcion como tal */
+
 function Animal3(nombre, genero) { // Funcion constructora
   // Atributos
   this.nombre = nombre;
   this.genero = genero;
 }
 
-/* etodos agregados al ptototipo de la funcion constructora
+/* Metodos agregados al prototipo de la funcion constructora
    Para q los metodos sean DIFERENTES para cada uno de los objetos,
    se tienen que definir FUERA de la funcion
 
 nombreFuncion.prototype.nombreMetodo */
+
 Animal3.prototype.saludar = function () { // metodo
   return 'hola mundo';
 };
