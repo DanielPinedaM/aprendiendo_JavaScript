@@ -74,7 +74,7 @@ function Animal(nombre, genero) {
 }
 
 //                    Animal(nombre, genero)
-const lolaBunny = new Animal('Lola Bunny', 'Hembra');
+const lolaBunny = new Animal('Lola Bunny', 'Hembra'); // Instanciar clase
 console.log(lolaBunny);
 /*
 Animal {
@@ -127,7 +127,7 @@ class Perro extends Animal2 {
 
 // Los metodos sonar y saludar estan en el prototipo __proto__
 //          constructor (nombre, genero)
-const mimi = new Animal2('Mimi', 'Hembra');
+const mimi = new Animal2('Mimi', 'Hembra'); // Instanciar clase
 console.log(mimi);
 /*
 Animal2 {
@@ -142,7 +142,7 @@ Animal2 {
 */
 
 //           constructor(nombre, genero, tamanio)
-const scooby = new Perro('Scooby', 'Macho', 'Gigante');
+const scooby = new Perro('Scooby', 'Macho', 'Gigante'); // Instanciar clase
 console.log(scooby);
 /*
 Perro {
