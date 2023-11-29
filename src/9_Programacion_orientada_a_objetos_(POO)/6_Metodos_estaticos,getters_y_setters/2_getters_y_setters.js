@@ -16,7 +16,13 @@ Documentacion Oficial...
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
 
 - set
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
+
+get y set son metodos
+
+get ESTABLECE los valores de los atributos en la clase
+en cambio,
+set OBTIENE los valores de los atributos en la clase */
 
 /* --------------------------------------------------------------- */
 
