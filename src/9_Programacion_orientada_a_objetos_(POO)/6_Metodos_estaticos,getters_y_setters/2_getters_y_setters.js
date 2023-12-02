@@ -20,7 +20,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
 - set
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
 
-get y set son metodos
+Ambos, get y set son metodos
 
 get OBTIENE los valores de los atributos en la clase
 en cambio,
@@ -28,7 +28,7 @@ set ESTABLECE (asigna) los valores de los atributos en la clase */
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo
+/* Ejemplo:
 https://youtu.be/TEzu31q9MVA */
 
 class Perro {
@@ -70,17 +70,19 @@ Perro {
 }
 */
 
-/* ERROR:
-   La forma correcta de ejecutar get y set es SIN parentesis () */
-// scooby.getRaza()
+/*
+ERROR:
+La forma correcta de ejecutar get y set es SIN parentesis () */
+// scooby.getRaza();
 // ❌ TypeError: scooby.getRaza is not a function
 
-// scooby.setRaza("Gran Danes")
-// TypeError: scooby.setRaza is not a function
+// scooby.setRaza('Gran Danes');
+// ❌ TypeError: scooby.setRaza is not a function
 
-/* FORMA CORRECTA:
-   Como no he seteado (set) el valor de la raza
-   entonces tiene su valor por defecto que es this.raza = null; */
+/*
+FORMA CORRECTA:
+Como no he seteado (set) el valor de la raza
+entonces tiene su valor por defecto que es this.raza = null; */
 console.log(scooby.getRaza);
 // null
 
