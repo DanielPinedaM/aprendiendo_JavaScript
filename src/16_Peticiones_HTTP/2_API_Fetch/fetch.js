@@ -1,3 +1,7 @@
+// @ts-nocheck
+
+/* --------------------------------------------------------------- */
+
 /*
 Fetch en Vanilla JS...
 - Midudev
@@ -13,4 +17,26 @@ https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
 - JavaScript Info:
 https://javascript.info/fetch
+*/
+
+/* --------------------------------------------------------------- */
+
+// Ejemplo 1
+
+const url = 'https://jsonplaceholder.typicode.com/todos/1';
+console.log(url);
+// 'https://jsonplaceholder.typicode.com/todos/1'
+
+fetch(url)
+  .then((response) => response.json())
+  .then((json) => console.log(json))
+  .catch((error) => console.error('Mensaje de error', error));
+/*
+Promise { <pending> }
+{
+  userId: 1,
+  id: 1,
+  title: 'delectus aut autem',
+  completed: false
+}
 */

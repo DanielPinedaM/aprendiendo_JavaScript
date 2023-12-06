@@ -33,8 +33,7 @@ Template String Converter meganrogge
 inserta automáticamente
 las comillas invertidas ``
 cuando escribes ${} a una variable:
-https://marketplace.visualstudio.com/items?itemName=meganrogge.template-string-converter
-*/
+https://marketplace.visualstudio.com/items?itemName=meganrogge.template-string-converter */
 
 const nombre = 'Daniel';
 console.log(nombre);
@@ -44,7 +43,7 @@ const apellido = 'Pineda';
 console.log(apellido);
 /* Pineda */
 
-/* cConcatenar es unir uno o más string. */
+/* Concatenar es unir uno o más string. */
 const saludo2 = `Hola mi nombre es ${nombre} ${apellido}`;
 console.log(saludo2);
 /* Hola mi nombre es Daniel Pineda */
