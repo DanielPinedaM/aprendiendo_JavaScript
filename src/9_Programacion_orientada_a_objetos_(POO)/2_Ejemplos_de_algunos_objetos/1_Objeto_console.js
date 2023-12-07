@@ -402,30 +402,171 @@ console.group('Cursos de @jonmircha en YouTube');
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 10 - console.table() Imprimir TABLAS
+/* Ejemplo 10 - console.table() Imprime en TABLA las posiciones (indices) y elementos de un [] array, y tambien imprime las propiedad: valor de un {} objeto literal
 https://www.youtube.com/watch?v=qM9Rsv3LCWc&t=1190s
 
 https://developer.mozilla.org/en-US/docs/Web/API/console/table_static */
 
+const array2 = ['A', 'B', 'C'];
+console.table(array2);
+/*
+| (índice) | Valor |
+--------------------
+|    0    |  'A'   |
+|    1    |  'B'   |
+|    2    |  'C'   |
+
+Array(3)
+*/
+
+/* --- */
+
+const objetoLiteral2 = {
+// propiedad: valor,
+  uno: 'primero',
+  dos: 'segundo',
+  tres: 'tercero',
+};
+const entries = Object.entries(objetoLiteral2);
+
+console.log(entries);
+/*
+(3) [
+      [ 'uno', 'primero' ],
+      [ 'dos', 'segundo' ],
+      [ 'tres', 'tercero' ]
+    ]
+*/
+
+console.table(entries);
+/*
+| (índice) |   0    |     1     |
+--------------------------------
+|    0    | 'uno'  | 'primero' |
+|    1    | 'dos'  | 'segundo' |
+|    2    | 'tres' | 'tercero' |
+
+Array(3)
+*/
+
+console.table(objetoLiteral2);
+/*
+| (índice) |  Valor   |
+-----------------------
+|   uno   | 'primero' |
+|   dos   | 'segundo' |
+|  tres   | 'tercero' |
+*/
+
 /* --------------------------------------------------------------- */
 
-/* Ejemplo x - console.time() y console.timeEnd() imprimir tiempo que demora ejecutar un codigo
+/* Ejemplo 11 - console.time() y console.timeEnd() imprimir tiempo que demora ejecutar un código
 https://www.youtube.com/watch?v=qM9Rsv3LCWc&t=1594s
 
 https://developer.mozilla.org/en-US/docs/Web/API/console/time_static
 
-https://developer.mozilla.org/en-US/docs/Web/API/console/timeend_static */
+https://developer.mozilla.org/en-US/docs/Web/API/console/timeend_static
+
+https://developer.mozilla.org/en-US/docs/Web/API/console#timers
+
+console.time() y console.timeEnd() imprimen el tiempo en milisegundos (ms) */
+
+// Crear array [] con numeros del 0 al 999
+const iterar = () => {
+  const array3 = Array.from({ length: 1000 }, (_, i) => i);
+
+  array3.forEach((elemento, i) => {
+    console.log(`i=${i} ➜ elemento='${elemento}'`);
+  });
+  /*
+  "i=0 ➜ elemento='0'"
+  "i=1 ➜ elemento='1'"
+  "i=2 ➜ elemento='2'"
+  ...
+  "i=999 ➜ elemento='999'"
+  */
+};
+
+/*
+IMPORTANTE ⚠️
+Los mensajes de console.time(''); y console.timeEnd('');
+tienen q ser LOS MISMOS para q se imprima mensaje en consola  */
+console.time('tiempo en iterar 1000 elementos');
+iterar();
+console.timeEnd('tiempo en iterar 1000 elementos');
+// tiempo en iterar 1000 elementos: 170.047119140625 ms
+
+/* se imprime default: cuando NO se escribe ningun mensaje
+dentro de console.time(); console.timeEnd(); */
+console.time();
+iterar();
+console.timeEnd();
+// default: 142.6650390625 ms
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo x - console.count()
+/* Ejemplo 12 - console.count() numero de veces que se ejecuta un codigo
 https://www.youtube.com/watch?v=qM9Rsv3LCWc&t=1880s
 
 https://developer.mozilla.org/en-US/docs/Web/API/console/count_static */
 
+const iterar2 = (mensaje) => {
+  const array3 = Array.from({ length: 3 }, (_, i) => i);
+
+  array3.forEach((elemento, i) => {
+    console.log(`i=${i} ➜ elemento='${elemento}'`);
+    console.count(mensaje);
+  });
+};
+
+// console.count("") con un mensaje
+iterar2('numero de veces q se ejecuta .forEach()');
+/*
+"i=0 ➜ elemento='0'"
+numero de veces q se ejecuta .forEach(): 1
+
+"i=1 ➜ elemento='1'"
+numero de veces q se ejecuta .forEach(): 2
+
+"i=2 ➜ elemento='2'"
+numero de veces q se ejecuta .forEach(): 3
+*/
+
+/* se imprime default: cuando NO se escribe
+ningun mensaje dentro de console.count() */
+iterar2();
+/*
+"i=0 ➜ elemento='0'"
+default: 1
+
+"i=1 ➜ elemento='1'"
+default: 2
+
+"i=2 ➜ elemento='2'"
+default: 3
+*/
+
 /* --------------------------------------------------------------- */
 
-/* Ejemplo x - console.assert()
+/* Ejemplo 13 - console.assert() imprimir el resultado de un condicional
 https://www.youtube.com/watch?v=qM9Rsv3LCWc&t=2040s
 
-https://developer.mozilla.org/en-US/docs/Web/API/console/assert_static */
+https://developer.mozilla.org/en-US/docs/Web/API/console/assert_static
+
+console.assert() se usa en pruebas unitarias (testing)
+
+Sintaxis:
+https://developer.mozilla.org/en-US/docs/Web/API/console/assert_static#syntax */
+
+// console.assert(condicional, {variable1, /* …, */ , variableN, stringConMensaje})
+
+const x = 1;
+const y = 2;
+const pruebaXY = 'se espera q X siempre sea menor q Y';
+
+// Esto NO imprime nada porque el condicional x < y es true (1 SI es menor q 2)
+console.assert(x < y, { x, y, pruebaXY });
+
+// SI imprime un mensaje de error porque x > y es false (1 NO es mayor q 2)
+console.assert(x > y, { x, y, pruebaXY });
+// ❌ Error en la aserción: {x: 1, y: 2, pruebaXY: 'se espera q X siempre sea menor q Y'}
