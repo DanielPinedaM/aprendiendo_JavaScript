@@ -22,7 +22,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/console */
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 1 - console.log()
+/* Ejemplo 1 - console.log(); Imprimir en consola
 En el objeto console
 los nombres de las propiedades son los metodos que puedo usar:
 console.log()    -> log: ƒ (),
@@ -146,7 +146,7 @@ resultado += edad;         // 'nombre Daniel apellido Pineda edad 99'
 
 /* --------------------------------------------------------------- */
 
-//  Ejemplo 3 - \n Imprimir salto de linea (renglon)
+// Ejemplo 3 - \n Imprimir salto de línea (renglón)
 
 console.log('hola\nmundo');
 /*
@@ -163,7 +163,7 @@ mundo'
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 4 - console.error() Imprimir mensaje de ERROR ❌
+/* Ejemplo 4 - console.error(); Imprimir mensaje de ERROR ❌
 https://www.youtube.com/watch?v=qM9Rsv3LCWc&t=200s
 
 https://developer.mozilla.org/en-US/docs/Web/API/console/error_static */
@@ -184,7 +184,7 @@ console.error('Esto es un error');
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 5 - console.warn() - Imprimir mensaje de ADVERTENCIA ⚠️
+/* Ejemplo 5 - console.warn(); Imprimir mensaje de ADVERTENCIA ⚠️
 https://www.youtube.com/watch?v=qM9Rsv3LCWc&t=245s
 
 https://developer.mozilla.org/en-US/docs/Web/API/console/warn_static */
@@ -194,7 +194,7 @@ console.warn('Esto es una advertencia');
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 6 - console.info() Imprimir mensaje INFORMATIVO
+/* Ejemplo 6 - console.info(); Imprimir mensaje INFORMATIVO
 https://www.youtube.com/watch?v=qM9Rsv3LCWc&t=325s
 
 https://developer.mozilla.org/en-US/docs/Web/API/console/info_static
@@ -210,7 +210,7 @@ console.log('console.log() es un registro de lo que ha sucedido en la aplicacion
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 7 - console.clear() borrar todos los mensajes de la consola (limpiar consola)
+/* Ejemplo 7 - console.clear(); borrar todos los mensajes de la consola (LIMPIAR CONSOLA)
 https://www.youtube.com/watch?v=qM9Rsv3LCWc&t=655s
 
 https://developer.mozilla.org/en-US/docs/Web/API/console/clear_static */
@@ -230,7 +230,7 @@ console.clear();
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 8 - console.dir() Imprimir las propiedad: valor de un objeto
+/* Ejemplo 8 - console.dir(); Imprimir las propiedad: valor de un objeto
 Objeto document contiene las propiedades del DOM
 que permiten manipular el frontend:
 etiquetas HTML, estilos CSS condicionales, ejecutar eventos, asincronia, etc.
@@ -402,7 +402,7 @@ console.group('Cursos de @jonmircha en YouTube');
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 10 - console.table() Imprime en TABLA las posiciones (indices) y elementos de un [] array, y tambien imprime las propiedad: valor de un {} objeto literal
+/* Ejemplo 10 - console.table(); Imprime en TABLA las posiciones (índices) y elementos de un [] array, y también imprime las propiedad: valor de un {} objeto literal
 https://www.youtube.com/watch?v=qM9Rsv3LCWc&t=1190s
 
 https://developer.mozilla.org/en-US/docs/Web/API/console/table_static */
@@ -460,7 +460,7 @@ console.table(objetoLiteral2);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 11 - console.time() y console.timeEnd() imprimir tiempo que demora ejecutar un código
+/* Ejemplo 11 - console.time(); y console.timeEnd(); imprimir tiempo que DEMORA ejecutar un código
 https://www.youtube.com/watch?v=qM9Rsv3LCWc&t=1594s
 
 https://developer.mozilla.org/en-US/docs/Web/API/console/time_static
@@ -505,7 +505,7 @@ console.timeEnd();
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 12 - console.count() numero de veces que se ejecuta un codigo
+/* Ejemplo 12 - console.count(); número de VECES que se ejecuta un código
 https://www.youtube.com/watch?v=qM9Rsv3LCWc&t=1880s
 
 https://developer.mozilla.org/en-US/docs/Web/API/console/count_static */
@@ -548,7 +548,7 @@ default: 3
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 13 - console.assert() imprimir el resultado de un condicional
+/* Ejemplo 13 - console.assert(); imprimir el resultado de un condicional
 https://www.youtube.com/watch?v=qM9Rsv3LCWc&t=2040s
 
 https://developer.mozilla.org/en-US/docs/Web/API/console/assert_static

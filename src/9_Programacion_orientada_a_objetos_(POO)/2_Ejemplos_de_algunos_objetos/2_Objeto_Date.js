@@ -13,7 +13,14 @@ Documentacion Oficial...
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 - Objeto Date
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+
+Librerias para el tiempo en JS:
+- MomentJS (obsoleto)
+https://momentjs.com/
+
+- DayJS
+https://day.js.org/ */
 
 /* --------------------------------------------------------------- */
 
