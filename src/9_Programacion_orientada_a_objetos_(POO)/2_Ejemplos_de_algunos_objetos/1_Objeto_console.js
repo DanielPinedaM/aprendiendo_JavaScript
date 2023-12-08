@@ -8,6 +8,8 @@
 /* --------------------------------------------------------------- */
 
 /*
+console.
+
 Objeto console para imprimir mensajes en consola del navegador
 
 Tutorial - Jon Mircha:
@@ -23,24 +25,12 @@ https://developer.mozilla.org/en-US/docs/Web/API/console */
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 1 - console.log(); Imprimir en consola
-En el objeto console
-los nombres de las propiedades son los metodos que puedo usar:
-console.log()    -> log: ƒ (),
-console.error()  -> error: ƒ (),
-console.warn()   -> warn: ƒ (),
-console.info()   -> info: ƒ (),
-console.clear()  -> clear: ƒ (),
-console.dir()    -> dir: ƒ dir(),
-console.group()  -> group: ƒ group(),
-console.table()  -> table: ƒ (),
-console.time()   -> time: ƒ (),
-console.count()  -> count: ƒ count(),
-console.assert() -> assert: ƒ (),
-
-etc ...
 https://youtu.be/qM9Rsv3LCWc
 
-https://developer.mozilla.org/en-US/docs/Web/API/console/log_static */
+https://developer.mozilla.org/en-US/docs/Web/API/console/log_static
+
+En el objeto console
+los nombres de las propiedades son los metodos que puedo usar */
 
 // Imprimir el objeto console
 const objetoConsole = console;
@@ -92,7 +82,7 @@ Recordatorio:
 Ver:
 " 8.2) .concat() + += \ , Concatenar (Unir) String " */
 
-// Con varios console log
+// Con varios console.log()
 const nombre = 'Daniel';
 console.log(nombre);
 // 'Daniel'
@@ -109,7 +99,7 @@ console.log(edad);
 console.log('nombre', nombre, 'apellido', apellido, 'edad', edad);
 // 'nombre' 'Daniel' 'apellido' 'Pineda' 'edad' 99
 
-// Template String (plantillas de cadena):
+// Template String (plantillas de cadena)
 console.log(`nombre ${nombre} apellido ${apellido} edad ${edad}`);
 // 'nombre Daniel apellido Pineda edad 99'
 
@@ -121,9 +111,16 @@ console.log(''.concat('', 'nombre ', nombre, ' apellido ', apellido, ' edad ', e
 console.log('nombre' + ' ' + nombre + ' ' + 'apellido' + ' ' + apellido + ' ' + 'edad', edad);
 // 'nombre Daniel apellido Pineda edad' 99
 
-// JSON.stringify()
-const JSONstringify = { nombre, apellido, edad };
-console.log(JSONstringify);
+// {} objeto literal
+const objeto = { nombre, apellido, edad };
+console.log(objeto);
+/*
+{
+  nombre: 'Daniel',
+  apellido: 'Pineda',
+  edad: 99
+}
+*/
 
 /*
 %s      -> String()
@@ -136,6 +133,7 @@ https://stackoverflow.com/questions/42406146/javascript-s-or-d-represents-string
 console.log('Hola mi nombre es %s %s y tengo %d años', nombre, apellido, edad);
 // 'Hola mi nombre es Daniel Pineda y tengo 99 años'
 
+// += Acumulador
 let resultado = '';
 resultado += 'nombre ';    // 'nombre '
 resultado += nombre;       // 'nombre Daniel'
@@ -315,7 +313,7 @@ caller: (...)
 console.log() NO imprime el tipo de objeto,
 en cambio console.dir() SI */
 const objetoLiteral = {
-  // propiedad: valor,
+// propiedad: valor,
   uno: 1,
   dos: 2,
   tres: 3,
@@ -490,7 +488,7 @@ const iterar = () => {
 /*
 IMPORTANTE ⚠️
 Los mensajes de console.time(''); y console.timeEnd('');
-tienen q ser LOS MISMOS para q se imprima mensaje en consola  */
+tienen q ser LOS MISMOS para q se imprima mensaje en consola */
 console.time('tiempo en iterar 1000 elementos');
 iterar();
 console.timeEnd('tiempo en iterar 1000 elementos');
@@ -557,7 +555,6 @@ console.assert() se usa en pruebas unitarias (testing)
 
 Sintaxis:
 https://developer.mozilla.org/en-US/docs/Web/API/console/assert_static#syntax */
-
 // console.assert(condicional, {variable1, /* …, */ , variableN, stringConMensaje})
 
 const x = 1;
