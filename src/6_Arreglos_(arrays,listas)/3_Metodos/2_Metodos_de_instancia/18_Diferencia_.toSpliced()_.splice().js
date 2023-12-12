@@ -5,8 +5,11 @@
 /* --------------------------------------------------- */
 
 /*
-Tutorial:
-https://youtu.be/luXkteqv0I8
+Diferencias y Similitudes Entre .toSpliced() (INmutable)  y .splice() (MUtable) -
+Eliminar, Reemplazar o Agregar Elemento de Array INICIANDO en una Posición (Índice) en Especifico
+
+Tutorial de Fazt - Diferencias y Similitudes Entre .toSpliced() y .splice()
+https://www.youtube.com/watch?v=TvVgkM3LEac&t=667s
 
 Documentación Oficial…
 - .toSpliced()

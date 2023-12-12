@@ -10,6 +10,9 @@
 Diferencias y Similitudes Entre .lastIndexOf() y .findLastIndex() -
 ULTIMO Número de Posición (Índice) del Elemento Buscado
 
+Tutorial de Fazt - .findLastIndex()
+https://www.youtube.com/watch?v=TvVgkM3LEac&t=283s
+
 Documentacion Oficial...
 - .lastIndexOf()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf

@@ -324,7 +324,7 @@ console.log(reduce);
  ▄▄▄▄▄▄▄▄▄▄▄
  █ .find() █
  ▀▀▀▀▀▀▀▀▀▀▀
-https://youtu.be/en5f0sYFJZE
+https://www.youtube.com/watch?v=TvVgkM3LEac&t=119s
 
 .find() Busca el PRIMER ELEMENTO
 que coincide con la condición de la función return
@@ -523,7 +523,7 @@ for (let i = array.length - 1; i >= 0; i--) {
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .findLastIndex() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLastIndex
+https://www.youtube.com/watch?v=TvVgkM3LEac&t=283s
 
 ULTIMO Número de Posición (Índice) del Elemento Buscado */
 

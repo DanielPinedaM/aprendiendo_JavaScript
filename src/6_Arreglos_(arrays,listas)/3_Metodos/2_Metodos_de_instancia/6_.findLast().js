@@ -6,7 +6,11 @@
 
 /* --------------------------------------------------- */
 
-/* Documentacion Oficial - .findLast()
+/*
+Tutorial de Fazt - .find() y .findLast()
+https://www.youtube.com/watch?v=TvVgkM3LEac&t=119s
+
+Documentacion Oficial - .findLast()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast
 
 .findLast() ÚLTIMO ELEMENTO que Coincide con la Condición de la Función

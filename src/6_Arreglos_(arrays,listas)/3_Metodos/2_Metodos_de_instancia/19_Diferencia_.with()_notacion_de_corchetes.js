@@ -5,9 +5,16 @@
 /* -------------------------------------------------------------- */
 
 /*
+Diferencias y Similitudes Entre
+.with() (INmutable) y Notación de Corchetes nombreArray[numeroIndice]="nuevo valor" (MUtable) -
+Reemplazar un Elemento que Está en una Posición (Índice) en Específico
+
 Tutorial - .with() ...
 - Midudev
 https://www.youtube.com/watch?v=TJKAGh9jzx4&t=1223s
+
+- Fazt:
+https://www.youtube.com/watch?v=TvVgkM3LEac&t=867s
 
 - Fernando Herrera
 https://youtu.be/CI_FH2N88iE

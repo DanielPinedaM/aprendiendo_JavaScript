@@ -68,8 +68,8 @@ Resumen: Diferencia Entre .forEach() .map() .filter() .reduce() .find()
 |            |                  |                                 |                               |                                                  |                                  | // undefined                                                                       |
 |------------|------------------|---------------------------------|-------------------------------|--------------------------------------------------|----------------------------------|------------------------------------------------------------------------------------|
 
-Tutorial:
-https://youtu.be/en5f0sYFJZE
+Tutorial de Fazt - .find() y .findLast()
+https://www.youtube.com/watch?v=TvVgkM3LEac&t=119s
 
 Documentacion Oficial - .find()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
@@ -245,7 +245,6 @@ console.log(find);
 /* ------------------------------------------------------------ */
 
 /* Ejemplo 4:
-
 https://youtu.be/en5f0sYFJZE
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find#try_it */
@@ -264,7 +263,6 @@ console.log(find2);
 /* ------------------------------------------------------------ */
 
 /* Ejemplo 5 - Buscar una propiedad de un objeto en un array de objetos [{}]
-
 https://youtu.be/en5f0sYFJZE
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find#find_an_object_in_an_array_by_one_of_its_properties */

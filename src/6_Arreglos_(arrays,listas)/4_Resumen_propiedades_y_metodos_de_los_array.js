@@ -19,7 +19,10 @@ JavaScript Info - Métodos de los Array
 https://javascript.info/array-methods
 
 Igor Gonchar - Métodos de los Array Explicados con Figuras
-https://igorgonchar.medium.com/javascript-array-methods-cheatsheet-55016e405d14 */
+https://igorgonchar.medium.com/javascript-array-methods-cheatsheet-55016e405d14
+
+Fazt - Métodos de Array de ECMAScript 2023
+https://youtu.be/TvVgkM3LEac?si=FnfsRNlK9UVMBks1 */
 
 /* -------------------------------------------------------------- */
 
@@ -252,11 +255,11 @@ la unica diferencia es el orden de iteracion
  ▄▄▄▄▄▄▄▄▄▄▄
  █ .find() █
  ▀▀▀▀▀▀▀▀▀▀▀
-https://youtu.be/en5f0sYFJZE
+https://www.youtube.com/watch?v=TvVgkM3LEac&t=119s
 
-Primer Elemento que Coincide con la Condición de la Función
+PRIMER elemento que coincide con la condición de la función 
 
-Devolver el PRIMER elemento q sea un circulo '●' */
+PRIMER elemento q es un circulo '●'  */
 ['■', '●', '■', '●'].find((elemento) => elemento === '●'); // '●'
 //     ↑
 
@@ -264,9 +267,11 @@ Devolver el PRIMER elemento q sea un circulo '●' */
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .findLast() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast
+https://www.youtube.com/watch?v=TvVgkM3LEac&t=119s
 
-ULTIMO elemento q es un circulo '●' */
+ÚLTIMO elemento que coincide con la condición de la función
+
+ÚLTIMO elemento q es un circulo '●' */
   ['■', '●', '■', '●'].findLast((elemento) => elemento === '●'); // '●'
 //                 ↑
 
@@ -329,7 +334,7 @@ ULTIMO numero de posicion (indice) del circulo '●' */
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .findLastIndex() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLastIndex
+https://www.youtube.com/watch?v=TvVgkM3LEac&t=283s
 
 Recibe como parametro dentro del par de parentesis () una FUNCIÓN
 
@@ -489,8 +494,7 @@ https://midu.dev/to-reversed-to-spliced-to-sorted-with/
 | .toSorted()                             | X                     |                       |
 | .toSpliced()                            |                       |                       |
 | .with()                                 |                       |                       |
-|-----------------------------------------|-----------------------|-----------------------|
-*/
+|-----------------------------------------|-----------------------|-----------------------| */
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -571,7 +575,7 @@ console.log(letras);  // (4) [ 'd', 'c', 'b', 'a' ] -> orden descendente
  █ .splice(start, deleteCount, item1, item2, itemN)    █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 
-https://youtu.be/luXkteqv0I8
+https://www.youtube.com/watch?v=TvVgkM3LEac&t=667s
 
 SIMILITUD:
 Ambos .toSpliced() y .splice()
