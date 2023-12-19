@@ -281,7 +281,7 @@ console.log(fecha_y_hora_actual.toLocaleTimeString('es-CO')); // '10:40:10 p. m.
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 16 - .getTimezoneOffset() Diferencia entre hora UTC y hora local
+/* Ejemplo 16 - .getTimezoneOffset() Diferencia en minutos entre hora UTC y hora local
 https://youtu.be/aIHQsAjRLYU
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
@@ -290,9 +290,81 @@ https://en.wikipedia.org/wiki/Coordinated_Universal_Time */
 
 console.log(fecha_y_hora_actual.getTimezoneOffset()); // 300
 console.log(fecha_y_hora_actual);                     // Sat Dec 16 2023 21:13:14 GMT-0500 (hora estándar de Colombia)
-//                                                                                  ↑
+//                                                                                   ↑
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 17
-https://youtu.be/aIHQsAjRLYU */
+/* Ejemplo 17 - Fecha y hora actual en el Meridiano de Greenwich (UTC, Londres, Reino Unido)
+https://youtu.be/aIHQsAjRLYU
+
+Numero de dia del mes actual en Londres, Reino Unido
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCDate */
+
+console.log(fecha_y_hora_actual.getUTCDate()); // 19
+
+/* Numero de dia de la semana actual en Londres, Reino Unido
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCDay */
+
+console.log(fecha_y_hora_actual.getUTCDay()); // 2
+
+/* Numero de año actual en Londres, Reino Unido
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCFullYear */
+
+console.log(fecha_y_hora_actual.getUTCFullYear()); // 2023
+
+/* Hora Militar Actual en Londres, Reino Unido
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCHours */
+
+console.log(fecha_y_hora_actual.getUTCHours()); // 2
+
+/* Milisegundo actual en Londres, Reino Unido
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCMilliseconds */
+
+console.log(fecha_y_hora_actual.getUTCMilliseconds()); // 539
+
+/* Minuto Actual en Londres, Reino Unido
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCMinutes */
+
+console.log(fecha_y_hora_actual.getUTCMinutes()); // 14
+
+/* Numero de mes actual en Londres, Reino Unido
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCMonth */
+
+console.log(fecha_y_hora_actual.getUTCMonth()); // 11
+
+/* Segundo Actual en Londres, Reino Unido
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCSeconds */
+
+console.log(fecha_y_hora_actual.getUTCSeconds()); // 18
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 18 - Date.now()
+https://youtu.be/aIHQsAjRLYU
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date
+
+https://developer.mozilla.org/en-US/docs/Web/API/Performance_API/High_precision_timing
+
+https://en.wikipedia.org/wiki/Timestamp
+
+Date.now() Numero de milisegundos
+en el Meridiano de Greenwich (UTC, Londres, Reino Unido)
+que han pasado desde la media noche del 1 de Enero de 1970 (marca temporal, timestamp)
+hasta el tiempo actual
+
+Este numero SIEMPRE va aumentar y va a ser diferente */
+
+console.log(Date.now()); // 1702952724219
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 19 - Crear objeto fecha
+En MDN hay mas formatos para crear objeto fecha:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date */
+
+const miCumple = new Date(1999, 6, 17);
+console.log(miCumple);
+// Sat Jul 17 1999 00:00:00 GMT-0500 (hora estándar de Colombia)
