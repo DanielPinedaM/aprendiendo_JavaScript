@@ -263,7 +263,7 @@ console.log('' || 'dos'); // false || true
 // cuando todos los operandos son false entonces || devuelve false
 console.log(false || false); // false
 
-/* ADVERTENCIA:
+/* ADVERTENCIA: ⚠️
 Esta es la explicacion de
 porq || OR es mala practica y ?? es buena practica
 

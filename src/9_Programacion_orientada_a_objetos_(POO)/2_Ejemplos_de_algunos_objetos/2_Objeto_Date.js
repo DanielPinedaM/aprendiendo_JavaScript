@@ -7,6 +7,7 @@
 /*
 Objeto Date
 
+IMPORTANTE: ⚠️
 NO necesitas aprender el objeto Date de JavaScript
 porque los proyectos reales usan librerias para el tiempo:
 
@@ -81,7 +82,7 @@ console.log(fecha_y_hora_actual);       // Sat Dec 16 2023 21:13:14 GMT-0500 (ho
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 2 - .getDate() Numero de dia del mes actual
+/* Ejemplo 2 - .getDate() Numero de día del mes actual
 https://youtu.be/aIHQsAjRLYU
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate */
@@ -91,7 +92,7 @@ console.log(typeof fecha_y_hora_actual.getDate()); // 'number'
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 3 - .getDay() Numero de dia de la semana actual
+/* Ejemplo 3 - .getDay() Numero de día de la semana actual
 https://youtu.be/aIHQsAjRLYU
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDay
@@ -224,7 +225,7 @@ console.log(String(fecha_y_hora_actual));    // 'Sat Dec 16 2023 22:18:02 GMT-05
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 11 - .toLocaleString() Convertir a string fecha y hora actual dependiendo de la region
+/* Ejemplo 11 - .toLocaleString() Convertir a string fecha y hora actual dependiendo de la región
 https://youtu.be/aIHQsAjRLYU
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString
@@ -245,7 +246,7 @@ console.log(fecha_y_hora_actual.toDateString()); // 'Sat Dec 16 2023'
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 13 - .toLocaleDateString() Convertir a string fecha actual dependiendo de la region
+/* Ejemplo 13 - .toLocaleDateString() Convertir a string fecha actual dependiendo de la región
 https://youtu.be/aIHQsAjRLYU
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
@@ -269,7 +270,7 @@ console.log(fecha_y_hora_actual.toTimeString()); // '22:38:13 GMT-0500 (hora est
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 15 - .toLocaleTimeString() Convertir a string hora y formato de hora actual dependiendo de la region
+/* Ejemplo 15 - .toLocaleTimeString() Convertir a string hora y formato de hora actual dependiendo de la región
 https://youtu.be/aIHQsAjRLYU
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
@@ -297,42 +298,42 @@ console.log(fecha_y_hora_actual);                     // Sat Dec 16 2023 21:13:1
 /* Ejemplo 17 - Fecha y hora actual en el Meridiano de Greenwich (UTC, Londres, Reino Unido)
 https://youtu.be/aIHQsAjRLYU
 
-Numero de dia del mes actual en Londres, Reino Unido
+.getUTCDate() Numero de dia del mes actual en Londres, Reino Unido
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCDate */
 
 console.log(fecha_y_hora_actual.getUTCDate()); // 19
 
-/* Numero de dia de la semana actual en Londres, Reino Unido
+/* .getUTCDay() Numero de dia de la semana actual en Londres, Reino Unido
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCDay */
 
 console.log(fecha_y_hora_actual.getUTCDay()); // 2
 
-/* Numero de año actual en Londres, Reino Unido
+/* .getUTCFullYear() Numero de año actual en Londres, Reino Unido
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCFullYear */
 
 console.log(fecha_y_hora_actual.getUTCFullYear()); // 2023
 
-/* Hora Militar Actual en Londres, Reino Unido
+/* .getUTCHours() Hora militar actual en Londres, Reino Unido
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCHours */
 
 console.log(fecha_y_hora_actual.getUTCHours()); // 2
 
-/* Milisegundo actual en Londres, Reino Unido
+/* .getUTCMilliseconds() Milisegundo actual en Londres, Reino Unido
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCMilliseconds */
 
 console.log(fecha_y_hora_actual.getUTCMilliseconds()); // 539
 
-/* Minuto Actual en Londres, Reino Unido
+/* .getUTCMinutes() Minuto actual en Londres, Reino Unido
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCMinutes */
 
 console.log(fecha_y_hora_actual.getUTCMinutes()); // 14
 
-/* Numero de mes actual en Londres, Reino Unido
+/* .getUTCMonth() Numero de mes actual en Londres, Reino Unido
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCMonth */
 
 console.log(fecha_y_hora_actual.getUTCMonth()); // 11
 
-/* Segundo Actual en Londres, Reino Unido
+/* .getUTCSeconds() Segundo Actual en Londres, Reino Unido
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCSeconds */
 
 console.log(fecha_y_hora_actual.getUTCSeconds()); // 18
@@ -361,7 +362,7 @@ console.log(Date.now()); // 1702952724219
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 19 - Crear objeto fecha
+/* Ejemplo 19 - new Date() Crear objeto fecha
 En MDN hay mas formatos para crear objeto fecha:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date */
 

@@ -81,7 +81,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 Tutorial 1 - Nicolas Schurmann Explica .reduce()
 https://youtu.be/0y5lXGYMEw0
 
-ADVERTENCIA:
+ADVERTENCIA: ⚠️
 
 Tutorial 2 - Programadores de Google Explican ¿Porque NO Usar .reduce() ?
 https://youtu.be/qaGjS7-qWzg

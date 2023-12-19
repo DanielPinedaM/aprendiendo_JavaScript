@@ -22,7 +22,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 - Reflect.setPrototypeOf()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/setPrototypeOf
 
-ADVERTENCIA:
+ADVERTENCIA: ⚠️
 Segun la MDN a la fecha Mayo 2023
 modificar el valor de la propiedad [[Prototype]] de un objeto
 usando el metodo Object.setPrototypeOf()

@@ -218,7 +218,7 @@ console.log(copia);
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 5:
-Los ejemplos anteriores son los mas IMPORTANTE ⚠️s,
+Los ejemplos anteriores son los mas IMPORTANTES ⚠️,
 en MDN hay mas ejemplos:
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor#non-object_coercion
