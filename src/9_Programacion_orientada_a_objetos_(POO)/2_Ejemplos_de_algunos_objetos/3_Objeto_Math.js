@@ -139,8 +139,12 @@ console.log(Math.SQRT2);   // 1.4142135623730951
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 3 - Math.abs Valor absoluto de un numero, hacer que un numero SIEMPRE sea positivo
-https://youtu.be/BGXwssmxGuY */
+/* Ejemplo 3 - Math.abs() valor absoluto de un numero, hacer que un numero SIEMPRE sea positivo
+https://youtu.be/BGXwssmxGuY
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
+
+https://en.wikipedia.org/wiki/Absolute_value */
 
 console.log(Math.abs(-7.8)); // 7.8
 console.log(Math.abs(-7.8)); // 7.8
@@ -148,4 +152,77 @@ console.log(Math.abs(-7.8)); // 7.8
 console.log(Math.abs(10));   // 10
 console.log(Math.abs(-10));  // 10
 
+/* --------------------------------------------------------------- */
 
+/* Ejemplo 4 - Math.ceil() Redondear "hacia ARRIBA", al numero entero MAYOR mas cercano
+https://youtu.be/BGXwssmxGuY
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil */
+
+console.log(Math.ceil(7));            // 7
+console.log(Math.ceil(-7));           // -7
+
+console.log(Math.ceil(7.1));          // 8
+console.log(Math.ceil(7.9));          // 8
+
+console.log(Math.ceil(-7.1));          // -7
+console.log(Math.ceil(-7.9));          // -7
+
+console.log(Math.ceil('7.1'));         // 8
+console.log(Math.ceil('7.9'));         // 8
+
+console.log(Math.ceil('-7.1'));        // -7
+console.log(Math.ceil('-7.9'));        // -7
+
+/* --- */
+
+console.log(Math.ceil());             // NaN
+console.log(Math.ceil('hola mundo')); // NaN
+
+console.log(Math.ceil(true));         // 1
+console.log(Math.ceil(false));        // 0
+
+console.log(Math.ceil(null));         // 0
+console.log(Math.ceil(undefined));    // NaN
+console.log(Math.ceil(NaN));          // NaN
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 5 - Math.floor() Redondear "hacia ABAJO", al numero entero MENOR mas cercano
+https://youtu.be/BGXwssmxGuY
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor */
+
+console.log(Math.floor(7));            // 7
+console.log(Math.floor(-7));           // -7
+
+console.log(Math.floor(7.1));          // 7
+console.log(Math.floor(7.9));          // 7
+
+console.log(Math.floor(-7.1));         // -8
+console.log(Math.floor(-7.9));         // -8
+
+console.log(Math.floor('7.1'));        // 7
+console.log(Math.floor('7.9'));        // 7
+
+console.log(Math.floor('-7.1'));       // -8
+console.log(Math.floor('-7.9'));       // -8
+
+/* --- */
+
+console.log(Math.floor());             // NaN
+console.log(Math.floor('hola mundo')); // NaN
+
+console.log(Math.floor(true));         // 1
+console.log(Math.floor(false));        // 0
+
+console.log(Math.floor(null));         // 0
+console.log(Math.floor(undefined));    // NaN
+console.log(Math.floor(NaN));          // NaN
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 6 - Math.floor()
+https://youtu.be/BGXwssmxGuY
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor */
