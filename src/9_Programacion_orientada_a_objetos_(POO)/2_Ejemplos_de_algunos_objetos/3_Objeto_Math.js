@@ -186,6 +186,12 @@ console.log(Math.ceil(null));         // 0
 console.log(Math.ceil(undefined));    // NaN
 console.log(Math.ceil(NaN));          // NaN
 
+console.log(Math.ceil(Infinity));     // Infinity
+console.log(Math.ceil(-Infinity));    // -Infinity
+
+console.log(Math.ceil(0));            // 0
+console.log(Math.ceil(-0));           // -0
+
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 5 - Math.floor() Redondear "hacia ABAJO", al numero entero MENOR mas cercano
@@ -220,9 +226,22 @@ console.log(Math.floor(null));         // 0
 console.log(Math.floor(undefined));    // NaN
 console.log(Math.floor(NaN));          // NaN
 
+console.log(Math.floor(Infinity));     // Infinity
+console.log(Math.floor(-Infinity));    // -Infinity
+
+console.log(Math.floor(0));            // 0
+console.log(Math.floor(-0));           // -0
+
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 6 - Math.floor()
+/* Ejemplo 6 - Math.
 https://youtu.be/BGXwssmxGuY
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor */
+*/
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 7 - Math.
+https://youtu.be/BGXwssmxGuY
+
+*/
