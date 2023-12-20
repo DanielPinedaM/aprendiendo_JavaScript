@@ -1,24 +1,38 @@
 // @ts-nocheck
 
-/* BigInt() positivo */
+/* --------------------------------------------- */
+
+/*
+BigInt() Numero Grande
+
+Documentación Oficial - BigInt()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
+
+JavaScript Info - BigInt()
+https://javascript.info/bigint */
+
+/* --------------------------------------------- */
+
+// BigInt() positivo
 let numeroGrande = BigInt(999);
 console.log(numeroGrande); /* 999n */
 console.log(typeof numeroGrande); /* bigint */
 
-/* BigInt() negativo */
+// BigInt() negativo
 numeroGrande = BigInt(-numeroGrande);
 console.log(numeroGrande); /* -999n */
 
-/* los numeros q terminan en n son BigInt() */
+// los numeros q terminan en n son BigInt()
 const numero1 = 999n;
-console.log(typeof numero1); /* bigint */
+console.log(typeof numero1); // bigint
 
-/* convertir de string a BigInt() */
+// convertir de string a BigInt()
 const numero2 = BigInt('-999');
-console.log(typeof numero2); /* bigint */
-console.log(numero2); /* -999n */
+console.log(typeof numero2); // bigint
+console.log(numero2);        // -999n
 
 /* --------------------------------------------- */
+
 /* COMPARACIONES
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#type_information

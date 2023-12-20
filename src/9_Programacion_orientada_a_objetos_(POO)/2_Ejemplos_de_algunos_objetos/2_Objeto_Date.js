@@ -363,7 +363,8 @@ console.log(Date.now()); // 1702952724219
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 19 - new Date() Crear objeto fecha
-En MDN hay mas formatos para crear objeto fecha:
+Este ejemplo esta INCOMPLETO,
+en MDN hay mas formatos para crear objeto fecha:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date */
 
 const miCumple = new Date(1999, 6, 17);
