@@ -146,16 +146,19 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 https://en.wikipedia.org/wiki/Absolute_value */
 
-console.log(Math.abs(-7.8)); // 7.8
+console.log(Math.abs(7.8));  // 7.8
 console.log(Math.abs(-7.8)); // 7.8
 
 console.log(Math.abs(10));   // 10
 console.log(Math.abs(-10));  // 10
 
+console.log(Math.abs(0));    // 0
+console.log(Math.abs(-0));   // 0
+
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 4 - Math.ceil() Redondear "hacia ARRIBA", al numero entero MAYOR mas cercano
-https://youtu.be/BGXwssmxGuY
+https://educative.io/answers/mathceil-mathfloor-and-mathround-in-javascript
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil */
 
@@ -195,7 +198,7 @@ console.log(Math.ceil(-0));           // -0
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 5 - Math.floor() Redondear "hacia ABAJO", al numero entero MENOR mas cercano
-https://youtu.be/BGXwssmxGuY
+https://educative.io/answers/mathceil-mathfloor-and-mathround-in-javascript
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor */
 
@@ -234,14 +237,89 @@ console.log(Math.floor(-0));           // -0
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 6 - Math.
-https://youtu.be/BGXwssmxGuY
+/* Ejemplo 6 - Math.round() Redondear al NUMERO ENTERO MAS CERCANO
+https://educative.io/answers/mathceil-mathfloor-and-mathround-in-javascript
 
-*/
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round
+
+SI parte fraccionaria (despues del punto) es >= 5
+Math.round() redondea "hacia ARRIBA", al numero entero MAYOR mas cercano */
+
+console.log(Math.round(7.5));            // 8
+console.log(Math.round(-7.5));           // -7
+
+console.log(Math.round(7.9));            // 8
+console.log(Math.round(-7.9));           // -8
+
+/* SINO la parte fraccionaria es <=4
+Math.round() redondea "hacia ABAJO", al numero entero MENOR mas cercano */
+
+console.log(Math.round(7.4));            // 7
+console.log(Math.round(-7.4));           // -7
+
+console.log(Math.round(7.1));            // 7
+console.log(Math.round(-7.1));           // -7
+
+/* --- */
+
+console.log(Math.round());             // NaN
+console.log(Math.round('hola mundo')); // NaN
+
+console.log(Math.round(true));         // 1
+console.log(Math.round(false));        // 0
+
+console.log(Math.round(null));         // 0
+console.log(Math.round(undefined));    // NaN
+console.log(Math.round(NaN));          // NaN
+
+console.log(Math.round(Infinity));     // Infinity
+console.log(Math.round(-Infinity));    // -Infinity
+
+console.log(Math.round(0));            // 0
+console.log(Math.round(-0));           // -0
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 7 - Math.
-https://youtu.be/BGXwssmxGuY
+/* Ejemplo 7 - Math.trunc() ELIMINAR todos los decimales de un numero, SIN importar si es el numero entero mayor o menor mas cercano
+https://www.educative.io/answers/mathceil-mathfloor-and-mathround-in-javascript
 
-*/
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc */
+
+console.log(Math.trunc(7));            // 7
+console.log(Math.trunc(-7));           // -7
+
+console.log(Math.trunc(7.1));          // 7
+console.log(Math.trunc(7.9));          // 7
+
+console.log(Math.trunc(-7.1));         // -7
+console.log(Math.trunc(-7.9));         // -7
+
+console.log(Math.trunc('7.1'));        // 7
+console.log(Math.trunc('7.9'));        // 7
+
+console.log(Math.trunc('-7.1'));       // -7
+console.log(Math.trunc('-7.9'));       // -7
+
+/* --- */
+
+console.log(Math.trunc());             // NaN
+console.log(Math.trunc('hola mundo')); // NaN
+
+console.log(Math.trunc(true));         // 1
+console.log(Math.trunc(false));        // 0
+
+console.log(Math.trunc(null));         // 0
+console.log(Math.trunc(undefined));    // NaN
+console.log(Math.trunc(NaN));          // NaN
+
+console.log(Math.trunc(Infinity));     // Infinity
+console.log(Math.trunc(-Infinity));    // -Infinity
+
+console.log(Math.trunc(0));            // 0
+console.log(Math.trunc(-0));           // -0
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 8 - Math. Raiz cuadrada de un numero */
+
+console.log(Math.);
