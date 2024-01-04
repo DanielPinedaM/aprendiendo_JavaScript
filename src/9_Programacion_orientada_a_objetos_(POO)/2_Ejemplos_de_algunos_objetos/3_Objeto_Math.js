@@ -1,3 +1,5 @@
+/* eslint-disable prefer-exponentiation-operator */
+/* eslint-disable no-restricted-properties */
 /* eslint-disable no-multiple-empty-lines */
 /* eslint-disable max-len */
 // @ts-nocheck
@@ -320,6 +322,180 @@ console.log(Math.trunc(-0));           // -0
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 8 - Math. Raiz cuadrada de un numero */
+/* Ejemplo 8 - Math.sqrt() Raiz cuadrada de un numero
+https://youtu.be/BGXwssmxGuY
 
-console.log(Math.);
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt */
+
+console.log(Math.sqrt(0));            // 0
+console.log(Math.sqrt(-0));           // -0
+
+console.log(Math.sqrt(-1));           // NaN
+console.log(Math.sqrt(1));            // 1
+
+console.log(Math.sqrt(2));            // 1.4142135623730951
+console.log(Math.sqrt(9));            // 3
+
+console.log(Math.sqrt());             // NaN
+
+console.log(Math.sqrt('hola mundo')); // NaN
+
+console.log(Math.sqrt(true));         // 1
+console.log(Math.sqrt(false));        // 0
+
+console.log(Math.sqrt(null));         // 0
+console.log(Math.sqrt(undefined));    // NaN
+console.log(Math.sqrt(NaN));          // NaN
+
+console.log(Math.sqrt(Infinity));     // Infinity
+console.log(Math.sqrt(-Infinity));    // NaN
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 9 - Potenciación - Diferencias y Similitudes Entre Math.pow() y Operador **
+https://stackoverflow.com/questions/37601189/difference-between-ecmascript-2016-exponentiation-operator-and-math-pow
+
+https://youtu.be/BGXwssmxGuY
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation
+
+https://eslint.org/docs/latest/rules/prefer-exponentiation-operator
+
+                             |---------------------------------------------------------------------------------|-----------------------------|
+                             | Math.pow()                                                                      | Operador **                 |
+|----------------------------|---------------------------------------------------------------------------------|-----------------------------|
+| ¿Sirve para potenciacion?  | ✓                                                                               | ✓                           |
+|                            | console.log(Math.pow(4, 2));                                                    | console.log(4 ** 2);        |
+|                            | // 16                                                                           | // 16                       |
+|----------------------------|---------------------------------------------------------------------------------|-----------------------------|
+| ¿Sirve con BigInt()        | X                                                                               | ✓                           |
+| numeros grandes?           | console.log(                                                                    | console.log(                |
+|                            |   Math.pow(BigInt(999), BigInt(2)),                                             |   BigInt(999) ** BigInt(2), |
+|                            | );                                                                              | );                          |
+|                            | // ❌ Uncaught TypeError: Cannot convert a BigInt value to a number at Math.pow | // 998001n                  |
+|----------------------------|---------------------------------------------------------------------------------|-----------------------------|
+| Sintaxis                   | Math.pow(base, exponente)                                                       | base ** exponente           |
+|----------------------------|---------------------------------------------------------------------------------|-----------------------------| */
+
+// Ejemplos basicos
+console.log(7 ** 2);  // 7^2   = 7*7                 = 49
+console.log(7 ** 2);  // 7^2   = 7*7                 = 49
+
+console.log(7 ** 3);  // 7^3   = 7*7*7               = 343
+console.log(2 ** 10); // 2^10 = 2*2*2*2*2*2*2*2*2*2 = 1024
+
+// Exponentes fraccionarios
+console.log(4 ** 0.5);     // 2                  -> raíz cuadrada de 4
+console.log(8 ** (1 / 3)); // 2                  -> raíz cúbica de 8
+console.log(2 ** 0.5);     // 1.4142135623730951 -> raíz cuadrada de 2
+console.log(2 ** (1 / 3)); // 1.2599210498948732 -> raíz cúbica de 2
+
+// Exponente negativo
+console.log(7 ** -2);       // 0.02040816326530612 = 1/49
+console.log(8 ** (-1 / 3)); // 0.5
+console.log(2 ** -1);       // 0.5
+
+// Base negativa
+console.log((-7) ** 2);   // 49   -> todo numero elevado al cuadrado 2 siempre es positivo
+console.log((-7) ** 3);   // -343 -> los numeros elevados al cubo 3 pueden ser negativos
+console.log((-7) ** 0.5); // NaN  -> negative numbers don't have a real square root
+
+/*
+Debido a que las raíces "pares" e "impares" se encuentran cerca unas de otras,
+y límites en la precisión del número flotante,
+las bases negativas con exponentes fraccionarios siempre devuelven NaN,
+incluso cuando el resultado matemático es real */
+
+console.log((-7) ** (1 / 3)); // NaN
+
+// Infinito y cero
+console.log(0 ** 0);              // 1         -> cualquier cosa ** ±0 is 1
+console.log(Infinity ** 0.1);     // Infinity  -> exponente positivo
+console.log(Infinity ** -1);      // 0         -> exponente negativo
+console.log((-Infinity) ** 1);    // -Infinity -> exponente entero, impar y positivo
+console.log((-Infinity) ** 1.5);  // Infinity  -> exponente positivo
+console.log((-Infinity) ** -1);   // -0        -> exponente entero, impar y negativo
+console.log((-Infinity) ** -1.5); // 0         -> exponente negativo
+console.log(0 ** 1);              // 0         -> exponente positivo
+console.log(0 ** -1);             // Infinity  -> exponente negativo
+console.log((-0) ** 1);           // -0        -> exponente entero, impar y positivo
+console.log((-0) ** 1.5);         // 0         -> exponente positivo
+console.log((-0) ** -1);          // -Infinity -> exponente entero, impar y negativo
+console.log((-0) ** -1.5);        // Infinity  -> exponente negativo
+console.log(0.9 ** Infinity);     // 0
+console.log(1 ** Infinity);       // NaN
+console.log(1.1 ** Infinity);     // Infinity
+console.log(0.9 ** -Infinity);    // Infinity
+console.log(1 ** -Infinity);      // NaN
+console.log(1.1 ** -Infinity);    // 0
+
+// NaN
+console.log(NaN ** 0); // 1 -> solamente Math.pow(NaN, 0) NO da como resultado NaN
+console.log(NaN ** 1); // NaN
+console.log(1 ** NaN); // NaN
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 10 - Math.sign() Saber si un numero es negativo, cero o positivo
+https://youtu.be/BGXwssmxGuY
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sign#return_value
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+Lo q esta dentro de los parentesis de Math.sign() se convierte a numero Number()
+
+|---------------------------------------|----------------------------------|--------------------------|
+| Si el numero es...                    | entonces Math.sign() devuelve... | Ejemplo                  |
+|---------------------------------------|----------------------------------|--------------------------|
+| +   positivo                          | 1                                | Math.sign(99);     // 1  |
+|                                       |                                  | Math.sign("99");   // 1  |
+|                                       |                                  |                          |
+|                                       |                                  | Math.sign(7.1);    // 1  |
+|                                       |                                  | Math.sign("7.1");  // 1  |
+|---------------------------------------|----------------------------------|--------------------------|
+| -   negativo                          | -1                               | Math.sign(-99);    // -1 |
+|                                       |                                  | Math.sign("-99");  // -1 |
+|                                       |                                  |                          |
+|                                       |                                  | Math.sign(-7.1);   // -1 |
+|                                       |                                  | Math.sign("-7.1"); // -1 |
+|---------------------------------------|----------------------------------|--------------------------|
+| 0   cero                              | 0                                | Math.sign(0);      // 0  |
+|                                       |                                  | Math.sign("0");    // 0  |
+|                                       |                                  |                          |
+|                                       |                                  | Math.sign(0.0);    // 0  |
+|                                       |                                  | Math.sign("0.0");  // 0  |
+|---------------------------------------|----------------------------------|--------------------------|
+| -0  cero negativo                     | -0                               | Math.sign(-0);     // -0 |
+|                                       |                                  | Math.sign("-0");   // -0 |
+|                                       |                                  |                          |
+|                                       |                                  | Math.sign(-0.0);   // -0 |
+|                                       |                                  | Math.sign("-0.0"); // -0 |
+|---------------------------------------|----------------------------------|--------------------------| */
+
+// Casos especiales de Math.sign()
+Math.sign();             // NaN
+Math.sign('hola mundo'); // NaN -> Number('hola mundo') de string con texto es NaN
+Math.sign('');           // 0   -> Number("")           de string vacio ''  es 0
+
+// Los booleanos se convierten a numero
+Math.sign(true);         // 1 -> true es 1 y es positivo
+Math.sign(false);        // 0 -> false es 0
+
+Math.sign(null);         // 0   -> Number(null) es 0
+Math.sign(undefined);    // NaN -> Number(undefined) es NaN
+Math.sign(NaN);          // NaN -> Number(undefined) es NaN
+
+Math.sign(Infinity);     // 1
+Math.sign(-Infinity);    // -1
+
+Math.sign(BigInt(999));   // ❌ Uncaught TypeError: Cannot convert a BigInt value to a number at Math.sign
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 11 - Math.random()
+https://youtu.be/BGXwssmxGuY
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random */
