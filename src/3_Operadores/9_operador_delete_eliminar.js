@@ -3,7 +3,7 @@
 /*
 delete Eliminar propiedad: valor, de Objeto Literal {} y Elemento de Array [] 
 
-Documentacion Oficial - Operador delete Eliminar:
+Documentación Oficial - Operador delete Eliminar:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete
 
 El operador delete elimina lo siguiente:

@@ -19,7 +19,7 @@ https://www.youtube.com/watch?v=TvVgkM3LEac&t=867s
 - Fernando Herrera
 https://youtu.be/CI_FH2N88iE
 
-Documentacion Oficial...
+Documentación Oficial...
 - .with()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/with
 

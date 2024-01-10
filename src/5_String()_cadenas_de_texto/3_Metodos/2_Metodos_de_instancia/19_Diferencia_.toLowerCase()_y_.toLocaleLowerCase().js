@@ -7,7 +7,7 @@ https://stackoverflow.com/questions/34283414/difference-between-tolocalelowercas
 
 https://stackoverflow.com/questions/28792027/in-what-js-engines-specifically-are-tolowercase-touppercase-locale-sensitive
 
-Documentacion Oficial...
+Documentación Oficial...
 - .toLowerCase()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
 

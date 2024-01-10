@@ -10,7 +10,7 @@
 Tutorial de Jon Mircha de operadores logicos
 https://www.youtube.com/watch?v=_8Z5AeGVIXE&t=1323s
 
-Documentacion oficial...
+Documentación oficial...
 && AND
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND
 

@@ -11,7 +11,7 @@
 Tutorial
 https://youtu.be/LUeCg6btmZU
 
-Documentacion Oficial - .startsWith()
+Documentación Oficial - .startsWith()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith
 
 .startsWith() devuelve un booleano true ó false

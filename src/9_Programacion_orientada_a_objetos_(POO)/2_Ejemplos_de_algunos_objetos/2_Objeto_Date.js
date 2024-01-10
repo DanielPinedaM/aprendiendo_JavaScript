@@ -21,7 +21,7 @@ https://day.js.org/
 Tutorial - Jon Mircha:
 https://youtu.be/aIHQsAjRLYU
 
-Documentacion Oficial...
+Documentación Oficial...
 - Lista de Todos los Objetos en JS:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 

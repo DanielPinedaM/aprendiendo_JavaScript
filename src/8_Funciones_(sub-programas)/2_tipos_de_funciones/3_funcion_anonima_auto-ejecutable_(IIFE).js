@@ -12,7 +12,7 @@ https://youtu.be/yK_vE6ghox8
 - Jon Mircha:
 https://youtu.be/gbHr5qJjLRg
 
-Documentacion Oficial - IIFE:
+Documentación Oficial - IIFE:
 https://developer.mozilla.org/en-US/docs/Glossary/IIFE
 
 Es una funcion q se ejecuta inmediatamente que el interprete lee esa linea de codigo,

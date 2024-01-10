@@ -3,7 +3,7 @@
 /* --------------------------------------------------- */
 
 /*
-Documentacion Oficial...
+Documentación Oficial...
 - .toUpperCase()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase
 

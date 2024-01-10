@@ -10,7 +10,7 @@
 Tutorial:
 https://youtu.be/sVO65BeJjq8
 
-Documentacion Oficial...
+Documentación Oficial...
 - .entries()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
 
@@ -30,7 +30,7 @@ q contiene en sus elementos pares de [indice, elemento]
 
 /* Ejemplo 1 - .next().value y .entries()
 
-Documentacion Oficial - .next()
+Documentación Oficial - .next()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator/next */
 
 const figuras = ['▲', '●', '✖', '■'];

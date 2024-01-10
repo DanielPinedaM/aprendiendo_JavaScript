@@ -8,7 +8,7 @@
 /*
 .propertyIsEnumerable() ¿La propiedad: valor, si es o no Enumerable?
 
-Documentacion Oficial - .propertyIsEnumerable()
+Documentación Oficial - .propertyIsEnumerable()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable
 
 La propiedad enumerable: de los objetos literales {}

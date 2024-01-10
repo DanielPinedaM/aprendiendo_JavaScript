@@ -28,7 +28,7 @@ https://twitter.com/ericclemmons/status/1488558951008509963
 Diferencia Entre .join() .toString() .toLocaleString()
 https://luxiyalu.com/difference-arr-join-arr-tostring-arr-tolocalestring/
 
-Documentacion Oficial...
+Documentación Oficial...
 - .join()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
 

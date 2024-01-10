@@ -3,7 +3,7 @@
 /* --------------------------------------------------- */
 
 /*
-Documentacion Oficial - .repeat()
+Documentación Oficial - .repeat()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat
 
 .repeat() devuelve un string que se repite cualquier numero de veces count

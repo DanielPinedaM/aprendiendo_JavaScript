@@ -8,7 +8,7 @@
 /*
 Object.assign() Concatenar (unir) objeto literal {}
 
-Documentacion Oficial - Object.assign()
+Documentación Oficial - Object.assign()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 
 Object.assign() concatena (une) un solo o mas objetos literales {}

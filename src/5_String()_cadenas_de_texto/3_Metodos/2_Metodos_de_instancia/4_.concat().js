@@ -4,7 +4,7 @@
 
 /* --------------------------------------------------- */
 
-/* Documentacion Oficial - .concat()
+/* Documentación Oficial - .concat()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion

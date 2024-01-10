@@ -15,7 +15,7 @@ break; Detener y continue; Omitir la Iteración
 Tutorial Jon Mircha:
 https://youtu.be/iv-f163m78A
 
-Documentacion Oficial...
+Documentación Oficial...
 - break;
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break
 

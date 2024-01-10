@@ -3,7 +3,7 @@
 
 /* --------------------------------------------------- */
 
-/* Documentacion Oficial - .codePointAt()
+/* Documentación Oficial - .codePointAt()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt
 
 Lista completa de caracteres UTF-16:

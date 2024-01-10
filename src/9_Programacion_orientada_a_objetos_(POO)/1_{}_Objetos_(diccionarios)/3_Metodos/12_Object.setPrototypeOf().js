@@ -332,19 +332,19 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 /* Clase class Human
 
-Documentacion Oficial - Clases:
+Documentación Oficial - Clases:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes */
 
 class Human {} // clase
 
 /* Clase class SuperHero que se extiende (hereda de) la clase class Human
 
-Documentacion Oficial - extends
+Documentación Oficial - extends
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends */
 
 class SuperHero extends Human {} // sub-clase
 
-/* Documentacion Oficial - operador new
+/* Documentación Oficial - operador new
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new */
 
 const superMan = new SuperHero();
@@ -357,7 +357,7 @@ SuperHero {
 
 /* Funciones para crear sub-clases sin usar class
 
-Documentacion Oficial - this
+Documentación Oficial - this
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this */
 
 function Human2(nombre, nivel) { // clase
@@ -369,7 +369,7 @@ function Human2(nombre, nivel) { // clase
 ejecutar funcion Human2 usando call
 para asignar las propiedades nombre y nivel
 
-Documentacion Oficial - call()
+Documentación Oficial - call()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call */
 
 function SuperHero2(nombre, nivel) { // sub-clase
@@ -387,7 +387,7 @@ console.log(Object.setPrototypeOf(SuperHero2.prototype, Human2.prototype));
 para establecer la herencia prototípica
 
 Herencia Prototípica...
-- Documentacion Oficial:
+- Documentación Oficial:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 
 - JavaScript Info:

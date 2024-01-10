@@ -13,7 +13,7 @@ https://www.youtube.com/watch?v=AapgtR0Rwk0&t=1079s
 Stack Overflow - Diferencia entre for in y for of
 https://stackoverflow.com/questions/29285897/difference-between-for-in-and-for-of-statements
 
-Documentacion Oficial...
+Documentación Oficial...
 - for in
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
 

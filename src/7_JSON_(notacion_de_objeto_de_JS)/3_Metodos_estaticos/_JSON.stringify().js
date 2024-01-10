@@ -3,7 +3,7 @@
 /* --------------------------------------------------------------- */
 
 /*
-Documentacion Oficial - JSON.stringify()
+Documentación Oficial - JSON.stringify()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
 
 JSON.stringify() Convertir de Objeto Literal a Texto string

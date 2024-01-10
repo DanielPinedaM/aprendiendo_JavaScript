@@ -9,7 +9,7 @@
 Tutorial:
 https://youtube.com/shorts/UNIR2RU8mXA?feature=share
 
-Documentacion Oficial - .copyWithin()
+Documentación Oficial - .copyWithin()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin
 
 Recordatorio:

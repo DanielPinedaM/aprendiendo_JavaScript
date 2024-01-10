@@ -3,7 +3,7 @@
 
 /* --------------------------------------------------- */
 
-/* Documentacion Oficial - .charCodeAt()
+/* Documentación Oficial - .charCodeAt()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt
 
 Lista completa de caracteres UTF-16:

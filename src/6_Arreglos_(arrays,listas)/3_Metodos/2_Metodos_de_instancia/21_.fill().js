@@ -5,7 +5,7 @@
 /* --------------------------------------------------- */
 
 /*
-Documentacion Oficial - .fill()
+Documentación Oficial - .fill()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
 
 .fill() reemplazar UN VALOR value

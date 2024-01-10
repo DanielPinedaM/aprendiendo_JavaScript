@@ -23,7 +23,7 @@ https://youtu.be/R1LmvJ1_4QM
 
 https://youtu.be/Do81bfct_bk
 
-Documentacion Oficial...
+Documentación Oficial...
 * Clases:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
 

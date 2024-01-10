@@ -3,7 +3,7 @@
 /* --------------------------------------------------- */
 
 /*
-Documentacion Oficial...
+Documentación Oficial...
 - .replace() con strings:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
 
@@ -109,7 +109,7 @@ que es el valor de retorno return
 de la funcion reemplazar()
 
 Hice un ejemplo basico,
-la documentacion oficial tiene el ejemplo completo:
+la Documentación oficial tiene el ejemplo completo:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#specifying_a_function_as_the_replacement
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#using_an_inline_function_that_modifies_the_matched_characters */
@@ -130,7 +130,7 @@ console.log(replaceAll);
 /* Tambien puedo usar expresiones regulares
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#switching_words_in_a_string
 
-Consulta la documentacion oficial para saber mas sobre expresiones regulares y .replace()
+Consulta la Documentación oficial para saber mas sobre expresiones regulares y .replace()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/@@replace */
 
 const str = 'Maria Cruz';

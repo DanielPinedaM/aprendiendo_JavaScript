@@ -4,7 +4,7 @@
 /* --------------------------------------------------- */
 
 /*
-Documentacion Oficial - .search() en tipo de dato...
+Documentación Oficial - .search() en tipo de dato...
 -  string
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
 
@@ -18,7 +18,7 @@ ALTERNATIVAS A .search()
 un string existe o no entonces usar
 .test() que devuelve un booleano:
 
-Documentacion Oficial - .test()
+Documentación Oficial - .test()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test
 
 2) y 3) son para saber los caracteres q coinciden con la expresion regular
@@ -26,7 +26,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 Ver:
 " 8.5.3.10) Resumen: Diferencia Entre .match() .matchAll() - Caracteres que Coinciden con la Expresión Regular "
 
-3) Documentacion Oficial - .exec()
+3) Documentación Oficial - .exec()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec
 
 .search() busca los caracteres de una expresion regular en un string

@@ -8,7 +8,7 @@
 Tutorial de Jon Mircha de operadores de incremento y decremento
 https://www.youtube.com/watch?v=_8Z5AeGVIXE&t=822s
 
-Documentacion Oficial...
+Documentación Oficial...
 Operadores de incremento y decremento
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#increment_and_decrement
 

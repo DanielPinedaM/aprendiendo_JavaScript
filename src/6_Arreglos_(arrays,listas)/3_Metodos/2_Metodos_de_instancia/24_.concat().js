@@ -5,7 +5,7 @@
 /* --------------------------------------------------- */
 
 /*
-Documentacion Oficial - .concat() en Array:
+Documentación Oficial - .concat() en Array:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
 
 .concat() sirve para concatenar (unir, juntar, fusionar)...

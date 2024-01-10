@@ -628,7 +628,7 @@ https://stackoverflow.com/questions/32925460/object-spread-vs-object-assign
 
 https://stackoverflow.com/questions/38462000/difference-between-object-assign-and-object-spread
 
-- Documentacion Oficial:
+- Documentación Oficial:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals
 
 Cuando uso la ... sintaxis extendida,

@@ -7,7 +7,7 @@
 /* --------------------------------------------------- */
 
 /*
-Documentacion Oficial - .slice() en Array:
+Documentación Oficial - .slice() en Array:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
 
 Recordatorio:

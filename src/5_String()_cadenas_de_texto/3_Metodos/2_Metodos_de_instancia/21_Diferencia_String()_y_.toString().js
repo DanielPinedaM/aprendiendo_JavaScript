@@ -9,7 +9,7 @@ Convertir a Texto
 Stack Overflow - Diferencia Entre String() y .toString()
 https://stackoverflow.com/questions/3945202/whats-the-difference-between-stringvalue-vs-value-tostring
 
-Documentacion Oficial...
+Documentación Oficial...
 - String()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 

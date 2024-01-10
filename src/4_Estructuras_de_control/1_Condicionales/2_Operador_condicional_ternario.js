@@ -32,7 +32,7 @@ https://youtu.be/YFES8Nm6uF4
 - Jon Mircha:
 https://www.youtube.com/watch?v=9h5hyh_wDjo&t=1234s
 
-Documentacion Oficial - Operador Condicional Ternario
+Documentación Oficial - Operador Condicional Ternario
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 
 El operador condicional ternario
@@ -152,7 +152,7 @@ https://youtu.be/8jooZieM48E
 
 https://twitter.com/midudev/status/1475422236043530242?lang=es
 
-Documentacion Oficial:
+Documentación Oficial:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator#conditional_chains
 
 ESLint - no-nested-ternary - NO permitir operador condicional ternario anidado

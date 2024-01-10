@@ -24,7 +24,7 @@ https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-us
 === y Object.is()
 https://stackoverflow.com/questions/30543190/object-is-vs
 
-Documentacion Oficial...
+Documentación Oficial...
 Operadores relacionales
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#relational_operators
 

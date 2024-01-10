@@ -3,7 +3,7 @@
 
 /* --------------------------------------------------- */
 
-/* Documentacion Oficial - .lastIndexOf()
+/* Documentación Oficial - .lastIndexOf()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf
 
 .lastIndexOf() devuelve el ULTIMO numero de posicion (indice)

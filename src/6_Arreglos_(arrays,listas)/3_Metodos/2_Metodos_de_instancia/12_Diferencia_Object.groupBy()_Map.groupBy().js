@@ -25,7 +25,7 @@ https://caniuse.com/mdn-javascript_builtins_map_groupby
 Tutorial - Object.groupBy() y Map.groupBy()
 https://youtu.be/pduSpSe-V-o?si=6fUVOM8rW8TDT5XR
 
-Documentacion Oficial...
+Documentación Oficial...
 - Object.groupBy()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy
 

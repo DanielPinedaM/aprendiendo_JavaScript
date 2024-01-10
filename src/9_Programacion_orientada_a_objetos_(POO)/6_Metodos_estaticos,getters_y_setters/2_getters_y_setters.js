@@ -13,7 +13,7 @@ https://youtu.be/TEzu31q9MVA
 JavaScript Info - get Getters y set Setters
 https://javascript.info/property-accessors
 
-Documentacion Oficial...
+Documentación Oficial...
 - get
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
 

@@ -18,7 +18,7 @@ En esta seccion (resumen),
 no copie todos los ejemplos,
 para mas informacion, ver:
 
-Documentacion Oficial...
+Documentación Oficial...
 - Object.prototype.toString()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString
 

@@ -3,7 +3,7 @@
 /* --------------------------------------------------- */
 
 /*
-Documentacion Oficial - .localeCompare()
+Documentación Oficial - .localeCompare()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
 
 .localeCompare() compara entre dos strings para saber
@@ -67,7 +67,7 @@ a, b, c, d, e, f, g, h, i, j, k, l, m, n, ñ, o, p, q, r, s, t, u, v, w, x, y, z
 /* Stack Overflow - Saber si un numero es negativo
 https://stackoverflow.com/questions/3571717/how-to-check-if-a-number-is-negative
 
-Documentacion Oficial - Ejemplo de .localeCompare() con strings
+Documentación Oficial - Ejemplo de .localeCompare() con strings
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare#using_localecompare */
 let str = 'a';
 let str2 = 'z';

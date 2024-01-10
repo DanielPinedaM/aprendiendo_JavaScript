@@ -71,7 +71,7 @@ Resumen: Diferencia Entre .forEach() .map() .filter() .reduce() .find()
 Tutorial de Fazt - .find() y .findLast()
 https://www.youtube.com/watch?v=TvVgkM3LEac&t=119s
 
-Documentacion Oficial - .find()
+Documentación Oficial - .find()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
 
 .find() PRIMER ELEMENTO que Coincide con la Condicion de la Función

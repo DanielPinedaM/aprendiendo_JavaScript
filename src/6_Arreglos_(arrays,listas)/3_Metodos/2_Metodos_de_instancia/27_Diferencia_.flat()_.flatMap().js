@@ -11,7 +11,7 @@ Diferencias y Similitudes Entre .flat() y .flatMap() - Aplanar Array Anidado (Fl
 Tutorial:
 https://youtu.be/em_Vh7ZGrnw
 
-Documentacion Oficial...
+Documentación Oficial...
 - .flat()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
 

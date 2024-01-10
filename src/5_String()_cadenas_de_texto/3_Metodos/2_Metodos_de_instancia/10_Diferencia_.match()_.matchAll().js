@@ -8,7 +8,7 @@
 Diferencia Entre .match() y .matchAll()
 https://blog.tildeloop.com/posts/javascript-the-difference-between-match-and-matchall
 
-Documentacion Oficial...
+Documentación Oficial...
 - .match() en tipo string
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match
 

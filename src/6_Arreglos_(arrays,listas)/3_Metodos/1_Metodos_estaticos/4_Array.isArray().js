@@ -6,7 +6,7 @@
 
 /* --------------------------------------------------- */
 
-/* Documentacion Oficial - Array.isArray()
+/* Documentación Oficial - Array.isArray()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
 
 https://web.mit.edu/jwalden/www/isArray.html

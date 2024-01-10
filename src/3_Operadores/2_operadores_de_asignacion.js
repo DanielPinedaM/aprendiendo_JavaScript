@@ -5,7 +5,7 @@
 /* --------------------------------------------------------------- */
 
 /*
-Documentacion Oficial...
+Documentación Oficial...
 Operadores de asignacion
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#assignment_operators
 

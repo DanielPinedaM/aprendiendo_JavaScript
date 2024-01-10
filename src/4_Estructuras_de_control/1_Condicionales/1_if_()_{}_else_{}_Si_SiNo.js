@@ -11,7 +11,7 @@ if () {} else {} Si SiNo
 Convertir de Operador Condicional Ternario a if () {} else {}
 https://converter.website-dev.eu/
 
-Documentacion Oficial...
+Documentación Oficial...
 - if () {} else {} Si SiNo
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
 

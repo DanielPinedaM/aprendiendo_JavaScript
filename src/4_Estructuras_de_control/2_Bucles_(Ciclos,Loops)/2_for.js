@@ -11,7 +11,7 @@ https://midu.dev/foreach-mas-rapido-for/
 Tutorial Jon Mircha:
 https://www.youtube.com/watch?v=AapgtR0Rwk0&t=687s
 
-Documentacion Oficial - for
+Documentación Oficial - for
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 
 Sintaxis:

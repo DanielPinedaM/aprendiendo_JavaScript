@@ -19,7 +19,7 @@ https://youtu.be/OhE-mEt37iA
 
 https://youtu.be/FJ-w0tf3d_w
 
-Documentacion Oficial...
+Documentación Oficial...
 - try catch finally
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
 

@@ -6,7 +6,7 @@
 /*
 Object.fromEntries() Convertir de Array Anidado que Contiene [propiedad, valor] a Objeto Literal {}
 
-Documentacion Oficial - Object.fromEntries()
+Documentación Oficial - Object.fromEntries()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries
 
 Sintaxis:

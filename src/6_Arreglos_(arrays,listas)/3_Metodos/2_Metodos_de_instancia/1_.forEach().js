@@ -70,7 +70,7 @@ https://midu.dev/foreach-mas-rapido-for/
 
 https://slug.vercel.app/s/for-bench
 
-Documentacion Oficial - .forEach()
+Documentación Oficial - .forEach()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
 .forEach() Recorrer (Iterar) Array y Ejecutar una Función para Cada Elemento

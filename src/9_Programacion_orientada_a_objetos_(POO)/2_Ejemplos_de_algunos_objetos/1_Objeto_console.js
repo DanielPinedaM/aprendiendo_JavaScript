@@ -15,7 +15,7 @@ Objeto console para imprimir mensajes en consola del navegador
 Tutorial - Jon Mircha:
 https://youtu.be/qM9Rsv3LCWc
 
-Documentacion Oficial...
+Documentación Oficial...
 - Lista de Todos los Objetos en JS:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 

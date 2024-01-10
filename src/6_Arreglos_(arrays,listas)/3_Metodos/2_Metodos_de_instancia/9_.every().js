@@ -12,7 +12,7 @@
 /* Tutorial - Diferencia Entre .every() y .some()
 https://youtu.be/sVO65BeJjq8
 
-Documentacion Oficial - .every()
+Documentación Oficial - .every()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
 
 .every() ¿TODOS los elementos del array cumplen con la condición de la función?

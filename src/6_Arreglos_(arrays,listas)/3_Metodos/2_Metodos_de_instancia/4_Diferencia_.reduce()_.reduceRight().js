@@ -71,7 +71,7 @@ Resumen: Diferencia Entre .forEach() .map() .filter() .reduce() .find()
 |            |                  |                                 |                               |                                                  |                                  | // undefined                                                                       |
 |------------|------------------|---------------------------------|-------------------------------|--------------------------------------------------|----------------------------------|------------------------------------------------------------------------------------|
 
-Documentacion Oficial...
+Documentación Oficial...
 - .reduce()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
 
@@ -601,7 +601,7 @@ let mayor = numeros.reduce((acumulador, elemento) => {
 el numero mayor es el 5 */
 console.log(mayor); // 5
 
-/* Documentacion Oficial - Math.max()
+/* Documentación Oficial - Math.max()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
 
 BUENA PRACTICA:

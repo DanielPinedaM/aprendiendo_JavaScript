@@ -2,7 +2,7 @@
 
 /* --------------------------------------------------- */
 
-/* Documentacion Oficial - .endsWith()
+/* Documentación Oficial - .endsWith()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith
 
 .endsWith() busca una cadena AL FINAL (ULTIMA PALABRA) de otra cadena

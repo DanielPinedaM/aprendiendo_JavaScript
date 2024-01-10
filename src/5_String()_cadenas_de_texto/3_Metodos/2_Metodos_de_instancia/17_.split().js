@@ -20,7 +20,7 @@ console.log(array);            // []
 
 /* ----- */
 
-/* Documentacion Oficial - .split() Método de String
+/* Documentación Oficial - .split() Método de String
 8.5.3.17.1) .split() Método de String https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
 
 La sintaxis de .split() es:
@@ -223,7 +223,7 @@ console.log(array);            // (2) [ '😄', '😄' ]
 
 /* ----- */
 
-/* Documentacion Oficial - .map() Método de Array
+/* Documentación Oficial - .map() Método de Array
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map */
 
 array = Array.prototype.map.call(string, (caracter) => caracter);
@@ -249,7 +249,7 @@ console.log(array);
 
 /* ----- */
 
-/* Documentacion Oficial -  .slice() Método de Array
+/* Documentación Oficial -  .slice() Método de Array
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice */
 
 array = Array.prototype.slice.call(string);
@@ -276,7 +276,7 @@ console.log(array);
 
 /* ----- */
 
-/* Documentacion Oficial - Array.from()
+/* Documentación Oficial - Array.from()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array */
 
 array = Array.from(string);
@@ -324,7 +324,7 @@ length: 2
 
 /* ----- */
 
-/* Documentacion Oficial - Object.assign()
+/* Documentación Oficial - Object.assign()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 
 Array.isArray() devuelve false
@@ -389,7 +389,7 @@ length: 2
 
 /* for of Recorrer (iterar) string para agregarlo a un array .push()
 
-Documentacion Oficial - for of
+Documentación Oficial - for of
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of */
 
 // array vacio []

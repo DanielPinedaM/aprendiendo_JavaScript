@@ -28,7 +28,7 @@ https://javascript.info/arrow-functions-basics
 
 https://javascript.info/arrow-functions
 
-- Documentacion Oficial:
+- Documentación Oficial:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#arrow_functions
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions#the_arrow_function_expression

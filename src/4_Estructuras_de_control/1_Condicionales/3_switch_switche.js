@@ -7,7 +7,7 @@
 /* --------------------------------------------------------------- */
 
 /*
-Documentacion Oficial...
+Documentación Oficial...
 - switch
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
 

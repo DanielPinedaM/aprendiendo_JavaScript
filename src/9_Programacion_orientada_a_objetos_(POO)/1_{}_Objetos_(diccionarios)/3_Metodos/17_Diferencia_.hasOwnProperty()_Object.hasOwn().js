@@ -13,7 +13,7 @@ Diferencias y Similitudes Entre
 y Object.hasOwn() (Buena Práctica)
 - ¿Si Existe o no la Propiedad Propia (NO Heredada) en el Objeto?
 
-Documentacion Oficial...
+Documentación Oficial...
 - .hasOwnProperty()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
 

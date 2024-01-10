@@ -1,4 +1,4 @@
-/* Documentacion Oficial - String.fromCharCode()
+/* Documentación Oficial - String.fromCharCode()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode */
 
 /*

@@ -3,7 +3,7 @@
 
 /* --------------------------------------------------- */
 
-/* Documentacion Oficial - Array.of()
+/* Documentación Oficial - Array.of()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of
 
 Array.of() crea un nuevo array,

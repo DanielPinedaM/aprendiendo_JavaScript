@@ -15,7 +15,7 @@ https://youtu.be/YTtZ9TUQ48E
 https://www.youtube.com/watch?v=lVqHiTCIRQg&t=1820s
 
 Desestructuración...
-- Documentacion Oficial
+- Documentación Oficial
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
 - ESLint Airbnb:

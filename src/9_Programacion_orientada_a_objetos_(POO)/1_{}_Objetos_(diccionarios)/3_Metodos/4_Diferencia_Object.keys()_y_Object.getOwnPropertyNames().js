@@ -11,7 +11,7 @@ Convertir a Array [] las Propiedades (Claves) del Objeto {}
 Samantha Ming - Diferencia Entre Object.keys() y Object.getOwnPropertyNames()
 https://www.samanthaming.com/tidbits/56-how-to-get-an-object-length/
 
-Documentacion Oficial...
+Documentación Oficial...
 - Object.keys()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
 

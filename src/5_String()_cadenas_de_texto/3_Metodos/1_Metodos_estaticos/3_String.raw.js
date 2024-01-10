@@ -4,7 +4,7 @@
 
 /* --------------------------------------------------- */
 
-/* Documentacion Oficial - String.raw() Guardar String de una Ruta (Texto sin Procesar)
+/* Documentación Oficial - String.raw() Guardar String de una Ruta (Texto sin Procesar)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw */
 
 /* ---------------------------------------- */

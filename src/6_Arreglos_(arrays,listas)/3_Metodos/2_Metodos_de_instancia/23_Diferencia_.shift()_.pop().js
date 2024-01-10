@@ -3,7 +3,7 @@
 /* --------------------------------------------------- */
 
 /*
-Documentacion Oficial...
+Documentación Oficial...
 - .shift()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift
 

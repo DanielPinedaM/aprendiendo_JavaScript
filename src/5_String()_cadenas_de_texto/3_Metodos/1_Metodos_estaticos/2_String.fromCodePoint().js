@@ -2,7 +2,7 @@
 
 /* --------------------------------------------------- */
 
-/* Documentacion Oficial - String.fromCodePoint()
+/* Documentación Oficial - String.fromCodePoint()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint
 
 Convertir de Puntos de Código a Texto

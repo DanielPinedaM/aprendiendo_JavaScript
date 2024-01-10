@@ -3,7 +3,7 @@
 
 /* --------------------------------------------------- */
 
-/* Documentacion Oficial - .includes()
+/* Documentación Oficial - .includes()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
 
 Recordatorio:

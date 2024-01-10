@@ -14,7 +14,7 @@
 Diferencias y Similitudes Entre .indexOf() y .findIndex() -
 PRIMER Número de Posición (Índice) del Elemento Buscado
 
-Documentacion Oficial...
+Documentación Oficial...
 - .indexOf()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
 

@@ -140,7 +140,7 @@ console.log(person?.saludar?.());
 
 /* Ejemplo 2 - Diferencias y similitudes entre notación de punto y ?. encadenamiento opcional
 
-Documentacion Oficial...
+Documentación Oficial...
 - Notacion de punto:
 https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics#dot_notation
 

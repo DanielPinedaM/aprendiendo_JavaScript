@@ -12,7 +12,7 @@ https://www.youtube.com/watch?v=dYB1UlGGmfk&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-Ko
 
 https://www.youtube.com/watch?v=GP8OCiJLeN4&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA&index=110
 
-- Documentacion Oficial:
+- Documentación Oficial:
 https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
 - JavaScript Info:

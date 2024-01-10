@@ -7,7 +7,7 @@
 Tutorial Jon Mircha:
 https://youtu.be/AapgtR0Rwk0
 
-Documentacion Oficial...
+Documentación Oficial...
 - while
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while
 

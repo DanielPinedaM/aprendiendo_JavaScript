@@ -73,7 +73,7 @@ https://www.samanthaming.com/tidbits/83-4-ways-to-convert-string-to-character-ar
 Tutorial:
 https://youtu.be/FMubfnVET74
 
-Documentacion Oficial - .map()
+Documentación Oficial - .map()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
 .map() DEVOLVER un nuevo array

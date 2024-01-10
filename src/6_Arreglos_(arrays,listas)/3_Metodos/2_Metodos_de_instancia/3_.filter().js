@@ -69,7 +69,7 @@ Resumen: Diferencia Entre .forEach() .map() .filter() .reduce() .find()
 Tutorial:
 https://youtu.be/fCvuOyVXUUQ
 
-Documentacion Oficial - .filter()
+Documentación Oficial - .filter()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 
 .filter() Crear una COPIA de un ARRAY EXISTENTE
