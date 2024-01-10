@@ -271,7 +271,7 @@ https://twitter.com/midudev/status/1488211287159025667/photo/1
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
 En otras palabras:
-Cambiar las posiciones de los elementos del array aleatoriamente usando .toSorted() y Math.random() */
+Cambiar las posiciones de los elementos del array pseudo-aleatoriamente usando .toSorted() y Math.random() */
 
 const numeros2 = [2, 4, 6, 8];
 console.log(numeros2);
@@ -284,17 +284,19 @@ console.log(pseudoaleatorio);
    (4) [2, 8, 4, 6] */
 
 /*
-Math.random() Numero pseudo-aleatorio y decimal entre 0 y 1
+Math.random() Numero pseudo-aleatorio entre 0 y 1
 0 <= numero < 1
+
+Casi siempre Math.random() es un numero decimal
 
 Math.random() NO es 100% aleatorio,
 casi siempre da resultados cercanos a 0.5
 
-Cada vez q lo ejecuto Math.random() da un resultado diferente */
-console.log(Math.random());
-/* 0.9461178966551149
-   0.6511244697243286
-   0.19540344535720178 */
+Casi siempre q ejecuto Math.random() da un resultado diferente */
+
+console.log(Math.random()); // 0.401307855455707
+console.log(Math.random()); // 0.3411483314021051
+console.log(Math.random()); // 0.9367034277578408
 
 /* --------------------------------------------------------------- */
 
@@ -304,7 +306,9 @@ https://youtu.be/YIZWGn13RCE
 
 https://twitter.com/midudev/status/1488211291802152965/photo/1
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random */
 
 const letras2 = ['a', 'b', 'c'];
 //               0    1    2
@@ -317,7 +321,7 @@ console.log(letras2);
 Math.floor() aproximar al MENOR numero entero
 
 Multiplicar:
-(Numero pseudo-aleatorio y decimal entre 0 y 1) * (numero de elementos del array) */
+(Math.random() Numero pseudo-aleatorio y decimal entre 0 y 1) * (.length numero de elementos del array) */
 
 const indicePseudoaleatorio = Math.floor(
   Math.random() * letras.length,

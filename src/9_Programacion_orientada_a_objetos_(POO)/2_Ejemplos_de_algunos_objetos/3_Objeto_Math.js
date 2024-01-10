@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable prefer-exponentiation-operator */
 /* eslint-disable no-restricted-properties */
 /* eslint-disable no-multiple-empty-lines */
@@ -495,7 +496,122 @@ Math.sign(BigInt(999));   // ❌ Uncaught TypeError: Cannot convert a BigInt val
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 11 - Math.random()
+/* Ejemplo 11 - Math.random() Numero Pseudo-aleatorio entre 0 y 1
 https://youtu.be/BGXwssmxGuY
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
+https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues
+
+Math.random() Numero pseudo-aleatorio entre 0 y 1
+0 <= numero < 1
+
+Casi siempre Math.random() es un numero decimal
+
+Math.random() NO es 100% aleatorio,
+casi siempre da resultados cercanos a 0.5
+
+Casi siempre q ejecuto Math.random() da un resultado diferente */
+
+console.log(Math.random()); // 0.401307855455707
+console.log(Math.random()); // 0.3411483314021051
+console.log(Math.random()); // 0.9367034277578408
+
+/* --- */
+
+/* Desordenar los elementos de un array []
+https://youtu.be/YIZWGn13RCE
+
+https://twitter.com/midudev/status/1488211287159025667/photo/1 */
+
+const array = [2, 4, 6, 8];
+console.log(array);
+// (4) [2, 4, 6, 8]
+
+const desordenarArray = array.toSorted(() => Math.random() - 0.5);
+console.log(desordenarArray);
+/* (4) [8, 6, 4, 2]
+   (4) [2, 4, 6, 8]
+   (4) [2, 8, 4, 6] */
+
+/* --- */
+
+/* Obtener aleatoriamente un elemento del array:
+
+https://youtu.be/YIZWGn13RCE
+
+https://twitter.com/midudev/status/1488211291802152965/photo/1
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor */
+
+const letras = ['a', 'b', 'c'];
+//               0    1    2
+
+console.log(letras);
+// (3) ['a', 'b', 'c']
+
+/* Esto NO es 100% aleatorio porq a veces el indice NO cambia
+
+Math.floor() aproximar al MENOR numero entero
+
+Multiplicar:
+(Math.random() Numero pseudo-aleatorio y decimal entre 0 y 1) * (.length numero de elementos del array) */
+
+const indicePseudoaleatorio = Math.floor(
+  Math.random() * letras.length,
+);
+console.log(indicePseudoaleatorio);
+/*
+2
+1
+*/
+
+const elemento = letras[indicePseudoaleatorio];
+console.log(elemento);
+/*
+'c'
+'b'
+*/
+
+/* --- */
+
+/* Numero entero y pseudo-aleatorio desde un numero hasta otro numero
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#getting_a_random_integer_between_two_values_inclusive
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil */
+
+const getRandomIntInclusive = (min, max) => {
+  // Math.ceil() Redondear "hacia ARRIBA", al numero entero MAYOR mas cercano
+  min = Math.ceil(min);
+  console.log(min);
+  /*
+  10
+  10
+
+  500
+  500
+  */
+
+  // Math.floor() Redondear "hacia ABAJO", al numero entero MENOR mas cercano
+  max = Math.floor(max);
+  console.log(max);
+  /*
+  20
+  20
+
+  600
+  600
+  */
+
+  // Math.random() Numero Pseudo-aleatorio entre 0 y 1
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+getRandomIntInclusive(10, 20);   // 15
+getRandomIntInclusive(10, 20);   // 14
+
+getRandomIntInclusive(500, 600); // 535
+getRandomIntInclusive(500, 600); // 529
