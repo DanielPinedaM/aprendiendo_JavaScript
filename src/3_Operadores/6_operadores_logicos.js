@@ -31,6 +31,13 @@ https://stackoverflow.com/questions/784929/what-is-the-not-not-operator-in-javas
 
 /* --------------------------------------------------------------- */
 
+/* Operador de Cortocircuito
+
+Tutorial Jon Mircha:
+https://youtu.be/SK7CCXjzVgA?si=qIYKxyMTurv_rBGV */
+
+/* --------------------------------------------------------------- */
+
 /* && AND
 TODAS las condiciones tienen q ser true
 para que && AND devuelva true y SI se ejecute el codigo */
@@ -43,7 +50,7 @@ console.log('9' === 9);                // false
 console.log(('9' === 9) && (9 === 9)); // false
 if (('9' === 9) && (9 === 9)) console.log('este codigo NUNCA se ejecuta');
 
-/* --- */
+/* --------------------------------------------------------------- */
 
 /* || OR
 Si tengo 2 ó mas condiciones
@@ -64,7 +71,7 @@ console.log('9' === 9);                  // false
 console.log((9 === '9') || ('9' === 9)); // false
 if ((9 === '9') || ('9' === 9)) console.log('este codigo NUNCA se ejecuta');
 
-/* --- */
+/* --------------------------------------------------------------- */
 
 /* ! NOT (Negación) es lo opuesto (contrario de)...
 
@@ -76,7 +83,7 @@ console.log(!1);     // false
 console.log(!false); // true
 console.log(!0);     // true
 
-/* --- */
+/* --------------------------------------------------------------- */
 
 /* !! Double NOT Operator (Doble Negación)
 Niega dos veces la expresion
@@ -95,6 +102,7 @@ Ver:
 
 !! Se puede usar para convertir a booleano pero esto es MALA PRACTICA
 https://youtube.com/shorts/RxxyJk4h9pU?feature=share */
+
 console.log(!!1);            // true
 console.log(!!0);            // false
 
@@ -116,7 +124,7 @@ console.log(Boolean(null));         // false
 console.log(Boolean(undefined));    // false
 console.log(Boolean(NaN));          // false
 
-/* --- */
+/* --------------------------------------------------------------- */
 
 /* ?? Operador Coalescente Nulo (Nullish Coalescing Operator)
 
