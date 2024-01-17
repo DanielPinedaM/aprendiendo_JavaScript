@@ -10,7 +10,7 @@
 Tutorial de Jon Mircha de operadores logicos
 https://www.youtube.com/watch?v=_8Z5AeGVIXE&t=1323s
 
-Documentación oficial...
+Documentación Oficial...
 && AND
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND
 
@@ -31,10 +31,57 @@ https://stackoverflow.com/questions/784929/what-is-the-not-not-operator-in-javas
 
 /* --------------------------------------------------------------- */
 
-/* Operador de Cortocircuito
+/* Operador Cortocircuito
 
 Tutorial Jon Mircha:
-https://youtu.be/SK7CCXjzVgA?si=qIYKxyMTurv_rBGV */
+https://youtu.be/SK7CCXjzVgA?si=qIYKxyMTurv_rBGV
+
+Recordatorio:
+La siguiente seccion esta relacionada con operador cortocircuito, ver:
+" 5.6.4) ?? Operador Coalescente Nulo (Nullish Coalescing Operator) "
+
+Cortocircuito es el momento en q se detiene la ejecucion del código
+
+|| OR devuelve el PRIMER valor que este mas a la izquierda
+y que al convertirlo a Boolean() sea TRUE */
+
+Boolean(1);          // true
+Boolean(0);          // false
+console.log(1 || 0); // 1
+//          ↑
+
+Boolean('hola mundo');                    // true
+const OR = false || 'hola mundo' || true;
+//                        ↑
+console.log(OR);                          // 'hola mundo'
+
+/* SI TODOS los valores son FALSE
+entonces || OR devuelve el ultimo valor q esta mas a la derecha */
+
+Boolean(null);                         // false
+Boolean(undefined);                    // false
+Boolean(NaN);                          // false
+console.log(null || undefined || NaN); // NaN
+//                                ↑
+
+/* && AND es lo opuesto,
+devuelve el PRIMER valor que este mas a la izquierda
+y que al convertirlo a Boolean() sea FALSE */
+
+console.log(1 && 0); // 0
+//               ↑
+
+const AND = 'hola mundo' && false && true;
+//                           ↑
+console.log(AND); // false
+
+/* SI TODOS los valores son TRUE
+entonces || OR devuelve el ultimo valor q esta mas a la derecha */
+
+Boolean(1);                             // true
+Boolean('hola mundo');                  // true
+console.log(1 && true && 'hola mundo'); // 'hola mundo'
+//                            ↑
 
 /* --------------------------------------------------------------- */
 
