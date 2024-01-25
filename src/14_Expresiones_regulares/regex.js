@@ -13,7 +13,11 @@ Documentación Oficial...
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
 
 - RegExp()
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+
+JavaScript Info - Expresiones Regulares:
+https://javascript.info/regular-expressions
+*/
 
 /* --------------------------------------------------- */
 

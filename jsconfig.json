@@ -11,6 +11,9 @@
     "assets",
     ".gitignore",
     "link_del_repo_en_GitHub.txt",
-    "README.md"
+    "README.md",
+    
+    "src/*.ts",
+    "src/**/*.ts"
   ],
 }
