@@ -1,12 +1,12 @@
 /* localStorage - listar todas las propiedad: valor */
-export const localStorageListAll = (): any => {
-  const longitud: number = localStorage.length;
+export const localStorageListAll = (): any | null => {
+  const length: number = localStorage.length;
 
-  return longitud > 0 ? localStorage : null;
+  return length > 0 ? localStorage : null;
 };
 
 /* localStorage - array con nombres de todas las propiedades */
-export const localStorageProperties = (): string[] => {
+export const localStorageProperties = (): string[] | [] => {
   const listAll = localStorageListAll();
 
   return listAll?.length > 0 ? Object.keys(listAll) : [];
@@ -27,7 +27,7 @@ export const localStorageSearch = (property: string): boolean => {
 
 /* localStorage - guardar una nueva propiedad: valor
 "cuando NO existe lo creo"*/
-export const localStorageSave = (property: string, value: string | number): boolean => {
+export const localStorageSave = (property: string, value: string | number | null | undefined): boolean => {
   if (!property || (!value && value !== 0)) return false;
 
   const buscar: boolean = localStorageSearch(property);
@@ -41,7 +41,7 @@ export const localStorageSave = (property: string, value: string | number): bool
 
 /* localStorage - actualizar (sobrescribir) el valor de una propiedad SI existe
 "cuando SI existe lo actualizo" */
-export const localStorageUpdate = (property: string, value: string | number): boolean => {
+export const localStorageUpdate = (property: string, value: string | number | null | undefined): boolean => {
   if (!property || (!value && value !== 0)) return false;
 
   const buscar: boolean = localStorageSearch(property);
@@ -54,7 +54,7 @@ export const localStorageUpdate = (property: string, value: string | number): bo
 };
 
 /* localStorage - eliminar todas las propiedad: valor */
-export const localStorageClearAll = () => {
+export const localStorageClearAll = (): void => {
   localStorage.clear();
 };
 
