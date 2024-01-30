@@ -5,12 +5,20 @@ export const localStorageListAll = (): any | null => {
   return length > 0 ? localStorage : null;
 };
 
-/* localStorage - array con nombres de todas las propiedades */
+/* localStorage - Object.keys() - array con nombres de todas las propiedades */
 export const localStorageProperties = (): string[] | [] => {
   const listAll = localStorageListAll();
 
   return listAll?.length > 0 ? Object.keys(listAll) : [];
 };
+
+/* localStorage - Object.values() - array con nombres de todos los valores */
+export const localStorageValues = (): string[] | [] => {
+  const listAll = localStorageListAll();
+
+  return listAll?.length > 0 ? Object.values(listAll) : [];
+};
+
 
 /* localStorage - listar un solo valor de una propiedad en especifico */
 export const localStorageListValue = (property: string): string | null => {
