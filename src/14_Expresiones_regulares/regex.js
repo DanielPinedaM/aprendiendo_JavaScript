@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 // @ts-nocheck
 
 /* --------------------------------------------------- */
@@ -31,7 +32,22 @@ Se usa principalmente en string */
 
 /* --------------------------------------------------- */
 
-/* Ejemplo 1 - Validar Correo */
+/* Ejemplo 1 - Validar Correo:
+https://stackoverflow.com/questions/46155/how-can-i-validate-an-email-address-in-javascript */
+
+const esCorreo = (string) => {
+  const regex =   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+  return regex.test(string);
+};
+
+esCorreo('correo@gmail.com'); // true
+
+esCorreo('hola mundo');       // false
+esCorreo(123);                // false
+esCorreo(null);               // false
+esCorreo(undefined);          // false
+esCorreo(NaN);                // false
 
 /* --------------------------------------------------- */
 
