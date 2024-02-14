@@ -215,6 +215,12 @@ de q NO elimina los espacios en blanco " " */
 console.log(truthy);
 // (12) [ ' ', 'hola mundo', 1, '1', true, 'true', '0', 'false', Infinity, 999, {}, [] ]
 
+/* 3) .filter() devuelve un array vacio [] cuando NO encuentra el elemento
+en array ['■', '■', '■', '●'] NO esta el '▲' */
+
+['■', '■', '■', '●'].filter((elemento) => elemento === '▲');
+// []
+
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .reduce() █
