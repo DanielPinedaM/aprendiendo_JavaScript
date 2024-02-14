@@ -8,6 +8,10 @@
 /*
 Expresiones Regulares (Regular Expressions, Regex)
 
+IMPORTANTE:
+NO tienes q aprender esto,
+si necesitas una expresion regular googleala
+
 Tutorial - Jon Mircha:
 https://youtu.be/aPkBloR9MEI?si=3QOCE_Hw_wWzAoPp
 
@@ -110,10 +114,97 @@ console.log(
 
 /* --------------------------------------------------- */
 
-/* Ejemplo 3 - Bandera i
+/* Ejemplo 3 - Bandera i ignorar mayusculas y minusculas
 https://youtu.be/aPkBloR9MEI?si=3QOCE_Hw_wWzAoPp */
+
+const string2 = 'LOREMipsum';
+//               ↑
+
+// buscar caracter lorem
+const expReg3 = /lorem/i;
+console.log(
+  expReg3.test(string2),
+);
+// true
 
 /* --------------------------------------------------- */
 
-/* Ejemplo 4 - Bandera
+/* Ejemplo 4 - Bandera \d buscar un digito del 0 al 9
 https://youtu.be/aPkBloR9MEI?si=3QOCE_Hw_wWzAoPp */
+
+const string3 = 'lorem - lorem 45';
+//                             ↑
+
+const expReg4 = /\d/;
+
+console.log(
+  expReg4.test(string3),
+);
+// true
+
+console.log(
+  expReg4.exec(string3),
+);
+// [ '4', index: 14, input: 'lorem - lorem 45', groups: undefined ]
+
+/* --------------------------------------------------- */
+
+/* Ejemplo 5 - Bandera [0-9] Buscar rango numerico, desde este numero hasta este otro numero
+https://youtu.be/aPkBloR9MEI?si=3QOCE_Hw_wWzAoPp */
+
+const string4 = 'lorem 0 lorem';
+//                     ↑
+
+const expReg5 = /[0-9]/;
+
+console.log(
+  expReg4.test(string4),
+);
+// true
+
+console.log(
+  expReg5.exec(string4),
+);
+// [ '0', index: 6, input: 'lorem 0 lorem', groups: undefined ]
+
+/* --------------------------------------------------- */
+
+/* Ejemplo 6 - Bandera [a-z] Buscar rango de letras en el orden del abacedario, buscar desde esta letra hasta este otra letra
+https://youtu.be/aPkBloR9MEI?si=3QOCE_Hw_wWzAoPp */
+
+const string5 = 'lorem lorem';
+//                ↑
+
+const expReg6 = /[m-z]/;
+
+console.log(
+  expReg4.test(string5),
+);
+// true
+
+console.log(
+  expReg6.exec(string5),
+);
+// [ 'o', index: 1, input: 'lorem 0 lorem', groups: undefined ]
+
+/* --------------------------------------------------- */
+
+/* Ejemplo 7 - Bandera {inicio,fin} Rango de repeticiones de un caracter - ¿El caracter se repite N veces?
+https://youtu.be/aPkBloR9MEI?si=3QOCE_Hw_wWzAoPp */
+
+const string6 = 'lorem lorem';
+
+// true porq 'lorem' se remite AL MENOS una vez
+let expReg7 = /lorem{1}/ig;
+console.log(
+  expReg7.test(string6),
+);
+// true
+
+// {3,4} false porque 'lorem' NO se repite ENTRE 3 y 4 veces
+expReg7 = /lorem{3,4}/ig;
+
+console.log(
+  expReg7.test(string6),
+);
+// false
