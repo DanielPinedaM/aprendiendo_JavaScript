@@ -187,17 +187,15 @@ concatenando (uniendo) los cuadrados con un triangulo '■▲' */
  ▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://youtu.be/fCvuOyVXUUQ
 
-En el array1 original (existente) hay 3 cuadrados
+1) En el array1 original (existente) hay 3 cuadrados
 y un circulo ['■', '■', '■', '●']
 pero despues de ejecutar .filter()
 se crea un nuevo array2
 q solamente copia los cuadrados '■' del array1
-y ELIMINA las otras figuras q NO son cuadrados 
+y ELIMINA las otras figuras q NO son cuadrados */
 
-1) */
-
-['■', '■', '■', '●'].filter((elemento) => elemento === '■');
-// (3) ['■', '■', '■']
+ ['■', '■', '■', '●'].filter((elemento) => elemento === '■'); // (3) ['■', '■', '■']
+// ↑    ↑    ↑
 
 /* 2) Los elementos q son falsy tienen un comentario con una flecha hacia arriba ↑,
 y los truthy NO tienen flecha */
