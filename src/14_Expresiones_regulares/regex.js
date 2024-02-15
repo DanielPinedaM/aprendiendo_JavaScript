@@ -12,8 +12,8 @@ IMPORTANTE:
 NO tienes q aprender esto,
 si necesitas una expresion regular googleala
 
-Tutorial - Jon Mircha:
-https://youtu.be/aPkBloR9MEI?si=3QOCE_Hw_wWzAoPp
+Curso de Expresiones Regulares de hdleon
+https://youtu.be/de_7k4SHEO0?si=86W6-zl82adkY9le
 
 Documentación Oficial...
 - Expresiones Regulares
@@ -78,8 +78,6 @@ const string = 'LOREM ipsum, doloremque';
 //                             ↑
 
 /*
-Sintaxis:
-
 buscar exactamente los caracteres 'lorem',
 distingue entre mayusculas y minusculas
 
@@ -103,9 +101,12 @@ exec() devuelve:
 
 * index: 16 numero de indice donde empieza el caracter buscado
 
-* input: 'LOREM ipsum, do lorem que' string a evaluar
+* input: 'LOREM ipsum, do loremque' string a evaluar
 
-* groups Un null objeto prototipo de grupos de captura con nombre, cuyas claves son los nombres y los valores son los grupos de captura, o undefined si no se definieron grupos de captura con nombre.
+* groups Un null objeto prototipo de grupos de captura con nombre,
+cuyas claves son los nombres
+y los valores son los grupos de captura,
+o undefined si no se definieron grupos de captura con nombre.
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences */
 console.log(
   expReg2.exec(string),
@@ -169,7 +170,7 @@ console.log(
 
 /* --------------------------------------------------- */
 
-/* Ejemplo 6 - Bandera [a-z] Buscar rango de letras en el orden del abacedario, buscar desde esta letra hasta este otra letra
+/* Ejemplo 6 - Bandera [a-z] Buscar rango de letras en el orden del abecedario, buscar desde esta letra hasta este otra letra
 https://youtu.be/aPkBloR9MEI?si=3QOCE_Hw_wWzAoPp */
 
 const string5 = 'lorem lorem';
