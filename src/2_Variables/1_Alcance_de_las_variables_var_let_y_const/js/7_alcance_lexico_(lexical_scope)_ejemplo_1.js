@@ -1,3 +1,7 @@
+/* eslint-disable no-constant-condition */
+
+/* --------------------------------------------------------------- */
+
 /*
 Alcance Léxico (Lexical Scope)
 El alcance de la función interna
@@ -7,19 +11,14 @@ En otras palabras:
 Si defino unas variables dentro de la función externa
 puedo acceder a esas variables
 dentro de cualquier par de llaves {...}
-q estén dentro de la función externa
-*/
+q estén dentro de la función externa */
 
-/* eslint-disable no-constant-condition */
+/* --------------------------------------------------------------- */
 
-console.log('\n****** 6_alcance_lexico_(lexical_scope).js ******');
-
-/*
-Ejemplo 1 - Funciones Anidadas:
+/* Ejemplo 1 - Funciones Anidadas:
 
 Dmitri Pavlutin - Alcance de Funciones Anidadas:
-https://dmitripavlutin.com/javascript-scope/#7-lexical-scope
-*/
+https://dmitripavlutin.com/javascript-scope/#7-lexical-scope */
 
 function funcionExterna() { /* alcance EXTERNO */
   const variableExterna = 'variable definida en funcion EXTERNA';
