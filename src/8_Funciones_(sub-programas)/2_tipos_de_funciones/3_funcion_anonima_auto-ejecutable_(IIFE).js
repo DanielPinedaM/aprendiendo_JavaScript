@@ -1,3 +1,6 @@
+/* eslint-disable wrap-iife */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-shadow */
 // @ts-nocheck
 /* eslint-disable max-len */
@@ -42,10 +45,24 @@ Expresion de Funcion Auto-ejecutable
   // …
 })();
 
+((function () {
+  // …
+})());
+
 Funcion flecha auto-ejecutable
 (() => {
   // …
 })();
+
+Unaria
++function () {
+  // ...
+}();
+
+Facebook (Meta)
+!function () {
+  // ...
+}();
 
 Funcion flecha y asincrona auto-ejecutable
 (async () => {
@@ -54,55 +71,7 @@ Funcion flecha y asincrona auto-ejecutable
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 1 - ¿Que es IIFE?
-https://youtu.be/yK_vE6ghox8
-
-NO es una función auto-ejecutable
-porque se tiene que invocar (llamar) para ejecutarse */
-
-const funcionFlecha = () => { console.log('funcionFlecha'); }; // definir funcion
-funcionFlecha();                                               // ejecutar funcion
-// 'funcionFlecha'
-
-/* Sintaxis - Funcion Flecha Auto-ejecutable
-(() => {
-  // ...
-})();  */
-
-(() => {
-  console.log('IIFE');
-})(); // con esto (); se ejecuta
-// 'IIFE'
-
-/* la funcion NO se ejecuta
-cuando NO escribo al final ();
-https://eslint.org/docs/latest/rules/no-unused-expressions */
-
-(() => {
-  console.log('IIFE');
-});
-
-/* --------------------------------------------------------------- */
-
-/* Ejemplo 2 */
-
-// INCOMPLETO
-(() => {
-  console.log('');
-})([]);
-
-/* --------------------------------------------------------------- */
-
-/* Ejemplo 3 */
-
-// INCOMPLETO
-(() => {
-  console.log('');
-})([1, 2, 3]);
-
-/* --------------------------------------------------------------- */
-
-/* Ejemplo 4 - Sintaxis - Expresion de Funcion Auto-ejecutable
+/* Ejemplo 1 - Sintaxis - Expresion de Funcion Auto-ejecutable
 https://developer.mozilla.org/en-US/docs/Glossary/IIFE
 
 (function () {
@@ -111,19 +80,142 @@ https://developer.mozilla.org/en-US/docs/Glossary/IIFE
 
 (function () {
   console.log('hola mundo');
+  // 'hola mundo'
 }());
-// 'hola mundo'
+
+/*
+((function () {
+  // …
+})()); */
+
+((function () {
+  console.log('hola mundo');
+  // 'hola mundo'
+})());
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 5 - Sintaxis - Funcion flecha y asincrona auto-ejecutable
+/* Ejemplo 2 - Funcion unaria auto-ejecutable
+https://youtu.be/gbHr5qJjLRg?si=fWgnIvgil8LGwPIJ
+
++function () {
+  // ...
+}(); */
+
++function () {
+  console.log('hola mundo');
+  // 'hola mundo'
+}();
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 3 - Sintaxis de Facebook (Meta) de funcion auto-ejecutable
+https://youtu.be/gbHr5qJjLRg?si=fWgnIvgil8LGwPIJ
+
+!function () {
+  // ...
+}(); */
+
+!function () {
+  console.log('hola mundo');
+  // 'hola mundo'
+}();
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 4
+¿Para q usar funcion auto-ejecutable?
+1) top-level await:
+En versiones antiguas de navegadores y NodeJS
+async await da eror cuando NO se usa con funciones
+https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8 */
+
+const response = await fetch('https://pokeapi.co/api/v2/ability/?limit=2');
+const data = await response.json();
+console.log(data);
+/*
+❌ SyntaxError: await solo es válido en funciones asíncronas y los cuerpos de nivel superior de los módulos
+Sugerencia: puede habilitar la espera de nivel superior desde la configuración avanzada */
+
+/*
+✔️ SOLUCION:
+
+Sintaxis de Funcion flecha y asincrona auto-ejecutable
 (async () => {
   // …
 })(); */
 
+(async () => {
+  try {
+    const url = 'https://pokeapi.co/api/v2/ability/?limit=2';
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+  /*
+  {
+    count: 367,
+    next: 'https://pokeapi.co/api/v2/ability/?offset=2&limit=2',
+    previous: null,
+    results: [
+      {
+        name: 'stench',
+        url: 'https://pokeapi.co/api/v2/ability/1/'
+      },
+      {
+        name: 'drizzle',
+        url: 'https://pokeapi.co/api/v2/ability/2/'
+      }
+    ]
+  }
+  */
+  } catch (error) {
+    console.error(error);
+  }
+})();
+
 /* --------------------------------------------------------------- */
 
-// Ejemplo 6 - scope de funcion auto-ejecutable
+/* Ejemplo 5
+https://youtu.be/yK_vE6ghox8
+
+¿Para q usar funcion auto-ejecutable?
+2) Por rendimiento,
+solo debes crear funciones flecha o funciones regulares para re-utilizar codigo,
+no tiene sentido crear una funcion y llamarla instantaneamente
+
+Esto ayuda a no bloquear el hilo de ejecucion (Call Stack) de JS
+
+Recordatorio:
+Ver:
+- " 1.11.6) Pila de Contextos de Ejecución (Execution Context Stack / Call Stack) " */
+
+/* ❌ MALA PRACTICA
+NO es una función auto-ejecutable
+porque se tiene que invocar (llamar) para ejecutarse */
+
+const saludar = () => { // definir funcion
+  console.log('hola mundo');
+};
+saludar(); // ejecutar funcion
+// 'hola mundo'
+
+/* ✔️ BUENA PRACTICA
+
+Sintaxis - Funcion Flecha Auto-ejecutable
+(() => {
+  // ...
+})();  */
+(() => {
+  console.log('hola mundo');
+  // 'hola mundo'
+})();
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 6
+¿Para q usar funcion auto-ejecutable?
+3) Para crear un nuevo scope (alcance) */
+
 // https://youtu.be/yK_vE6ghox8
 
 // Recordatorio:
@@ -178,12 +270,7 @@ console.log(numero4);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 9
-https://youtu.be/yK_vE6ghox8 */
-
-/* --------------------------------------------------------------- */
-
-// Ejemplo 10
+// Ejemplo 9
 
 (() => {
   const a = 1;
@@ -201,11 +288,11 @@ https://youtu.be/yK_vE6ghox8 */
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 11
+/* Ejemplo 10
 Las Funciones Auto-ejecutables son anonimas porque
 NO tienen un nombre de funcion
 
-ERROR:
+❌ ERROR:
 A una funcion auto-ejecutable:
 1) NO se le puede dar un nombre */
 
@@ -216,3 +303,117 @@ A una funcion auto-ejecutable:
 // 2) NO se puede acceder al nombre de la funcion
 nombreFuncion();
 // ❌ Uncaught ReferenceError: nombreFuncion is not defined
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 11
+❌ ERROR
+La funcion NO se ejecuta
+cuando NO escribo al final ();
+https://eslint.org/docs/latest/rules/no-unused-expressions */
+
+(() => {
+  console.log('IIFE');
+});
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 12
+https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8
+
+https://developer.mozilla.org/en-US/docs/Web/API/Window
+
+https://developer.mozilla.org/en-US/docs/Web/API/Document
+
+https://developer.mozilla.org/en-US/docs/Web/API/console
+
+Guardar los objetos del navegador en los parametros de una funcion auto-ejecutable
+
+Esto lo usa JQuery */
+
+((w, d, c) => {
+  console.log(c); // console {debug: ƒ, error: ƒ, info: ƒ, log: ƒ, warn: ƒ, ...}
+
+  c.log(w); // Window {window: Window, self: Window, document: document, name: '', location: Location, ...}
+  c.log(d); // #document (about:blank)
+})(window, document, console);
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 13 - Parametros de funcion auto-ejecutable
+https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8 */
+
+((arrayVacio, array, objetoLiteral, string, numero, nulo, indefinido, noEsUnNumero) => {
+  console.log(arrayVacio);    // []
+  console.log(array);         // (3) [ 1, 2, 3 ]
+  console.log(objetoLiteral); // { uno: 1 }
+  console.log(string);        // 'hola mundo'
+  console.log(numero);        // 9999
+  console.log(nulo);          // null
+  console.log(indefinido);    // undefined
+  console.log(noEsUnNumero);  // NaN
+})([], [1, 2, 3], { uno: 1 }, 'hola mundo', 9999, null, undefined, NaN);
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 14 - ...rest operator en funcion auto-ejecutable
+https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8
+
+Recordatorio:
+Ver:
+"  5.7.1) ... Diferencias y Similitudes Entre Parametros Rest (Rest Parameters) y Sintaxis Extendida (Operador Spread, Spread Operator)  " */
+
+((...rest) => {
+  console.log(rest);
+  //
+})([], [1, 2, 3], { uno: 1 }, 'hola mundo', 9999, null, undefined, NaN);
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 15 - Re-asignar parametro de funcion auto-ejecutable
+https://eslint.org/docs/latest/rules/no-param-reassign */
+
+((numero) => {
+  console.log(numero); // 1
+
+  numero = 2;
+
+  console.log(numero); // 2
+})(1);
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 16 - .push() en funcion auto-ejecutable
+Recordatorio:
+Ver:
+" 9.4.3.3.10) Agregar Nuevo Elemento al .unshift() PRINCIPIO y .push() FINAL del Array y Devolver la Nueva Longitud .length del Array " */
+
+((array) => {
+  console.log(array);
+  // []
+
+  for (let i = 1; i < 4; i++) {
+    array.push(i);
+    console.log(array);
+  /* [ 1 ]
+     (2) [ 1, 2 ]
+     (3) [ 1, 2, 3 ] */
+  }
+
+  console.log(array);
+  // (3) [ 1, 2, 3 ]
+})([]);
+
+/* Ejemplo 17
+https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8
+
+https://eslint.org/docs/latest/rules/func-call-spacing */
+
+const saludar2 = () => {
+  console.log('hola mundo');
+};
+saludar2() // ❌ ERROR: aqui falta punto y coma
+
+(() => {
+  console.log('IIFE');
+})();
