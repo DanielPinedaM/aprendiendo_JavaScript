@@ -124,11 +124,16 @@ https://youtu.be/gbHr5qJjLRg?si=fWgnIvgil8LGwPIJ
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 4
+https://developer.mozilla.org/en-US/docs/Glossary/IIFE#execute_an_async_function
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await#top_level_await
+
+https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8
+
 ¿Para q usar funcion auto-ejecutable?
 1) top-level await:
 En versiones antiguas de navegadores y NodeJS
-async await da eror cuando NO se usa con funciones
-https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8 */
+async await da eror cuando NO se usa con funciones */
 
 const response = await fetch('https://pokeapi.co/api/v2/ability/?limit=2');
 const data = await response.json();
@@ -213,13 +218,16 @@ Sintaxis - Funcion Flecha Auto-ejecutable
 /* --------------------------------------------------------------- */
 
 /* Ejemplo 6
+https://youtu.be/yK_vE6ghox8
+
+https://developer.mozilla.org/en-US/docs/Glossary/IIFE#avoid_polluting_the_global_namespace
+
+Recordatorio:
+Ver:
+" 4.2.1.2) Alcance de Bloque (Variable Local) (Block Scope) "
+
 ¿Para q usar funcion auto-ejecutable?
 3) Para crear un nuevo scope (alcance) */
-
-// https://youtu.be/yK_vE6ghox8
-
-// Recordatorio:
-// Ver: " 4.2.1.2) Alcance de Bloque (Variable Local) (Block Scope) "
 
 // Puedo tener dos variables numero con el mismo nombre
 // porque con el par de llaves {/*...*/}
@@ -237,7 +245,17 @@ console.log(numero);
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 7 - scope de funcion auto-ejecutable
+/* Ejemplo 7
+https://developer.mozilla.org/en-US/docs/Glossary/IIFE#the_module_pattern
+
+¿Para q usar funcion auto-ejecutable?
+4) Para crear variables y métodos públicos y privados */
+
+// INCOMPLETO
+
+/* --------------------------------------------------------------- */
+
+// Ejemplo 8 - scope de funcion auto-ejecutable
 // https://youtu.be/yK_vE6ghox8
 
 (() => {
@@ -254,7 +272,7 @@ console.log(numero3);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 8
+/* Ejemplo 9
 https://youtu.be/yK_vE6ghox8 */
 
 // Definir variable numero3 FUERA del scope {/*...*/} de la funcion auto-ejecutable
@@ -270,7 +288,7 @@ console.log(numero4);
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 9
+// Ejemplo 10
 
 (() => {
   const a = 1;
@@ -288,7 +306,7 @@ console.log(numero4);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 10
+/* Ejemplo 11
 Las Funciones Auto-ejecutables son anonimas porque
 NO tienen un nombre de funcion
 
@@ -306,7 +324,7 @@ nombreFuncion();
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 11
+/* Ejemplo 12
 ❌ ERROR
 La funcion NO se ejecuta
 cuando NO escribo al final ();
@@ -318,7 +336,7 @@ https://eslint.org/docs/latest/rules/no-unused-expressions */
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 12
+/* Ejemplo 13
 https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8
 
 https://developer.mozilla.org/en-US/docs/Web/API/Window
@@ -340,7 +358,7 @@ Esto lo usa JQuery */
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 13 - Parametros de funcion auto-ejecutable
+/* Ejemplo 14 - Parametros de funcion auto-ejecutable
 https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8 */
 
 ((arrayVacio, array, objetoLiteral, string, numero, nulo, indefinido, noEsUnNumero) => {
@@ -356,7 +374,7 @@ https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8 */
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 14 - ...rest operator en funcion auto-ejecutable
+/* Ejemplo 15 - ...rest operator en funcion auto-ejecutable
 https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8
 
 Recordatorio:
@@ -370,7 +388,7 @@ Ver:
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 15 - Re-asignar parametro de funcion auto-ejecutable
+/* Ejemplo 16 - Re-asignar parametro de funcion auto-ejecutable
 https://eslint.org/docs/latest/rules/no-param-reassign */
 
 ((numero) => {
@@ -383,7 +401,7 @@ https://eslint.org/docs/latest/rules/no-param-reassign */
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 16 - .push() en funcion auto-ejecutable
+/* Ejemplo 17 - .push() en funcion auto-ejecutable
 Recordatorio:
 Ver:
 " 9.4.3.3.10) Agregar Nuevo Elemento al .unshift() PRINCIPIO y .push() FINAL del Array y Devolver la Nueva Longitud .length del Array " */
@@ -404,7 +422,7 @@ Ver:
   // (3) [ 1, 2, 3 ]
 })([]);
 
-/* Ejemplo 17
+/* Ejemplo 18
 https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8
 
 https://eslint.org/docs/latest/rules/func-call-spacing */
