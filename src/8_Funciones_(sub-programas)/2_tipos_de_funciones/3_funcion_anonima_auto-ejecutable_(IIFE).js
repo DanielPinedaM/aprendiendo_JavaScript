@@ -1,3 +1,5 @@
+/* eslint-disable no-multiple-empty-lines */
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable wrap-iife */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-param-reassign */
@@ -249,9 +251,58 @@ console.log(numero);
 https://developer.mozilla.org/en-US/docs/Glossary/IIFE#the_module_pattern
 
 ¿Para q usar funcion auto-ejecutable?
-4) Para crear variables y métodos públicos y privados */
+4) Para crear variables y métodos públicos y privados
 
-// INCOMPLETO
+Elevar un numero por si mismo. Ejemplo: 2^2 */
+
+const potenciacion = (num1) =>
+  ((num2) => {
+    console.log(num1);
+    // 2
+    // 10
+
+    console.log(num2);
+    // 2
+    // 10
+
+    const resultado = num1 * num2;
+    console.log(resultado);
+    // 4
+    // 10
+
+    const saludar = () => {
+      console.log('hola mundo');
+    };
+    saludar();
+
+    const string = `${num1}^${num2} = ${num1}*${num2} = ${resultado} →`;
+
+    return {
+      getResult() {
+        if (resultado > 5) {
+          return `${string} > 5 → mayor a 5`;
+        }
+
+        return `${string} <= 5 → menor o igual a 5`;
+      },
+    };
+  })(num1);
+
+const primerNumero = potenciacion(2);
+console.log(primerNumero);
+// { getResult: ƒ getResult() }
+
+console.log(primerNumero.getResult());
+/*
+'hola mundo'
+'2^2 = 2*2 = 4 → <= 5 → menor o igual a 5' */
+
+
+const segundoNumero = potenciacion(10);
+console.log(segundoNumero);
+// { getResult: ƒ getResult() }
+console.log(segundoNumero.getResult());
+// '10^10 = 10*10 = 100 → > 5 → mayor a 5'
 
 /* --------------------------------------------------------------- */
 
@@ -264,9 +315,9 @@ https://developer.mozilla.org/en-US/docs/Glossary/IIFE#the_module_pattern
   // 2
 })();
 
-// ❌ ERROR
-// numero3 solamente se puede usar donde esta definido
-// dentro del par de llaves {} de la funcion auto-ejecutable
+/* ❌ ERROR
+numero3 solamente se puede usar donde esta definido
+dentro del par de llaves {} de la funcion auto-ejecutable */
 console.log(numero3);
 // ReferenceError: numero2 is not defined
 
@@ -383,7 +434,18 @@ Ver:
 
 ((...rest) => {
   console.log(rest);
-  //
+  /*
+  [
+     [],
+     [ 1, 2, 3 ],
+     { uno: 1 },
+     'hola mundo',
+     9999,
+     null,
+     undefined,
+     NaN
+  ]
+  */
 })([], [1, 2, 3], { uno: 1 }, 'hola mundo', 9999, null, undefined, NaN);
 
 /* --------------------------------------------------------------- */
