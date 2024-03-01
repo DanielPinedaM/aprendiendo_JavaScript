@@ -214,8 +214,7 @@ console.log(truthy);
 // (12) [ ' ', 'hola mundo', 1, '1', true, 'true', '0', 'false', Infinity, 999, {}, [] ]
 
 // 3) Array vacio [] significa q el elemento triangulo '▲' NO existe en el array
-['■', '■', '■', '■'].filter((elemento) => elemento === '▲'); 
-// []
+['■', '■', '■', '■'].filter((elemento) => elemento === '▲'); // []
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -266,8 +265,7 @@ PRIMER elemento q es un circulo '●'  */
 //     ↑
 
 // undefined significa q el elemento triangulo '▲' NO existe en el array
-['■', '■', '■', '■'].find((elemento) => elemento === '▲');
-// undefined
+['■', '■', '■', '■'].find((elemento) => elemento === '▲'); // undefined
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -282,8 +280,8 @@ https://www.youtube.com/watch?v=TvVgkM3LEac&t=119s
 //                 ↑
 
 // undefined significa q el elemento triangulo '▲' NO existe en el array
-['■', '●', '■', '●'].findLast((elemento) => elemento === '▲');
 
+['■', '■', '■', '■'].findLast((elemento) => elemento === '▲'); // undefined
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -351,8 +349,7 @@ ULTIMO numero de posicion (indice) del circulo '●' */
 //                 ↑
 
 // -1 significa q el elemento triangulo '▲' NO existe en el array
-
-['■', '■', '■', '■'].findLastIndex((elemento) => elemento === '▲');   // -1
+['■', '■', '■', '■'].findLastIndex((elemento) => elemento === '▲'); // -1
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄
@@ -394,8 +391,7 @@ Buscar ELEMENTOS en cualquier parte de un array
 //     ↑
 
 // false significa q el elemento triangulo '▲' NO existe en el array
-['■', '●', '■', '■'].includes('▲');
-// false
+['■', '■', '■', '■'].includes('▲'); // false
 
 /* Buscar el circulo '●' A PARTIR de la posicion (indice) 1 hacia adelante (1, 2, 3),
 devuelve true porq en el array ['■', '●', '■', '■']
@@ -969,9 +965,6 @@ Reemplazar por circulo '●'...
   ['■', '■', '■', '■'].fill('●', -1); // (4) ['■', '■', '■', '●']
 // -4   -3   -2   -1
 //                 ↑
-
-// undefined significa q el elemento triangulo '▲' NO existe en el array
-['■', '●', '■', '●'].find((elemento) => elemento === '▲'); // undefined
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄
