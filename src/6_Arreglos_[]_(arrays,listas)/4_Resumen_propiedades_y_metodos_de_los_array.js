@@ -213,10 +213,8 @@ de q NO elimina los espacios en blanco " " */
 console.log(truthy);
 // (12) [ ' ', 'hola mundo', 1, '1', true, 'true', '0', 'false', Infinity, 999, {}, [] ]
 
-/* 3) .filter() devuelve un array vacio [] cuando NO encuentra el elemento
-en array ['■', '■', '■', '●'] NO esta el '▲' */
-
-['■', '■', '■', '●'].filter((elemento) => elemento === '▲');
+// 3) Array vacio [] significa q el elemento triangulo '▲' NO existe en el array
+['■', '■', '■', '■'].filter((elemento) => elemento === '▲'); 
 // []
 
 /*
@@ -267,6 +265,10 @@ PRIMER elemento q es un circulo '●'  */
 ['■', '●', '■', '●'].find((elemento) => elemento === '●'); // '●'
 //     ↑
 
+// undefined significa q el elemento triangulo '▲' NO existe en el array
+['■', '■', '■', '■'].find((elemento) => elemento === '▲');
+// undefined
+
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .findLast() █
@@ -280,7 +282,8 @@ https://www.youtube.com/watch?v=TvVgkM3LEac&t=119s
 //                 ↑
 
 // undefined significa q el elemento triangulo '▲' NO existe en el array
-['■', '●', '■', '●'].findLast((elemento) => elemento === '▲'); // undefined
+['■', '●', '■', '●'].findLast((elemento) => elemento === '▲');
+
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -298,7 +301,7 @@ Posicion del PRIMER circulo '●' */
 //       ↑
 
 // -1 significa q el elemento triangulo '▲' NO existe en el array
-['■', '●', '■', '●'].indexOf('▲'); // -1
+['■', '■', '■', '■'].indexOf('▲'); // -1
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -314,7 +317,7 @@ PRIMER numero de posicion (indice) del circulo '●' */
 //       ↑
 
 // -1 significa q el elemento triangulo '▲' NO existe en el array
-['■', '●', '■', '●'].findIndex((elemento) => elemento === '▲'); // -1
+['■', '■', '■', '■'].findIndex((elemento) => elemento === '▲'); // -1
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -332,7 +335,7 @@ ULTIMO numero de posicion (indice) del circulo '●' */
 //                 ↑
 
 // -1 significa q el elemento triangulo '▲' NO existe en el array
-['■', '●', '■', '●'].lastIndexOf('▲'); // -1
+['■', '■', '■', '■'].lastIndexOf('▲'); // -1
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -348,7 +351,8 @@ ULTIMO numero de posicion (indice) del circulo '●' */
 //                 ↑
 
 // -1 significa q el elemento triangulo '▲' NO existe en el array
-['■', '●', '■', '●'].findLastIndex((elemento) => elemento === '▲');   // -1
+
+['■', '■', '■', '■'].findLastIndex((elemento) => elemento === '▲');   // -1
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄
@@ -1007,21 +1011,21 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop */
 
-let array = [1, 2, 3, 4, 5];
+let array3 = [1, 2, 3, 4, 5];
 //           ↑           ↑
 //    .shift()      .pop()
 
 // Eliminar y devolver el .shift() PRIMER
-const primero = array.shift();
+const primero = array3.shift();
 console.log(primero); // 1
-console.log(array);   // (4) [2, 3, 4, 5]
+console.log(array3);  // (4) [2, 3, 4, 5]
 
 // y .pop() ULTIMO elemento del array
-array = [1, 2, 3, 4, 5];
+array3 = [1, 2, 3, 4, 5];
 
-const ultimo = array.pop();
+const ultimo = array3.pop();
 console.log(ultimo);  // 5
-console.log(array);   // (4) [1, 2, 3, 4]
+console.log(array3);   // (4) [1, 2, 3, 4]
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -1060,23 +1064,41 @@ console.log(push);            // 4
 console.log(circulos);        // (4) ['❤️', '●', '●', '❤️']
 
 /*
- ▄▄▄▄▄▄▄▄▄
- █ []    █
- █ .at() █
- ▀▀▀▀▀▀▀▀▀
+ ▄▄▄▄▄▄▄▄▄▄▄
+ █ []      █
+ █ .at()   █
+ █ .length █
+ ▀▀▀▀▀▀▀▀▀▀▀
 https://youtu.be/gSSjhChWYK4
 
-Obtener (acceder) en especifico a un ELEMENTO q se encuentra en una posicion (indice)
+Obtener (acceder) en especifico a un ELEMENTO q se encuentra en una posicion (indice) */
 
-0 PRIMER elemento */
-  ['▲', '●', '✖', '■'][0];        // '▲' -> string
+const array4 = ['▲', '●', '✖', '■'];
+
+// 0 PRIMER elemento
+// ['▲', '●', '✖', '■']
 //  0    1    2    3
 //  ↑
+array4[0];    // '▲'
+array4.at(0); // '▲'
 
 // -1 ULTIMO elemento
-   ['▲', '●', '✖', '■'].at(-1);    // '■'   -> string
-   ['▲', '●', '✖', '■'].slice(-1); // ['■'] -> array
+// ['▲', '●', '✖', '■']
 //  -4   -3   -2    -1  -> Indices negativos
+//                  ↑
+array4.at(-1);             // '■'   -> string
+
+array4[array4.length - 1]; // '■'   -> string
+
+array4.slice(-1);          // ['■'] -> array
+array4.slice(-1)[0];       // '■'   -> string
+
+// -2 PENÚLTIMO elemento
+// ['▲', '●', '✖', '■']
+//  -4   -3   -2    -1  -> Indices negativos
+//            ↑
+array4.at(-2);             // '✖'
+array4[array4.length - 2]; // '✖'
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄
