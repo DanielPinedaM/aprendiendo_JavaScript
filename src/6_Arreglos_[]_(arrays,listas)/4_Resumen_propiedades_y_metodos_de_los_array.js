@@ -280,7 +280,6 @@ https://www.youtube.com/watch?v=TvVgkM3LEac&t=119s
 //                 ↑
 
 // undefined significa q el elemento triangulo '▲' NO existe en el array
-
 ['■', '■', '■', '■'].findLast((elemento) => elemento === '▲'); // undefined
 
 /*
