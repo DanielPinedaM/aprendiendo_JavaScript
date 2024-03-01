@@ -140,14 +140,13 @@ async await da eror cuando NO se usa con funciones */
 const response = await fetch('https://pokeapi.co/api/v2/ability/?limit=2');
 const data = await response.json();
 console.log(data);
-/*
-❌ SyntaxError: await solo es válido en funciones asíncronas y los cuerpos de nivel superior de los módulos
-Sugerencia: puede habilitar la espera de nivel superior desde la configuración avanzada */
+// ❌ SyntaxError: await solo es válido en funciones asíncronas y los cuerpos de nivel superior de los módulos
+// Sugerencia: puede habilitar la espera de nivel superior desde la configuración avanzada
 
 /*
 ✔️ SOLUCION:
 
-Sintaxis de Funcion flecha y asincrona auto-ejecutable
+Sintaxis de funcion flecha y asincrona auto-ejecutable
 (async () => {
   // …
 })(); */
@@ -194,9 +193,9 @@ Esto ayuda a no bloquear el hilo de ejecucion (Call Stack) de JS
 
 Recordatorio:
 Ver:
-- " 1.11.6) Pila de Contextos de Ejecución (Execution Context Stack / Call Stack) " */
+- " 1.11.6) Pila de Contextos de Ejecución (Execution Context Stack / Call Stack) "
 
-/* ❌ MALA PRACTICA
+❌ MALA PRACTICA
 NO es una función auto-ejecutable
 porque se tiene que invocar (llamar) para ejecutarse */
 
@@ -211,7 +210,7 @@ saludar(); // ejecutar funcion
 Sintaxis - Funcion Flecha Auto-ejecutable
 (() => {
   // ...
-})();  */
+})(); */
 (() => {
   console.log('hola mundo');
   // 'hola mundo'
@@ -366,7 +365,7 @@ A una funcion auto-ejecutable:
 1) NO se le puede dar un nombre */
 
 (function nombreFuncion() {
-  console.log('deeecode');
+  console.log('hola mundo');
 }());
 
 // 2) NO se puede acceder al nombre de la funcion
@@ -403,8 +402,8 @@ Esto lo usa JQuery */
 ((w, d, c) => {
   console.log(c); // console {debug: ƒ, error: ƒ, info: ƒ, log: ƒ, warn: ƒ, ...}
 
-  c.log(w); // Window {window: Window, self: Window, document: document, name: '', location: Location, ...}
-  c.log(d); // #document (about:blank)
+  c.log(w);       // Window {window: Window, self: Window, document: document, name: '', location: Location, ...}
+  c.log(d);       // #document (about:blank)
 })(window, document, console);
 
 /* --------------------------------------------------------------- */
@@ -430,7 +429,7 @@ https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8
 
 Recordatorio:
 Ver:
-"  5.7.1) ... Diferencias y Similitudes Entre Parametros Rest (Rest Parameters) y Sintaxis Extendida (Operador Spread, Spread Operator)  " */
+"  5.7.1) ... Diferencias y Similitudes Entre Parametros Rest (Rest Parameters) y Sintaxis Extendida (Operador Spread, Spread Operator) " */
 
 ((...rest) => {
   console.log(rest);
@@ -475,14 +474,16 @@ Ver:
   for (let i = 1; i < 4; i++) {
     array.push(i);
     console.log(array);
-  /* [ 1 ]
-     (2) [ 1, 2 ]
-     (3) [ 1, 2, 3 ] */
+    // [ 1 ]
+    // (2) [ 1, 2 ]
+    // (3) [ 1, 2, 3 ]
   }
 
   console.log(array);
   // (3) [ 1, 2, 3 ]
 })([]);
+
+/* --------------------------------------------------------------- */
 
 /* Ejemplo 18
 https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8
@@ -492,7 +493,7 @@ https://eslint.org/docs/latest/rules/func-call-spacing */
 const saludar2 = () => {
   console.log('hola mundo');
 };
-saludar2() // ❌ ERROR: aqui falta punto y coma
+saludar2() // ❌ ERROR: aqui falta punto y coma ;
 
 (() => {
   console.log('IIFE');
