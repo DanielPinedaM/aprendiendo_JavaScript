@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable func-names */
 /* eslint-disable max-len */
 
@@ -15,9 +16,10 @@ Es una funcion q NO tiene nombre */
 /* Ejemplo 1
 https://www.youtube.com/watch?v=lVqHiTCIRQg&t=1948s
 
-https://eslint.org/docs/latest/rules/func-names */
+https://eslint.org/docs/latest/rules/func-names
 
-// cuando la funcion SI tiene un nombre
+cuando la funcion SI tiene un nombre */
+
 function nombreFuncion1() {
   return 'hola mundo';
 }
@@ -34,6 +36,19 @@ console.log(
 );
 // 'hola mundo'
 
+/*
+Sintaxis - Declaracion de Funcion Auto-ejecutable
+(function () {
+  // …
+  return 'opcional, valor de retorno'
+})();
+
+((function () {
+  // …
+  return 'opcional, valor de retorno'
+})());
+*/
+
 console.log(
   (function () {
     return 'hola mundo';
@@ -43,7 +58,7 @@ console.log(
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 2:
+/* Ejemplo 2
 
 Recordatorio:
 Ver:
@@ -51,13 +66,32 @@ Ver:
 
 Todas las funciones auto-ejecutables son anonimas */
 
-(() => {
-  console.log('hola mundo');
-})();
+alert(
+  ((nombre) => `hola ${nombre}`)('daniel'),
+);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 3 - onClick y Funcion Anonima
+/* Ejemplo 3 - Expresion de funcion anonima
+
+Recordatorio:
+Ver:
+" 12.4.1) Diferencia Entre Declaración de Funcion (Function Declaration) y Expresión de Función (Function Expression) " */
+
+const multiplicar = function (a, b) {
+  return a * b; // 2*2 = 4
+};
+
+// guardar en variable el valor de retorno de la funcion
+const resultado = multiplicar(2, 2);
+console.log(resultado); // 4
+
+// ejecutar directamente
+multiplicar(2, 2);      // 4
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 4 - onClick y Funcion Anonima
 https://www.youtube.com/watch?v=lVqHiTCIRQg&t=1948s */
 
 // crear <button>
@@ -76,7 +110,7 @@ document.body.append(button);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 4 - onClick y Funcion flecha
+/* Ejemplo 5 - onClick y Funcion flecha
 https://www.youtube.com/watch?v=lVqHiTCIRQg&t=1948s
 
 Lo anterior tambien se puede hacer con una funcion q tenga un nombre */
@@ -93,3 +127,12 @@ const funcionNOanonima = () => {
 button2.addEventListener('click', funcionNOanonima);
 
 document.body.append(button2);
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 6 - Funcion anonima y alert()
+https://en.wikipedia.org/wiki/Anonymous_function */
+
+alert((function (x) {
+  return x * x; // 10*10 = 100
+})(10));

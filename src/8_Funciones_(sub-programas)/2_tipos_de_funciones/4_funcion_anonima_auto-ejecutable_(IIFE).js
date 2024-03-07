@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-multiple-empty-lines */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable wrap-iife */
@@ -42,20 +43,28 @@ https://react.dev/reference/react/useEffect
 Sintaxis:
 https://developer.mozilla.org/en-US/docs/Glossary/IIFE
 
-Expresion de Funcion Auto-ejecutable
+Declaracion de Funcion Auto-ejecutable
 (function () {
   // …
+  return 'opcional, valor de retorno'
 })();
 
 ((function () {
   // …
+  return 'opcional, valor de retorno'
 })());
 
 Funcion flecha auto-ejecutable
 (() => {
   // …
+  return 'opcional, valor de retorno'
 })();
+*/
 
+// Funcion flecha en una sola linea y auto-ejecutable
+// (() => /* ... */ )();
+
+/*
 Unaria
 +function () {
   // ...
@@ -69,15 +78,18 @@ Facebook (Meta)
 Funcion flecha y asincrona auto-ejecutable
 (async () => {
   // …
-})(); */
+  return 'opcional, valor de retorno'
+})();
+*/
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 1 - Sintaxis - Expresion de Funcion Auto-ejecutable
+/* Ejemplo 1 - Sintaxis - Declaracion de Funcion Auto-ejecutable
 https://developer.mozilla.org/en-US/docs/Glossary/IIFE
 
 (function () {
   // …
+  return 'opcional, valor de retorno'
 })(); */
 
 (function () {
@@ -85,9 +97,17 @@ https://developer.mozilla.org/en-US/docs/Glossary/IIFE
   // 'hola mundo'
 }());
 
+alert(
+  (function (nombre) {
+    console.log('hola mundo'); // 'hola mundo'
+    return `hola ${nombre}`;   // 'hola Daniel'
+  }('daniel')),
+);
+
 /*
 ((function () {
   // …
+  return 'opcional, valor de retorno'
 })()); */
 
 ((function () {
@@ -95,9 +115,16 @@ https://developer.mozilla.org/en-US/docs/Glossary/IIFE
   // 'hola mundo'
 })());
 
+alert(
+  ((function (nombre) {
+    console.log('hola mundo'); // 'hola mundo'
+    return `hola ${nombre}`;   // 'hola Daniel'
+  })('daniel')),
+);
+
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 2 - Funcion unaria auto-ejecutable
+/* Ejemplo 2 - Sintaxis - Funcion unaria auto-ejecutable
 https://youtu.be/gbHr5qJjLRg?si=fWgnIvgil8LGwPIJ
 
 +function () {
@@ -125,7 +152,35 @@ https://youtu.be/gbHr5qJjLRg?si=fWgnIvgil8LGwPIJ
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 4
+/* Ejemplo 4 - Sintaxis - Funcion flecha auto-ejecutable
+(() => {
+  // …
+  return 'opcional, valor de retorno'
+})(); */
+
+(() => {
+  console.log('hola mundo'); // 'hola mundo'
+})();
+
+alert(
+  ((nombre) => {
+    console.log('hola mundo'); // 'hola mundo'
+    return `hola ${nombre}`;   // 'hola Daniel'
+  })('daniel'),
+);
+
+/* --------------------------------------------------------------- */
+
+// Ejemplo 5 - Sintaxis - Funcion flecha en una sola linea y auto-ejecutable
+// (() => /* ... */ )();
+
+alert(
+  ((nombre) => `hola ${nombre}`)('daniel'), // 'hola Daniel'
+);
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 6
 https://developer.mozilla.org/en-US/docs/Glossary/IIFE#execute_an_async_function
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await#top_level_await
@@ -149,6 +204,7 @@ console.log(data);
 Sintaxis de funcion flecha y asincrona auto-ejecutable
 (async () => {
   // …
+  return 'opcional, valor de retorno'
 })(); */
 
 (async () => {
@@ -157,6 +213,8 @@ Sintaxis de funcion flecha y asincrona auto-ejecutable
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
+
+    return data;
   /*
   {
     count: 367,
@@ -181,7 +239,7 @@ Sintaxis de funcion flecha y asincrona auto-ejecutable
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 5
+/* Ejemplo 7
 https://youtu.be/yK_vE6ghox8
 
 ¿Para q usar funcion auto-ejecutable?
@@ -210,7 +268,9 @@ saludar(); // ejecutar funcion
 Sintaxis - Funcion Flecha Auto-ejecutable
 (() => {
   // ...
+  return “opcional, valor de retorno”
 })(); */
+
 (() => {
   console.log('hola mundo');
   // 'hola mundo'
@@ -218,7 +278,7 @@ Sintaxis - Funcion Flecha Auto-ejecutable
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 6
+/* Ejemplo 8
 https://youtu.be/yK_vE6ghox8
 
 https://developer.mozilla.org/en-US/docs/Glossary/IIFE#avoid_polluting_the_global_namespace
@@ -246,7 +306,7 @@ console.log(numero);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 7
+/* Ejemplo 9
 https://developer.mozilla.org/en-US/docs/Glossary/IIFE#the_module_pattern
 
 ¿Para q usar funcion auto-ejecutable?
@@ -305,7 +365,7 @@ console.log(segundoNumero.getResult());
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 8 - scope de funcion auto-ejecutable
+// Ejemplo 10 - scope de funcion auto-ejecutable
 // https://youtu.be/yK_vE6ghox8
 
 (() => {
@@ -322,7 +382,7 @@ console.log(numero3);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 9
+/* Ejemplo 11
 https://youtu.be/yK_vE6ghox8 */
 
 // Definir variable numero3 FUERA del scope {/*...*/} de la funcion auto-ejecutable
@@ -338,7 +398,7 @@ console.log(numero4);
 
 /* --------------------------------------------------------------- */
 
-// Ejemplo 10
+// Ejemplo 12
 
 (() => {
   const a = 1;
@@ -356,7 +416,7 @@ console.log(numero4);
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 11
+/* Ejemplo 13
 Las Funciones Auto-ejecutables son anonimas porque
 NO tienen un nombre de funcion
 
@@ -374,7 +434,7 @@ nombreFuncion();
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 12
+/* Ejemplo 14
 ❌ ERROR
 La funcion NO se ejecuta
 cuando NO escribo al final ();
@@ -386,7 +446,7 @@ https://eslint.org/docs/latest/rules/no-unused-expressions */
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 13
+/* Ejemplo 15
 https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8
 
 https://developer.mozilla.org/en-US/docs/Web/API/Window
@@ -408,7 +468,7 @@ Esto lo usa JQuery */
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 14 - Parametros de funcion auto-ejecutable
+/* Ejemplo 16 - Parametros de funcion auto-ejecutable
 https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8 */
 
 ((arrayVacio, array, objetoLiteral, string, numero, nulo, indefinido, noEsUnNumero) => {
@@ -424,7 +484,7 @@ https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8 */
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 15 - ...rest operator en funcion auto-ejecutable
+/* Ejemplo 17 - ...rest operator en funcion auto-ejecutable
 https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8
 
 Recordatorio:
@@ -449,7 +509,7 @@ Ver:
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 16 - Re-asignar parametro de funcion auto-ejecutable
+/* Ejemplo 18 - Re-asignar parametro de funcion auto-ejecutable
 https://eslint.org/docs/latest/rules/no-param-reassign */
 
 ((numero) => {
@@ -462,7 +522,7 @@ https://eslint.org/docs/latest/rules/no-param-reassign */
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 17 - .push() en funcion auto-ejecutable
+/* Ejemplo 19 - .push() en funcion auto-ejecutable
 Recordatorio:
 Ver:
 " 9.4.3.3.10) Agregar Nuevo Elemento al .unshift() PRINCIPIO y .push() FINAL del Array y Devolver la Nueva Longitud .length del Array " */
@@ -485,7 +545,7 @@ Ver:
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 18
+/* Ejemplo 20
 https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8
 
 https://eslint.org/docs/latest/rules/func-call-spacing */
