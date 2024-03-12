@@ -1,3 +1,7 @@
+## [Vida MRR - Guía para ser Experto en JavaScript](https://youtu.be/fOWw915GcnU?si=NbsbRWSlLBwdM_cw)
+
+------------
+
 # **Aprendiendo JavaScript**
 
 Código de prueba y ejercicios que escribi mientras aprendia JavaScript.
