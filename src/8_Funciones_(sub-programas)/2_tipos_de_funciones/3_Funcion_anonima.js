@@ -18,7 +18,7 @@ https://www.youtube.com/watch?v=lVqHiTCIRQg&t=1948s
 
 https://eslint.org/docs/latest/rules/func-names
 
-cuando la funcion SI tiene un nombre */
+cuando la funcion SI tiene nombre */
 
 function nombreFuncion1() {
   return 'hola mundo';
@@ -68,6 +68,7 @@ Todas las funciones auto-ejecutables son anonimas */
 
 alert(
   ((nombre) => `hola ${nombre}`)('daniel'),
+  // `hola Daniel`
 );
 
 /* --------------------------------------------------------------- */
@@ -113,7 +114,7 @@ document.body.append(button);
 /* Ejemplo 5 - onClick y Funcion flecha
 https://www.youtube.com/watch?v=lVqHiTCIRQg&t=1948s
 
-Lo anterior tambien se puede hacer con una funcion q tenga un nombre */
+Lo anterior Ejemplo 4 tambien se puede hacer con una funcion q tenga un nombre */
 
 const button2 = document.createElement('button2');
 
@@ -121,7 +122,7 @@ button2.innerText = 'click me';
 
 // Funcion CON nombre
 const funcionNOanonima = () => {
-  alert('hola mundo');
+  alert('has dado click en button');
 };
 
 button2.addEventListener('click', funcionNOanonima);

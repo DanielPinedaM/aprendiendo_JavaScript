@@ -180,17 +180,17 @@ alert(
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 6
-https://developer.mozilla.org/en-US/docs/Glossary/IIFE#execute_an_async_function
+/* Ejemplo 6 - ¿Para q usar función auto-ejecutable? - 1) top-level await:
+En versiones antiguas de navegadores y NodeJS
+async await da eror cuando NO se usa con funciones
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await#top_level_await
+https://youtu.be/E62-MLR0OlE?si=6gxNrQAc88zMzrxm
 
 https://youtu.be/E62-MLR0OlE?si=WdiYA2sO1ouJgtu8
 
-¿Para q usar funcion auto-ejecutable?
-1) top-level await:
-En versiones antiguas de navegadores y NodeJS
-async await da eror cuando NO se usa con funciones */
+https://developer.mozilla.org/en-US/docs/Glossary/IIFE#execute_an_async_function
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await#top_level_await */
 
 const response = await fetch('https://pokeapi.co/api/v2/ability/?limit=2');
 const data = await response.json();
