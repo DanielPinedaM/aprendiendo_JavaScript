@@ -89,7 +89,32 @@ Object [Math] {
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 2 - Números Constantes: Math.PI, Math.E, Math.LN2, Math.LOG2E, Math.LOG10E, Math.SQRT1_2 y Math.SQRT2
+/* Ejemplo 2 - Math.sum() Sumar Todos los Elementos de un Array
+
+ADVERTENCIA ⚠️:
+A la fecha Marzo 2024 esto es experimental,
+la sintaxis puede cambiar
+y en un futuro sera compatible con todos los naveadores
+
+https://twitter.com/midudev/status/1757786324860367026
+
+https://github.com/tc39/proposal-math-sum */
+
+const numeros = [1, 2, 3];
+console.log(numeros);
+// (3) [1, 2, 3]
+
+// Antes
+numeros.reduce((acumulador, elemento) => acumulador + elemento); // 1+2+3 = 6
+// 6
+
+// Nueva forma
+Math.sum(...numeros); // 1+2+3 = 6
+// 6
+
+/* --------------------------------------------------------------- */
+
+/* Ejemplo 3 - Números Constantes: Math.PI, Math.E, Math.LN2, Math.LOG2E, Math.LOG10E, Math.SQRT1_2 y Math.SQRT2
 Son números fijos, que NO cambian
 
 https://en.wikipedia.org/wiki/Mathematical_constant
@@ -142,7 +167,7 @@ console.log(Math.SQRT2);   // 1.4142135623730951
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 3 - Math.abs() valor absoluto de un número, hacer que un número SIEMPRE sea positivo
+/* Ejemplo 4 - Math.abs() valor absoluto de un número, hacer que un número SIEMPRE sea positivo
 https://youtu.be/BGXwssmxGuY
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
@@ -162,7 +187,7 @@ console.log(Math.abs(BigInt(99))); // ❌ Uncaught TypeError: Cannot convert a B
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 4 - Math.ceil() Redondear "hacia ARRIBA", al número entero MAYOR más cercano
+/* Ejemplo 5 - Math.ceil() Redondear "hacia ARRIBA", al número entero MAYOR más cercano
 https://educative.io/answers/mathceil-mathfloor-and-mathround-in-javascript
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil */
@@ -202,7 +227,7 @@ console.log(Math.ceil(-0));           // -0
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 5 - Math.floor() Redondear "hacia ABAJO", al número entero MENOR más cercano
+/* Ejemplo 6 - Math.floor() Redondear "hacia ABAJO", al número entero MENOR más cercano
 https://educative.io/answers/mathceil-mathfloor-and-mathround-in-javascript
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor */
@@ -242,7 +267,7 @@ console.log(Math.floor(-0));           // -0
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 6 - Math.round() Redondear al número ENTERO MAS CERCANO
+/* Ejemplo 7 - Math.round() Redondear al número ENTERO MAS CERCANO
 https://educative.io/answers/mathceil-mathfloor-and-mathround-in-javascript
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round
@@ -285,7 +310,7 @@ console.log(Math.round(-0));           // -0
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 7 - Math.trunc() ELIMINAR todos los decimales de un número, SIN importar si es el número entero mayor o menor más cercano
+/* Ejemplo 8 - Math.trunc() ELIMINAR todos los decimales de un número, SIN importar si es el número entero mayor o menor más cercano
 https://www.educative.io/answers/mathceil-mathfloor-and-mathround-in-javascript
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc */
@@ -325,7 +350,7 @@ console.log(Math.trunc(-0));           // -0
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 8 - Math.sqrt() Raíz cuadrada de un número
+/* Ejemplo 9 - Math.sqrt() Raíz cuadrada de un número
 https://youtu.be/BGXwssmxGuY
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt */
@@ -356,7 +381,7 @@ console.log(Math.sqrt(-Infinity));    // NaN
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 9 - Potenciación - Diferencias y Similitudes Entre Math.pow() y Operador **
+/* Ejemplo 10 - Potenciación - Diferencias y Similitudes Entre Math.pow() y Operador **
 
 Recordatorio:
 Ver:
@@ -447,7 +472,7 @@ console.log(1 ** NaN); // NaN
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 10 - Math.sign() Saber si un número es negativo, cero o positivo
+/* Ejemplo 11 - Math.sign() Saber si un número es negativo, cero o positivo
 https://youtu.be/BGXwssmxGuY
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sign#return_value
@@ -504,7 +529,7 @@ Math.sign(BigInt(999));   // ❌ Uncaught TypeError: Cannot convert a BigInt val
 
 /* --------------------------------------------------------------- */
 
-/* Ejemplo 11 - Math.random() Número Pseudo-aleatorio entre 0 y 1
+/* Ejemplo 12 - Math.random() Número Pseudo-aleatorio entre 0 y 1
 https://youtu.be/BGXwssmxGuY
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random

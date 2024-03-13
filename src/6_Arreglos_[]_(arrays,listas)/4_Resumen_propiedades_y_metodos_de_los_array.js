@@ -234,8 +234,14 @@ en un solo string '▲●✖■' (REDUCIR array)
 ['▲', '●', '✖', '■'].reduce((acumulador, elemento) => acumulador + elemento, '');
 // '▲●✖■'
 
-// Sumar elementos de un array
-[1, 2, 3].reduce((acumulador, elemento) => acumulador + elemento) // 1+2+3 = 6
+// sumar elementos de un array, ANTES
+[1, 2, 3].reduce((acumulador, elemento) => acumulador + elemento); // 1+2+3 = 6
+// 6
+
+// AHORA, experimental ⚠️
+// https://twitter.com/midudev/status/1757786324860367026
+
+Math.sum(...[1, 2, 3]); // 1+2+3 = 6
 // 6
 
 /*

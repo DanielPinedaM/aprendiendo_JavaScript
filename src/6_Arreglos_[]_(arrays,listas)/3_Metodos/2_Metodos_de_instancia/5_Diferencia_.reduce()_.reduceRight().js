@@ -366,6 +366,12 @@ sumar = numeros.reduce((acumulador, elemento) => {
 }, 0);
 console.log(sumar); // 15
 
+/* Nueva sintaxis, EXPERIMENTAL:
+https://twitter.com/midudev/status/1757786324860367026 */
+
+Math.sum(...numeros); // 1+2+3 = 6
+// 6
+
 /* ------------------------------------------------------------ */
 
 /* Ejemplo 5 - Valor Inicial del ÍNDICE:
