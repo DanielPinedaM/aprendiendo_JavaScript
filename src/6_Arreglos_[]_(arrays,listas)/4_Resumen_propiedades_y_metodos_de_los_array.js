@@ -178,6 +178,7 @@ En el array1 original (existente) hay 4 cuadrados ['■', '■', '■', '■']
 pero .map() devuelve una copia array2 en el q se
 MODIFICA CADA UNO de los elementos del array1 original
 concatenando (uniendo) los cuadrados con un triangulo '■▲' */
+
 ['■', '■', '■', '■'].map((elemento) => `${elemento}▲`);
 // (4) ['■▲', '■▲', '■▲', '■▲']
 
