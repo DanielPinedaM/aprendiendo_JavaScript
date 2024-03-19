@@ -1,16 +1,21 @@
+/* eslint-disable no-undef */
+// @ts-nocheck
+
+/* --------------------------------------------------- */
+
 /*
 Importar import y Exportar export - Módulos (Modularización)
 
-Tutorial…
+Tutorial...
 * Fazt - Import y Export en Javascript (ES Modules) - Explicación
-https://youtu.be/0t-Le4kdaMg 
+https://youtu.be/0t-Le4kdaMg
 
-https://www.youtube.com/watch?v=lVqHiTCIRQg&t=3690s 
+https://www.youtube.com/watch?v=lVqHiTCIRQg&t=3690s
 
 * Fazt - De Require a Ecmascript Modules - Actualizando Código
-https://youtu.be/PxvlmtstcSo 
+https://youtu.be/PxvlmtstcSo
 
-- React - import y export 
+- React - import y export
 https://react.dev/learn/importing-and-exporting-components
 
 Documentación Oficial…
@@ -24,11 +29,15 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/imp
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export
 
 - Jon Mircha - Módulos ( import / export )
-https://youtu.be/0GEUyQXe3NI 
+https://youtu.be/0GEUyQXe3NI
 
 - JavaScript Info - Modulos
-https://javascript.info/modules 
+https://javascript.info/modules
 
 - ESLint Airbnb:
-https://airbnb.io/javascript/#modules 
+https://airbnb.io/javascript/#modules
 */
+
+/* --------------------------------------------------------------- */
+
+console.log(secretNumber1);
