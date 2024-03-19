@@ -61,13 +61,38 @@ export const localStorageUpdate = (property: string, value: string | number | nu
   }
 };
 
-/* localStorage - eliminar todas las propiedad: valor */
-export const localStorageClearAll = (): void => {
-  localStorage.clear();
+/* localStorage - eliminar TODAS las propiedad: valor */
+export const localStorageClearAll = (): boolean => {
+  const length: number = localStorage.length;
+
+  if (length > 0) {
+    localStorage.clear();
+    return true;
+  } else {
+    return false;
+  }
 };
 
-/* localStorage - eliminar una sola propiedad: valor en especifico */
-export const localStorageDelete = (property: string): boolean => {
+/* localStorage - eliminar todas las propiedad: valor EXCEPTO una propiedad: valor existente en especifico
+https://stackoverflow.com/questions/27258631/using-localstorage-clear-but-exclude-1-item */
+
+export const localStorageDeleteExcept = (property: string): boolean => {
+  if (!property) return false;
+
+  const value: string | null = localStorageListValue(property);
+  if (value === null) return false;
+
+  const clearAll = localStorageClearAll();
+  if (clearAll) {
+    localStorage.setItem(property, value);
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/* localStorage - eliminar UNA SOLA propiedad: valor en especifico */
+export const localStorageDeleteSpecific = (property: string): boolean => {
   if (!property) return false;
 
   const buscar: boolean = localStorageSearch(property);
