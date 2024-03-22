@@ -36,20 +36,26 @@ import {
   Math,
   multiplicar,
   nombre,
+  obj,
   restar,
   secretNumber2,
   x, y,
 } from './math.js';
 
+import exportDefaultObjetoLiteral from './export_default/objeto_literal.js';
+import exportDefaultCualquierVariable, { array } from './export_default/objeto_q_exporta_cualquier_variable.js';
+
 /* export default se importa SIN {},
 NO necesita as para cambiar nombre de importacion */
-import moduloMath from './math.js'; // export default
+import moduloMath from './math.js'; // 40
+
+import * as todo from './export_default/importar_y_exportar_todo.js'; // export default
 console.log(moduloMath);    // 'modulo math'
 
 /* export se importa CON {} */
 console.log(nombre);        // 'modulo math'
 
-console.log(secretNumber2); // 40
+console.log(secretNumber2);
 
 /* ERROR: no se puede importar y definir el mismo nombre de funcion,
 la solucion a esto es un alias
@@ -99,3 +105,48 @@ console.log(math);
 // ejecutar metodo (funcion) double()
 console.log(math.double(2));
 // 2*2 = 4
+
+console.log(obj);
+/*
+{
+  uno: 1,
+  dos: 2,
+  tres: 3
+}
+*/
+console.log(obj.uno);    // 1
+console.log(obj.dos);    // 2
+console.log(obj.tres);   // 3
+console.log(obj.cuatro); // undefined
+
+console.log(exportDefaultCualquierVariable);
+/*
+{
+  numero: 99,
+  obj: { saludar: 'hola mundo' },
+  restar: (a, b) => a - b,
+  sumar: ƒ sumar(a, b)
+}
+*/
+console.log(exportDefaultCualquierVariable.restar(10, 5)); // 10-5 = 5
+
+console.log(exportDefaultObjetoLiteral);        // { nombre: 'Daniel' }
+console.log(exportDefaultObjetoLiteral.nombre); // 'Daniel'
+
+console.log(array); // (3) [1, 2, 3]
+
+console.log(todo);
+/*
+Module {
+         Symbol(Symbol.toStringTag): 'Module',
+         uno: 1,
+         get uno: ƒ ()
+         set uno: ƒ (),
+
+         dos: 2,
+         get dos: ƒ (),
+         set dos: ƒ ()
+       }
+*/
+console.log(todo.uno); // 1
+console.log(todo.dos); // 2

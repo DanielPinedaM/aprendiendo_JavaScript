@@ -36,3 +36,10 @@ export class Math {
     return number * number
   }
 }
+
+// Objeto Literal
+export const obj = {
+  uno: 1,
+  dos: 2,
+  tres: 3,
+}
