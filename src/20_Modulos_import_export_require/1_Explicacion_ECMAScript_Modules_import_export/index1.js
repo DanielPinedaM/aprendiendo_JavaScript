@@ -7,12 +7,12 @@
 Importar import y Exportar export - Módulos (Modularización)
 
 Tutorial...
-* Fazt - Import y Export en Javascript (ES Modules) - Explicación
+* Fazt - import y export en Javascript (ES Modules) - Explicación
 https://youtu.be/0t-Le4kdaMg
 
 https://www.youtube.com/watch?v=lVqHiTCIRQg&t=3690s
 
-* Fazt - De Require a Ecmascript Modules - Actualizando Código
+* Fazt - De Require a ECMAScript Modules - Actualizando Código
 https://youtu.be/PxvlmtstcSo
 
 - React - import y export
