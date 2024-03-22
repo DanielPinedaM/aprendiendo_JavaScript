@@ -6,6 +6,9 @@
 /*
 Importar import y Exportar export - Módulos (Modularización)
 
+Sirve para organizar el código en archivos,
+importando y exportando funciones, objetos, constantes, clases, etc.
+
 Tutorial...
 * Fazt - import y export en Javascript (ES Modules) - Explicación
 https://youtu.be/0t-Le4kdaMg
