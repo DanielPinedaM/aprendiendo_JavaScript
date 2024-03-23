@@ -4,8 +4,8 @@
 
 // Importar JSON https://examples.deno.land/importing-json 
 
-import archivo from "./data.json" with { type: "json" };
-console.log(archivo);
+import data from "./data.json" with { type: "json" };
+console.log(data);
 /*
 {
   completado: false,
@@ -14,12 +14,7 @@ console.log(archivo);
 }
 */
 
-console.log(archivo.completado);           // false
-console.log(archivo.id);                   // 1
-console.log(archivo.titulo);               // "hola mundo"
-console.log(archivo.propiedadInexistente); // undefined
-
-const module = await import("./data.json", {
-    with: { type: "json" },
-  });
-  console.log(module);
+console.log(data.completado);           // false
+console.log(data.id);                   // 1
+console.log(data.titulo);               // "hola mundo"
+console.log(data.propiedadInexistente); // undefined
