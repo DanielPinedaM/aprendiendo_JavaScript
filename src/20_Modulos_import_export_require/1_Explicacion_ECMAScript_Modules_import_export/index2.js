@@ -53,7 +53,7 @@ import exportDefaultCualquierVariable, { array } from './1_export_default/objeto
 NO necesita as para cambiar nombre de importacion */
 import moduloMath from './math.js'; // 40
 
-import * as todo from './1_export_default/importar_y_exportar_todo.js'; // export default
+import * as todo from './3_importar_y_exportar_todo/math.js';
 console.log(moduloMath);    // 'modulo math'
 
 /* export se importa CON {} */
