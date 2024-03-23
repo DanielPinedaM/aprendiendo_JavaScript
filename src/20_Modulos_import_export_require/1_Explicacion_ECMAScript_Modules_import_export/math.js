@@ -18,6 +18,9 @@ export default nombre;
 // exportar varias variables
 export let x = 30, y = 100;
 
+export const array2 = [1, 2, 3];        // array []
+export const [uno, dos, tres] = array2; // desestructuracion de array const [a, b] = array;
+
 // funcion flecha
 export const restar = (a, b) => a - b;
 export const sumar = (a, b) => a + b;

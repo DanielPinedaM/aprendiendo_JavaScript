@@ -32,13 +32,17 @@ si se puede importar sin nombre de extension
 
 import {
   sumar as add, // export necesita alias (as) para cambiar nombre de funcion importada
+  array2,
   dividir,
+  dos,
   Math,
   multiplicar,
   nombre,
   obj,
   restar,
   secretNumber2,
+  tres,
+  uno,
   x, y,
 } from './math.js';
 
@@ -134,6 +138,11 @@ console.log(exportDefaultObjetoLiteral);        // { nombre: 'Daniel' }
 console.log(exportDefaultObjetoLiteral.nombre); // 'Daniel'
 
 console.log(array); // (3) [1, 2, 3]
+
+console.log(array2);             // (3) [1, 2, 3]
+console.log(uno);               // 1
+console.log(dos);               // 2
+console.log(tres);              // 3
 
 console.log(todo);
 /*
