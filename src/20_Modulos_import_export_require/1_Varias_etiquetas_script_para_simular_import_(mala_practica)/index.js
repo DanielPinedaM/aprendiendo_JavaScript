@@ -1,6 +1,3 @@
-/* eslint-disable no-undef */
-// @ts-nocheck
-
 /* --------------------------------------------------- */
 
 /*
@@ -42,5 +39,3 @@ https://airbnb.io/javascript/#modules
 */
 
 /* --------------------------------------------------------------- */
-
-console.log(secretNumber1);
