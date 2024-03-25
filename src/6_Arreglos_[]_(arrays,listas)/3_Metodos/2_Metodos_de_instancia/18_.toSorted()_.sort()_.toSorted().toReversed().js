@@ -38,11 +38,11 @@ https://en.wikipedia.org/wiki/In-place_algorithm
 |                                         | original (existente)? | array2 del array1?    |
 |-----------------------------------------|-----------------------|-----------------------|
 | .reverse()                              | MUtable               | X                     |
-| .sort()                                 | ✓                     |                       |
+| .sort()                                 | ✔️                     |                       |
 | .splice()                               |                       |                       |
 | nombreArray[numeroIndice]="nuevo valor" |                       |                       |
 |-----------------------------------------|-----------------------|-----------------------|
-| .toReversed()                           | INmutable             | ✓                     |
+| .toReversed()                           | INmutable             | ✔️                     |
 | .toSorted()                             | X                     |                       |
 | .toSpliced()                            |                       |                       |
 | .with()                                 |                       |                       |
@@ -53,18 +53,18 @@ Las DIFERENCIAS están de amarillo:
                                                 |---------------------------------------------------------|------------------------------------------------|
                                                 | .toSorted()                                             | .sort()                                        |
 |-----------------------------------------------|---------------------------------------------------------|------------------------------------------------|
-| ¿.toSorted() y .sort()                        | ✓                                                       | ✓                                              |
+| ¿.toSorted() y .sort()                        | ✔️                                                       | ✔️                                              |
 | Ordena ASCENDENTEMENTE (de menor a mayor)     |                                                         |                                                |
 | las letras en orden alfabético (a, b, c...)   |                                                         |                                                |
 | y los números (1, 2, 3...)?                   |                                                         |                                                |
 |-----------------------------------------------|---------------------------------------------------------|------------------------------------------------|
-| ¿.toSorted() y .sort()                        | ✓                                                       | ✓                                              |
+| ¿.toSorted() y .sort()                        | ✔️                                                       | ✔️                                              |
 | El primer elemento del array                  |                                                         |                                                |
 | se convierte en el último                     |                                                         |                                                |
 | y el último elemento                          |                                                         |                                                |
 | se convierte en el primero?                   |                                                         |                                                |
 |-----------------------------------------------|---------------------------------------------------------|------------------------------------------------|
-| ¿.sort().reverse() y .toSorted().toReversed() | ✓                                                       | ✓                                              |
+| ¿.sort().reverse() y .toSorted().toReversed() | ✔️                                                       | ✔️                                              |
 | Ordena DESCENDENTEMENTE (de mayor a menor)    |                                                         |                                                |
 | las letras en orden alfabético (…c, b, a)     |                                                         |                                                |
 | y los números (…3, 2, 1)?                     |                                                         |                                                |
@@ -72,11 +72,11 @@ Las DIFERENCIAS están de amarillo:
 | ¿MODIFICA los elementos                       | INmutable                                               | MUtable                                        |
 | del array1 original (existente)?              | .toSorted()                                             | .sort()                                        |
 |                                               | .toSorted().toReversed()                                | .sort().reverse()                              |
-|                                               | X                                                       | ✓                                              |
+|                                               | X                                                       | ✔️                                              |
 |-----------------------------------------------|---------------------------------------------------------|------------------------------------------------|
 | ¿Crea una nueva COPIA array2 del array1?      | .toSorted()                                             | .sort()                                        |
 |                                               | .toSorted().toReversed()                                | .sort().reverse()                              |
-|                                               | ✓                                                       | X                                              |
+|                                               | ✔️                                                       | X                                              |
 |-----------------------------------------------|---------------------------------------------------------|------------------------------------------------|
 | Array disperso [,]                            | Imprimir ranura vacia de array disperso [,]             | En cambio, .toSorted()                         |
 |                                               | SIN usar metodos de array                               | reemplaza las ranuras vacias [,] por undefined |
@@ -88,7 +88,7 @@ Las DIFERENCIAS están de amarillo:
 |                                               | console.log([,].sort());                                |                                                |
 |                                               | // [ <1 empty item> ]                                   |                                                |
 |-----------------------------------------------|---------------------------------------------------------|------------------------------------------------|
-| ¿Usa el algoritmo en el lugar?                | ✓                                                       | ✓                                              |
+| ¿Usa el algoritmo en el lugar?                | ✔️                                                       | ✔️                                              |
 |-----------------------------------------------|---------------------------------------------------------|------------------------------------------------|
 | Ejemplo                                       | array1 original (existente)                             | En cambio .sort() SI modifica el array1        |
 |                                               | const numeros = [3, 2, 1];                              | numeros.sort(compareFn);                       |

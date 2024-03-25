@@ -114,18 +114,18 @@ console.log(7 <= 7);
 |--------------------------------|-----------------------------------|--------------------|--------------------------|
 | Comparación de Igualdad        | Definición                        | ¿Compara el VALOR? | ¿Compara TIPOS de datos? |
 |--------------------------------|-----------------------------------|--------------------|--------------------------|
-| ==                             | true si los operandos son iguales | ✓                  | X                        |
+| ==                             | true si los operandos son iguales | ✔️                  | X                        |
 | Operador de igualdad           |                                   |                    |                          |
 | (doble igual)                  |                                   |                    |                          |
 |--------------------------------|-----------------------------------|--------------------|--------------------------|
-| ===                            | true si los operandos son iguales | ✓                  | ✓                        |
+| ===                            | true si los operandos son iguales | ✔️                  | ✔️                        |
 | Operador estricto de identidad | en tipo y valor                   |                    |                          |
 | (triple igual)                 |                                   |                    |                          |
 |                                | Excepto si los operandos son      |                    |                          |
 |                                | NaN y Number.NaN,                 |                    |                          |
 |                                | solo en este caso devuelve false  |                    |                          |
 |--------------------------------|-----------------------------------|--------------------|--------------------------|
-| Object.is()                    | true si los operandos son iguales | ✓                  | ✓                        |
+| Object.is()                    | true si los operandos son iguales | ✔️                  | ✔️                        |
 | Método de objeto               | en tipo y valor                   |                    |                          |
 |                                |                                   |                    |                          |
 |                                | Excepto si los operandos son      |                    |                          |

@@ -496,11 +496,11 @@ https://midu.dev/to-reversed-to-spliced-to-sorted-with/
 |                                         | original (existente)? | array2 del array1?    |
 |-----------------------------------------|-----------------------|-----------------------|
 | .reverse()                              | MUtable               | X                     |
-| .sort()                                 | ✓                     |                       |
+| .sort()                                 | ✔️                     |                       |
 | .splice()                               |                       |                       |
 | nombreArray[numeroIndice]="nuevo valor" |                       |                       |
 |-----------------------------------------|-----------------------|-----------------------|
-| .toReversed()                           | INmutable             | ✓                     |
+| .toReversed()                           | INmutable             | ✔️                     |
 | .toSorted()                             | X                     |                       |
 | .toSpliced()                            |                       |                       |
 | .with()                                 |                       |                       |

@@ -30,7 +30,7 @@ Las diferencias tienen fondo amarillo:
 |                                         | sumar(1, 1); // 1+1 = 2                        | sumar(1, 1); // 1+1 = 2                             |
 |                                         | // 2                                           | // 2                                                |
 |-----------------------------------------|------------------------------------------------|-----------------------------------------------------|
-| Elevación (hoisting):                   | ✓                                              | X                                                   |
+| Elevación (hoisting):                   | ✔️                                              | X                                                   |
 | ¿La función se puede                    |                                                |                                                     |
 | primero ejecutarse                      | sumar(1, 1); // 1+1 = 2                        | sumar(1, 1);                                        |
 | y después definirse?                    | // 2                                           | // ❌ Uncaught ReferenceError: sumar is not defined |
@@ -39,7 +39,7 @@ Las diferencias tienen fondo amarillo:
 |                                         |   return numero1 + numero2;                    |   return numero1 + numero2;                         |
 |                                         | }                                              | };                                                  |
 |-----------------------------------------|------------------------------------------------|-----------------------------------------------------|
-| ¿Puedo usar una variable                | ✓                                              | ✓                                                   |
+| ¿Puedo usar una variable                | ✔️                                              | ✔️                                                   |
 | para guardar el valor de retorno return |                                                |                                                     |
 | de la funcion?                          | function sumar(numero1, numero2) {             | const sumar = function (numero1, numero2) {         |
 |                                         |  return numero1 + numero2;                     |  return numero1 + numero2;                          |
@@ -48,7 +48,7 @@ Las diferencias tienen fondo amarillo:
 |                                         | const valorDeRetorno = sumar(1, 1); // 1+1 = 2 | const valorDeRetorno = sumar(1, 1); // 1+1 = 2      |
 |                                         | console.log(valorDeRetorno);        // 2       | console.log(valorDeRetorno);        // 2            |
 |-----------------------------------------|------------------------------------------------|-----------------------------------------------------|
-| ¿Se puede usar con                      | ✓                                              | X                                                   |
+| ¿Se puede usar con                      | ✔️                                              | X                                                   |
 | () => {} funcion flecha?                |                                                |                                                     |
 |                                         | // Expresión de funcion flecha                 |                                                     |
 |                                         | const sumar = (numero1, numero2) => {          |                                                     |

@@ -213,7 +213,7 @@ https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy
                                | ¿Al modificar valores del objeto origen2    | origen2 === destino2 |
                                | también se modifican en el objeto destino2? |                      |
 |------------------------------|---------------------------------------------|----------------------|
-| = operador de asignación     | ✓                                           | true                 |
+| = operador de asignación     | ✔️                                           | true                 |
 |------------------------------|---------------------------------------------|----------------------|
 | Object.assign()              | X                                           | false                |
 |------------------------------|---------------------------------------------|----------------------|

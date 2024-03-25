@@ -65,13 +65,13 @@ porq hay q escribir mucho codigo
                                             |-------------------------------------------------------------------|-----------------------------------------------------------|
                                             | .hasOwnProperty()                                                 | Object.hasOwn()                                           |
 |-------------------------------------------|-------------------------------------------------------------------|-----------------------------------------------------------|
-| ¿Está obsoleto?                           | ✓                                                                 | X                                                         |
+| ¿Está obsoleto?                           | ✔️                                                                 | X                                                         |
 |                                           | Mala Práctica                                                     | Buena Práctica                                            |
 |-------------------------------------------|-------------------------------------------------------------------|-----------------------------------------------------------|
 | .hasOwnProperty() tiene más               | https://caniuse.com/mdn-javascript_builtins_object_hasownproperty | https://caniuse.com/mdn-javascript_builtins_object_hasown |
 | compatibilidad que Object.hasOwn()        |                                                                   |                                                           |
 |-------------------------------------------|-------------------------------------------------------------------|-----------------------------------------------------------|
-| Sirve para saber ¿si existe o no          | ✓                                                                 | ✓                                                         |
+| Sirve para saber ¿si existe o no          | ✔️                                                                 | ✔️                                                         |
 | la propiedad en el objeto?                |                                                                   |                                                           |
 |                                           |                                                                   |                                                           |
 | ¿Busca una propiedad en el objeto?        |                                                                   |                                                           |
@@ -89,7 +89,7 @@ porq hay q escribir mucho codigo
 | Propiedades heredadas (prototipo)         |                                                                   |                                                           |
 | en .hasOwnProperty() y Object.hasOwn() ”  |                                                                   |                                                           |
 |-------------------------------------------|-------------------------------------------------------------------|-----------------------------------------------------------|
-| Devuelve un booleano                      | ✓                                                                 | ✓                                                         |
+| Devuelve un booleano                      | ✔️                                                                 | ✔️                                                         |
 |                                           |                                                                   |                                                           |
 | Boolean()                                 |                                                                   |                                                           |
 |                                           |                                                                   |                                                           |
@@ -97,7 +97,7 @@ porq hay q escribir mucho codigo
 | ó                                         |                                                                   |                                                           |
 | false                                     |                                                                   |                                                           |
 |-------------------------------------------|-------------------------------------------------------------------|-----------------------------------------------------------|
-| Devuelve true cuando se cumplen           | ✓                                                                 | ✓                                                         |
+| Devuelve true cuando se cumplen           | ✔️                                                                 | ✔️                                                         |
 | TODAS las siguientes condiciones:         |                                                                   |                                                           |
 | - La propiedad buscada                    |                                                                   |                                                           |
 | SI existe en el objeto literal            |                                                                   |                                                           |
@@ -106,7 +106,7 @@ porq hay q escribir mucho codigo
 | NO es un prototipo __proto__              |                                                                   |                                                           |
 | (es una propiedad propia)                 |                                                                   |                                                           |
 |-------------------------------------------|-------------------------------------------------------------------|-----------------------------------------------------------|
-| Devuelve false cuando se cumple           | ✓                                                                 | ✓                                                         |
+| Devuelve false cuando se cumple           | ✔️                                                                 | ✔️                                                         |
 | ALGUNA de las siguientes condiciones:     |                                                                   |                                                           |
 | - La propiedad buscada                    |                                                                   |                                                           |
 | NO existe en el objeto literal            |                                                                   |                                                           |
@@ -115,20 +115,20 @@ porq hay q escribir mucho codigo
 | SI es un prototipo __proto__              |                                                                   |                                                           |
 | (es una propiedad heredada)               |                                                                   |                                                           |
 |-------------------------------------------|-------------------------------------------------------------------|-----------------------------------------------------------|
-| ¿Se puede usar con Object.create(null) ?  | X                                                                 | ✓                                                         |
+| ¿Se puede usar con Object.create(null) ?  | X                                                                 | ✔️                                                         |
 |                                           |                                                                   |                                                           |
 | Ver:                                      |                                                                   |                                                           |
 | “ Ejemplo 3 - Object.create(null),        |                                                                   |                                                           |
 | .hasOwnProperty() y Object.hasOwn() ”     |                                                                   |                                                           |
 |-------------------------------------------|-------------------------------------------------------------------|-----------------------------------------------------------|
-| ¿La propiedad del objeto                  | X                                                                 | ✓                                                         |
+| ¿La propiedad del objeto                  | X                                                                 | ✔️                                                         |
 | se puede llamar hasOwnProperty ?          |                                                                   |                                                           |
 |                                           |                                                                   |                                                           |
 | Ver:                                      |                                                                   |                                                           |
 | “ Ejemplo 4 - Objeto con                  |                                                                   |                                                           |
 | Nombre Propiedad hasOwnProperty ”         |                                                                   |                                                           |
 |-------------------------------------------|-------------------------------------------------------------------|-----------------------------------------------------------|
-| ¿Se puede usar para saber                 | ✓                                                                 | ✓                                                         |
+| ¿Se puede usar para saber                 | ✔️                                                                 | ✔️                                                         |
 | si existe o no el número de               |                                                                   |                                                           |
 | posición (índice) en el array [] ?        |                                                                   |                                                           |
 |                                           |                                                                   |                                                           |

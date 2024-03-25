@@ -24,7 +24,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
                                       |-----------------------------|------------------------------------------|
                                       | Object.keys()               | Object.getOwnPropertyNames()             |
 |-------------------------------------|-----------------------------|------------------------------------------|
-| ¿Convierte a array []               | ✓                           | ✓                                        |
+| ¿Convierte a array []               | ✔️                           | ✔️                                        |
 | las propiedades (claves)            |                             |                                          |
 | del objeto literal {} ?             |                             |                                          |
 |-------------------------------------|-----------------------------|------------------------------------------|
@@ -37,7 +37,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 | ¿Devuelve propiedades               | X                           | X                                        |
 | de tipo Symbol()?                   |                             |                                          |
 |-------------------------------------|-----------------------------|------------------------------------------|
-| ¿Al usar el método de objeto {}     | X                           | ✓                                        |
+| ¿Al usar el método de objeto {}     | X                           | ✔️                                        |
 | en array [] el string 'length'      |                             |                                          |
 | se agrega en el último elemento?    |                             |                                          |
 |-------------------------------------|-----------------------------|------------------------------------------|

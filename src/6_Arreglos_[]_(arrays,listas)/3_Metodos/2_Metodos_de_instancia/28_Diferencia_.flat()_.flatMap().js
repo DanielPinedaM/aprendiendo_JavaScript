@@ -28,10 +28,10 @@ https://www.freecodecamp.org/news/flat-and-flatmap-javascript-array-methods/
                                    |--------------------------------|----------------------------------------------------------------|
                                    | .flat()                        | .flatMap()                                                     |
 |----------------------------------|--------------------------------|----------------------------------------------------------------|
-| ¿Sirve para aplanar              | ✓                              | ✓                                                              |
+| ¿Sirve para aplanar              | ✔️                              | ✔️                                                              |
 | array anidado?                   |                                |                                                                |
 |----------------------------------|--------------------------------|----------------------------------------------------------------|
-| ¿Ejecuta el método .map() ?      | X                              | ✓                                                              |
+| ¿Ejecuta el método .map() ?      | X                              | ✔️                                                              |
 |                                  |                                |                                                                |
 | .map() crea un nuevo array2      |                                |                                                                |
 | que MODIFICA cada uno            |                                |                                                                |
@@ -42,7 +42,7 @@ https://www.freecodecamp.org/news/flat-and-flatmap-javascript-array-methods/
 | ¿Modifica (muta)                 | X                              | X                                                              |
 | el array original?               |                                |                                                                |
 |----------------------------------|--------------------------------|----------------------------------------------------------------|
-| ¿Crea una nueva copia            | ✓                              | ✓                                                              |
+| ¿Crea una nueva copia            | ✔️                              | ✔️                                                              |
 | del array original?              |                                |                                                                |
 |----------------------------------|--------------------------------|----------------------------------------------------------------|
 | ¿Sirve para las ranuras vacías   | X                              | X                                                              |

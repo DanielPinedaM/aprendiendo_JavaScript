@@ -23,7 +23,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
                                       |----------------------------------------------------------------|------------------------------------------------|
                                       | Object.getOwnPropertyDescriptor()                              | Object.getOwnPropertyDescriptors()             |
 |-------------------------------------|----------------------------------------------------------------|------------------------------------------------|
-| ¿Sirve para obtener las propiedades | ✓                                                              | ✓                                              |
+| ¿Sirve para obtener las propiedades | ✔️                                                              | ✔️                                              |
 | (descripción) del objeto literal    |                                                                |                                                |
 | value:                              |                                                                |                                                |
 | writable:                           |                                                                |                                                |

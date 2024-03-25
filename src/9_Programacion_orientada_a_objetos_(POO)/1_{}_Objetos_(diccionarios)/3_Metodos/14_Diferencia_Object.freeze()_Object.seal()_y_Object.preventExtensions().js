@@ -30,15 +30,15 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
                                                          | Object.freeze()             | Object.seal()             | Object.preventExtensions()             |
                                                          | Object.isFrozen()           | Object.isSealed()         | Object.isExtensible()                  |
 |--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
-| ¿Hace que el objeto literal {}                         | ✓                           | ✓                         | ✓                                      |
+| ¿Hace que el objeto literal {}                         | ✔️                           | ✔️                         | ✔️                                      |
 | sea inmutable (que NO se pueda modificar)              |                             |                           |                                        |
 |--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
-| ¿Permite MODIFICAR                                     | X                           | ✓                         | ✓                                      |
+| ¿Permite MODIFICAR                                     | X                           | ✔️                         | ✔️                                      |
 | el valor de la propiedad?                              |                             |                           |                                        |
 |                                                        |                             |                           |                                        |
 | nombreObjeto.nombrePropiedadExistente = 'nuevo valor'; |                             |                           |                                        |
 |--------------------------------------------------------|-----------------------------|---------------------------|----------------------------------------|
-| ¿Permite ELIMINAR                                      | X                           | X                         | ✓                                      |
+| ¿Permite ELIMINAR                                      | X                           | X                         | ✔️                                      |
 | propiedad: valor, ?                                    |                             |                           |                                        |
 |                                                        |                             |                           |                                        |
 | delete nombreObjeto.nombrePropiedadExistente;          |                             |                           |                                        |

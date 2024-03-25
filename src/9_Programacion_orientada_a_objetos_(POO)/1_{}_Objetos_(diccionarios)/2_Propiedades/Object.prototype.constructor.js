@@ -52,11 +52,11 @@ Para entender el siguiente cuadro, ver:
 |---------------------------------------------------------------------------|
 |         Atributos de la propiedad Object.prototype.constructor            |
 |--------------------------------------------------|------------------------|
-| MUtable                                          | ✓  writable: true,     |
+| MUtable                                          | ✔️  writable: true,     |
 |--------------------------------------------------|------------------------|
 | Visible                                          | X  enumerable: false,  |
 |--------------------------------------------------|------------------------|
-| ¿Puedo cambiar el valor de                       | ✓  configurable: true, |
+| ¿Puedo cambiar el valor de                       | ✔️  configurable: true, |
 | las propiedades value: writable: y enumerable: ? |                        |
 |--------------------------------------------------|------------------------|
 

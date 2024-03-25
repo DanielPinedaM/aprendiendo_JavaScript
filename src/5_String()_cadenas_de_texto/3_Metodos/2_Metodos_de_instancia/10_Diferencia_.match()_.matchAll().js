@@ -24,7 +24,7 @@ comparan un string con una expresión regular
                                        |------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
                                        | .match()                                                   | .matchAll()                                                                                       |
 |--------------------------------------|------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| ¿Compara string                      | ✓                                                          | ✓                                                                                                 |
+| ¿Compara string                      | ✔️                                                          | ✔️                                                                                                 |
 | con expresión regular?               |                                                            |                                                                                                   |
 |--------------------------------------|------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
 | TIPO DE DATO devuelto                | Array                                                      | Iterador que contiene arrays                                                                      |
@@ -45,7 +45,7 @@ comparan un string con una expresión regular
 |                                      | string.match(/[A-Z]/);                                     |                                                                                                   |
 |                                      | // null                                                    |                                                                                                   |
 |--------------------------------------|------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| ¿Se puede usar CON /g                | ✓                                                          | ✓                                                                                                 |
+| ¿Se puede usar CON /g                | ✔️                                                          | ✔️                                                                                                 |
 | en la expresión regular?             |                                                            |                                                                                                   |
 |                                      | /g en la expresion regular devuelve                        | crear un array a partir del metodo .matchAll()                                                    |
 |                                      | TODOS los caracteres q coinciden                           | const array = [...string.matchAll(/[a-z]/g)];                                                     |
@@ -89,7 +89,7 @@ comparan un string con una expresión regular
 |                                      |                                                            | // [ 'd', index: 8, input: 'hola mundo', groups: undefined ]                                      |
 |                                      |                                                            | // [ 'o', index: 9, input: 'hola mundo', groups: undefined ]                                      |
 |--------------------------------------|------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| ¿Se puede usar SIN /g                | ✓                                                          | X                                                                                                 |
+| ¿Se puede usar SIN /g                | ✔️                                                          | X                                                                                                 |
 | en la expresión regular?             | cuando NO se escribe /g                                    | ERROR: con el metodo .matchAll()                                                                  |
 |                                      | en la expresion regular                                    | es obligatorio escribir /g en la expresion regular                                                |
 |                                      | se devuelve la PRIMERA coincidencia                        |                                                                                                   |

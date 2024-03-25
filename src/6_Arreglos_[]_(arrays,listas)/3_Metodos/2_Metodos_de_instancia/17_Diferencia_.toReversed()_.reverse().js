@@ -33,11 +33,11 @@ https://en.wikipedia.org/wiki/In-place_algorithm
 |                                         | original (existente)? | array2 del array1?    |
 |-----------------------------------------|-----------------------|-----------------------|
 | .reverse()                              | MUtable               | X                     |
-| .sort()                                 | ✓                     |                       |
+| .sort()                                 | ✔️                     |                       |
 | .splice()                               |                       |                       |
 | nombreArray[numeroIndice]="nuevo valor" |                       |                       |
 |-----------------------------------------|-----------------------|-----------------------|
-| .toReversed()                           | INmutable             | ✓                     |
+| .toReversed()                           | INmutable             | ✔️                     |
 | .toSorted()                             | X                     |                       |
 | .toSpliced()                            |                       |                       |
 | .with()                                 |                       |                       |
@@ -49,18 +49,18 @@ https://en.wikipedia.org/wiki/In-place_algorithm
                                        |--------------------------------------|---------------------------------------------|
                                        | .toReversed()                        | .reverse()                                  |
 |--------------------------------------|--------------------------------------|---------------------------------------------|
-| ¿Sirve para invertir (voltear)       | ✓                                    | ✓                                           |
+| ¿Sirve para invertir (voltear)       | ✔️                                    | ✔️                                           |
 | el orden de los elementos del array? |                                      |                                             |
 |--------------------------------------|--------------------------------------|---------------------------------------------|
-| El primer elemento del array         | ✓                                    | ✓                                           |
+| El primer elemento del array         | ✔️                                    | ✔️                                           |
 | se convierte en el último            |                                      |                                             |
 | y el último elemento                 |                                      |                                             |
 | se convierte en el primero           |                                      |                                             |
 |--------------------------------------|--------------------------------------|---------------------------------------------|
 | ¿MODIFICA el array1                  | INmutable                            | MUtable                                     |
-| original (existente)?                | X                                    | ✓                                           |
+| original (existente)?                | X                                    | ✔️                                           |
 |--------------------------------------|--------------------------------------|---------------------------------------------|
-| ¿Crea una nueva COPIA                | ✓                                    | X                                           |
+| ¿Crea una nueva COPIA                | ✔️                                    | X                                           |
 | array2 del array1?                   |                                      |                                             |
 |--------------------------------------|--------------------------------------|---------------------------------------------|
 | Cada una de las ranuras vacías       | undefined                            | <1 empty item>                              |
@@ -68,7 +68,7 @@ https://en.wikipedia.org/wiki/In-place_algorithm
 | son reemplazadas por…                | [1, , 3].toReversed()                | [1, , 3].reverse()                          |
 |                                      | // (3) [ 3, undefined, 1 ]           | // (3) [ 3, <1 empty item>, 1 ]             |
 |--------------------------------------|--------------------------------------|---------------------------------------------|
-| ¿Usa el algoritmo en el lugar?       | ✓                                    | ✓                                           |
+| ¿Usa el algoritmo en el lugar?       | ✔️                                    | ✔️                                           |
 |--------------------------------------|--------------------------------------|---------------------------------------------|
 | Ejemplo                              | array1 original (existente)          | En cambio, .reverse() SI modifica el array1 |
 |                                      | const array1 = [1, 2, 3];            | array1.reverse();                           |
