@@ -2,7 +2,7 @@
 
 /* --------------------------------------------------- */
 
-// Importar JSON https://examples.deno.land/importing-json 
+// Importar JSON https://examples.deno.land/importing-json
 
 // Sincrono
 import data from "./data.json" with { type: "json" };
