@@ -42,7 +42,7 @@ https://airbnb.io/javascript/#modules
 
 /* --------------------------------------------------------------- */
 
-/* Varias Etiquetas <script src="archivo.js"> para Simular un import (Mala Práctica) */
+// Varias Etiquetas <script src="archivo.js"> para Simular un import (Mala Práctica)
 
 console.log(numero1); // 1
 console.log(numero2); // 2
