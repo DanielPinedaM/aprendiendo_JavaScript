@@ -1,5 +1,7 @@
+//  import * as name from "module-name"; Importar y Exportar Todo el Archivo
+
 // importar * TODO el archivo "./math.js"
-import * as math from "./math.js";
+import * as math from './math.js';
 
 console.log(math);
 /*
@@ -35,4 +37,3 @@ console.log(math.obj);
 console.log(math.obj.nombre); // "Daniel"
 console.log(math.obj.edad);   // 99
 console.log(math.obj.humano); // true
- 
