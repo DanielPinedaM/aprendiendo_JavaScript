@@ -1,4 +1,8 @@
-//  import * as name from "module-name"; Importar y Exportar Todo el Archivo
+/* eslint-disable import/extensions */
+
+/* --------------------------------------------------- */
+
+// import * as name from "module-name"; Importar y Exportar Todo el Archivo
 
 // importar * TODO el archivo "./math.js"
 import * as math from './math.js';
@@ -34,6 +38,7 @@ console.log(math.obj);
   humano: true
 }
 */
-console.log(math.obj.nombre); // "Daniel"
-console.log(math.obj.edad);   // 99
-console.log(math.obj.humano); // true
+console.log(math.obj.nombre);               // "Daniel"
+console.log(math.obj.edad);                 // 99
+console.log(math.obj.humano);               // true
+console.log(math.obj.propiedadInexistente); // undefined
