@@ -2,6 +2,8 @@
 
 /* --------------------------------------------------- */
 
+// Importar y exportar por defecto objeto literal {}
+
 import math from './math.js';
 
 console.log(math);

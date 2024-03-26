@@ -2,6 +2,8 @@
 
 /* --------------------------------------------------- */
 
+// Importar y exportar objeto literal {}
+
 import objetoLiteral from './math.js';
 
 console.log(objetoLiteral);

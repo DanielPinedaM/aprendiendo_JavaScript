@@ -16,7 +16,6 @@ const obj = {
 /* Exportar por defecto
 en un objeto literal {}
 las variables definidas en este archivo math.js */
-
 export default {
   numero,
   array,
