@@ -1,6 +1,8 @@
 /* --------------------------------------------------------------- */
 
 /*
+Alias as
+
 Las variables numero
 tienen el mismo nombre en index.js y math.js
 
