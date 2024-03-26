@@ -1,4 +1,14 @@
+/* eslint-disable import/extensions */
+
 /* --------------------------------------------------- */
 
-import x from './math.js';
+import objetoLiteral from './math.js';
 
+console.log(objetoLiteral);
+// {
+//   nombre: 'Daniel',
+// }
+
+console.log(objetoLiteral.nombre);               // 'Daniel'
+
+console.log(objetoLiteral.propiedadInexistente); // undefined
