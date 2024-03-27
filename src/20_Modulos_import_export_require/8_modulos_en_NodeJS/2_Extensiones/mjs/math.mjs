@@ -2,4 +2,4 @@
 
 /* --------------------------------------------------- */
 
-export const add = (x, y) => x + y;
+export const sumar = (x, y) => x + y;
