@@ -2,6 +2,7 @@
 
 /* --------------------------------------------------- */
 
+// CommonJS require module
 const sumar = require('./math.js');
 
 console.log(
