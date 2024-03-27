@@ -8,10 +8,10 @@
 
 /*
 DenoJS - CommonJS
-https://deno.com/blog/commonjs-is-hurting-javascript 
+https://deno.com/blog/commonjs-is-hurting-javascript
 
 BunJS - CommonJS
-https://bun.sh/blog/commonjs-is-not-going-away 
+https://bun.sh/blog/commonjs-is-not-going-away
 
 Tutorial - Midudev
 https://www.youtube.com/watch?app=desktop&v=yB4n_K7dZV8&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=1&t=1794s
