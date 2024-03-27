@@ -2,6 +2,7 @@
 
 /* --------------------------------------------------- */
 
+// importar SIN desestructuracion
 const math = require('./math.js');
 
 console.log(math.saludar); // 'hola mundo'

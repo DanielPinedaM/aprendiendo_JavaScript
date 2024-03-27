@@ -2,6 +2,7 @@
 
 /* --------------------------------------------------- */
 
+// importar CON desestructuracion
 const {
   saludar, array, obj, restar, sumar,
 } = require('./math.js');
