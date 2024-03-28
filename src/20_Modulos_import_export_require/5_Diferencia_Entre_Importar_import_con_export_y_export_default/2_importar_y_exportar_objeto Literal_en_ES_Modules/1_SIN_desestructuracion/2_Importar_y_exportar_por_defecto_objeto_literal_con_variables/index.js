@@ -2,8 +2,7 @@
 
 /* --------------------------------------------------- */
 
-// Importar y exportar por defecto objeto literal {}
-
+// Importa por defecto objeto literal {} SIN desestructuracion
 import math from './math.js';
 
 console.log(math);

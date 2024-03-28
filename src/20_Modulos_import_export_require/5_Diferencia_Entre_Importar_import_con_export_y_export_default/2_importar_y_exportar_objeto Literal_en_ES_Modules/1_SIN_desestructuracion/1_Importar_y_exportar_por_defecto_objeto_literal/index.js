@@ -2,7 +2,7 @@
 
 /* --------------------------------------------------- */
 
-// Importar y exportar objeto literal {}
+// Importar objeto literal {} SIN desestructuracion
 
 import objetoLiteral from './math.js';
 
