@@ -1108,7 +1108,6 @@ https://youtu.be/em_Vh7ZGrnw
 .flat() solamente aplana array */
 
 // .flat() aplanar UNA SOLA dimension
-
 ['▲', '●', ['✖', ['■']]].flat();                        // [ '▲', '●', '✖', [ '■' ] ]
 //           ↑     ↑                                                           ↑
 
@@ -1117,7 +1116,6 @@ https://youtu.be/em_Vh7ZGrnw
 
 // .flat(Infinity) y .flat(Number.MAX_SAFE_INTEGER) aplanar TODAS las dimensiones
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat#flattening_nested_arrays
-
 ['▲', '●', ['✖', ['■']]].flat(Infinity);                // (4) ['▲', '●', '✖', '■']
 ['▲', '●', ['✖', ['■']]].flat(Number.MAX_SAFE_INTEGER); // (4) ['▲', '●', '✖', '■']
 //           ↑     ↑                                                       ↑    ↑
@@ -1132,8 +1130,17 @@ https://youtu.be/em_Vh7ZGrnw
 y despues aplana array
 
 Aplanar array y concatenar cada uno de los elementos del array con un corazon '❤' */
-['▲', '●', ['✖'], '■'].flatMap((elemento) => `${elemento}❤`);
-// (4) ['▲❤', '●❤', '✖❤', '■❤']
+
+// .flatMap()
+['▲', '●', ['✖'], '■'].flatMap((elemento) => `${elemento}❤`);            // (4) ['▲❤', '●❤', '✖❤', '■❤']
+//           ↑                                                                                  ↑
+
+['▲', '●', ['✖', ['■']]].flatMap((elemento) => `${elemento}❤`);          // (3) ['▲❤', '●❤', '✖,■❤']
+//           ↑     ↑                                                                              ↑
+
+// .flat(Infinity).map() alternativa a .flatMap()
+['▲', '●', ['✖', ['■']]].flat(Infinity).map(elemento => `${elemento}❤`); // (4) ['▲❤', '●❤', '✖❤', '■❤']
+//           ↑     ↑                                                                            ↑      ↑
 
 /*
 ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
