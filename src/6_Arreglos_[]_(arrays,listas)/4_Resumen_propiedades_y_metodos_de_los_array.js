@@ -1105,9 +1105,22 @@ array4[array4.length - 2]; // '✖'
  ▀▀▀▀▀▀▀▀▀▀▀
 https://youtu.be/em_Vh7ZGrnw
 
-Solamente aplana array */
-['▲', '●', ['✖', '■']].flat(Infinity);                // (4) ['▲', '●', '✖', '■']
-['▲', '●', ['✖', '■']].flat(Number.MAX_SAFE_INTEGER); // (4) ['▲', '●', '✖', '■']
+.flat() solamente aplana array */
+
+// .flat() aplanar UNA SOLA dimension
+
+['▲', '●', ['✖', ['■']]].flat();                        // [ '▲', '●', '✖', [ '■' ] ]
+//           ↑     ↑                                                           ↑
+
+['▲', '●', '✖', ['■']].flat();                          // (4) ['▲', '●', '✖', '■']
+//                ↑                                                             ↑
+
+// .flat(Infinity) y .flat(Number.MAX_SAFE_INTEGER) aplanar TODAS las dimensiones
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat#flattening_nested_arrays
+
+['▲', '●', ['✖', ['■']]].flat(Infinity);                // (4) ['▲', '●', '✖', '■']
+['▲', '●', ['✖', ['■']]].flat(Number.MAX_SAFE_INTEGER); // (4) ['▲', '●', '✖', '■']
+//           ↑     ↑                                                       ↑    ↑
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -1115,7 +1128,7 @@ Solamente aplana array */
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://youtu.be/em_Vh7ZGrnw
 
-Primero ejecuta .map()
+.flatMap() Primero ejecuta .map()
 y despues aplana array
 
 Aplanar array y concatenar cada uno de los elementos del array con un corazon '❤' */
