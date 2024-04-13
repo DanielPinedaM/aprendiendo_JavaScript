@@ -1,16 +1,18 @@
+/* eslint-disable no-multiple-empty-lines */
 // @ts-nocheck
-// fetch request
 
 /* --------------------------------------------------- */
 
+const URL = 'https://jsonplaceholder.typicode.com/todos/1';
+
 // fetch
-const usuarioFetch = fetch('https://jsonplaceholder.typicode.com/todos/1').then((response) => response.json());
+const usuarioFetch = fetch(URL).then((response) => response.json());
 export default await usuarioFetch;
 
 // async await
 const obtenerUsuario = async () => {
   try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+    const response = await fetch(URL);
 
     if (!response.ok) {
       throw new Error('Error en peticion');
@@ -24,3 +26,22 @@ const obtenerUsuario = async () => {
   }
 };
 export const usuarioAsyncAwait = await obtenerUsuario();
+
+
+const obtenerUsuarioAsyncAwait = async () => {
+  try {
+    const response = await fetch(URL);
+
+    if (!response.ok) {
+      throw new Error('Error en peticion');
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+export { obtenerUsuarioAsyncAwait };
+
