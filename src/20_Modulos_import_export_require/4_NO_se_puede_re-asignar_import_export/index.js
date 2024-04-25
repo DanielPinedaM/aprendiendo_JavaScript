@@ -11,7 +11,7 @@ console.log(uno); // 1
 uno = 2;
 console.log(uno);
 
-// toca copiar la importacion a otra variable
+// ✔️ toca copiar la importacion a otra variable
 // porq NO se puede re-asignar un import export
 let copia = uno;
 console.log(copia); // 1
