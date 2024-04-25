@@ -6,6 +6,7 @@
 const URL = 'https://jsonplaceholder.typicode.com/todos/1';
 
 // fetch
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#top_level_await
 const usuarioFetch = fetch(URL).then((response) => response.json());
 export default await usuarioFetch;
 
