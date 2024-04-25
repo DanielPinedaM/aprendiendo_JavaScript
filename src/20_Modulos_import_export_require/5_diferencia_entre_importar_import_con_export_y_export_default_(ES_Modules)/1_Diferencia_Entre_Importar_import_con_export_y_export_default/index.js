@@ -29,7 +29,11 @@ Diferencia Entre Importar import con export y export default
 |--------------------------------------|------------------------------------------|---------------------------------------------|
 | Sintaxis                             | import defaultExport from "module-name"; | import { export1 } from "module-name";      |
 |                                      |                                          |                                             |
-|                                      | export default expression;               | export expression;                          |
+|                                      | // ESTO:                                 | export expression;                          |
+|                                      | export { expression as default };        |                                             |
+|                                      |                                          |                                             |
+|                                      | // ES LO MISMO Q ESTO...                 |                                             |
+|                                      | export default expression;               |                                             |
 |--------------------------------------|------------------------------------------|---------------------------------------------| */
 
 /* --------------------------------------------------------------- */
