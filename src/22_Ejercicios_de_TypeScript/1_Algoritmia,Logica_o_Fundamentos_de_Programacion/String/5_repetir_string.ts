@@ -9,6 +9,29 @@ Ejemplo: miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo
 
 /* --------------------------------------------------- */
 
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Solucion de Jon Mircha █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://www.youtube.com/watch?v=Xh8p7aZBiaw&t=1600s */
+
+const repetirTexto = (texto: string = "", veces: number = 0): void => {
+  if (!texto || !String(texto).trim().length) return console.warn("ingrese texto");
+  if (!veces || veces<=0) return console.warn("ingrese numero de veces a repetir el texto");
+
+  for (let i = 1; i<=veces;i++) console.info(`${texto} ➜ ${i}`)
+}
+
+repetirTexto("  ", 2);          // "ingrese texto"
+repetirTexto("hola mundo", -1); // "ingrese numero de veces a repetir el texto"
+
+repetirTexto('Hola Mundo', 3);
+// 'Hola Mundo ➜ 1'
+// 'Hola Mundo ➜ 2'
+// 'Hola Mundo ➜ 3'
+
+/* --- */
+
 const repetirString1 = (string: string, numeroRepeticiones: number): string => {
     let concatenar: string = '';
 

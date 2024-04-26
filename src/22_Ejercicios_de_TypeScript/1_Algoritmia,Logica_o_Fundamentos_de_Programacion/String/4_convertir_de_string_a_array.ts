@@ -15,7 +15,8 @@ https://www.samanthaming.com/tidbits/83-4-ways-to-convert-string-to-character-ar
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .split()               █
  █ Solucion de Jon Mircha █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://www.youtube.com/watch?v=Xh8p7aZBiaw&t=1243s */
 
 const cadena_a_arreglo = (cadena: string = "", separador?: string | undefined) => (!cadena)
                                                              ? console.warn("No ingresaste cadeta de texto")
