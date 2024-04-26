@@ -123,9 +123,9 @@ longitud4('Hola Mundo');
 // 10
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ Soluion de Jon Mirha █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Solucion de Jon Mircha █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://www.youtube.com/watch?v=Xh8p7aZBiaw&t=179s */
 
 function contarCaracteres(cadena: string = ""): void {
@@ -139,7 +139,12 @@ contarCaracteres();             // "No ingresaste ninguna cadena"
 contarCaracteres(" ");          // `La cadena " " tiene 1 caracteres`)
 contarCaracteres("hola mundo"); // `La cadena "hola mundo" tiene 10 caracteres`)
 
-const contarCaracteres2 = (cadena: string = ""): void => !cadena ? console.warn("No ingresaste ninguna cadena") : console.info(`La cadena "${cadena}" tiene ${cadena.length} caracteres`);
+
+
+const contarCaracteres2 = (cadena: string = ""): void => !cadena ? 
+                                                            console.warn("No ingresaste ninguna cadena") 
+                                                         : console.info(`La cadena "${cadena}" tiene ${cadena.length} caracteres`);
+
 contarCaracteres2();             // "No ingresaste ninguna cadena"
 contarCaracteres2(" ");          // `La cadena " " tiene 1 caracteres`)
 contarCaracteres2("hola mundo"); // `La cadena "hola mundo" tiene 10 caracteres`)

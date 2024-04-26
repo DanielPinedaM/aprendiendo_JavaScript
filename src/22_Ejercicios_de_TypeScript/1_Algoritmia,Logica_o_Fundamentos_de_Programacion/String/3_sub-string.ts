@@ -10,12 +10,15 @@ Ejemplo: miFuncion('Hola Mundo', 4) devolverá 'Hola'
 /* --------------------------------------------------- */
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄
- █ .slice() █
- ▀▀▀▀▀▀▀▀▀▀▀▀
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .slice()               █
+ █ Solucion de Jon Mircha █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://www.youtube.com/watch?v=Xh8p7aZBiaw&t=758s 
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice */
 
-const substring1 = (string: string, numeroCaracteres: number) => string.slice(0, numeroCaracteres);
+const substring1 = (string: string = "", numeroCaracteres: number) => string.slice(0, numeroCaracteres);
 
 substring1('Hola Mundo', 4);  // 'Hola'
 substring1('Hola Mundo', 5);  // 'Hola '
@@ -27,7 +30,7 @@ substring1('Hola Mundo', -1); // 'Hola Mund'
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring */
 
-const substring2 = (string: string, numeroCaracteres: number) => string.substring(0, numeroCaracteres);
+const substring2 = (string: string = "", numeroCaracteres: number) => string.substring(0, numeroCaracteres);
 
 substring2('Hola Mundo', 4);  // 'Hola'
 substring2('Hola Mundo', 5);  // 'Hola '
@@ -39,7 +42,7 @@ substring2('Hola Mundo', -1); // ''
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while */
 
-const substring3 = (string: string, numeroCaracteres: number): string => {
+const substring3 = (string: string = "", numeroCaracteres: number): string => {
   let i: number = 0;
   let concatenar: string = '';
 
@@ -50,4 +53,4 @@ const substring3 = (string: string, numeroCaracteres: number): string => {
 
   return concatenar;
 }
-substring3('Hola Mundo', 4);
+substring3('Hola Mundo', 4);  // 'Hola'
