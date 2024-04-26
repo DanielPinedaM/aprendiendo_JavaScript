@@ -1,4 +1,3 @@
-
 /*
 Crear funcion para normalizar string, es decir:
 1) Eliminar espacio en blanco ' ' al principio y final.

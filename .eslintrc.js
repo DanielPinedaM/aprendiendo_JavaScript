@@ -1,4 +1,7 @@
 module.exports = {
+  ignores: [
+    './src/22_Ejercicios_de_TypeScript/**/*',
+  ],
   env: {
     browser: true,
     es2022: true,
