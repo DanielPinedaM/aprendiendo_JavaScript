@@ -29,9 +29,9 @@ const normalizeStr = (string: string | any): string | any => {
                   .toLowerCase()
                   .normalize('NFD')
                   .replace(/[\u0300-\u036f]/g, '');
-   } else {
-     return string;
    }
+
+   return string;
  };
 
 normalizeStr(' COMunicaciÓN    ');  // 'comunicacion'
