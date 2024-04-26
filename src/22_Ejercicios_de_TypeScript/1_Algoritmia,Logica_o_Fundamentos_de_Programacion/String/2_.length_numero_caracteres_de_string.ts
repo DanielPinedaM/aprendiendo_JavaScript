@@ -19,7 +19,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 const string: string = 'Hola Mundo';
 console.log(string.length);        // 10
 
-// # de elementos en array
+// # de elementos en arrayp
 const array: number[] = [1, 2, 3];
 console.log(array.length);         // 3
 
@@ -122,3 +122,24 @@ const longitud4 = (string: string): number => {
 longitud4('Hola Mundo');
 // 10
 
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Soluion de Jon Mirha █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+https://www.youtube.com/watch?v=Xh8p7aZBiaw&t=179s */
+
+function contarCaracteres(cadena: string = ""): void {
+  if (!cadena) {
+    console.warn("No ingresaste ninguna cadena");
+  } else {
+    console.info(`La cadena "${cadena}" tiene ${cadena.length} caracteres`);
+  }
+}
+contarCaracteres();             // "No ingresaste ninguna cadena"
+contarCaracteres(" ");          // `La cadena " " tiene 1 caracteres`)
+contarCaracteres("hola mundo"); // `La cadena "hola mundo" tiene 10 caracteres`)
+
+const contarCaracteres2 = (cadena: string = ""): void => !cadena ? console.warn("No ingresaste ninguna cadena") : console.info(`La cadena "${cadena}" tiene ${cadena.length} caracteres`);
+contarCaracteres2();             // "No ingresaste ninguna cadena"
+contarCaracteres2(" ");          // `La cadena " " tiene 1 caracteres`)
+contarCaracteres2("hola mundo"); // `La cadena "hola mundo" tiene 10 caracteres`)
