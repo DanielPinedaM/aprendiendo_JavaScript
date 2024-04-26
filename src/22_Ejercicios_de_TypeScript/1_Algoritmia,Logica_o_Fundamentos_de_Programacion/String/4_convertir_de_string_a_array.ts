@@ -12,17 +12,29 @@ https://www.samanthaming.com/tidbits/83-4-ways-to-convert-string-to-character-ar
 /* --------------------------------------------------- */
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄
- █ .split() █
- ▀▀▀▀▀▀▀▀▀▀▀▀ */
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .split()               █
+ █ Solucion de Jon Mircha █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 
-console.log(
-  'hola que tal'.split(' ')
-);
-// (3) ['hola', 'que', 'tal']
+const cadena_a_arreglo = (cadena: string = "", separador?: string | undefined) => (!cadena)
+                                                             ? console.warn("No ingresaste cadeta de texto")
+                                                               : (!separador)
+                                                               ? console.warn("No ingresaste el caracter separador")
+                                                                 : console.info(cadena.split(separador))
+
+
+cadena_a_arreglo();                    // "No ingresaste cadeta de texto"
+cadena_a_arreglo('hola que tal');      // "No ingresaste el caracter separador"
+cadena_a_arreglo('hola que tal', ' '); // (3) ['hola', 'que', 'tal']
+
+
+'hola que tal'.split('');  // (12) ['h', 'o', 'l', 'a', ' ', 'q', 'u', 'e', ' ', 't', 'a', 'l']
+'hola que tal'.split(' '); // (3) ['hola', 'que', 'tal']
+'hola que tal'.split();    // (1) [ 'hola que tal' ]
+'hola que tal'.split(','); // (1) [ 'hola que tal' ]
 
 /* --- */
-
 
 const stringArray1 = (string: string | any, separador: string): string[] | null => {
   if (typeof string === 'string' || string instanceof String) {

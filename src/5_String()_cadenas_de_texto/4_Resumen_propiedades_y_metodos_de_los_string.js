@@ -186,37 +186,23 @@ string.match(/[a-z]/); // ['h', index: 0, input: 'hola mundo', groups: undefined
  ▀▀▀▀▀▀▀▀▀▀▀▀
 https://www.samanthaming.com/tidbits/83-4-ways-to-convert-string-to-character-array/
 
-convertir de STRING A ARRAY */
+convertir de STRING "" A ARRAY [] */
+
 let array = string.split(''); // .split('') caracter en blanco
 console.log(array);
-/* (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
-0: "h"
-1: "o"
-2: "l"
-3: "a"
-4: " "
-5: "m"
-6: "u"
-7: "n"
-8: "d"
-9: "o"
-length: 10
-[[Prototype]]: Array(0) */
+// (10) ['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
 
 array = string.split(' '); // .split(' ') un espacio en blanco
 console.log(array);
-/* (2) ['hola', 'mundo']
-0: "hola"
-1: "mundo"
-length: 2
-[[Prototype]]: Array(0) */
+// (2) ['hola', 'mundo']
 
 array = string.split(); // NO escribo nada dentro del par de parentesis de .split()
 console.log(array);
-/* ['hola mundo']
-0: "hola mundo"
-length: 1
-[[Prototype]]: Array(0) */
+// (1) ['hola mundo']
+
+array = string.split(","); // el separador "," NO esta en el string 'hola mundo'
+console.log(array);
+// (1) ['hola mundo']
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
