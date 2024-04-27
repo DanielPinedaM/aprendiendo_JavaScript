@@ -1143,17 +1143,18 @@ Aplanar array y concatenar cada uno de los elementos del array con un corazon '�
 //           ↑     ↑                                                                            ↑      ↑
 
 /*
-▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-█ .join()           █
-█ Intl.ListFormat() █
-█ .toString()       █
-█ .toLocaleString() █
-▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+█ .join()                         █
+█ Intl.ListFormat()               █
+█ .toString()                     █
+█ .toString().replaceAll(",", "") █
+█ .toLocaleString()               █
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://youtu.be/59tYAYnt_sg
 
 https://twitter.com/ericclemmons/status/1488558951008509963
 
-Convertir de array a string (texto) */
+Convertir de array [] a string (texto) "" */
 const array3 = [1, 2, 3];
 console.log(array3);
 // (3) [1, 2, 3]
@@ -1173,9 +1174,13 @@ const string = new Intl.ListFormat('es', { type: 'conjunction' }).format(element
 console.log(string);
 // '1, 2 y 3'
 
-// .toString() conserva las comas , del array
+// .toString() CONSERVAR las comas , del array
 console.log(array3.toString());
 // '1,2,3'
+
+// .toString().replaceAll(",", "") ELIMINAR las comas , del array
+console.log(array3.toString().replaceAll(",", ""));
+// '123'
 
 // .toLocaleString() convertir a string, array q tiene fecha y esta en ingles
 const fecha = [1, 'a', new Date('21 Dec 1997 14:12:00 UTC')];
