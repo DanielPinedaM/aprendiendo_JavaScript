@@ -10,7 +10,7 @@ Ejemplo: mifuncion("Salas") devolverá true.
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Solucion de Jon Mircha █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
- */
+https://www.youtube.com/watch?v=U4buFGcd_eg&t=1003s */
 
 /* 
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
