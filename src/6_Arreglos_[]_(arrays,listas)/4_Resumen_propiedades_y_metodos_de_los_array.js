@@ -495,13 +495,13 @@ https://midu.dev/to-reversed-to-spliced-to-sorted-with/
 | Métodos de Array .to                    | ¿MODIFICA el array1   | ¿Crea una nueva COPIA |
 |                                         | original (existente)? | array2 del array1?    |
 |-----------------------------------------|-----------------------|-----------------------|
-| .reverse()                              | MUtable               | X                     |
-| .sort()                                 | ✔️                     |                       |
+| .reverse()                              | MUtable               | ❌                    |
+| .sort()                                 | ✔️                    |                       |
 | .splice()                               |                       |                       |
 | nombreArray[numeroIndice]="nuevo valor" |                       |                       |
 |-----------------------------------------|-----------------------|-----------------------|
-| .toReversed()                           | INmutable             | ✔️                     |
-| .toSorted()                             | X                     |                       |
+| .toReversed()                           | INmutable             | ✔️                    |
+| .toSorted()                             | ❌                    |                       |
 | .toSpliced()                            |                       |                       |
 | .with()                                 |                       |                       |
 |-----------------------------------------|-----------------------|-----------------------| */

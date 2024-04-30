@@ -62,7 +62,7 @@ de la SEGUNDA aparicion de la letra 'o'
 indicePrimeraAparicion + 1 =
 = 1 + 1
 = 2 */
-const indiceSegundaAparicion = string.indexOf(buscar, (indicePrimeraAparicion + 1)); //
+const indiceSegundaAparicion = string.indexOf(buscar, (indicePrimeraAparicion + 1));
 console.log(`el SEGUNDO caracter '${buscar}' esta en la posicion (indice) ${indiceSegundaAparicion}`);
 // el SEGUNDO caracter 'o' esta en la posicion (indice) 9
 
