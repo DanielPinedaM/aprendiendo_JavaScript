@@ -6,20 +6,35 @@ Ejemplo: miFuncion("Hola Mundo") devolverá "odnuM aloH".
 /* --------------------------------------------------- */
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ Solucion de Jon Mircha █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Solucion de Jon Mircha                            █
+ █ .split("").reverse().join("")                     █
+ █ https://www.youtube.com/watch?v=U4buFGcd_eg&t=92s █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
  */
 
+const invertirString1 = (string: string): string | null => (!string)
+                                                            ? (console.warn('no ingresaste una cadena'), null)
+                                                               : string.split('').reverse().join('')
+
+invertirString1('Hola Mundo');
+// 'odnuM aloH'
+
+invertirString1('');
+// 'no ingresaste una cadena'
+// null
+
  /* 
+
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .split('').reverse()            █
  █ .toString().replaceAll(',', '') █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll */
 
-const invertirString1 = (string: string): string | null => {
+const invertirString2 = (string: string): string | null => {
   if (typeof string !== 'string') return null;
 
   const array: string[] = string.split('').reverse();
@@ -27,7 +42,7 @@ const invertirString1 = (string: string): string | null => {
   return array.toString().replaceAll(',', '');
 };
 
-invertirString1('Hola Mundo');
+invertirString2('Hola Mundo');
 // 'odnuM aloH'
 
 /* 
@@ -36,7 +51,7 @@ invertirString1('Hola Mundo');
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for */
 
-const invertirString2 = (string: string): string | null => {
+const invertirString3 = (string: string): string | null => {
   if (typeof string !== 'string') return null;
 
   let resultado = '';
@@ -50,7 +65,7 @@ const invertirString2 = (string: string): string | null => {
   return resultado;
 };
 
-invertirString2('Hola Mundo');
+invertirString3('Hola Mundo');
 // 'odnuM aloH'
 
 /* 
@@ -59,7 +74,7 @@ invertirString2('Hola Mundo');
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight#difference_between_reduce_and_reduceright */
 
-const invertirString3 = (string: string): string | null => {
+const invertirString4 = (string: string): string | null => {
   if (typeof string !== 'string') return null;
 
   const array: string[] = string.split('');
@@ -69,5 +84,5 @@ const invertirString3 = (string: string): string | null => {
   return array.reduceRight((acumulador, elemento) => acumulador + elemento, '');
 };
 
-invertirString3('Hola Mundo');
+invertirString4('Hola Mundo');
 // 'odnuM aloH'

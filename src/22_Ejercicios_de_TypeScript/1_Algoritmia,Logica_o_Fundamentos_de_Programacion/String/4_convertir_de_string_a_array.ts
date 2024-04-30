@@ -30,10 +30,10 @@ cadena_a_arreglo('hola que tal');      // "No ingresaste el caracter separador"
 cadena_a_arreglo('hola que tal', ' '); // (3) ['hola', 'que', 'tal']
 
 
-'hola que tal'.split('');  // (12) ['h', 'o', 'l', 'a', ' ', 'q', 'u', 'e', ' ', 't', 'a', 'l']
-'hola que tal'.split(' '); // (3) ['hola', 'que', 'tal']
-'hola que tal'.split();    // (1) [ 'hola que tal' ]
-'hola que tal'.split(','); // (1) [ 'hola que tal' ]
+'hola que tal'.split('');  // (12) [ 'h', 'o', 'l', 'a', ' ', 'q', 'u', 'e', ' ', 't', 'a', 'l']
+'hola que tal'.split(' '); // (3)  [ 'hola', 'que', 'tal']
+'hola que tal'.split();    // (1)  [ 'hola que tal' ]
+'hola que tal'.split(','); // (1)  [ 'hola que tal' ]
 
 /* --- */
 

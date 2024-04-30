@@ -307,7 +307,7 @@ Posicion del PRIMER circulo '●' */
 // -1 significa q el elemento triangulo '▲' NO existe en el array
 ['■', '■', '■', '■'].indexOf('▲'); // -1
 
-/*
+/*.join
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .findIndex() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
