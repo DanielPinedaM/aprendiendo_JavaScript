@@ -311,7 +311,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random */
 
 const letras2 = ['a', 'b', 'c'];
-//               0    1    2
+//                0    1    2
 
 console.log(letras2);
 // (3) ['a', 'b', 'c']
