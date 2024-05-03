@@ -1,16 +1,10 @@
 /*
-.
-*/
-
-/* --------------------------------------------------- */
-
-/*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Solucion de Jon Mircha █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 Programa una función que obtenga un numero aleatorio entre 501 y 600
 
- */
+*/
 
 
 
