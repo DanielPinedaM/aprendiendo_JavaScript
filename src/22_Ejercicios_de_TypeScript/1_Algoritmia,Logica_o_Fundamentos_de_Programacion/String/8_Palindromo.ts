@@ -6,19 +6,16 @@ Ejemplo: mifuncion("Salas") devolverá true.
 
 /* --------------------------------------------------- */
 
-/*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ Solucion de Jon Mircha █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://www.youtube.com/watch?v=U4buFGcd_eg&t=1003s */
-
 /* 
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .split("").toReversed().join("") █
+ █ Solucion de Jon Mircha           █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight#difference_between_reduce_and_reduceright */
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight#difference_between_reduce_and_reduceright
 
-const palindromo = (string: string): boolean => {
+https://www.youtube.com/watch?v=U4buFGcd_eg&t=1003s */
+
+const palindromo2 = (string: string): boolean => {
   if (typeof string !== 'string') return false;
 
   string = string.trim().toLowerCase();
@@ -28,5 +25,5 @@ const palindromo = (string: string): boolean => {
   return invertirString === string;
 };
 
-palindromo('Salas');
+palindromo2('Salas');
 // true
