@@ -5,6 +5,7 @@
     "eslint-plugin-import": "^2.26.0"
   },
   "dependencies": {
-    "core-js": "^3.32.2"
+    "core-js": "^3.32.2",
+    "ts-node": "^10.9.2"
   }
 }

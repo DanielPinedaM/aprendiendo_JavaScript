@@ -1,12 +1,13 @@
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ Solucion de Jon Mircha █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Programa una función que obtenga un numero aleatorio entre 501 y 600
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Solucion de Jon Mircha                            █
+ █ https://www.youtube.com/watch?v=MRmvOTkd7CE&t=53s █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+Programa una función que obtenga un numero aleatorio entre 501 y 600 */
 
-*/
+const pseudoaleatorio = (): number => Math.round((Math.random() * 100) + 500);
 
-
+pseudoaleatorio();
 
 /* 
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -23,7 +24,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil */
 
-const getRandomIntInclusive2 = (min: number, max: number): number => {
+const pseudoaleatorio2 = (min: number, max: number): number => {
   // Math.ceil() Redondear "hacia ARRIBA", al número entero MAYOR mas cercano
   min = Math.ceil(min);
   console.log(min);
@@ -50,8 +51,8 @@ const getRandomIntInclusive2 = (min: number, max: number): number => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-getRandomIntInclusive2(10, 20); // 15
-getRandomIntInclusive2(10, 20); // 14
+pseudoaleatorio2(10, 20);   // 15
+pseudoaleatorio2(10, 20);   // 14
 
-getRandomIntInclusive2(500, 600); // 535
-getRandomIntInclusive2(500, 600); // 529
+pseudoaleatorio2(500, 600); // 535
+pseudoaleatorio2(500, 600); // 529
