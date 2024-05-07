@@ -20,7 +20,7 @@ const palindromo2 = (string: string): boolean => {
 
   string = string.trim().toLowerCase();
   
-  const invertirString: string = string.split("").toReversed().join("");
+  const invertirString: string = string.split("").reverse().join("");
 
   return invertirString === string;
 };
