@@ -23,13 +23,13 @@ https://en.wikipedia.org/wiki/Factorial
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 
 const factorial = (numero: number): number | null => {
-  if (numero < 0) {
-    console.warn('Digite un numero mayor o igual a 0, NO negativo');
+  if (typeof numero !== 'number') {
+    console.warn('Digite un numero');
     return null;
   }
 
-  if (typeof numero !== 'number') {
-    console.warn('Digite un numero');
+  if (numero < 0) {
+    console.warn('Digite un numero mayor o igual a 0, NO negativo');
     return null;
   }
 
