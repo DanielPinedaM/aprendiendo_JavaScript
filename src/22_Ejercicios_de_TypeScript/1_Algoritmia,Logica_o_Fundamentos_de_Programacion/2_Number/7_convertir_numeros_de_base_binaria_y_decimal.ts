@@ -20,7 +20,7 @@ const baseBinariaDecimal = (numero: number, base: 2 | 10): string => {
   if (base === 2) {
     return `${numero} base ${base} = ${parseInt(numero.toString(), base)} base 10`;
 
-    // numero.toString(2)                -> convertir de base decimal a base binaria
+  // numero.toString(2)                -> convertir de base decimal a base binaria
   } else {
     return `${numero} base ${base} = ${numero.toString(2)} base 2`;
   }
