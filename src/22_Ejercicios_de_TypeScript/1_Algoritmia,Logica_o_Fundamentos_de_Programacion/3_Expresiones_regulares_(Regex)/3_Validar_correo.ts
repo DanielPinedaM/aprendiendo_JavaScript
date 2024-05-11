@@ -13,10 +13,11 @@ Ejemplo: miFuncion("jonmircha@gmail.com") devuelve true.
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 
 const validarCorreo = (texto: string): boolean => {
-    if (typeof texto !== 'string') return false;
-    if (!(texto.trim().length)) return false;
+  if (typeof texto !== 'string') return false;
+  if (texto.trim() === '') return false;
+  if (!(texto.includes('@'))) return false;
 
-}
+  return
+};
 
-validarCorreo("jonmircha@gmail.com"); // true
-
+validarCorreo('jonmircha@gmail.com'); // true

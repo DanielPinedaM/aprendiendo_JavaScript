@@ -29,7 +29,7 @@ const contarVocalesConsonantes = (texto: string): INumeroVocalesConsonantes => {
       vocales,
       consonantes,
     };
-  if (!texto.trim().length)
+  if (!(texto.trim().length))
     return {
       texto,
       vocales,

@@ -32,7 +32,7 @@ const normalizeStr = (string: string | any): string | any => {
    }
 
    return string;
- };
+};
 
 normalizeStr(' COMunicaciÓN    ');  // 'comunicacion'
 normalizeStr(' àáâãäå ');           // 'aaaaaa'
