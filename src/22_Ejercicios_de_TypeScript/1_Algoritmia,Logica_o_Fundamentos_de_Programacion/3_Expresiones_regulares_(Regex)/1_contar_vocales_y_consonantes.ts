@@ -2,7 +2,7 @@
 Programa una función que 
 dada una cadena de texto 
 cuente el número de vocales y consonantes.
-Ejemplo: ("Hola Mundo") devuelve Vocales: 4, Consonantes: 5.
+Ejemplo: ("Hola Mundo") devuelve { vocales: 4, consonantes: 5 }
 */
 
 /* --------------------------------------------------- */
@@ -14,19 +14,46 @@ Ejemplo: ("Hola Mundo") devuelve Vocales: 4, Consonantes: 5.
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 
 interface INumeroVocalesConsonantes {
+  texto: string;
   vocales: number;
   consonantes: number;
 }
 
 const contarVocalesConsonantes = (texto: string): INumeroVocalesConsonantes => {
-  let resultado: INumeroVocalesConsonantes = {
-    vocales: 0,
-    consonantes: 0,
+  let vocales: number = 0;
+  let consonantes: number = 0;
+
+  if (typeof texto !== 'string')
+    return {
+      texto,
+      vocales,
+      consonantes,
+    };
+  if (!texto.trim().length)
+    return {
+      texto,
+      vocales,
+      consonantes,
+    };
+
+  texto = texto.trim().toLowerCase();
+
+  for (let letra of texto) {
+    if (/[aeiouáéíóú]/.test(letra)) {
+      vocales++;
+    }
+
+    if (/[bcdfghjklmnñpqrstvwxyz]/.test(letra)) {
+      consonantes++;
+    }
+  }
+
+  return {
+    texto,
+    vocales,
+    consonantes,
   };
-
-  if (typeof texto !== 'string') return resultado;
-  if (!(texto.trim().length)) return resultado;
-
 };
 
-contarVocalesConsonantes('Hola Mundo');
+contarVocalesConsonantes('Hola Mundo'); // { texto: 'Hola Mundo', vocales: 4, consonantes: 5 }
+contarVocalesConsonantes();             // { texto: undefined, vocales: 0, consonantes: 0 }
