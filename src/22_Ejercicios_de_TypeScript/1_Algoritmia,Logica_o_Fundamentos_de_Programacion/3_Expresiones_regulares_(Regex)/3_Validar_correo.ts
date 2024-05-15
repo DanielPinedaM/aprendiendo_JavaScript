@@ -7,9 +7,9 @@ Ejemplo: miFuncion("jonmircha@gmail.com") devuelve true.
 /* --------------------------------------------------- */
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ Solucion de Jon Mircha                             █
- █  █
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Solucion de Jon Mircha                              █
+ █ https://www.youtube.com/watch?v=9BavKzWBr3c&t=1128s █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 
 const validarCorreo = (texto: string): boolean => {
