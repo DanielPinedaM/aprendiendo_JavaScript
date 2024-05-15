@@ -6,7 +6,7 @@ es o no un string
 
 const admitirSoloLetras = (texto: string): boolean => typeof texto === "string"
 
-admitirSoloLetras("hola mundo"); // true
+admitirSoloLetras("hola mundo");     // true
 
 // NO es un string
 admitirSoloLetras(123);              // false

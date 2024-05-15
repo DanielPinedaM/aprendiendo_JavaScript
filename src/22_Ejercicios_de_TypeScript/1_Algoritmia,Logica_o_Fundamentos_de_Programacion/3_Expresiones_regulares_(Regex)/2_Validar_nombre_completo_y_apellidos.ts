@@ -41,8 +41,10 @@ const validateFullName = (texto: string): boolean => {
   // validar q parametro texto sea un string
   if (typeof texto !== 'string') return false;
 
+  texto = texto.trim();
+
   // NO permitir espacios en blanco " "
-  if (texto.trim() === '') return false;
+  if (texto === '') return false;
 
   // NO permitir caracteres especiales
   if (/[!@#$€%^&*()_+\-=[\]{};':"\\|,.<>?]/.test(texto)) return false;
