@@ -4,7 +4,7 @@ si el parametro de una funcion
 es o no un string
 */
 
-const admitirSoloLetras = (texto: string): boolean => typeof texto === "string"
+const admitirSoloLetras = (texto: string): boolean => typeof texto === "string";
 
 admitirSoloLetras("hola mundo");     // true
 
@@ -31,7 +31,7 @@ si el parametro es o no un string, permitir:
 const admitirSoloLetras2 = (texto: string): boolean => {
   if (typeof texto !== 'string') return false;
 
-  return /^[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ\s]+$/.test(texto);
+  return /^[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ\s]+$/.test(texto.trim());
 };
 
 admitirSoloLetras2('hola mundo');       // true

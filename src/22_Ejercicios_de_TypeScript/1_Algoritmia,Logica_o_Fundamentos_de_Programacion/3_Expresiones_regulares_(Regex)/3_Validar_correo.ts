@@ -14,7 +14,10 @@ Ejemplo: miFuncion("jonmircha@gmail.com") devuelve true.
 
 const validarCorreo = (texto: string): boolean => {
   if (typeof texto !== 'string') return false;
-  if (texto.trim() === '') return false;
+
+  texto = texto.trim();
+
+  if (texto === '') return false;
   if (!(texto.includes('@'))) return false;
 
   return

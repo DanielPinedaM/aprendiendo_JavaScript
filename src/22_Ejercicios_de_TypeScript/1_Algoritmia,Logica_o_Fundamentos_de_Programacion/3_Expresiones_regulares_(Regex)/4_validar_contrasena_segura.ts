@@ -10,12 +10,12 @@ la contraseña debe contener AL MENOS:
 
 /* --------------------------------------------------- */
 
-const contrasenaSegura = (contrasena: string): boolean => /^(?=.*[!@#$%^&*()_+\[\]{};':"\\|,.<>/?])(?=.*[0-9])(?=.*[A-ZÑÁÉÍÓÚ])(?=.*[a-zñáéíóú]).{5,}$/.test(contrasena);
+const contrasenaSegura = (contrasena: string): boolean => /^(?=.*[!@#$%^&*()_+\[\]{};':"\\|,.<>/?])(?=.*[0-9])(?=.*[A-ZÑÁÉÍÓÚ])(?=.*[a-zñáéíóú]).{5,}$/.test(contrasena.trim());
 
 console.log(contrasenaSegura('@1ÑñÁ')); // true -> cumple todas las condiciones
 
 console.log(contrasenaSegura(' '));     // false -> tiene menos de 5 caracteres
-console.log(contrasenaSegura(''));      // false -> tiene menos de 5 caracteres
+console.log(contrasenaSegura(''));      // false -> tiene menos de 5 caracteress
 console.log(contrasenaSegura('@1Ññ'));  // false -> tiene menos de 5 caracteres
 console.log(contrasenaSegura('a1ÑñÁ')); // false -> falta caracter especial
 console.log(contrasenaSegura('a@ÑñÁ')); // false -> falta numero
