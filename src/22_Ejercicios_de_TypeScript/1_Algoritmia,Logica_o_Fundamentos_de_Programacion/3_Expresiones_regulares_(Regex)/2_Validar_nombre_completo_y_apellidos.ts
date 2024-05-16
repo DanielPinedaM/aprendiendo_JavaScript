@@ -2,6 +2,10 @@
 Programar funcion para 
 validar nombre completo con apellidos
 
+permitir:
+- mayúscula (incluir la "Ñ" y vocales con tilde ÁÉÍÓÚ)
+- minuscula (incluir la "ñ" y vocales con tilde áéíóú)
+
 Ejemplo: 
 miFuncion("Daniel Pineda") devuelve true.
 
