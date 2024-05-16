@@ -4,11 +4,11 @@ si el parametro de una funcion
 es o no un string
 */
 
-const admitirSoloLetras = (texto: string): boolean => typeof texto === "string";
+const admitirSoloLetras = (texto: string): boolean => typeof texto === 'string';
 
 /* Diferencia entre:
-- usar solamente typeof texto === "string"
-- usar typeof texto === "string" y expresion regular */
+- usar solamente typeof texto === 'string'
+- usar typeof texto !== 'string' y expresion regular */
 admitirSoloLetras("hola mundo");     // true
 admitirSoloLetras("123");            // true -> NO evalua si el string contiene numeros
 admitirSoloLetras("");               // true -> NO evalua caracter vacio ""
@@ -32,8 +32,7 @@ admitirSoloLetras({uno: 1, dos: 2}); // false
 Expresion regular para validar 
 si el parametro es o no un string, permitir:
 - mayúscula (incluir la "Ñ" y vocales con tilde ÁÉÍÓÚ)
-- minuscula (incluir la "ñ" y vocales con tilde áéíóú)
-*/
+- minuscula (incluir la "ñ" y vocales con tilde áéíóú) */
 const admitirSoloLetras2 = (texto: string): boolean => {
   if (typeof texto !== 'string') return false;
 
