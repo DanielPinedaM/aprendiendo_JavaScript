@@ -15,7 +15,7 @@ Ejemplo: miFuncion("jonmircha@gmail.com") devuelve true.
  █ https://www.youtube.com/watch?v=9BavKzWBr3c&t=1128s █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 
- const validarCorreo = (texto: string): boolean => {
+const validarCorreo = (texto: string): boolean => {
   if (typeof texto !== 'string') return false;
 
   return /^[a-zA-Z0-9_.+-ñÑ]+@[a-zA-Z0-9-ñÑ]+\.[a-zA-Z0-9-.]+$/.test(texto.trim())

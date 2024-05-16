@@ -6,11 +6,17 @@ es o no un string
 
 const admitirSoloLetras = (texto: string): boolean => typeof texto === "string";
 
+/* Diferencia entre:
+- usar solamente typeof texto === "string"
+- usar typeof texto === "string" y expresion regular */
 admitirSoloLetras("hola mundo");     // true
+admitirSoloLetras("123");            // true -> NO evalua si el string contiene numeros
+admitirSoloLetras("");               // true -> NO evalua caracter vacio ""
+admitirSoloLetras(" ");              // true -> NO evalua espacio en blanco " "
 
 // NO es un string
 admitirSoloLetras(123);              // false
-admitirSoloLetras(Symbol('id'));     // ❌ ERROR TypeError: Cannot convert a Symbol value to a string
+admitirSoloLetras(Symbol('id'));     // false
 admitirSoloLetras(undefined);        // false
 admitirSoloLetras(null);             // false
 admitirSoloLetras(NaN);              // false
@@ -23,7 +29,7 @@ admitirSoloLetras({uno: 1, dos: 2}); // false
 /* --------------------------------------------------- */
 
 /* 
-Crear expresion regular para validar 
+Expresion regular para validar 
 si el parametro es o no un string, permitir:
 - mayúscula (incluir la "Ñ" y vocales con tilde ÁÉÍÓÚ)
 - minuscula (incluir la "ñ" y vocales con tilde áéíóú)
@@ -34,11 +40,17 @@ const admitirSoloLetras2 = (texto: string): boolean => {
   return /^[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ\s]+$/.test(texto.trim());
 };
 
-admitirSoloLetras2('hola mundo');       // true
+/* Diferencia entre:
+- usar solamente typeof texto === "string"
+- usar typeof texto === "string" y expresion regular */
+admitirSoloLetras2("hola mundo");     // true
+admitirSoloLetras2("123");            // false -> false porq "123" son numeros
+admitirSoloLetras2("");               // false -> false porq caracter vacio    ""  NO contiene letras
+admitirSoloLetras2(" ");              // false -> false porq espacio en blanco " " NO contiene letras
 
 // NO es un string
 admitirSoloLetras2(123);                // false
-admitirSoloLetras2(Symbol('id'));       // ❌ ERROR TypeError: Cannot convert a Symbol value to a string
+admitirSoloLetras2(Symbol('id'));       // false
 admitirSoloLetras2(undefined);          // false
 admitirSoloLetras2(null);               // false
 admitirSoloLetras2(NaN);                // false
