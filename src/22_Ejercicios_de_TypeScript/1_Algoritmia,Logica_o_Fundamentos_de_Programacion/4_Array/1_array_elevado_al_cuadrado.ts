@@ -13,7 +13,7 @@ Ejemplo: mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
  █ .map() █
  ▀▀▀▀▀▀▀▀▀▀ */
  
-const arrayElevadoAlCuadrado = (array: number[]): number[] => Array.isArray(array) ? array.map((elemento) => elemento * elemento) : [];
+const arrayElevadoAlCuadrado = (array: number[]): number[] => Array.isArray(array) && array?.length ? array.map((elemento) => elemento * elemento) : [];
 
 arrayElevadoAlCuadrado([1, 4, 5]); // (3) [ 1, 16, 25 ]
  
@@ -26,7 +26,8 @@ arrayElevadoAlCuadrado({});        // []
  ▀▀▀▀▀▀▀▀▀▀▀ */
 
 const arrayElevadoAlCuadrado2 = (array: number[]): number[] => {
-  if (!Array.isArray(array)) return [];
+  if (!(Array.isArray(array))) return [];
+  if (!(array.length)) return [];
 
   const arrayElevadoAlCuadrado: number[] = [];
 
@@ -50,7 +51,8 @@ arrayElevadoAlCuadrado2([]);        // []
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 
 const arrayElevadoAlCuadrado3 = (array: number[]): number[] => {
-  if (!Array.isArray(array)) return [];
+  if (!(Array.isArray(array))) return [];
+  if (!(array.length)) return [];
 
   const arrayElevadoAlCuadrado: number[] = [];
 
