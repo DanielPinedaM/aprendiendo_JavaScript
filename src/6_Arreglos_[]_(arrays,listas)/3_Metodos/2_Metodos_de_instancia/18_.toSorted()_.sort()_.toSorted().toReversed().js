@@ -38,7 +38,7 @@ https://en.wikipedia.org/wiki/In-place_algorithm
 |                                         | original (existente)? | array2 del array1?    |
 |-----------------------------------------|-----------------------|-----------------------|
 | .reverse()                              | MUtable               | X                     |
-| .sort()                                 | ✔️                     |                       |
+| .sort()                                 | ✔️                    |                       |
 | .splice()                               |                       |                       |
 | nombreArray[numeroIndice]="nuevo valor" |                       |                       |
 |-----------------------------------------|-----------------------|-----------------------|

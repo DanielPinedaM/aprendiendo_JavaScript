@@ -69,7 +69,9 @@ const parImpar2 = (array: number[]): IParImpar => {
   for (let i = 0; i < array.length; i++) {
     const elemento: number = array[i];
 
-    elemento % 2 === 0 ? resultado.par.push(elemento) : resultado.impar.push(elemento);
+    elemento % 2 === 0 
+        ? resultado.par.push(elemento) 
+          : resultado.impar.push(elemento);
   }
 
   return resultado;
@@ -93,8 +95,7 @@ const parImpar3 = (array: number[]): IParImpar => {
   if (!Array.isArray(array)) return { par: [], impar: [] };
   if (!array.length) return { par: [], impar: [] };
 
-  return array.reduce<IParImpar>(
-    (acc: IParImpar, elemento: number) => {
+  return array.reduce<IParImpar>((acc: IParImpar, elemento: number) => {
       (elemento % 2 === 0 ? acc.par : acc.impar).push(elemento);
       return acc;
     },
