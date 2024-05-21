@@ -10,7 +10,7 @@ numeros.toSorted((a, b) => a - b);
 letras.toSorted((a, b) => a.localeCompare(b, 'es-ES'));
 
 Ejemplo: 
-miFuncion([2, 4, 3, 1, 'b', 'd', 'c', 'a', true, false, {}, '0']) 
+miFuncion([2, '4', 3, 1, 'b', 'd', 'c', 'a', true, false, {}, '0']) 
 devolverá 
 { 
   ascendente:  [1, 2, 3, 4, 'a', 'b', 'c', 'd', true, false, {}, '0'],
