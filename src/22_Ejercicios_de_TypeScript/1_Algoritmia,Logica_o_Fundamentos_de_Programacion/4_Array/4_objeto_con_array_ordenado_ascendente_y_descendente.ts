@@ -80,7 +80,6 @@ const ordenarArray = (array: any[]): IOrdenarArray => {
 
   resultado.ascendente = [...numeros, ...letras, ...otrosTiposDeDatos];
   resultado.descendente = [...numeros.toReversed(), ...letras.toReversed(), ...otrosTiposDeDatos];
-
   return resultado;
 };
 
