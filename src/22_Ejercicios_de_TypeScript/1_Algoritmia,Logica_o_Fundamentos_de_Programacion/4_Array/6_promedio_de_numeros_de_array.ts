@@ -9,7 +9,6 @@ promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5
 
 /* --------------------------------------------------- */
 
-  
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Solucion de Jon Mircha                              █
@@ -20,3 +19,13 @@ promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5
  ▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ .reduce() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+
+const promedio = (arr: number[]): number | null => {
+  if (!Array.isArray(arr)) return null;
+  if (!arr.length) return null;
+
+  return arr.reduce((acumulador: number, elemento: number) => acumulador + elemento) / arr.length;
+};
+
+promedio([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]);
+// 4.5
