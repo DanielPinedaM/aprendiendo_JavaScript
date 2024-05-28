@@ -1,26 +1,32 @@
 /* 
 Programa una función que 
-dado un arreglo de números, letras, etc 
-devuelva un objeto con dos arreglos, 
-el primero tendrá los numeros ordenados en forma ascendente (menor a mayor)
-y el segundo de forma descendente (mayor a menor)
+dado un array []
+devuelva un objeto con tres array:
+1) array original
+2) array con elementos ordenados en forma ASCENDENTE   (menor a mayor) 
+3) array con elementos ordenados en forma  DESCENDENTE (mayor a menor)
+
 
 tener en cuenta q .toSorted() se escribe diferente dependiendo del tipo de dato:
-numeros.toSorted((a, b) => a - b);
-letras.toSorted((a, b) => a.localeCompare(b, 'es-ES'));
 
-Ejemplo: 
-miFuncion([2, 4, '0', 3, 1, 'b', 'd', 'c', 'a', true, false, [], {}, null, undefined, NaN]) 
-devolverá 
-{ 
-  ascendente:  [0, 1, 2, 3, 4, 'a', 'b', 'c', 'd', true, false, [], {}, null, undefined, NaN],
-  descendente: [4, 3, 2, 1, 0, 'd', 'c', 'b', 'a', true, false, [], {}, null, undefined, NaN]
-}
-*/
+Number()
+[3, 0, 1, 5, 2, 4].toSorted((a, b) => a - b);                                   // (6) [ 0, 1, 2, 3, 4, 5 ]
+
+String()
+["c", "a", "f", "b", "d", "e"].toSorted((a, b) => a.localeCompare(b, 'es-ES')); // (6) [ 'a', 'b', 'c', 'd', 'e', 'f' ] */
 
 /* --------------------------------------------------- */
 
-interface IOrdenarArray {
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .toSorted()   █
+ █ .toReversed() █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+
+// valor de retorno de la funcion
+ interface IOrdenarArray {
+  array: any[];
+
   // menor a mayor
   ascendente: number[];
 
@@ -29,25 +35,60 @@ interface IOrdenarArray {
 }
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ Solucion de Jon Mircha                              █
- █  █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
-
-/*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .toSorted()   █
- █ .toReversed() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
-
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Funciones para determinar el tipo de dato █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 const esNumero = (item: any): boolean => typeof item === 'number' && Number.isNaN(item) === false;
 
 const esStringNumero = (item: any): boolean => typeof item === 'string' && /^\d+$/.test(item.trim());
 
 const esLetra = (item: any): boolean => typeof item === 'string' && /^[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ\s]+$/.test(item.trim());
 
-const ordenarArray = (array: any[]): IOrdenarArray => {
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Solucion de Jon Mircha                             █
+ █ Solamente ordenar array de numeros                 █
+ █ https://www.youtube.com/watch?v=n2ACoGsRQHY&t=218s █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+const ordenarArray = (array: number[]): IOrdenarArray => {
   const resultado: IOrdenarArray = {
+    array,
+    ascendente: [],
+    descendente: [],
+  };
+
+  if (!Array.isArray(array)) return resultado;
+  if (!array.length) return resultado;
+
+  for (let item of array) {
+    if (!esNumero(item)) return resultado;
+  }
+
+  resultado.ascendente = array.toSorted((a, b) => a - b);
+  resultado.descendente = resultado.ascendente.toReversed();
+
+  return resultado;
+};
+
+// array de numeros
+ordenarArray([2, 4, 3, 1]);
+//{
+//  array:       (4) [ 2, 4, 3, 1 ],
+//  ascendente:  (4) [ 1, 2, 3, 4 ],
+//  descendente: (4) [ 4, 3, 2, 1 ]
+//}
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Ordenar array de la siguiente forma: █
+ █ 1) Numeros                           █
+ █ 2) letras                            █
+ █ 3) Otros tipos de datos              █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+
+const ordenarArray2 = (array: any[]): IOrdenarArray => {
+  const resultado: IOrdenarArray = {
+    array,
     ascendente: [],
     descendente: [],
   };
@@ -83,8 +124,10 @@ const ordenarArray = (array: any[]): IOrdenarArray => {
   return resultado;
 };
 
-ordenarArray([2, 4, '0', 3, 1, 'b', 'd', 'c', 'a', true, false, [], {}, null, undefined, NaN]);
+// array de números, letras, etc 
+ordenarArray2([2, 4, '0', 3, 1, 'b', 'd', 'c', 'a', true, false, [], {}, null, undefined, NaN]);
 // {
-//   ascendente:  [ 0, 1, 2, 3, 4, 'a', 'b', 'c', 'd', true, false, [], {}, null, undefined, NaN ],
-//   descendente: [ 4, 3, 2, 1, 0, 'd', 'c', 'b', 'a', true, false, [], {}, null, undefined, NaN ]
+//   array:       (16) [ 2, 4, '0', 3, 1, 'b', 'd', 'c', 'a', true, false, [], {}, null, undefined, NaN ]
+//   ascendente:  (16) [ 0, 1, 2, 3, 4, 'a', 'b', 'c', 'd', true, false, [], {}, null, undefined, NaN ],
+//   descendente: (16) [ 4, 3, 2, 1, 0, 'd', 'c', 'b', 'a', true, false, [], {}, null, undefined, NaN ]
 // }
