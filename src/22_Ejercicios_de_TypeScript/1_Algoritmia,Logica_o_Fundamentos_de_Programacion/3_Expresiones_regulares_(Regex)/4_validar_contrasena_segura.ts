@@ -22,7 +22,7 @@ console.log(contrasenaSegura('a@ÑñÁ')); // false -> falta numero
 console.log(contrasenaSegura('@1ñña')); // false -> falta mayúscula
 console.log(contrasenaSegura('@1ÑÑÁ')); // false -> falta minuscula
 
-// NO es un string
+// el parametro NO es un string
 contrasenaSegura(123);              // false
 contrasenaSegura(Symbol('id'));     // ❌ ERROR TypeError: Cannot convert a Symbol value to a string
 contrasenaSegura(undefined);        // false

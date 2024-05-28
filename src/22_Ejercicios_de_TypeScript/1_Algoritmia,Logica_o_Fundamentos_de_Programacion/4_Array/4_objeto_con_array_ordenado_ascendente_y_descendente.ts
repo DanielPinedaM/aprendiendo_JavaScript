@@ -38,10 +38,14 @@ String()
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Funciones para determinar el tipo de dato █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+
+// solamente tipo NUMERO, NO adite NaN. Ejemplo: 99
 const esNumero = (item: any): boolean => typeof item === 'number' && Number.isNaN(item) === false;
 
+// string que contenga numero. Ejemplo: '99'
 const esStringNumero = (item: any): boolean => typeof item === 'string' && /^\d+$/.test(item.trim());
 
+// solamente tipo STRING, NO adite NaN. Ejemplo: 'hola mundo'
 const esLetra = (item: any): boolean => typeof item === 'string' && /^[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ\s]+$/.test(item.trim());
 
 /*
