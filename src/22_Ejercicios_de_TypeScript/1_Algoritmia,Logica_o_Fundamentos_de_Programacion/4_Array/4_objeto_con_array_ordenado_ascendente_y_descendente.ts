@@ -28,10 +28,10 @@ String()
   array: any[];
 
   // menor a mayor
-  ascendente: number[];
+  ascendente: any[];
 
   // mayor a menor
-  descendente: number[];
+  descendente: any[];
 }
 
 /*

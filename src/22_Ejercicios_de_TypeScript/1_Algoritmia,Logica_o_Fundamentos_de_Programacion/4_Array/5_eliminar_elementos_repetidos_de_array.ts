@@ -7,7 +7,6 @@ Ejemplo:
 miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá [ 'x', 10, 2, '10', true ]
 
 https://builtin.com/software-engineering-perspectives/remove-duplicates-from-array-javascript
-
 */
 
 /* --------------------------------------------------- */
@@ -17,27 +16,29 @@ https://builtin.com/software-engineering-perspectives/remove-duplicates-from-arr
  █ new Set() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 
-const eliminarRepetido = (array: any[]): any[] => {
-  if (!Array.isArray(array)) return [];
-  if (!array.length) return [];
+const eliminarRepetido = (arr: any[]): any[] => {
+  if (!Array.isArray(arr)) return [];
+  if (arr.length<2) return arr;
 
-  return [...new Set(array)];
+  return [...new Set(arr)];
 };
 
 eliminarRepetido(['x', 10, 'x', 2, '10', 10, true, true]);
 // (5) [ 'x', 10, 2, '10', true ]
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .filter()  █
- █ .indexOf() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ Solucion de Jon Mircha                             █
+ █ .filter()                                          █
+ █ .indexOf()                                         █
+ █ https://www.youtube.com/watch?v=n2ACoGsRQHY&t=581s █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 
 const eliminarRepetido2 = (arr: any[]): any[] => {
   if (!Array.isArray(arr)) return [];
-  if (!arr.length) return [];
+  if (arr.length<2) return arr;
 
-  return arr.filter((value: any, index: number, array: any[]) => array.indexOf(value) === index);
+  return arr.filter((elemento: any, index: number, array: any[]) => array.indexOf(elemento) === index);
 };
 
 eliminarRepetido2(['x', 10, 'x', 2, '10', 10, true, true]);
@@ -52,7 +53,7 @@ eliminarRepetido2(['x', 10, 'x', 2, '10', 10, true, true]);
 
 const eliminarRepetido3 = (arr: any[]): any[] => {
   if (!Array.isArray(arr)) return [];
-  if (!arr.length) return [];
+  if (arr.length<2) return arr;
 
   return arr.reduce((a, b) => {
     if (a.indexOf(b) < 0) a.push(b);
@@ -71,7 +72,7 @@ eliminarRepetido3(['x', 10, 'x', 2, '10', 10, true, true]);
 
 const eliminarRepetido4 = (arr: any[]): any[] => {
   if (!Array.isArray(arr)) return [];
-  if (!arr.length) return [];
+  if (arr.length<2) return arr;
 
   return arr.reduce(
     (acumulador, elemento) =>
@@ -90,7 +91,7 @@ eliminarRepetido4(['x', 10, 'x', 2, '10', 10, true, true]);
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 const eliminarRepetido5 = (arr: any[]): any[] => {
   if (!Array.isArray(arr)) return [];
-  if (!arr.length) return [];
+  if (arr.length<2) return arr;
 
   const unico: any[] = [];
   arr.forEach((elemento: any) => {
