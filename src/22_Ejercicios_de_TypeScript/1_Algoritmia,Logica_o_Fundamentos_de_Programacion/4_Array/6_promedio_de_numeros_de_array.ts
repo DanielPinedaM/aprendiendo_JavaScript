@@ -16,7 +16,7 @@ promedio([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]) devolverá 4.5
  █ https://www.youtube.com/watch?v=n2ACoGsRQHY&t=1287s █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 
- const promedio = (arr: number[]): number | null => {
+const promedio = (arr: number[]): number | null => {
   if (!Array.isArray(arr)) return null;
   if (!arr.length) return null;
 
