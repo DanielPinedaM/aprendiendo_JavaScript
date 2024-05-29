@@ -274,23 +274,39 @@ console.log(figuras);
 
 /* Recorrer (iterar) arrays con .reduce() y .reduceRight() es MALA PRACTICA
    https://www.youtube.com/watch?v=qaGjS7-qWzg&t=265s */
+
 const reduce = figuras.reduce((acumulador, elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
+  // i=0 | elemento='▲'
+  // i=1 | elemento='●'
+  // i=2 | elemento='✖'
+  // i=3 | elemento='■'
 
   return elemento; // '■'
-}, 0);
+}, '');
+
+['▲', '●', '✖', '■'].reduce((acumulador, elemento, i, array) => {
+  console.log(acumulador); // '' '▲' '▲●' '▲●✖'
+
+  console.log(elemento);   // '▲' '●' '✖' '■'
+
+  console.log(i);          // 0 1 2 3
+  
+  console.log(array); 
+  // (4) [ '▲', '●', '✖', '■' ]
+  // (4) [ '▲', '●', '✖', '■' ]
+  // (4) [ '▲', '●', '✖', '■' ]
+  // (4) [ '▲', '●', '✖', '■' ]
+  
+  return acumulador + elemento // '▲●✖■'
+}, '');
+
 /*
 .reduce() ...
 1) Itera de IZQUIERDA A DERECHA
    (desde el PRIMER 0 elemento hacia el ULTIMO -1 elemento)
 
-2) El contador i empieza en la PRIMERA posicion q es i=0
-
-i=0 | elemento='▲'
-i=1 | elemento='●'
-i=2 | elemento='✖'
-i=3 | elemento='■'
-*/
+2) El contador i empieza en la PRIMERA posicion q es i=0 */
 
 // 3) Esta retornando el cuadrado '■' q es el ULTIMO -1 elemento
 console.log(reduce); // '■'
@@ -300,19 +316,33 @@ en cambio, reduceRight() ...
 1) Itera al reves, de DERECHA A IZQUIERDA
    (desde el ULTIMO -1 elemento hacia el PRIMER 0 elemento)
 
-2) El contador i empieza en la ULTIMA posicion q es i=3
-*/
+2) El contador i empieza en la ULTIMA posicion q es i=3 */
+
 const reduceRight = figuras.reduceRight((acumulador, elemento, i) => {
   console.log(`i=${i} | elemento='${elemento}'`);
+  // i=3 | elemento='■'
+  // i=2 | elemento='✖'
+  // i=1 | elemento='●'
+  // i=0 | elemento='▲'
 
   return elemento; // '▲'
-}, 0);
-/*
-i=3 | elemento='■'
-i=2 | elemento='✖'
-i=1 | elemento='●'
-i=0 | elemento='▲'
-*/
+}, '');
+
+['▲', '●', '✖', '■'].reduceRight((acumulador, elemento, i, array) => {
+  console.log(acumulador); // '' '■' '■✖' '■✖●'
+
+  console.log(elemento);   // '■' '✖' '●' '▲'
+
+  console.log(i);          // 3 2 1 0
+  
+  console.log(array); 
+  // (4) [ '▲', '●', '✖', '■' ]
+  // (4) [ '▲', '●', '✖', '■' ]
+  // (4) [ '▲', '●', '✖', '■' ]
+  // (4) [ '▲', '●', '✖', '■' ]
+  
+  return acumulador + elemento // '■✖●▲'
+}, '');
 
 // 3) Esta retornando el triangulo '▲' q es el PRIMER 0 elemento
 console.log(reduceRight); // '▲'

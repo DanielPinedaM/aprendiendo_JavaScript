@@ -232,8 +232,25 @@ en un solo string '▲●✖■' (REDUCIR array)
 (desde el PRIMER 0 elemento hacia el ULTIMO -1 elemento) */
 
 // Concatenar elementos de un array
+
 ['▲', '●', '✖', '■'].reduce((acumulador, elemento) => acumulador + elemento, '');
 // '▲●✖■'
+
+['▲', '●', '✖', '■'].reduce((acumulador, elemento, i, array) => {
+  console.log(acumulador); // '' '▲' '▲●' '▲●✖'
+
+  console.log(elemento);   // '▲' '●' '✖' '■'
+
+  console.log(i);          // 0 1 2 3
+  
+  console.log(array); 
+  // (4) [ '▲', '●', '✖', '■' ]
+  // (4) [ '▲', '●', '✖', '■' ]
+  // (4) [ '▲', '●', '✖', '■' ]
+  // (4) [ '▲', '●', '✖', '■' ]
+  
+  return acumulador + elemento // '▲●✖■'
+}, '');
 
 // sumar elementos de un array, ANTES
 [1, 2, 3].reduce((acumulador, elemento) => acumulador + elemento); // 1+2+3 = 6
