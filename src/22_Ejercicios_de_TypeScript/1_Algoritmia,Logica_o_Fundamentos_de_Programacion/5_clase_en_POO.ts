@@ -1,14 +1,16 @@
 /* 
-27) Programa una clase llamada Pelicula.
+Programa una clase llamada Pelicula.
 
 La clase recibirá un objeto {} al momento de instanciarse con los siguentes datos: 
- id de la película en IMDB, 
- titulo, 
- director, 
- año de estreno, 
- país o países de origen, 
- géneros y calificación en IMBD.
+ - ID de la película en IMDB. Ejemplo: ID: ls545583144 - Web: https://www.imdb.com/
+ - titulo
+ - director
+ - año de estreno
+ - país o países de origen
+ - géneros
+ - calificación en IMBD
 
+* Validaciones:
   - Todos los datos del objeto son obligatorios.
   - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 7 restantes números.
   - Valida que el título no rebase los 100 caracteres.
@@ -22,7 +24,7 @@ La clase recibirá un objeto {} al momento de instanciarse con los siguentes dat
   - Crea un método que devuelva toda la ficha técnica de la película.
   - Apartir de un arreglo con la información de 3 películas genera 3 instancias de la clase de forma automatizada e imprime la ficha técnica  de cada película.
 
-* Géneros Aceptados: 
+* Géneros Aceptados https://www.imdb.com/feature/genre/ 
   Action, 
   Adult, 
   Adventure, 
@@ -59,3 +61,7 @@ La clase recibirá un objeto {} al momento de instanciarse con los siguentes dat
  █ Solucion de Jon Mircha                             █
  █ https://www.youtube.com/watch?v=LqXh7jOfLlM&t=106s █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+
+class Pelicula {
+  
+}
