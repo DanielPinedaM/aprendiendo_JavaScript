@@ -1,9 +1,10 @@
 /* sessionStorage - listar todas las propiedad: valor en un objeto literal {} */
-export const sessionStorageListAll = (): any | null => sessionStorage.length > 0 ? sessionStorage : null;
-
+export const sessionStorageListAll = (): any | null => {
+  return sessionStorage.length > 0 ? sessionStorage : null;
+}
 
 /* sessionStorage - Object.keys() - array [] con nombres de todas las propiedades */
-export const sessionStorageProperties = (): string[] | [] => {
+export const sessionStorageProperties = (): string[] => {
   const listAll: any | null = sessionStorageListAll();
 
   return listAll?.length > 0 ? Object?.keys(listAll) : [];

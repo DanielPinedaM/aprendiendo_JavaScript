@@ -17,7 +17,7 @@ La clase recibirá un objeto {} al momento de instanciarse con los siguentes dat
   - Valida que el país o paises sea introducidos en forma de arreglo.
   - Valida que los géneros sean introducidos en forma de arreglo.
   - Valida que los géneros introducidos esten dentro de los géneros aceptados.
-  - Crea un método estático que devuelva los géneros aceptados*.
+  - Crea un método estático que devuelva los géneros aceptados.
   - Valida que la calificación sea un número entre 0 y 10 pudiendo ser decimal de una posición.
   - Crea un método que devuelva toda la ficha técnica de la película.
   - Apartir de un arreglo con la información de 3 películas genera 3 instancias de la clase de forma automatizada e imprime la ficha técnica  de cada película.
@@ -35,7 +35,8 @@ La clase recibirá un objeto {} al momento de instanciarse con los siguentes dat
   Family,
   Fantasy,
   Film Noir,
-  Game-Show, History,
+  Game-Show,
+  History,
   Horror,
   Musical,
   Music,
