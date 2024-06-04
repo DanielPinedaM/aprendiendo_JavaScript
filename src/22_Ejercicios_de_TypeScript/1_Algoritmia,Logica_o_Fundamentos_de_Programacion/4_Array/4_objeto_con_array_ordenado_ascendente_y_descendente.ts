@@ -3,8 +3,8 @@ Programa una función que
 dado un array []
 devuelva un objeto con tres array:
 1) array original
-2) array con elementos ordenados en forma ASCENDENTE   (menor a mayor) 
-3) array con elementos ordenados en forma  DESCENDENTE (mayor a menor)
+2) array con elementos ordenados en forma ASCENDENTE  (menor a mayor) 
+3) array con elementos ordenados en forma DESCENDENTE (mayor a menor)
 
 
 tener en cuenta q .toSorted() se escribe diferente dependiendo del tipo de dato:
@@ -18,13 +18,11 @@ String()
 /* --------------------------------------------------- */
 
 /*
- ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
- █ .toSorted()   █
- █ .toReversed() █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ valor de retorno de la funcion █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 
-// valor de retorno de la funcion
- interface IOrdenarArray {
+interface IOrdenarArray {
   array: any[];
 
   // menor a mayor
@@ -88,7 +86,14 @@ ordenarArray([2, 4, 3, 1]);
  █ 1) Numeros                           █
  █ 2) letras                            █
  █ 3) Otros tipos de datos              █
- ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ 
+
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .filter()      █
+ █ .map()         █
+ █ .toSorted()    █
+ █ .toReversed()  █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 
 const ordenarArray2 = (array: any[]): IOrdenarArray => {
   const resultado: IOrdenarArray = {
@@ -130,6 +135,64 @@ const ordenarArray2 = (array: any[]): IOrdenarArray => {
 
 // array de números, letras, etc 
 ordenarArray2([2, 4, '0', 3, 1, 'b', 'd', 'c', 'a', true, false, [], {}, null, undefined, NaN]);
+// {
+//   array:       (16) [ 2, 4, '0', 3, 1, 'b', 'd', 'c', 'a', true, false, [], {}, null, undefined, NaN ]
+//   ascendente:  (16) [ 0, 1, 2, 3, 4, 'a', 'b', 'c', 'd', true, false, [], {}, null, undefined, NaN ],
+//   descendente: (16) [ 4, 3, 2, 1, 0, 'd', 'c', 'b', 'a', true, false, [], {}, null, undefined, NaN ]
+// }
+
+/*
+ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ █ .Object.groupBy() █
+ █ .map()            █
+ █ .toSorted()       █
+ █ .toReversed()     █
+ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
+
+ const ordenarArray3 = (array: any[]): IOrdenarArray => {
+  let resultado: IOrdenarArray = {
+    array,
+    ascendente: [],
+    descendente: [],
+  };
+
+  if (!Array.isArray(array)) return resultado;
+  if (!array.length) return resultado;
+
+  // Object.groupBy() separar array segun su tipo de dato en numeros, letras y otrosTiposDeDatos
+  const groupBy = Object.groupBy(array, (item: any) => {
+    if (esNumero(item) || esStringNumero(item)) return "numeros";
+    
+    if (esLetra(item)) return "letras";
+    
+    return "otrosTiposDeDatos"
+  })
+  console.log(groupBy);
+  // {
+  //   numeros:           (5) [ 2, 4, '0', 3, 1 ],
+  //   letras:            (4) [ 'b', 'd', 'c', 'a' ],
+  //   otrosTiposDeDatos: (7) [ true, false, [], {}, null, undefined, NaN ]
+  // }
+  
+  // .map()      convertir a tipo numero Number() [2, 4, 0, 3, 1]
+  // .toSorted() ordenar ascendente (de menor a mayor)
+  groupBy.numeros = groupBy.numeros.map((item: string | number) => Number(item)).toSorted((a: number, b: number) => a - b);
+  
+  groupBy.letras = groupBy.letras.toSorted((a: string, b: string) => a.localeCompare(b, 'es-ES'));
+  
+  console.log(groupBy);
+  // {
+  //   numeros:           (5) [ 0, 1, 2, 3, 4 ],
+  //   letras:            (4) [ 'a', 'b', 'c', 'd' ],
+  //   otrosTiposDeDatos: (7) [ true, false, [], {}, null, undefined, NaN ]
+  // }
+  
+  resultado.ascendente = [...groupBy.numeros, ...groupBy.letras, ...groupBy.otrosTiposDeDatos];
+  resultado.descendente = [...groupBy.numeros.toReversed(), ...groupBy.letras.toReversed(), ...groupBy.otrosTiposDeDatos];
+  return resultado;
+}
+
+ordenarArray3([2, 4, '0', 3, 1, 'b', 'd', 'c', 'a', true, false, [], {}, null, undefined, NaN]);
 // {
 //   array:       (16) [ 2, 4, '0', 3, 1, 'b', 'd', 'c', 'a', true, false, [], {}, null, undefined, NaN ]
 //   ascendente:  (16) [ 0, 1, 2, 3, 4, 'a', 'b', 'c', 'd', true, false, [], {}, null, undefined, NaN ],
