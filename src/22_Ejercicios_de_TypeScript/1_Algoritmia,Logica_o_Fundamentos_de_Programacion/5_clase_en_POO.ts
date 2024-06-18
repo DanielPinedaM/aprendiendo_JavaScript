@@ -98,6 +98,7 @@ class Pelicula {
     this.validarIMDB(id);
     this.validarTitulo(titulo);
     this.validarDirector(director);
+    this.validarEstreno(estreno);
   }
 
   /*
@@ -145,9 +146,9 @@ class Pelicula {
   }
 
   // validar tipo de dato Number()
-  validarNumero(numero: number) {
+  validarTipoNumero(numero: number): boolean {
     if (!(typeof numero === 'number' && Number.isNaN(numero) === false)) {
-      console.error('❌ numero', numero, 'es un', typeof numero, 'deberia ser un tipo number');
+      console.error('❌ numero', numero, 'es un tipo', typeof numero, 'deberia ser un tipo number');
       return false;
     }
 
@@ -160,7 +161,7 @@ class Pelicula {
       return false;
     }
 
-    if (!this.validarNumero(longitud)) {
+    if (!this.validarTipoNumero(longitud)) {
       return false;
     }
 
@@ -172,6 +173,38 @@ class Pelicula {
     }
 
     return true;
+  }
+
+  esNumeroEntero(numero: number): boolean {
+    if (!(this.validarTipoNumero(numero))) {
+      return false;
+    }
+  
+    if (Number.isInteger(numero)) {
+      return true;
+    } else {
+      console.error('❌ numero', numero, 'NO es entero');
+      return false
+    }
+  }
+
+  validarNumeroDeDigitos(numero: number, digitos: number): boolean {
+    if (!(this.validarTipoNumero(numero))) {
+      return false;
+    }
+
+    if (!(this.validarTipoNumero(digitos))) {
+      return false;
+    }
+
+    // https://stackoverflow.com/questions/14879691/get-number-of-digits-with-javascript
+    const cantidadDeDigitosDelNumero: number = (Math.log10((numero ^ (numero >> 31)) - (numero >> 31)) | 0) + 1
+    if (cantidadDeDigitosDelNumero === digitos) {
+      return true;
+    } else {
+      console.error('❌ numero', numero, 'tiene', cantidadDeDigitosDelNumero, "digitos, deberia tener", digitos, "digitos");
+      return false
+    } 
   }
 
   /*
@@ -225,6 +258,26 @@ class Pelicula {
     }
 
     console.info(`✔️ ${propiedad} ${director} correcto`);
+    return true;
+  }
+
+  validarEstreno(estreno: number): boolean {
+    const propiedad: string = 'Año de estreno';
+    const digitos: number = 4;
+    const error: string =  `❌ ${propiedad} ${estreno} debe ser un número entero de ${digitos} dígitos`;
+
+    // Valida que el año de estreno sea un número entero de 4 dígitos
+    if (!(this.esNumeroEntero(estreno))) {
+      console.error(error);
+      return false;
+    }
+
+    if (!(this.validarNumeroDeDigitos(estreno, digitos))) {
+      console.error(error);
+      return false;
+    }
+
+    console.info(`✔️ ${propiedad} ${estreno} correcto`);
     return true;
   }
 }
