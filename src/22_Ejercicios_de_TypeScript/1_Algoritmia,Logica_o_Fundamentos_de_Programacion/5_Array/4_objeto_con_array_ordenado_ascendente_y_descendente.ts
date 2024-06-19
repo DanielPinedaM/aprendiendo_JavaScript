@@ -37,14 +37,20 @@ interface IOrdenarArray {
  █ Funciones para determinar el tipo de dato █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 
-// solamente tipo NUMERO, NO adite NaN. Ejemplo: 99
-const esNumero = (item: any): boolean => typeof item === 'number' && Number.isNaN(item) === false;
+// solamente tipo NUMERO, NO admite NaN. Ejemplo: 99
+const esNumero2 = (item: any): boolean => typeof item === 'number' && Number.isNaN(item) === false;
 
 // string que contenga numero. Ejemplo: '99'
-const esStringNumero = (item: any): boolean => typeof item === 'string' && /^\d+$/.test(item.trim());
+const esStringNumero2 = (item: any): boolean => typeof item === 'string' && /^-?\d+(\.\d+)?$/.test(item.trim());
 
-// solamente tipo STRING, NO adite NaN. Ejemplo: 'hola mundo'
-const esLetra = (item: any): boolean => typeof item === 'string' && /^[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ\s]+$/.test(item.trim());
+// 1) solamente tipo STRING
+// 2) SI admite mayusculas y minusculas 
+// 3) SI admite vocales con tilde
+// 4) SI admite ñ minuscula y Ñ MAYUSCULA
+// 5) NO admite NaN. 
+// 6) el texto NO puede contener numeros, esLetra2('hola 1 mundo') devuelve false
+// 7) Ejemplo: 'HolÁ mundó Ñ'
+const esLetra2 = (item: any): boolean => typeof item === 'string' && /^[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ\s]+$/.test(item.trim());
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -63,7 +69,7 @@ const ordenarArray = (array: number[]): IOrdenarArray => {
   if (!array.length) return resultado;
 
   for (let item of array) {
-    if (!esNumero(item)) return resultado;
+    if (!esNumero2(item)) return resultado;
   }
 
   resultado.ascendente = array.toSorted((a, b) => a - b);
@@ -110,20 +116,20 @@ const ordenarArray2 = (array: any[]): IOrdenarArray => {
   // .map()      convertir a tipo numero Number() [2, 4, 0, 3, 1]
   // .toSorted() ordenar ascendente (de menor a mayor)
   const numeros: number[] = [...array]
-    .filter((item: any) => esNumero(item) || esStringNumero(item))
+    .filter((item: any) => esNumero2(item) || esStringNumero2(item))
     .map((item: string | number) => Number(item))
     .toSorted((a: number, b: number) => a - b);
   console.log(numeros);
   // (5) [ 0, 1, 2, 3, 4 ]
 
   const letras: string[] = [...array]
-    .filter((item: any) => esLetra(item))
+    .filter((item: any) => esLetra2(item))
     .toSorted((a: string, b: string) => a.localeCompare(b, 'es-ES'));
   console.log(letras);
   // (4) [ 'a', 'b', 'c', 'd' ]
 
   const otrosTiposDeDatos: any[] = array.filter(
-    (item: any) => !(esNumero(item) || esStringNumero(item) || esLetra(item))
+    (item: any) => !(esNumero2(item) || esStringNumero2(item) || esLetra2(item))
   );
   console.log(otrosTiposDeDatos);
   // (7) [ true, false, [], {}, null, undefined, NaN ]
@@ -161,9 +167,9 @@ ordenarArray2([2, 4, '0', 3, 1, 'b', 'd', 'c', 'a', true, false, [], {}, null, u
 
   // Object.groupBy() separar array segun su tipo de dato en numeros, letras y otrosTiposDeDatos
   const groupBy = Object.groupBy(array, (item: any) => {
-    if (esNumero(item) || esStringNumero(item)) return "numeros";
+    if (esNumero2(item) || esStringNumero2(item)) return "numeros";
     
-    if (esLetra(item)) return "letras";
+    if (esLetra2(item)) return "letras";
     
     return "otrosTiposDeDatos"
   })

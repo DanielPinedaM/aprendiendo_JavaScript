@@ -70,7 +70,7 @@ interface IPelicula {
   titulo: string;
   director: string;
   estreno: number;
-  pais: string;
+  paises: string[];
   generos: string[];
   calificacion: number;
 }
@@ -80,17 +80,17 @@ class Pelicula {
   titulo: string;
   director: string;
   estreno: number;
-  pais: string;
+  paises: string[];
   generos: string[];
   calificacion: number;
 
   // La clase recibirá un objeto {} al momento de instanciarse con los siguentes datos:
-  constructor({ id, titulo, director, estreno, pais, generos, calificacion }: IPelicula) {
+  constructor({ id, titulo, director, estreno, paises, generos, calificacion }: IPelicula) {
     this.id = id;
     this.titulo = titulo;
     this.director = director;
     this.estreno = estreno;
-    this.pais = pais;
+    this.paises = paises;
     this.generos = generos;
     this.calificacion = calificacion;
 
@@ -99,6 +99,7 @@ class Pelicula {
     this.validarTitulo(titulo);
     this.validarDirector(director);
     this.validarEstreno(estreno);
+    this.validarPaises(paises);
   }
 
   /*
@@ -106,7 +107,7 @@ class Pelicula {
    █ Validaciones genericas █
    ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 
-  // validar q la propiedad valor si exista y sea un string
+  // validar q la propiedad valor si exista y sea un String()
   validarCadena(propiedad: string, valor: string): boolean {
     if (!propiedad) {
       console.error(`❌ La propiedad ${propiedad} es falsy`);
@@ -148,7 +149,7 @@ class Pelicula {
   // validar tipo de dato Number()
   validarTipoNumero(numero: number): boolean {
     if (!(typeof numero === 'number' && Number.isNaN(numero) === false)) {
-      console.error('❌ numero', numero, 'es un tipo', typeof numero, 'deberia ser un tipo number');
+      console.error('❌ ', numero, 'es un tipo', typeof numero, 'deberia ser un tipo number');
       return false;
     }
 
@@ -176,35 +177,67 @@ class Pelicula {
   }
 
   esNumeroEntero(numero: number): boolean {
-    if (!(this.validarTipoNumero(numero))) {
+    if (!this.validarTipoNumero(numero)) {
       return false;
     }
-  
+
     if (Number.isInteger(numero)) {
       return true;
     } else {
       console.error('❌ numero', numero, 'NO es entero');
-      return false
+      return false;
     }
   }
 
   validarNumeroDeDigitos(numero: number, digitos: number): boolean {
-    if (!(this.validarTipoNumero(numero))) {
+    if (!this.validarTipoNumero(numero)) {
       return false;
     }
 
-    if (!(this.validarTipoNumero(digitos))) {
+    if (!this.validarTipoNumero(digitos)) {
       return false;
     }
 
     // https://stackoverflow.com/questions/14879691/get-number-of-digits-with-javascript
-    const cantidadDeDigitosDelNumero: number = (Math.log10((numero ^ (numero >> 31)) - (numero >> 31)) | 0) + 1
+    const cantidadDeDigitosDelNumero: number =
+      (Math.log10((numero ^ (numero >> 31)) - (numero >> 31)) | 0) + 1;
     if (cantidadDeDigitosDelNumero === digitos) {
       return true;
     } else {
-      console.error('❌ numero', numero, 'tiene', cantidadDeDigitosDelNumero, "digitos, deberia tener", digitos, "digitos");
-      return false
-    } 
+      console.error(
+        '❌ ',
+        numero,
+        'tiene',
+        cantidadDeDigitosDelNumero,
+        'digitos, deberia tener',
+        digitos,
+        'digitos'
+      );
+      return false;
+    }
+  }
+
+  esArreglo(arreglo: any[]): boolean {
+    if (Array.isArray(arreglo)) {
+      return true;
+    } else {
+      console.error('❌ ', arreglo, 'es un tipo', typeof arreglo, 'deberia ser un tipo array []');
+      return false;
+    }
+  }
+
+  todosLosElementosDelArregloSonString(arreglo: string[]): boolean {
+    if (!this.esArreglo(arreglo)) {
+      return false;
+    }
+
+    const resultado: boolean = !arreglo.some((item: string) => typeof item !== 'string');
+    if (resultado) {
+      return true;
+    } else {
+      console.error('❌ en el array', arreglo, 'todos los elementos deben ser tipo string');
+      return false;
+    }
   }
 
   /*
@@ -264,20 +297,37 @@ class Pelicula {
   validarEstreno(estreno: number): boolean {
     const propiedad: string = 'Año de estreno';
     const digitos: number = 4;
-    const error: string =  `❌ ${propiedad} ${estreno} debe ser un número entero de ${digitos} dígitos`;
+    const error: string = `❌ ${propiedad} ${estreno} debe ser un número entero de ${digitos} dígitos`;
 
     // Valida que el año de estreno sea un número entero de 4 dígitos
-    if (!(this.esNumeroEntero(estreno))) {
+    if (!this.esNumeroEntero(estreno)) {
       console.error(error);
       return false;
     }
 
-    if (!(this.validarNumeroDeDigitos(estreno, digitos))) {
+    if (!this.validarNumeroDeDigitos(estreno, digitos)) {
       console.error(error);
       return false;
     }
 
     console.info(`✔️ ${propiedad} ${estreno} correcto`);
+    return true;
+  }
+
+  validarPaises(paises: string[]): boolean {
+    const propiedad: string = 'Paises';
+
+    if (!this.todosLosElementosDelArregloSonString(paises)) {
+      console.error(
+        `❌ ${propiedad}`,
+        paises,
+        'debe ser un array [] con todos los elementos tipo string'
+      );
+      return false;
+    }
+
+    // Valida que los géneros sean introducidos en forma de arreglo
+    console.info(`✔️ ${propiedad} (${paises.length})`, paises, 'correcto');
     return true;
   }
 }
@@ -287,9 +337,14 @@ const objPelicula: IPelicula = {
   titulo: 'Avengers',
   director: 'Christopher Nolan',
   estreno: 2010,
-  pais: 'USA',
+  paises: ['USA', 'Colombia'],
   generos: ['Action', 'Sci-Fi'],
   calificacion: 8.8,
 };
 
 const pelicula = new Pelicula(objPelicula);
+// ✔️ IMDB id tt4154796            correcto
+// ✔️ Titulo Avengers              correcto
+// ✔️ Director Christopher Nolan   correcto
+// ✔️ Año de estreno 2010          correcto
+// ✔️ Paises [ 'USA', 'Colombia' ] correcto
