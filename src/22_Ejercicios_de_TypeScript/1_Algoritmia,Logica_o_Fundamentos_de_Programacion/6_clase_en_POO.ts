@@ -317,6 +317,7 @@ class Pelicula {
   validarPaises(paises: string[]): boolean {
     const propiedad: string = 'Paises';
 
+    // Valida que el país o paises sea introducidos en forma de arreglo.
     if (!this.todosLosElementosDelArregloSonString(paises)) {
       console.error(
         `❌ ${propiedad}`,
@@ -326,7 +327,6 @@ class Pelicula {
       return false;
     }
 
-    // Valida que los géneros sean introducidos en forma de arreglo
     console.info(`✔️ ${propiedad} (${paises.length})`, paises, 'correcto');
     return true;
   }
