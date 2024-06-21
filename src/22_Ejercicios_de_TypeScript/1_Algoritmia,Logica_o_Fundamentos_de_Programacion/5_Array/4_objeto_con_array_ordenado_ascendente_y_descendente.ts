@@ -38,10 +38,10 @@ interface IOrdenarArray {
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ */
 
 // solamente tipo NUMERO, NO admite NaN. Ejemplo: 99
-const esNumero2 = (item: any): boolean => typeof item === 'number' && Number.isNaN(item) === false;
+const esNumero2 = (item: number): boolean => typeof item === 'number' && Number.isNaN(item) === false;
 
 // string que contenga numero. Ejemplo: '99'
-const esStringNumero2 = (item: any): boolean => typeof item === 'string' && /^-?\d+(\.\d+)?$/.test(item.trim());
+const esStringNumero2 = (item: string): boolean => typeof item === 'string' && /^-?\d+(\.\d+)?$/.test(item.trim());
 
 // 1) solamente tipo STRING
 // 2) SI admite mayusculas y minusculas 
@@ -50,7 +50,7 @@ const esStringNumero2 = (item: any): boolean => typeof item === 'string' && /^-?
 // 5) NO admite NaN. 
 // 6) el texto NO puede contener numeros, esLetra2('hola 1 mundo') devuelve false
 // 7) Ejemplo: 'HolÁ mundó Ñ'
-const esLetra2 = (item: any): boolean => typeof item === 'string' && /^[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ\s]+$/.test(item.trim());
+const esLetra2 = (item: string): boolean => typeof item === 'string' && /^[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ\s]+$/.test(item.trim());
 
 /*
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄

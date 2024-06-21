@@ -100,6 +100,20 @@ class Pelicula {
     this.validarDirector(director);
     this.validarEstreno(estreno);
     this.validarPaises(paises);
+    this.validarGeneros(generos);
+  }
+
+  // Crea un método estático que devuelva los géneros aceptados
+  static get arrayGenerosAceptados(): string[] {
+    return ["action", "adult", "adventure", "animation", "biography", "comedy", "crime", "documentary", "drama","family","fantasy","film noir","game-show","history","horror","musical","music","mystery","news","reality-tv","romance","sci-fi","short","sport","talk-show","thriller","war","western"];
+  }
+
+  static mensajeGenerosAceptados(): string {
+    const arrayGenerosAceptados: string[] = Pelicula.arrayGenerosAceptados;
+    const mensaje = `los generos aceptados son: (${arrayGenerosAceptados.length}) [${arrayGenerosAceptados.join(", ")}]`;
+    console.info(mensaje);
+
+    return mensaje;
   }
 
   /*
@@ -231,13 +245,26 @@ class Pelicula {
       return false;
     }
 
-    const resultado: boolean = !arreglo.some((item: string) => typeof item !== 'string');
-    if (resultado) {
+    const esArrayDeString: boolean = !arreglo.some((item: string) => typeof item !== 'string');
+    if (esArrayDeString) {
       return true;
     } else {
       console.error('❌ en el array', arreglo, 'todos los elementos deben ser tipo string');
       return false;
     }
+  }
+
+  arrayVacio(arreglo: any[]): boolean {
+    if (!this.esArreglo(arreglo)) {
+      return true;
+    }
+
+    if (!arreglo.length) {
+      console.error('❌ la logitud del array', arreglo, 'no puede ser cero');
+      return true;
+    }
+
+    return false;
   }
 
   /*
@@ -316,18 +343,42 @@ class Pelicula {
 
   validarPaises(paises: string[]): boolean {
     const propiedad: string = 'Paises';
+    const error: string = `❌ ${propiedad} ${paises} debe ser un array con todos los elementos tipo string`;
 
-    // Valida que el país o paises sea introducidos en forma de arreglo.
+    // Valida que el país o paises sea introducidos en forma de arreglo
+    if (this.arrayVacio(paises)) {
+      console.error(error);
+      return false;
+    }
+ 
     if (!this.todosLosElementosDelArregloSonString(paises)) {
-      console.error(
-        `❌ ${propiedad}`,
-        paises,
-        'debe ser un array [] con todos los elementos tipo string'
-      );
+      console.error(error);
       return false;
     }
 
     console.info(`✔️ ${propiedad} (${paises.length})`, paises, 'correcto');
+    return true;
+  }
+  
+  validarGeneros(generos: string[]): boolean {
+    const propiedad: string = 'Generos';
+    const error: string = `❌ ${propiedad} ${generos} debe ser un array con todos los elementos tipo string`;
+
+    //Valida que los géneros sean introducidos en forma de arreglo
+    if (this.arrayVacio(generos)) {
+      console.error(error);
+      return false;
+    }
+ 
+    if (!this.todosLosElementosDelArregloSonString(generos)) {
+      console.error(error);
+      return false;
+    }
+
+    // Valida que los géneros introducidos esten dentro de los géneros aceptados
+     Pelicula.mensajeGenerosAceptados();
+
+    console.info(`✔️ ${propiedad} (${generos.length})`, generos, 'correcto');
     return true;
   }
 }

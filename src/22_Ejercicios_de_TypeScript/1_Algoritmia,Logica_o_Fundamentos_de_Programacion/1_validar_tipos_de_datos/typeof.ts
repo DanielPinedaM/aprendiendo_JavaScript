@@ -6,7 +6,7 @@
 /* --------------------------------------------------- */
 
 // solamente tipo NUMERO, NO admite NaN. Ejemplo: 99
-const esNumero = (item: any): boolean => typeof item === 'number' && Number.isNaN(item) === false;
+const esNumero = (item: number): boolean => typeof item === 'number' && Number.isNaN(item) === false;
 
 esNumero(99);  // true -> 99   SI es un numero
 esNumero(0.9); // true -> 0.9  SI es un numero
@@ -17,7 +17,7 @@ esNumero(NaN); // false -> NaN NO es un numero
 /* --------------------------------------------------- */
 
 // string que contenga numero. Ejemplo: '99'
-const esStringNumero = (item: any): boolean => typeof item === 'string' && /^-?\d+(\.\d+)?$/.test(item.trim());
+const esStringNumero = (item: string): boolean => typeof item === 'string' && /^-?\d+(\.\d+)?$/.test(item.trim());
 
 esStringNumero('0.9');   // true -> "0.9" es un string q contiene un numero DECIMAL
 esStringNumero('99');    // true ->  "0.9" es un string q contiene un numero ENTERO
@@ -33,7 +33,7 @@ esStringNumero(-99.1); // false
 
 /* --------------------------------------------------- */
 
-const esLetra = (item: any): boolean => typeof item === 'string' && /^[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ\s]+$/.test(item.trim());
+const esLetra = (item: string): boolean => typeof item === 'string' && /^[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ\s]+$/.test(item.trim());
 
 // 1) solamente tipo STRING
 esLetra([]); // false -> [] NO es tipo string
