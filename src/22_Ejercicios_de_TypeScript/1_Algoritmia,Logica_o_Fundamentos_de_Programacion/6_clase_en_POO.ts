@@ -23,7 +23,7 @@ La clase recibirá un objeto {} al momento de instanciarse con los siguentes dat
   - Valida que los géneros sean introducidos en forma de arreglo.
   - Valida que los géneros introducidos esten dentro de los géneros aceptados.
   - Crea un método estático que devuelva los géneros aceptados.
-  - Valida que la calificación sea un número entre 0 y 10 pudiendo ser decimal de una posición.
+  - Valida que la calificación sea un número entre 0 y 10
   - Crea un método que devuelva toda la ficha técnica de la película.
   - Apartir de un arreglo con la información de 3 películas genera 3 instancias de la clase de forma automatizada e imprime la ficha técnica de cada película.
 
@@ -94,13 +94,14 @@ class Pelicula {
     this.generos = generos;
     this.calificacion = calificacion;
 
-    // ejecutar metodos (funciones)
+    // ejecutar metodos (funciones) con VALIDACIONES
     this.validarIMDB(id);
     this.validarTitulo(titulo);
     this.validarDirector(director);
     this.validarEstreno(estreno);
     this.validarPaises(paises);
     this.validarGeneros(generos);
+    this.validarCalificacion(calificacion);
   }
 
   // Crea un método estático que devuelva los géneros aceptados
@@ -203,6 +204,7 @@ class Pelicula {
     }
   }
 
+  // valida q un numero tenga cierta cantidad de digitos
   validarNumeroDeDigitos(numero: number, digitos: number): boolean {
     if (!this.validarTipoNumero(numero)) {
       return false;
@@ -266,6 +268,18 @@ class Pelicula {
 
     return false;
   }
+
+  // verificar si todos los elementos de un array están presentes en otro array
+  // elementos  array con elementos a buscar para saber si contiene o no elementos permitidos
+  // permitidos array de elementos permitidos
+  todosLosElementosEstanPermitidos = (elementos: any[], permitidos: any[]): boolean => elementos.every((elemento) => permitidos.includes(elemento.trim().toLowerCase()))
+
+  // ¿El numero X esta entre el numero A y B?
+  // SI incluye el numero minimo y maximo
+  // Ejemplo:
+  // numeroEstaEntreRangoNumerico(1, 1, 10);  true  porq 1  está entre 1 y 10, SI se incluye el numero minimo q en este caso es 1
+  // numeroEstaEntreRangoNumerico(11, 1, 10); false porq 11 NO está entre 1 y 10
+  numeroEstaEntreRangoNumerico = (numero: number, minimo: number, maximo: number): boolean => !(numero < minimo || numero > maximo);
 
   /*
    ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -375,15 +389,58 @@ class Pelicula {
       return false;
     }
 
-    // Valida que los géneros introducidos esten dentro de los géneros aceptados
-     Pelicula.mensajeGenerosAceptados();
+    // Valida que los géneros introducidos esten dentro de los géneros aceptados    
+    if (!this.todosLosElementosEstanPermitidos(generos, Pelicula.arrayGenerosAceptados)) {
+      console.error(`❌ el array ${propiedad} (${generos.length}) [${generos.join(", ")}] contiene elemento NO aceptados`);
+      Pelicula.mensajeGenerosAceptados();
+      return false;
+    }
 
     console.info(`✔️ ${propiedad} (${generos.length})`, generos, 'correcto');
     return true;
   }
+
+ validarCalificacion(calificacion: number): boolean {
+  const propiedad: string = 'Calificacion';
+  const minimo: number = 0;
+  const maximo: number = 10
+  const error: string = `❌ rango numerico de ${propiedad} ` + calificacion + ` invalido tiene q ser un numero desde ${minimo} hasta ${maximo}`;
+
+  if (!this.validarTipoNumero(calificacion)) {
+    console.error(error)
+    return false;
+  }
+
+  // Valida que la calificación sea un número entre 0 y 10
+  if (!this.numeroEstaEntreRangoNumerico(calificacion, minimo, maximo)) {
+    console.error(error);
+    return false;
+  }
+
+  console.info(`✔️ ${propiedad}`, calificacion, "correcto");
+  return false;
+ }
+
+ // Crea un método que devuelva toda la ficha técnica de la película
+ fichaTecnica(): IPelicula {
+  const fichaTecnicaPelicula: IPelicula = {
+    id: this.id,
+    titulo: this.titulo,
+    director: this.director,
+    estreno: this.estreno,
+    paises: this.paises,
+    generos: this.generos,
+    calificacion: this.calificacion,
+  } 
+
+  console.info("Ficha técnica de la película");
+  console.info(fichaTecnicaPelicula);
+
+  return fichaTecnicaPelicula;
+ }
 }
 
-const objPelicula: IPelicula = {
+const fichaTecnicaPelicula: IPelicula = {
   id: 'tt4154796',
   titulo: 'Avengers',
   director: 'Christopher Nolan',
@@ -393,9 +450,23 @@ const objPelicula: IPelicula = {
   calificacion: 8.8,
 };
 
-const pelicula = new Pelicula(objPelicula);
-// ✔️ IMDB id tt4154796            correcto
-// ✔️ Titulo Avengers              correcto
-// ✔️ Director Christopher Nolan   correcto
-// ✔️ Año de estreno 2010          correcto
-// ✔️ Paises [ 'USA', 'Colombia' ] correcto
+const pelicula = new Pelicula(fichaTecnicaPelicula);
+// ✔️ IMDB id tt4154796 correcto
+// ✔️ Titulo Avengers correcto
+// ✔️ Director Christopher Nolan correcto
+// ✔️ Año de estreno 2010 correcto
+// ✔️ Paises (2) [ 'USA', 'Colombia' ] correcto
+// ✔️ Generos (2) [ 'Action', 'Sci-Fi' ] correcto
+// ✔️ Calificacion 8.8 correcto
+
+pelicula.fichaTecnica();
+// Ficha técnica de la película
+// {
+//   id: 'tt4154796',
+//   titulo: 'Avengers',
+//   director: 'Christopher Nolan',
+//   estreno: 2010,
+//   paises: [ 'USA', 'Colombia' ],
+//   generos: [ 'Action', 'Sci-Fi' ],
+//   calificacion: 8.8
+// }
