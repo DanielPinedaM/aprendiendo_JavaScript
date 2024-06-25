@@ -1,14 +1,14 @@
 /* 
 Programa una clase llamada Pelicula.
 
-La clase recibirá un objeto {} al momento de instanciarse con los siguentes datos: 
- - ID de la película en IMDB. https://www.imdb.com/
- - titulo
- - director
- - año de estreno
- - país o países de origen
- - géneros
- - calificación en IMBD
+* La clase recibirá un objeto {} al momento de instanciarse con los siguentes datos:
+  - ID de la película en IMDB. https://www.imdb.com/
+  - titulo
+  - director
+  - año de estreno
+  - país o países de origen
+  - géneros
+  - calificación en IMBD
 
 * Validaciones:
   - Todos los datos del objeto son obligatorios.
@@ -16,46 +16,51 @@ La clase recibirá un objeto {} al momento de instanciarse con los siguentes dat
     Ejemplo:
       ID IMDB: tt4154796 
       Web: https://www.imdb.com/title/tt4154796/?ref_=fn_al_tt_1
-  - Valida que el título no rebase los 100 caracteres.
-  - Valida que el director no rebase los 50 caracteres.
-  - Valida que el año de estreno sea un número entero de 4 dígitos.
-  - Valida que el país o paises sea introducidos en forma de arreglo.
-  - Valida que los géneros sean introducidos en forma de arreglo.
-  - Valida que los géneros introducidos esten dentro de los géneros aceptados.
-  - Crea un método estático que devuelva los géneros aceptados.
-  - Valida que la calificación sea un número entre 0 y 10
-  - Crea un método que devuelva toda la ficha técnica de la película.
-  - Apartir de un arreglo con la información de 3 películas genera 3 instancias de la clase de forma automatizada e imprime la ficha técnica de cada película.
+  - Validar que el título no rebase los 100 caracteres.
+  - Validar que el director no rebase los 50 caracteres.
+  - Validar que el año de estreno sea un número entero de 4 dígitos.
+  - Validar que el país o paises sea introducidos en forma de arreglo.
+  - Validar que los géneros sean introducidos en forma de arreglo.
+  - Validar que los géneros introducidos esten dentro de los géneros aceptados.
+  - Validar que la calificación sea un número entre 0 y 10
+  - Validar los siguientes géneros aceptados https://www.imdb.com/feature/genre/ 
+    Adult, 
+    Action, 
+    Adventure, 
+    Animation, 
+    Biography, 
+    Comedy, 
+    Crime, 
+    Documentary, 
+    Drama,
+    Family,
+    Fantasy,
+    Film Noir,
+    Game-Show,
+    History,
+    Horror,
+    Musical,
+    Music,
+    Mystery,
+    News,
+    Reality-TV,
+    Romance,
+    Sci-Fi,
+    Short,
+    Sport,
+    Talk-Show,
+    Thriller,
+    War,
+    Western
 
-* Géneros Aceptados https://www.imdb.com/feature/genre/ 
-  Action, 
-  Adult, 
-  Adventure, 
-  Animation, 
-  Biography, 
-  Comedy, 
-  Crime, 
-  Documentary, 
-  Drama,
-  Family,
-  Fantasy,
-  Film Noir,
-  Game-Show,
-  History,
-  Horror,
-  Musical,
-  Music,
-  Mystery,
-  News,
-  Reality-TV,
-  Romance,
-  Sci-Fi,
-  Short,
-  Sport,
-  Talk-Show,
-  Thriller,
-  War,
-  Western */
+* Métodos (Funciones):
+  - Crea un método estático que devuelva los géneros aceptados.
+  - Crea un método que devuelva toda la ficha técnica de la película.
+
+* Instancias de la clase:
+  - A partir de un arreglo con la información de 3 películas 
+    genera 3 instancias de la clase de forma automatizada 
+    e imprime la ficha técnica de cada película. */
 
 /* --------------------------------------------------- */
 
@@ -75,6 +80,7 @@ interface IPelicula {
   calificacion: number;
 }
 
+// Programa una clase llamada Pelicula
 class Pelicula {
   id: string;
   titulo: string;
@@ -135,26 +141,12 @@ class Pelicula {
     }
 
     if (typeof propiedad !== 'string') {
-      console.error(
-        '❌ La propiedad',
-        propiedad,
-        'es un',
-        typeof propiedad,
-        'deberia ser un tipo string'
-      );
+      console.error('❌ La propiedad', propiedad, 'es un', typeof propiedad, 'deberia ser un tipo string');
       return false;
     }
 
     if (typeof valor !== 'string') {
-      console.error(
-        '❌ El valor',
-        valor,
-        'de la propiedad',
-        propiedad,
-        'es un',
-        typeof valor,
-        'deberia ser un tipo string'
-      );
+      console.error('❌ El valor', valor, 'de la propiedad', propiedad, 'es un', typeof valor, 'deberia ser un tipo string');
       return false;
     }
 
@@ -173,18 +165,14 @@ class Pelicula {
 
   // validar longitud .length de string
   validarLongitudCadena(propiedad: string, valor: string, longitud: number): boolean {
-    if (!this.validarCadena(propiedad, valor)) {
-      return false;
-    }
+    if (!this.validarCadena(propiedad, valor)) return false;
+    
 
-    if (!this.validarTipoNumero(longitud)) {
-      return false;
-    }
+    if (!this.validarTipoNumero(longitud)) return false;
+    
 
     if (valor.length > longitud) {
-      console.error(
-        `❌ El valor ${valor} de la propiedad ${propiedad} NO puede contener mas de ${longitud} caracteres`
-      );
+      console.error(`❌ El valor ${valor} de la propiedad ${propiedad} NO puede contener mas de ${longitud} caracteres`);
       return false;
     }
 
@@ -192,74 +180,48 @@ class Pelicula {
   }
 
   esNumeroEntero(numero: number): boolean {
-    if (!this.validarTipoNumero(numero)) {
-      return false;
-    }
+    if (!this.validarTipoNumero(numero)) return false;
 
-    if (Number.isInteger(numero)) {
-      return true;
-    } else {
-      console.error('❌ numero', numero, 'NO es entero');
-      return false;
-    }
+    if (Number.isInteger(numero)) return true;
+
+    console.error('❌ numero', numero, 'NO es entero', Number.isInteger(numero));
+    return false;
   }
 
   // valida q un numero tenga cierta cantidad de digitos
   validarNumeroDeDigitos(numero: number, digitos: number): boolean {
-    if (!this.validarTipoNumero(numero)) {
-      return false;
-    }
+    if (!this.validarTipoNumero(numero)) return false;
 
-    if (!this.validarTipoNumero(digitos)) {
-      return false;
-    }
+    if (!this.validarTipoNumero(digitos)) return false;
 
     // https://stackoverflow.com/questions/14879691/get-number-of-digits-with-javascript
-    const cantidadDeDigitosDelNumero: number =
-      (Math.log10((numero ^ (numero >> 31)) - (numero >> 31)) | 0) + 1;
-    if (cantidadDeDigitosDelNumero === digitos) {
-      return true;
-    } else {
-      console.error(
-        '❌ ',
-        numero,
-        'tiene',
-        cantidadDeDigitosDelNumero,
-        'digitos, deberia tener',
-        digitos,
-        'digitos'
-      );
-      return false;
-    }
+    const cantidadDeDigitosDelNumero: number = (Math.log10((numero ^ (numero >> 31)) - (numero >> 31)) | 0) + 1;
+    if (cantidadDeDigitosDelNumero === digitos) return true;
+    
+    console.error('❌ ', numero, 'tiene', cantidadDeDigitosDelNumero, 'digitos, deberia tener', digitos, 'digitos');
+    return false;
   }
 
   esArreglo(arreglo: any[]): boolean {
-    if (Array.isArray(arreglo)) {
-      return true;
-    } else {
-      console.error('❌ ', arreglo, 'es un tipo', typeof arreglo, 'deberia ser un tipo array []');
-      return false;
-    }
+    if (Array.isArray(arreglo)) return true;
+    
+    console.error('❌ ', arreglo, 'es un tipo', typeof arreglo, 'deberia ser un tipo array []');
+    return false;
   }
 
   todosLosElementosDelArregloSonString(arreglo: string[]): boolean {
-    if (!this.esArreglo(arreglo)) {
-      return false;
-    }
+    if (!this.esArreglo(arreglo)) return false;
 
     const esArrayDeString: boolean = !arreglo.some((item: string) => typeof item !== 'string');
-    if (esArrayDeString) {
-      return true;
-    } else {
-      console.error('❌ en el array', arreglo, 'todos los elementos deben ser tipo string');
-      return false;
-    }
+    if (esArrayDeString) return true;
+    
+    console.error('❌ en el array', arreglo, 'todos los elementos deben ser tipo string');
+    return false;
   }
 
   arrayVacio(arreglo: any[]): boolean {
-    if (!this.esArreglo(arreglo)) {
-      return true;
-    }
+    if (!this.esArreglo(arreglo)) return true;
+    
 
     if (!arreglo.length) {
       console.error('❌ la logitud del array', arreglo, 'no puede ser cero');
@@ -288,14 +250,10 @@ class Pelicula {
   validarIMDB(id: string): boolean {
     const propiedad: string = 'IMDB id';
 
-    if (!this.validarCadena(propiedad, id)) {
-      return false;
-    }
+    if (!this.validarCadena(propiedad, id)) return false;
 
     if (!/^([a-záéíóúüñ]){2}([0-9]){7}$/.test(id)) {
-      console.error(
-        `❌ ${propiedad} ${id} no es valido, debe tener 9 caracteres, los 2 primeros letras minusculas, los 7 restantes numeros`
-      );
+      console.error(`❌ ${propiedad} ${id} no es valido, debe tener 9 caracteres, los 2 primeros letras minusculas, los 7 restantes numeros`);
       return false;
     }
 
@@ -306,14 +264,10 @@ class Pelicula {
   validarTitulo(titulo: string): boolean {
     const propiedad: string = 'Titulo';
 
-    if (!this.validarCadena(propiedad, titulo)) {
-      return false;
-    }
+    if (!this.validarCadena(propiedad, titulo)) return false;
 
     // Valida que el título no rebase los 100 caracteres
-    if (!this.validarLongitudCadena(propiedad, titulo, 100)) {
-      return false;
-    }
+    if (!this.validarLongitudCadena(propiedad, titulo, 100)) return false;
 
     console.info(`✔️ ${propiedad} ${titulo} correcto`);
     return true;
@@ -322,14 +276,11 @@ class Pelicula {
   validarDirector(director: string): boolean {
     const propiedad: string = 'Director';
 
-    if (!this.validarCadena(propiedad, director)) {
-      return false;
-    }
+    if (!this.validarCadena(propiedad, director)) return false;
 
     // Valida que el director no rebase los 50 caracteres
-    if (!this.validarLongitudCadena(propiedad, director, 50)) {
-      return false;
-    }
+    if (!this.validarLongitudCadena(propiedad, director, 50)) return false;
+    
 
     console.info(`✔️ ${propiedad} ${director} correcto`);
     return true;
@@ -407,7 +358,7 @@ class Pelicula {
   const error: string = `❌ rango numerico de ${propiedad} ` + calificacion + ` invalido tiene q ser un numero desde ${minimo} hasta ${maximo}`;
 
   if (!this.validarTipoNumero(calificacion)) {
-    console.error(error)
+    console.error(error);
     return false;
   }
 
@@ -418,7 +369,7 @@ class Pelicula {
   }
 
   console.info(`✔️ ${propiedad}`, calificacion, "correcto");
-  return false;
+  return true;
  }
 
  // Crea un método que devuelva toda la ficha técnica de la película
@@ -433,8 +384,7 @@ class Pelicula {
     calificacion: this.calificacion,
   } 
 
-  console.info("Ficha técnica de la película");
-  console.info(fichaTecnicaPelicula);
+  console.info("Ficha técnica de la película \n", fichaTecnicaPelicula);
 
   return fichaTecnicaPelicula;
  }
@@ -469,4 +419,89 @@ pelicula.fichaTecnica();
 //   paises: [ 'USA', 'Colombia' ],
 //   generos: [ 'Action', 'Sci-Fi' ],
 //   calificacion: 8.8
+// }
+
+
+
+// A partir de un arreglo con la información de 3 películas 
+// genera 3 instancias de la clase de forma automatizada 
+// e imprime la ficha técnica de cada película
+const peliculas: IPelicula[] = [
+  {
+    id: 'tt0758758',
+    titulo: 'Into the Wild',
+    director: 'Sean Penn',
+    estreno: 2007,
+    paises: ['USA'],
+    generos: ['Adventure', 'Biography', 'Drama'],
+    calificacion: 8.1,
+  },
+  {
+    id: 'tt0479143',
+    titulo: 'Rocky Balboa',
+    director: 'Sylvester Stallone',
+    estreno: 2006,
+    paises: ['USA'],
+    generos: ['Action', 'Drama', 'Sport'],
+    calificacion: 7.1,
+  },
+  {
+    id: 'tt0468569',
+    titulo: 'The Dark Knight',
+    director: 'Christopher Nolan',
+    estreno: 2008,
+    paises: ['USA', 'UK'],
+    generos: ['Action', 'Crime', 'Drama'],
+    calificacion: 9.0,
+  }
+]
+
+const instanciasDeLaClase = (peliculas: IPelicula[]): void => peliculas.forEach((item: IPelicula) => new Pelicula(item).fichaTecnica())
+
+instanciasDeLaClase(peliculas);
+// Ficha técnica de la película 
+//  {
+//   id: 'tt0758758',
+//   titulo: 'Into the Wild',
+//   director: 'Sean Penn',
+//   estreno: 2007,
+//   paises: [ 'USA' ],
+//   generos: [ 'Adventure', 'Biography', 'Drama' ],
+//   calificacion: 8.1
+// }
+// ✔️ IMDB id tt0479143 correcto
+// ✔️ Titulo Rocky Balboa correcto
+// ✔️ Director Sylvester Stallone correcto
+// ✔️ Año de estreno 2006 correcto
+// ✔️ Paises (1) [ 'USA' ] correcto
+// ✔️ Generos (3) [ 'Action', 'Drama', 'Sport' ] correcto
+// ✔️ Calificacion 7.1 correcto
+
+// Ficha técnica de la película 
+//  {
+//   id: 'tt0479143',
+//   titulo: 'Rocky Balboa',
+//   director: 'Sylvester Stallone',
+//   estreno: 2006,
+//   paises: [ 'USA' ],
+//   generos: [ 'Action', 'Drama', 'Sport' ],
+//   calificacion: 7.1
+// }
+// ✔️ IMDB id tt0468569 correcto
+// ✔️ Titulo The Dark Knight correcto
+// ✔️ Director Christopher Nolan correcto
+// ✔️ Año de estreno 2008 correcto
+// ✔️ Paises (2) [ 'USA', 'UK' ] correcto
+// ✔️ Generos (3) [ 'Action', 'Crime', 'Drama' ] correcto
+// ✔️ Calificacion 9 correcto
+
+// Ficha técnica de la película 
+//  {
+//   id: 'tt0468569',
+//   titulo: 'The Dark Knight',
+//   director: 'Christopher Nolan',
+//   estreno: 2008,
+//   paises: [ 'USA', 'UK' ],
+//   generos: [ 'Action', 'Crime', 'Drama' ],
+//   calificacion: 9
 // }
