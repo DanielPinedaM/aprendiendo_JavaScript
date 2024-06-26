@@ -442,7 +442,7 @@ buscar el circulo '●' A PARTIR de la posicion (indice) -3 hacia adelante (-3, 
  █ Object.groupBy() █
  █ Map.groupBy()    █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://youtu.be/pduSpSe-V-o?si=Qa-YzxFT_PH0X0NY
+https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=524s
 
 AGRUPAR array [] dependiendo de la condición de la función
 

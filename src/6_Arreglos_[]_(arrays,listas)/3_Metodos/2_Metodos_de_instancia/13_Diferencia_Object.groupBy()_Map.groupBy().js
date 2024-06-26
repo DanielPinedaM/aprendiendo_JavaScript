@@ -10,11 +10,6 @@
 Diferencias y Similitudes Entre Object.groupBy() y Map.groupBy()
 - AGRUPAR [] Array Dependiendo de la Condición de la Función
 
-IMPORTANTE: ⚠️
-A la fecha que escribo esto Octubre 2023 Object.groupBy() y Map.groupBy()
-NO son compatibles con todos los navegadores,
-pero en un futuro esto cambiará y si serán compatibles
-
 Can I Use...
 - Object.groupBy()
 https://caniuse.com/mdn-javascript_builtins_object_groupby
@@ -22,8 +17,8 @@ https://caniuse.com/mdn-javascript_builtins_object_groupby
 - Map.groupBy()
 https://caniuse.com/mdn-javascript_builtins_map_groupby
 
-Tutorial - Object.groupBy() y Map.groupBy()
-https://youtu.be/pduSpSe-V-o?si=6fUVOM8rW8TDT5XR
+Tutorial - Mideudev - Object.groupBy() y Map.groupBy()
+https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=524s 
 
 Documentación Oficial...
 - Object.groupBy()
@@ -880,3 +875,91 @@ console.log(MapgroupBy);
          undefined: [1, undefined, 3]
        }
 */
+
+/* --------------------------------------------------- */
+
+/* Ejemplo 9 - Object.groupBy() y Set
+
+Tutorial - Midudev
+https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=1565s */
+
+// El objeto Set guarda valores UNICOS (q NO se repiten) 
+const setDcHeroes = new Set();
+
+// Agregar heroes al objeto setDcHeroes
+const heroes = [
+  { name: "Superman", power: "super strength", strength: 100, planet: "Krypton" },
+  { name: "Wonder Woman", power: "super strength", strength: 99, planet: "Earth" },
+  
+  { name: "Batman", power: "rich", strength: 10, planet: "Earth" },
+  
+  { name: "Aquaman", power: "water", strength: 50, planet: "Earth" }
+]
+
+heroes.forEach((item) => setDcHeroes.add(item));
+
+console.log(setDcHeroes);
+// Set(4) {
+//          {
+//            name: 'Superman',
+//            power: 'super strength',
+//            strength: 100,
+//            planet: 'Krypton'
+//          },
+//          {
+//            name: 'Batman',
+//            power: 'rich',
+//            strength: 10,
+//            planet: 'Earth'
+//          },
+//          {
+//            name: 'Wonder Woman',
+//            power: 'super strength',
+//            strength: 99,
+//            planet: 'Earth'
+//          },
+//          {
+//            name: 'Aquaman',
+//            power: 'water',
+//            strength: 50,
+//            planet: 'Earth'
+//          },
+//          __proto__: { /* ... */ }
+//        }
+  
+// Object.groupBy() se puede usar con CUALQUIER tipo de dato ITERABLE
+
+const agruparHeroesPorPoder = Object.groupBy(setDcHeroes, hero => hero.power);
+console.log(agruparHeroesPorPoder)
+// {
+//   'super strength': [
+//     {
+//       name: 'Superman',
+//       power: 'super strength',
+//       strength: 100,
+//       planet: 'Krypton'
+//     },
+//     {
+//       name: 'Wonder Woman',
+//       power: 'super strength',
+//       strength: 99,
+//       planet: 'Earth'
+//     }
+//   ],
+//   rich: [
+//     {
+//       name: 'Batman',
+//       power: 'rich',
+//       strength: 10,
+//       planet: 'Earth'
+//     }
+//   ],
+//   water: [
+//     {
+//       name: 'Aquaman',
+//       power: 'water',
+//       strength: 50,
+//       planet: 'Earth'
+//     }
+//   ]
+// }
