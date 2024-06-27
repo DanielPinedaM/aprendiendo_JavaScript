@@ -9,15 +9,15 @@ Diferencias y Similitudes Entre
 .with() (INmutable) y Notación de Corchetes nombreArray[numeroIndice]="nuevo valor" (MUtable) -
 Reemplazar un Elemento que Está en una Posición (Índice) en Específico
 
-Tutorial - .with() ...
-- Midudev
-https://www.youtube.com/watch?v=TJKAGh9jzx4&t=1223s
+Tutorial - Midudev...
+- Array by Copy - Métodos de Array .to 
+https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=2076s
 
-- Fazt:
-https://www.youtube.com/watch?v=TvVgkM3LEac&t=867s
+https://midu.dev/to-reversed-to-spliced-to-sorted-with/
 
-- Fernando Herrera
-https://youtu.be/CI_FH2N88iE
+- .with()
+https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=3136s 
+
 
 Documentación Oficial...
 - .with()

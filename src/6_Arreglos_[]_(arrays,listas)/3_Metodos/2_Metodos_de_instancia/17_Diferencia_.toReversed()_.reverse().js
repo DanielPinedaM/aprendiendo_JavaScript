@@ -7,16 +7,15 @@
 /* --------------------------------------------------- */
 
 /*
-Tutorial - Métodos de Array .toReversed() .toSorted() .toSpliced() .with() ...
-- Midudev
-https://youtu.be/TJKAGh9jzx4
+Tutorial - Midudev...
+- Array by Copy - Métodos de Array .to 
+https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=2076s
 
 https://midu.dev/to-reversed-to-spliced-to-sorted-with/
 
-- Fernando Herrera:
-https://youtu.be/Di9B9BiZRBs
+- .toReversed()
+https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=2244s
 
-https://youtu.be/CI_FH2N88iE
 
 Documentación Oficial…
 - .toReversed()

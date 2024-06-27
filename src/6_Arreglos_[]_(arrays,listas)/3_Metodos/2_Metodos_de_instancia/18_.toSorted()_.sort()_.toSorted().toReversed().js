@@ -5,18 +5,17 @@
 /* --------------------------------------------------- */
 
 /*
-Tutorial - Métodos de Array .toReversed() .toSorted() .toSpliced() .with() ...
-- Midudev
-https://youtu.be/YIZWGn13RCE
-
-https://youtu.be/TJKAGh9jzx4
+Tutorial - Midudev...
+- Array by Copy - Métodos de Array .to 
+https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=2076s
 
 https://midu.dev/to-reversed-to-spliced-to-sorted-with/
 
-- Fernando Herrera:
-https://youtu.be/Di9B9BiZRBs
+- .toSorted()
+https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=2537s
 
-https://youtu.be/CI_FH2N88iE
+https://youtu.be/YIZWGn13RCE
+
 
 Wikipedia - Algoritmos de Ordenamiento:
 https://en.wikipedia.org/wiki/Sorting_algorithm

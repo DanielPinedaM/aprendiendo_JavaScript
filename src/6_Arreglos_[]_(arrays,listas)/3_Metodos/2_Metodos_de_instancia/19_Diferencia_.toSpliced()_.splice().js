@@ -8,8 +8,15 @@
 Diferencias y Similitudes Entre .toSpliced() (INmutable)  y .splice() (MUtable) -
 Eliminar, Reemplazar o Agregar Elemento de Array INICIANDO en una Posición (Índice) en Especifico
 
-Tutorial de Fazt - Diferencias y Similitudes Entre .toSpliced() y .splice()
-https://www.youtube.com/watch?v=TvVgkM3LEac&t=667s
+Tutorial - Midudev...
+- Array by Copy - Métodos de Array .to 
+https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=2076s
+
+https://midu.dev/to-reversed-to-spliced-to-sorted-with/
+
+- .toSpliced() 
+https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=2906s
+
 
 Documentación Oficial…
 - .toSpliced()

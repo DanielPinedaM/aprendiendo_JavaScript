@@ -502,14 +502,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 console.log(MapGroupBy.get(circulo));    // (2) ['●', '●']
 console.log(MapGroupBy.get(otraFigura)); // (2) ['▲', '✖']
 
-/*
-Tutorial de Midudev de Métodos de Array .toReversed() .toSorted() .toSpliced() .with()
-https://youtu.be/TJKAGh9jzx4
-
-https://midu.dev/to-reversed-to-spliced-to-sorted-with/
-
+/* https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=2076s
 |-----------------------------------------|-----------------------|-----------------------|
-| Métodos de Array .to                    | ¿MODIFICA el array1   | ¿Crea una nueva COPIA |
+| Array by Copy - Métodos de Array .to    | ¿MODIFICA el array1   | ¿Crea una nueva COPIA |
 |                                         | original (existente)? | array2 del array1?    |
 |-----------------------------------------|-----------------------|-----------------------|
 | .reverse()                              | MUtable               | ❌                    |
@@ -527,7 +522,7 @@ https://midu.dev/to-reversed-to-spliced-to-sorted-with/
  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
  █ Diferencias y Similitudes Entre .toReversed() y .reverse() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://youtu.be/TJKAGh9jzx4 */
+https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=2244s */
 
 // array1 original (existente)
 let array1 = [1, 2, 3];
@@ -556,7 +551,7 @@ console.log(array1);
  █ .toSorted() y .sort()                          █
  █ + .sort().reverse() y .toSorted().toReversed() █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://youtu.be/YIZWGn13RCE */
+https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=2537s */
 
 // array1 original (existente)
 const numeros = [2, 4, 3, 1];
@@ -602,7 +597,7 @@ console.log(letras);  // (4) [ 'd', 'c', 'b', 'a' ] -> orden descendente
  █ .splice(start, deleteCount, item1, item2, itemN)    █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 
-https://www.youtube.com/watch?v=TvVgkM3LEac&t=667s
+https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=2906s
 
 SIMILITUD:
 Ambos .toSpliced() y .splice()
@@ -623,7 +618,8 @@ let figuras = ['▲', '●', '✖', '■'];
 console.log(figuras);
 // (4) ['▲', '●', '✖', '■']
 
-/* * (SI escribo start) Y (NO escribo deleteCount) Y (NO escribo item1, item2, itemN)
+/*
+* (SI escribo start) Y (NO escribo deleteCount) Y (NO escribo item1, item2, itemN)
 Cuando escribo un solo numero dentro del par de parentesis de .splice()
 entonces se eliminan elementos
 
@@ -644,7 +640,8 @@ figuras = ['▲', '●', '✖', '■'];
 console.log(figuras);
 // (4) ['▲', '●', '✖', '■']
 
-/* * start < 0
+/*
+* start < 0
 Si start es negativo,
 entonces los números negativos
 cuentan al revés de atrás (ultima)
@@ -676,7 +673,8 @@ figuras = ['▲', '●', '✖', '■'];
 console.log(figuras);
 // (4) ['▲', '●', '✖', '■']
 
-/* * (escribo start) Y (deleteCount = Infinity)
+/*
+* (escribo start) Y (deleteCount = Infinity)
 Eliminar los elementos q estan DESDE el indice 1,
 hasta el ULTIMO elemento del array,
 SI se incluye el indice 1
@@ -693,7 +691,8 @@ figuras = ['▲', '●', '✖', '■'];
 console.log(figuras);
 // (4) ['▲', '●', '✖', '■']
 
-/* * (escribo start) Y (deleteCount = Number.MAX_SAFE_INTEGER)
+/*
+* (escribo start) Y (deleteCount = Number.MAX_SAFE_INTEGER)
 Obtengo el mismo resultado con Number.MAX_SAFE_INTEGER */
 console.log(figuras.splice(1, Number.MAX_SAFE_INTEGER)); // (3) ['●', '✖', '■']
 console.log(figuras);                                    // ['▲']
@@ -702,7 +701,8 @@ figuras = ['▲', '●', '✖', '■'];
 console.log(figuras);
 // (4) ['▲', '●', '✖', '■']
 
-/* * (escribo start) Y (deleteCount = 1) Y (NO escribo item1, item2, itemN)
+/*
+* (escribo start) Y (deleteCount = 1) Y (NO escribo item1, item2, itemN)
 Eliminar UN elemento q esta en un indice en especifico
 
 Cuando del array (4) ['▲', '●', '✖', '■']
@@ -716,7 +716,8 @@ figuras = ['▲', '●', '✖', '■'];
 console.log(figuras);
 // (4) ['▲', '●', '✖', '■']
 
-/* * (escribo start) Y (deleteCount = 2) Y (NO escribo item1, item2, itemN)
+/*
+* (escribo start) Y (deleteCount = 2) Y (NO escribo item1, item2, itemN)
 Eliminar DOS elementos DESDE el indice 1,
 se eliminan elementos de indices 1 y 2
 
@@ -731,7 +732,8 @@ figuras = ['▲', '●', '✖', '■'];
 console.log(figuras);
 // (4) ['▲', '●', '✖', '■']
 
-/* * (escribo start) Y (deleteCount = 0) Y (escribo item1, item2, itemN)
+/*
+* (escribo start) Y (deleteCount = 0) Y (escribo item1, item2, itemN)
 .splice() devuelve un array vacio []
 cuando agrego un nuevo elemento en un indice en especifico
 
@@ -760,7 +762,8 @@ figuras = ['▲', '●', '✖', '■'];
 console.log(figuras);
 // (4) ['▲', '●', '✖', '■']
 
-/* * (escribo start) Y (deleteCount = 1) Y (escribo item1, item2, itemN)
+/*
+* (escribo start) Y (deleteCount = 1) Y (escribo item1, item2, itemN)
 Reemplazar UN SOLO elemento que esta en un indice en especifico
 por otro(s) nuevo(s) elemento(s)
 
@@ -783,7 +786,8 @@ figuras = ['▲', '●', '✖', '■'];
 console.log(figuras);
 // (4) ['▲', '●', '✖', '■']
 
-/* * (escribo start) Y (deleteCount = 2) Y (escribo item1, item2, itemN)
+/*
+* (escribo start) Y (deleteCount = 2) Y (escribo item1, item2, itemN)
 Reemplazar DOS elementos A PARTIR del indice 1
 
 Reemplazar los dos elementos (2) ['●', '✖']
@@ -796,7 +800,8 @@ figuras = ['▲', '●', '✖', '■'];
 console.log(figuras);
 // (4) ['▲', '●', '✖', '■']
 
-/* * (start = 0) ó (start <= -array.length)
+/*
+* (start = 0) ó (start <= -array.length)
 TODOS los elementos se eliminan del array ( vaciar array [] )
 cuando sucede alguno de estos casos:
 - .splice(0)
@@ -839,7 +844,8 @@ console.log(figuras.length);       // 4 -> longitud array, 4 ó un numero mayor 
 console.log(figuras.splice(4));    // []
 console.log(figuras);              // (4) ['▲', '●', '✖', '■']
 
-/* * (start >= array.length) Y (escribo deleteCount) Y (escribo item1, item2, itemN)
+/*
+* (start >= array.length) Y (escribo deleteCount) Y (escribo item1, item2, itemN)
 SI se cumplen TODAS las siguientes condiciones:
 - start es MAYOR O IGUAL Q
 el numero de elementos del array .length
@@ -866,7 +872,7 @@ console.log(figuras);                            // (6) ['▲', '●', '✖', '�
  █ .with() y                                                     █
  █ Notación de Corchetes nombreArray[numeroIndice]="nuevo valor" █
  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-https://www.youtube.com/watch?v=TJKAGh9jzx4&t=1223s
+https://www.youtube.com/watch?v=v6WZI1Zs9aY&t=3136s
 
 SIMILITUD:
 Ambos .with() y Notación de Corchetes sirven para
