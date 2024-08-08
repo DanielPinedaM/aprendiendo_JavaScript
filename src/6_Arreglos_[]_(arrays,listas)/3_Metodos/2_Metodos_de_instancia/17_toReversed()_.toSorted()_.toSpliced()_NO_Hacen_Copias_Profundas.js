@@ -28,7 +28,7 @@ const usuarios = [
   { id: 3, fav: { food: '🍗' } },
 ];
 
-// El array se inverte correctamente
+// El array se invierte correctamente
 const invertirUsuarios = usuarios.toReversed();
 console.log(invertirUsuarios);
 // [
@@ -60,7 +60,8 @@ const original = [
   { id: 3, food: '🍗' },
 ];
 
-const copia = original.toReversed();
+// ❌ NO funciona la sintaxis extendida (spread operator)
+const copia = [...original].toReversed(); 
 copia[0].food = 'NUEVO VALOR';
 console.log(copia);
 // [
@@ -82,7 +83,7 @@ console.log(original);
 ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 */
 
-// ✔️ La solucion es usar juntos structuredClone() y toReversed() q crea una copia profunda del array
+// ✔️ La solucion es usar juntos structuredClone() y .toReversed() q crea una copia profunda del array
 const original2 = [
   { id: 1, food: '🍔' },
   { id: 2, food: '🍦' },
