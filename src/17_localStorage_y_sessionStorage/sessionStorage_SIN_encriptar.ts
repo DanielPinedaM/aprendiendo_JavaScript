@@ -13,28 +13,18 @@ type TSessionStorageValue = string | number | null | undefined | boolean | Date 
 
 const errorMessage = (functionName: string, property: any, value?: TSessionStorageValue) => {
   if (value) {
-    console.error(
-      `❌ error en sessionStorage al ejecutar la funcion ${functionName}(`,
-      property,
-      ',',
-      value,
-      ')',
-      'porque la propiedad ',
-      property,
-      'tiene que ser un string que no sea vacio "" \n \nel valor de la propiedad es ',
-      value,
-      '\n \nsessionStorage solamente admite guardar propiedades y valores que son tipo string'
-    );
+    console.error(`❌ error en sessionStorage al ejecutar la funcion ${functionName}(`,property,',',value,')','porque la propiedad ',property,'tiene que ser un string que no sea vacio "" \n \nel valor de la propiedad es ',value,'\n \nsessionStorage solamente admite guardar propiedades y valores que son tipo string');
   } else {
-    console.error(
-      `❌ error en sessionStorage al ejecutar la funcion ${functionName}(`,
-      property,
-      ')',
-      'porque la propiedad ',
-      property,
-      'tiene que ser un string que no sea vacio "" \n \nsessionStorage solamente admite guardar propiedades y valores que son tipo string'
-    );
+    console.error(`❌ error en sessionStorage al ejecutar la funcion ${functionName}(`,property,')','porque la propiedad ',property,'tiene que ser un string que no sea vacio "" \n \nsessionStorage solamente admite guardar propiedades y valores que son tipo string');
   }
+};
+
+const isValidString = (property: string): boolean => {
+  if (typeof property !== 'string' || property?.trim() === '') {
+    return false;
+  }
+
+  return true;
 };
 
 const convertToString = (value: TSessionStorageValue): TSessionStorageValue => {
@@ -43,8 +33,9 @@ const convertToString = (value: TSessionStorageValue): TSessionStorageValue => {
   if (Array.isArray(value)) return JSON.stringify(value);
 
   // 2) objeto literal {}
-  if (Object.prototype.toString.call(value) === '[object Object]' && typeof value === 'object')
+  if (Object.prototype.toString.call(value) === '[object Object]' && typeof value === 'object') {
     return JSON.stringify(value);
+  }
 
   return value;
 };
@@ -96,7 +87,7 @@ export const sessionStorageValues = (): string[] | null => {
 
 /* sessionStorage - listar un solo valor de una propiedad en especifico */
 export const sessionStorageListValue = (property: string): string => {
-  if (!property) {
+  if (!isValidString(property)) {
     errorMessage('sessionStorageListValue', property);
     return '';
   }
@@ -110,7 +101,7 @@ export const sessionStorageListValue = (property: string): string => {
 
 /* sessionStorage - buscar una propiedad */
 export const sessionStorageSearch = (property: string): boolean => {
-  if (!property) {
+  if (!isValidString(property)) {
     errorMessage('sessionStorageSearch', property);
     return false;
   }
@@ -122,7 +113,7 @@ export const sessionStorageSearch = (property: string): boolean => {
 /* sessionStorage - guardar una nueva propiedad: valor
    "cuando NO existe lo creo" */
 export const sessionStorageSave = (property: string, value: TSessionStorageValue): boolean => {
-  if (!property) {
+  if (!isValidString(property)) {
     errorMessage('sessionStorageSave', property, value);
     return false;
   }
@@ -140,7 +131,7 @@ export const sessionStorageSave = (property: string, value: TSessionStorageValue
 /* sessionStorage - actualizar (sobrescribir) el valor de una propiedad SI existe
    "cuando SI existe lo actualizo" */
 export const sessionStorageUpdate = (property: string, value: TSessionStorageValue): boolean => {
-  if (!property) {
+  if (!isValidString(property)) {
     errorMessage('sessionStorageUpdate', property, value);
     return false;
   }
@@ -164,11 +155,8 @@ y cuando SI existe la propiedad en sessionStorage, ACTUALIZA (sobrescribe) el va
 
 sessionStorageSaveAndUpdate() combina lo q hace sessionStorageSave() y sessionStorageUpdate()
 sessionStorageSaveAndUpdate() = sessionStorageSave() + sessionStorageUpdate() */
-export const sessionStorageSaveAndUpdate = (
-  property: string,
-  value: TSessionStorageValue
-): boolean => {
-  if (!property) {
+export const sessionStorageSaveAndUpdate = (property: string, value: TSessionStorageValue): boolean => {
+  if (!isValidString(property)) {
     errorMessage('sessionStorageSaveAndUpdate', property, value);
     return false;
   }
@@ -198,66 +186,45 @@ eliminar TODAS las propiedades EXCEPTO 'token' y 'nombre'
 sessionStorageDeleteExcept(['token', 'nombre']) */
 export const sessionStorageDeleteExcept = (properties: string[]): boolean => {
   if (!sessionStorage.length) {
-    console.error("❌ error: NO existen propiedades en el sessionStorage para eliminar  \n", sessionStorage)
+    console.error('❌ error: NO existen propiedades en el sessionStorage para eliminar \n', sessionStorage);
     return false;
   }
 
   if (!Array.isArray(properties)) {
-    console.error(
-      '❌ error: el parametro',
-      properties,
-      'de la funcion sessionStorageDeleteExcept(',
-      properties,
-      ') tiene q ser un array de string con las propiedades del sessionStorage que NO se eliminan'
-    );
+    console.error('❌ error: el parametro',properties,'de la funcion sessionStorageDeleteExcept(',properties,') tiene q ser un array de string con las propiedades del sessionStorage que NO se eliminan');
     return false;
   }
 
   if (!properties.length) {
-    console.error(
-      '❌ error: el parametro',
-      properties,
-      'de la funcion sessionStorageDeleteExcept(',
-      properties,
-      ') tiene q ser un array de string con minimo uno o mas elementos \n\nel parametro',
-      properties,
-      'tiene ',
-      properties.length,
-      'elemento(s)'
-    );
+    console.error('❌ error: el parametro',properties,'de la funcion sessionStorageDeleteExcept(',properties,') tiene q ser un array de string con minimo uno o mas elementos \n\nel parametro',properties,'tiene ',properties.length,'elemento(s)');
     return false;
   }
 
-  const propertiesLength: number = properties.length;
-
-  for (let i: number = 0; i < propertiesLength; i++) {
-    const property: string = properties[i];
-
-    if (typeof property !== 'string') {
-      errorMessage('sessionStorageDeleteExcept', property);
-      return false;
-    }
+  const anElementIsNotString: boolean = properties.some(
+    (property: string) => typeof property !== 'string' || property?.trim() === ''
+  );
+  if (anElementIsNotString) {
+    errorMessage('sessionStorageDeleteExcept', properties);
+    return false;
   }
-
-  const sessionStorageKeys: string[] = sessionStorageProperties()!;
 
   // eliminar las propiedad: valor del sessionStorage q NO estan en el parametro properties: string[]
+  const sessionStorageKeys: string[] = sessionStorageProperties()!;
   sessionStorageKeys.forEach((property: string) => {
-    if (!(properties.includes(property))) {
+    if (!properties.includes(property)) {
       sessionStorage.removeItem(property);
     }
-  })
+  });
 
-  if (propertiesLength === sessionStorage.length) {
-    return true;
-  } else {
-    return false;
-  }
+  // se borro las propiedades del sessionStorage cuando
+  // la longitud de array properties.length
+  // y del sessionStorage sessionStorage.length sean las mismas
+  return properties.length === sessionStorage.length;
 };
 
 /* sessionStorage - eliminar UNA SOLA propiedad: valor en ESPECIFICO */
 export const sessionStorageDeleteSpecific = (property: string): boolean => {
-  if (!property) {
+  if (!isValidString(property)) {
     errorMessage('sessionStorageDeleteSpecific', property);
     return false;
   }
