@@ -86,7 +86,7 @@ export const sessionStorageValues = (): string[] | null => {
 };
 
 /* sessionStorage - listar un solo valor de una propiedad en especifico */
-export const sessionStorageListValue = (property: string): string => {
+export const sessionStorageListValue = (property: string): string | any[] | any => {
   if (!isValidString(property)) {
     errorMessage('sessionStorageListValue', property);
     return '';
