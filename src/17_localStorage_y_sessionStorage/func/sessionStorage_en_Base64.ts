@@ -9,8 +9,9 @@ export interface ISessionStorageObject {
   [key: string]: string;
 }
 
-
 type TSessionStorageValue = string | number | null | undefined | boolean | Date | any[] | object;
+
+type TSessionStorageListValue = any | string | any[] | null | undefined | boolean;
 
 const errorMessage = (functionName: string, property: any, value?: TSessionStorageValue) => {
   if (value) {
@@ -64,8 +65,8 @@ export const sessionStorageListAll = (): ISessionStorageObject | null => {
     const key: string | null = sessionStorage.key(i);
 
     if (key) {
-      const value: string | null = sessionStorage.getItem(key);
-      storageObject[key] = value ?? '';
+      const value: TSessionStorageListValue = sessionStorageListValue(atob(key))
+      storageObject[atob(key)] = value;
     }
   }
 
@@ -93,21 +94,31 @@ export const sessionStorageListValue = (property: string): string | any[] | any 
     return '';
   }
 
-  let value: string | any[] | any = "";
+  let value: string | null = null;
 
     // NO convertir el token a Base 64
     if (property === "token") {
-      value = sessionStorage.getItem(btoa(property)) ?? '';
-      console.log("prueba")
-    } 
-    else {
-      value = atob(sessionStorage.getItem(btoa(property)) ?? '');
+      value = sessionStorage.getItem(btoa(property));
+      return value;
     }
     
-  if (value === '') return '';
-  if (isValidJSONparse(value)) return JSON.parse(value);
-  console.log(value)
-  return value;
+    // devuelve null cuando NO existe la propiedad en sessionStorage
+    value = sessionStorage.getItem(btoa(property))
+    if (value === null) return null;
+
+    value = atob(sessionStorage.getItem(btoa(property))!);
+
+    // devuelve 'null' (tipo string) cuando el valor de la propiedad en sessionStorage
+    // - SI existe
+    // - es 'null' (tipo string)
+    if (value?.trim() === 'null') return 'null';
+
+    if (value?.trim() === 'undefined') return undefined;
+    if (value?.trim() === 'NaN') return NaN;
+    if (value?.trim() === 'true') return true;
+    if (value?.trim() === 'false') return false;
+    if (isValidJSONparse(value)) return JSON.parse(value);
+    return value;
 };
 
 /* sessionStorage - buscar una propiedad */

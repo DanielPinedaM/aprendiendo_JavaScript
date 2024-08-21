@@ -11,6 +11,8 @@ export interface ISessionStorageObject {
 
 type TSessionStorageValue = string | number | null | undefined | boolean | Date | any[] | object;
 
+type TSessionStorageListValue = any | string | any[] | null | undefined | boolean;
+
 const errorMessage = (functionName: string, property: any, value?: TSessionStorageValue) => {
   if (value) {
     console.error(`❌ error en sessionStorage al ejecutar la funcion ${functionName}(`,property,',',value,')','porque la propiedad ',property,'tiene que ser un string que no sea vacio "" \n \nel valor de la propiedad es ',value,'\n \nsessionStorage solamente admite guardar propiedades y valores que son tipo string');
@@ -63,8 +65,8 @@ export const sessionStorageListAll = (): ISessionStorageObject | null => {
     const key: string | null = sessionStorage.key(i);
 
     if (key) {
-      const value: string | null = sessionStorage.getItem(key);
-      storageObject[key] = value ?? '';
+      const value: TSessionStorageListValue = sessionStorageListValue(key)
+      storageObject[key] = value;
     }
   }
 
@@ -86,7 +88,7 @@ export const sessionStorageValues = (): string[] | null => {
 };
 
 /* sessionStorage - listar un solo valor de una propiedad en especifico */
-export const sessionStorageListValue = (property: string): string | any[] | any => {
+export const sessionStorageListValue = (property: string): TSessionStorageListValue => {
   if (!isValidString(property)) {
     errorMessage('sessionStorageListValue', property);
     return '';
@@ -94,7 +96,18 @@ export const sessionStorageListValue = (property: string): string | any[] | any 
 
   const value: string | null = sessionStorage.getItem(property);
 
-  if (value === null) return '';
+  // devuelve null cuando NO existe la propiedad en sessionStorage
+  if (value === null) return null;
+
+  // devuelve 'null' (tipo string) cuando el valor de la propiedad en sessionStorage
+  // - SI existe
+  // - es 'null' (tipo string)
+  if (value?.trim() === 'null') return 'null';
+
+  if (value?.trim() === 'undefined') return undefined;
+  if (value?.trim() === 'NaN') return NaN;
+  if (value?.trim() === 'true') return true;
+  if (value?.trim() === 'false') return false;
   if (isValidJSONparse(value)) return JSON.parse(value);
   return value;
 };
