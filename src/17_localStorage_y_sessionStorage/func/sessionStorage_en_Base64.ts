@@ -140,9 +140,9 @@ export const sessionStorageSave = (property: string, value: TSessionStorageValue
     return false;
   }
 
-  const buscar: boolean = sessionStorageSearch(property);
+  const search: boolean = sessionStorageSearch(property);
 
-  if (buscar) return false;
+  if (search) return false;
   
   const stringValue: TSessionStorageValue = convertToString(value);
   // NO convertir el token a Base 64 
@@ -162,15 +162,19 @@ export const sessionStorageUpdate = (property: string, value: TSessionStorageVal
     return false;
   }
 
-  const buscar: boolean = sessionStorageSearch(property);
-  if (buscar) {
-    const stringValue: TSessionStorageValue = convertToString(value);
-    sessionStorage.setItem(property, stringValue as string);
-    return true;
+  const search: boolean = sessionStorageSearch(property);
+
+  // NO se puede actualizar el valor de una propiedad q no existe
+  if (!search) return false;
+  
+  const stringValue: TSessionStorageValue = convertToString(value);
+  // NO convertir el token a Base 64 
+  if (property === "token") {
+    sessionStorage.setItem(btoa(property), stringValue as string);
   } else {
-    // NO se puede actualizar el valor de una propiedad q no existe
-    return false;
+    sessionStorage.setItem(btoa(property), btoa(stringValue as string));
   }
+  return true;
 };
 
 /*
@@ -195,7 +199,6 @@ export const sessionStorageSaveAndUpdate = (property: string, value: TSessionSto
   } else {
     sessionStorage.setItem(btoa(property), btoa(stringValue as string));
   }
-
   return true;
 };
 
@@ -203,13 +206,12 @@ export const sessionStorageSaveAndUpdate = (property: string, value: TSessionSto
 export const sessionStorageClearAll = (): boolean => {
   const length: number = sessionStorage.length;
 
-  if (length > 0) {
-    sessionStorage.clear();
-    return true;
-  } else {
-    return false;
-  }
+  if (length === 0) return false;
+
+  sessionStorage.clear();
+  return true;
 };
+
 
 /* sessionStorage - eliminar TODAS las propiedad: valor EXCEPTO las q estan en el array properties
 
@@ -240,13 +242,27 @@ export const sessionStorageDeleteExcept = (properties: string[]): boolean => {
     return false;
   }
 
-  // eliminar las propiedad: valor del sessionStorage q NO estan en el parametro properties: string[]
-  const sessionStorageKeys: string[] = sessionStorageProperties()!;
-  sessionStorageKeys.forEach((property: string) => {
+
+  /* sessionStorageKeys.forEach((property: string) => {
+    console.log("actual", property)
+    console.log("properties", properties)
+
     if (!properties.includes(property)) {
-      sessionStorage.removeItem(property);
+        sessionStorage.removeItem(btoa(property)); 
     }
-  });
+  }); */
+
+
+  const sessionStorageKeys: string[] = sessionStorageProperties()!;
+    
+  properties = properties.map((item: string) => (btoa(item)));
+
+  // eliminar las propiedad: valor del sessionStorage q NO estan en el parametro properties: string[]
+  sessionStorageKeys.forEach((property: string) => {
+    if (!properties.includes(btoa(property))) {
+        sessionStorage.removeItem(btoa(property)); 
+    }
+  }); 
 
   // se borro las propiedades del sessionStorage cuando
   // la longitud de array properties.length
@@ -261,11 +277,11 @@ export const sessionStorageDeleteSpecific = (property: string): boolean => {
     return false;
   }
 
-  const buscar: boolean = sessionStorageSearch(property);
-  if (buscar) {
-    sessionStorage.removeItem(property);
-    return true;
-  } else {
-    return false;
-  }
+  const search: boolean = sessionStorageSearch(property);
+
+  // NO se puede eliminar una propiedad: valor q no existe
+  if (!search) return false;
+  
+  sessionStorage.removeItem(property);
+  return true;
 };
