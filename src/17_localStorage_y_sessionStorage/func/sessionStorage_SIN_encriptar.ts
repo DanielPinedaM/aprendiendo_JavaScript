@@ -131,14 +131,13 @@ export const sessionStorageSave = (property: string, value: TSessionStorageValue
     return false;
   }
 
-  const buscar: boolean = sessionStorageSearch(property);
-  if (buscar) {
-    return false;
-  } else {
-    const stringValue: TSessionStorageValue = convertToString(value);
-    sessionStorage.setItem(property, stringValue as string);
-    return true;
-  }
+  const search: boolean = sessionStorageSearch(property);
+
+  if (search) return false;
+  
+  const stringValue: TSessionStorageValue = convertToString(value);
+  sessionStorage.setItem(property, stringValue as string);
+  return true;
 };
 
 /* sessionStorage - actualizar (sobrescribir) el valor de una propiedad SI existe
@@ -149,15 +148,14 @@ export const sessionStorageUpdate = (property: string, value: TSessionStorageVal
     return false;
   }
 
-  const buscar: boolean = sessionStorageSearch(property);
-  if (buscar) {
-    const stringValue: TSessionStorageValue = convertToString(value);
-    sessionStorage.setItem(property, stringValue as string);
-    return true;
-  } else {
-    // NO se puede actualizar el valor de una propiedad q no existe
-    return false;
-  }
+  const search: boolean = sessionStorageSearch(property);
+
+  // NO se puede actualizar el valor de una propiedad q no existe
+  if (!search) return false;
+  
+  const stringValue: TSessionStorageValue = convertToString(value);
+  sessionStorage.setItem(property, stringValue as string);
+  return true;
 };
 
 /*
@@ -184,12 +182,10 @@ export const sessionStorageSaveAndUpdate = (property: string, value: TSessionSto
 export const sessionStorageClearAll = (): boolean => {
   const length: number = sessionStorage.length;
 
-  if (length > 0) {
-    sessionStorage.clear();
-    return true;
-  } else {
-    return false;
-  }
+  if (length === 0) return false;
+
+  sessionStorage.clear();
+  return true;
 };
 
 /* sessionStorage - eliminar TODAS las propiedad: valor EXCEPTO las q estan en el array properties
@@ -242,11 +238,11 @@ export const sessionStorageDeleteSpecific = (property: string): boolean => {
     return false;
   }
 
-  const buscar: boolean = sessionStorageSearch(property);
-  if (buscar) {
-    sessionStorage.removeItem(property);
-    return true;
-  } else {
-    return false;
-  }
+  const search: boolean = sessionStorageSearch(property);
+
+  // NO se puede eliminar una propiedad: valor q no existe
+  if (!search) return false;
+  
+  sessionStorage.removeItem(property);
+  return true;
 };
