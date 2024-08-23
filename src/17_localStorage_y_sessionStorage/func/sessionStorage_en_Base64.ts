@@ -203,7 +203,7 @@ export const sessionStorageSaveAndUpdate = (property: string, value: TSessionSto
 };
 
 /* sessionStorage - eliminar TODAS las propiedad: valor */
-export const sessionStorageClearAll = (): boolean => {
+export const sessionStorageDeleteAll = (): boolean => {
   const length: number = sessionStorage.length;
 
   if (length === 0) return false;
@@ -242,17 +242,6 @@ export const sessionStorageDeleteExcept = (properties: string[]): boolean => {
     return false;
   }
 
-
-  /* sessionStorageKeys.forEach((property: string) => {
-    console.log("actual", property)
-    console.log("properties", properties)
-
-    if (!properties.includes(property)) {
-        sessionStorage.removeItem(btoa(property)); 
-    }
-  }); */
-
-
   const sessionStorageKeys: string[] = sessionStorageProperties()!;
     
   properties = properties.map((item: string) => (btoa(item)));
@@ -282,6 +271,6 @@ export const sessionStorageDeleteSpecific = (property: string): boolean => {
   // NO se puede eliminar una propiedad: valor q no existe
   if (!search) return false;
   
-  sessionStorage.removeItem(property);
+  sessionStorage.removeItem(btoa(property));
   return true;
 };

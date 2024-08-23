@@ -179,7 +179,7 @@ export const sessionStorageSaveAndUpdate = (property: string, value: TSessionSto
 };
 
 /* sessionStorage - eliminar TODAS las propiedad: valor */
-export const sessionStorageClearAll = (): boolean => {
+export const sessionStorageDeleteAll = (): boolean => {
   const length: number = sessionStorage.length;
 
   if (length === 0) return false;
