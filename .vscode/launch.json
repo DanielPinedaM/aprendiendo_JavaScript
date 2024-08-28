@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": "Debugging",
+            "request": "launch",
+            // brave
+            //"runtimeExecutable": "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
+            // chrome
+            "runtimeExecutable": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+            "type": "chrome",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
