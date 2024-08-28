@@ -1,3 +1,7 @@
+// @ts-nocheck
+
+/* --------------------------------------------------- */
+
 /*
 Depurar (Debugging) Código JS en VS Code...
 
