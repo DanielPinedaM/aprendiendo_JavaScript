@@ -4,9 +4,7 @@
 
 /* 
 Ejecutar función setTimeout() UNA sola vez DESPUES de ciertos milisegundos 
-y detener su ejecución con clearTimeout()
-
-setTimeout() ESPERA a que pase un tiempo para poderse ejecutar */
+y detener su ejecución con clearTimeout() */
 
 // Sintaxis
 // https://developer.mozilla.org/en-US/docs/Web/API/setTimeout#syntax

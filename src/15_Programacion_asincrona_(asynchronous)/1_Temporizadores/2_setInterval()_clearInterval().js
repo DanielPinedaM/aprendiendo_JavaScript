@@ -1,8 +1,6 @@
 /* 
 Ejecutar función setInterval() INFINITAMENTE, CADA ciertos milisegundos 
-y detener su ejecución con clearInterval()
-
-setInterval() se ejecuta inmediatamente, NO espera a que pase un tiempo */
+y detener su ejecución con clearInterval() */
 
 // Sintaxis
 // https://developer.mozilla.org/en-US/docs/Web/API/setInterval#syntax
