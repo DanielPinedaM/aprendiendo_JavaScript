@@ -1,3 +1,7 @@
+// @ts-nocheck
+
+/* ---------------------------------------------- */
+
 /* 
 Ejecutar función setInterval() INFINITAMENTE, CADA ciertos milisegundos 
 y detener su ejecución con clearInterval() */
@@ -26,20 +30,29 @@ Donde...
 
 /* ---------------------------------------------- */
 
-// Ejemplo 1
+/* Ejemplo 1
+1) se imprime 'inicio' y 'final' porque son sincronos
+
+2) de forma asincrona: despues de 1000 milisegundos, 
+empieza a ejecutarse el setInterval de indefinidamente cada 1000 milisegundos */
 
 console.log('inicio');
-// 'inicio'
+
+const milisegundos = 1000
 
 setInterval(() => {
-  console.log('ejecutando setInterval indefinidamente cada cierto intervalo de tiempo');
-}, 1000);
-// 'ejecutando setInterval indefinidamente cada cierto intervalo de tiempo'
-// 'ejecutando setInterval indefinidamente cada cierto intervalo de tiempo'
-// 'ejecutando setInterval indefinidamente cada cierto intervalo de tiempo'
-// 'ejecutando setInterval indefinidamente cada cierto intervalo de tiempo'
+  console.log(`ejecutando setInterval indefinidamente cada ${milisegundos} milisegundos`);
+}, milisegundos);
+
+console.log('final');
+
+// 'inicio'
+// 'final'
+
+// 'ejecutando setInterval indefinidamente cada 1000 milisegundos'
+// 'ejecutando setInterval indefinidamente cada 1000 milisegundos'
+// 'ejecutando setInterval indefinidamente cada 1000 milisegundos'
+// 'ejecutando setInterval indefinidamente cada 1000 milisegundos'
+//...
 
 /* ---------------------------------------------- */
-
-// Ejemplo 2
-

@@ -45,6 +45,23 @@ setTimeout(() => {
 }, milisegundos);
 // 'esto se ejecuta una sola vez despues de 3000 milisegundos : 3.008s'
 
-// Ejemplo 1
+/* ---------------------------------------------- */
 
+/*  Ejemplo 2
+NO se esta imprimiendo console.log(hora); porq 
+1) setTimeout espera 1000 milisegundos para ejecutarse
 
+2) clearTimeout se ejecuta INMEDIATAMENTE, deteniendo la ejecucion del setTimeout   */
+
+console.log('inicio');
+// 'inicio'
+
+const IDsetTimeout = setTimeout(() => {
+  const hora = new Date().toLocaleTimeString();
+  console.log(hora);
+}, 1000);
+
+clearTimeout(IDsetTimeout);
+
+console.log('final');
+// 'final'
