@@ -30,11 +30,11 @@ Donde...
 
 /* ---------------------------------------------- */
 
-/* Ejemplo 1
+/* Ejemplo
 1) se imprime 'inicio' y 'final' porque son sincronos
 
 2) de forma asincrona: despues de 1000 milisegundos, 
-empieza a ejecutarse el setInterval de indefinidamente cada 1000 milisegundos */
+empieza a ejecutarse indefinidamente el setInterval cada 1000 milisegundos */
 
 console.log('inicio');
 
@@ -54,5 +54,3 @@ console.log('final');
 // 'ejecutando setInterval indefinidamente cada 1000 milisegundos'
 // 'ejecutando setInterval indefinidamente cada 1000 milisegundos'
 //...
-
-/* ---------------------------------------------- */
